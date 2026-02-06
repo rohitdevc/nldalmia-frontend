@@ -80,15 +80,15 @@ export default function Header() {
                 </li>
             </ul>
             <div className="w-full flex justify-between items-center py-2 md:py-5 pl-5 md:pl-20 xl:pl-[2%] pr-5 md:pr-10 xl:pr-[2%] text-sm bg-white">
-                <Link href="">
+                <Link href={`${basePath}`}>
                     <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                 </Link>
                 <ul className="gap-7 items-center hidden xl:flex">
                     <li>
-                        <Link href="" className="flex gap-2 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
+                        <Link href={`${basePath}about-us`} className="flex gap-2 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
                     </li>
                     <li>
-                        <Link href="" className="flex gap-2 items-center">Programs <MdKeyboardArrowDown size={25} /></Link>
+                        <Link href={`${basePath}programs`} className="flex gap-2 items-center">Programs <MdKeyboardArrowDown size={25} /></Link>
                     </li>
                     <li>
                         <Link href="">Executive Education</Link>

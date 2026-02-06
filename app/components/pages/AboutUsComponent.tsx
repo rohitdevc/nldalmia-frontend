@@ -20,7 +20,7 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import Banner from "@/app/components/Banner";
 import Intro from "@/app/components/Intro";
-import CenterIntro from "@/app/components/CenterIntro";
+import scrollWithOffset from "@/app/components/scrollWithOffset";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/app/components/YouTubeVideo";
 
 import { MdArrowOutward } from "react-icons/md";
@@ -36,16 +36,6 @@ import parser from 'html-react-parser';
 
 export default function AboutUsComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const scrollWithOffset = (ref: React.RefObject<HTMLDivElement | null>) => {
-    if (!ref.current) return;
-    
-    const offset = 200;
-    
-    const top = ref.current.getBoundingClientRect().top + window.pageYOffset - offset;
-    
-    window.scrollTo({ top, behavior: "smooth" });
-  };
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
@@ -303,7 +293,9 @@ export default function AboutUsComponent() {
     <>
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-      <Banner />
+      <Banner
+      banner_image="banner.jpeg"
+      banner_caption="Shaping Business Leaders Of Tomorrow Since 1995, With 30+ Years Of Excellence In Management Education"/>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="About Us" introCaption="NAAC - Accredited, Industry-Aligned, And Committed To Transformative Learning Experiences" />
         <div className="flex flex-col lg:flex-row gap-10 md:mt-10 xl:mt-20">

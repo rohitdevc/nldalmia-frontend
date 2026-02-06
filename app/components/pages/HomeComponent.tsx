@@ -501,7 +501,11 @@ export default function HomeComponent() {
     <>
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-      <Banner />
+      <Banner
+      banner_image="banner.jpeg"
+      banner_caption="25+ Years Of Pioneering Management Education"
+      banner_description="We blend rich tradition with cutting edge education to cultivate tomorrow's leaders. We stand as a beacon of quality education, producing globally competent professionals committed to making a difference."
+      banner_vimeo_video_id="1159526203" />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="For Over Three Decades" introCaption="Nldimsr has been at the froefront of <br /> management education, consistently ranked <br /> among the top business schools in the country" />
         <div className="flex flex-col md:flex-row gap-10 md:mt-10 lg:mt-20">
