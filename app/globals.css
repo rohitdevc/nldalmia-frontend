@@ -50,3 +50,38 @@ body {
 .university_description ul {
   @apply list-disc list-inside flex flex-wrap gap-3 lg:gap-5
 }
+
+.responsive-table thead tr {
+  @apply bg-[#FFCC33] h-10
+}
+
+.responsive-table tbody tr {
+  @apply shadow-[0px_3px_6px_#00000029] lg:h-15
+}
+
+.responsive-table table tbody tr:nth-child(even) {
+  @apply bg-[#FFF9E6];
+}
+
+@media (max-width: 768px) {
+  .responsive-table table thead {
+    @apply hidden;
+  }
+
+  .responsive-table table,
+  .responsive-table tbody,
+  .responsive-table tr,
+  .responsive-table td {
+    @apply block w-full;
+  }
+
+  .responsive-table table td {
+    @apply relative text-left py-2;
+    padding-left: 50%;
+  }
+
+  .responsive-table table td::before {
+    content: attr(data-label);
+    @apply absolute left-4 top-1/2 -translate-y-1/2 font-semibold w-[45%];
+  }
+}

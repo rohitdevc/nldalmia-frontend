@@ -299,9 +299,9 @@ export default function AboutUsComponent() {
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="About Us" introCaption="NAAC - Accredited, Industry-Aligned, And Committed To Transformative Learning Experiences" />
         <div className="flex flex-col lg:flex-row gap-10 md:mt-10 xl:mt-20">
-          <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer" onClick={() => videoPopupRef.current?.open('loSuQcjtLYA')}>
-            <Image src={`${basePath}images/about-us/intro-img.png`} width={800} height={750} alt="NL Dalmia Intro" className="object-cover" />
-            <FaPlayCircle size={35} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
+          <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer md:h-40 lg:h-full aspect-[800/400]" onClick={() => videoPopupRef.current?.open('loSuQcjtLYA')}>
+            <Image src={`${basePath}images/about-us/intro-img.png`} width={800} height={400} alt="NL Dalmia Intro" className="object-cover" />
+            <FaPlayCircle size={35} className="absolute inset-0 m-auto text-white" />
           </div>
           <div className="w-full lg:w-[60%] flex flex-col gap-5">
             <p className="text-[#4E4E4E] text-sm leading-loose">For over 25 years, N.L.Dalmia Institute of Management Studies and Research has stood as a bacon of excellence in business education. As an autonomous, futures-forward institution, we blend academic rigour with industry relevance, ensuring our students graduate as agile, responsible leaders. Rooted in strong values and driven by innovation, our commitment extends beyond degrees- we shape career, characters and global perspective</p>

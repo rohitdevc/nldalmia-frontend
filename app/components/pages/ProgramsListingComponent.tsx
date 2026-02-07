@@ -3,32 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useRef } from "react";
-
-
-import dayjs from 'dayjs';
-import utc from "dayjs/plugin/utc";
-import advancedFormat from 'dayjs/plugin/advancedFormat'
-dayjs.extend(utc);
-dayjs.extend(advancedFormat);
-
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import Banner from "@/app/components/Banner";
 import Intro from "@/app/components/Intro";
-import YTVideoPopUp, { YTVideoPopupHandle } from "@/app/components/YouTubeVideo";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import ProgramBlock from "../ProgramBlock";
 
-
+import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
 
 export default function ProgramsListingComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
   type Program = {
     id: number;
@@ -170,13 +155,13 @@ export default function ProgramsListingComponent() {
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="About The Program" introCaption="Find The Right Program For Your Ambition" introDescription="Whether you’re passionate about finance, business strategy or data-driven decision-making discover which program align with your career aspirations" />
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20">
         {
           programs && programs.length && (
             <>
             <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               <div className="relative">
-                <select className="w-full px-2" title="Career Path">
+                <select className="w-full px-2 pr-10 appearance-none" title="Career Path">
                   <option value="">Select Your Career Path</option>
                   {
                     career_paths && career_paths.length > 0 && career_paths.map((career_path, key) => (
@@ -184,10 +169,13 @@ export default function ProgramsListingComponent() {
                     ))
                   }
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
               <div className="relative">
-                <select className="w-full px-2" title="Preferred Duration">
+                <select className="w-full px-2 pr-10 appearance-none" title="Preferred Duration">
                   <option value="">Select Your Preferred Duration</option>
                   {
                     preferred_durations && preferred_durations.length > 0 && preferred_durations.map((preferred_duration, key) => (
@@ -195,10 +183,13 @@ export default function ProgramsListingComponent() {
                     ))
                   }
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
               <div className="relative">
-                <select className="w-full px-2" title="Specialization">
+                <select className="w-full px-2 pr-10 appearance-none" title="Specialization">
                   <option value="">Select Specialization</option>
                   {
                     specializations && specializations.length > 0 && specializations.map((specialization, key) => (
@@ -206,10 +197,13 @@ export default function ProgramsListingComponent() {
                     ))
                   }
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
               <div className="relative">
-                <select className="w-full px-2" title="Eligibility">
+                <select className="w-full px-2 pr-10 appearance-none" title="Eligibility">
                   <option value="">Eligibility</option>
                   {
                      eligibilties && eligibilties.length > 0 && eligibilties.map((eligibilty, key) => (
@@ -217,6 +211,9 @@ export default function ProgramsListingComponent() {
                     ))
                   }
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
             </form>
@@ -225,11 +222,44 @@ export default function ProgramsListingComponent() {
                 <ProgramBlock program={firstProgramSet} index={0} />
               )
             }
+            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+                <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+                <div className="flex flex-col relative w-full h-full justify-center xl:items-end">
+                  <div className="flex flex-col gap-8">
+                    <p className="font-georgia leading-normal lg:leading-snug text-2xl lg:text-4xl">Transform Your Career At A Global Stage</p>
+                    <p className="text-xl">PGDM Programs upto 100% Scholarships For Meritorious Students</p>
+                    <ul className="flex flex-col gap-3">
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> South Asia’s largest Bloomberg lab</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Learn Techno Managerial Skills</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> 300+ Placement Partners</li>
+                    </ul>
+                    <Link href="" className="bg-[#800000] text-white text-center py-2 w-25">Apply Now</Link>
+                  </div>
+                </div>
+            </div>
             {
               secondProgramSet && secondProgramSet.length > 0 && secondProgramSet.map((program, key) => (
                 <ProgramBlock program={program} index={(key + 1)} />
               ))
             }
+            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+                <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+                <div className="flex flex-col relative w-full h-full justify-center">
+                  <div className="flex flex-col gap-5">
+                    <p className="font-georgia leading-normal lg:leading-snug text-2xl lg:text-4xl">Enhance your leadership Skills With PGDM Programs</p>
+                    <p className="text-xl">Specialisation Offered</p>
+                    <ul className="flex flex-col gap-3">
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Finance</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Marketing</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Human Resource</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Business Analytics</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Business Analytics - Finance</li>
+                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Business Analytics - Marketing</li>
+                    </ul>
+                    <Link href="" className="bg-[#800000] text-white text-center py-2 w-25">Apply Now</Link>
+                  </div>
+                </div>
+            </div>
             {
               thirdProgramSet && thirdProgramSet.length > 0 && thirdProgramSet.map((program, key) => (
                 <ProgramBlock program={program} index={(key + 1)} />
@@ -241,7 +271,7 @@ export default function ProgramsListingComponent() {
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="Scholarship" introCaption="Where Merit Meets Opportunity" />
-        <div className="flex flex-col lg:flex-row gap-10 md:mt-10">
+        <div className="flex flex-col md:flex-row gap-10 md:mt-10">
             <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer">
               <Image src={`${basePath}images/programs/scholarship.png`} width={800} height={750} alt="NL Dalmia Scholarship" className="object-cover" />
             </div>
@@ -256,7 +286,6 @@ export default function ProgramsListingComponent() {
       </div>
       
       <Footer />
-      <YTVideoPopUp ref={videoPopupRef} />
     </main>
     </>
   );

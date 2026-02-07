@@ -17,11 +17,14 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: "",
   description: "",
+  alternates: {
+    canonical: ""
+  },
   openGraph: {
       title: "",
       description: "",
       type: "website",
-      url: process.env.canonical_tag,
+      url: "",
       siteName: "NL Dalmia",
       images: [
         {

@@ -9,7 +9,7 @@ interface IntroProps {
 export default function CenterIntro({introTitle, introCaption, introDescription} : IntroProps) {
     return (
         <>
-        <div className="flex flex-col gap-5 justify-center items-center text-center lg:px-10">
+        <div className="flex flex-col gap-3 justify-center items-center text-center lg:px-10">
         {
             introTitle && (
                 <h3 className="text-burgundy text-xl lg:text-3xl">{introTitle}</h3>
@@ -22,7 +22,7 @@ export default function CenterIntro({introTitle, introCaption, introDescription}
         }
         {
             introDescription && (
-                <p className="text-[#4E4E4E] text-md leading-loose px-5 lg:px-40">{parser(introDescription)}</p>
+                <p className="text-[#4E4E4E] text-md leading-loose px-5">{parser(introDescription)}</p>
             )
         }
         </div>

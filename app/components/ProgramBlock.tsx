@@ -26,11 +26,11 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
-    <div className="flex flex-col md:flex-row gap-10 md:mt-10 lg:mt-20" key={index}>
-      <div className={`w-full md:w-[40%] overflow-hidden ${(index % 2) ? 'order-2' : 'order-1'}`}>
-        <Image src={`${basePath}images/programs/${program.program_thumbnail}`} width={800} height={750} alt={program.program_name} className="object-cover" />
+    <div className="flex flex-col md:flex-row gap-10 py-5 lg:py-10" key={index}>
+      <div className={`w-full flex items-center justify-center md:items-start lg:w-[40%] overflow-hidden ${(index % 2) ? 'md:order-2' : 'order-1'}`}>
+        <Image src={`${basePath}images/programs/${program.program_thumbnail}`} width={800} height={750} alt={program.program_name} className="w-100" />
       </div>
-      <div className={`w-full md:w-[60%] flex flex-col gap-5 ${(index % 2) ? 'order-1' : 'order-2'}`}>
+      <div className={`w-full lg:w-[60%] flex flex-col gap-5 ${(index % 2) ? 'md:order-1' : 'order-2'}`}>
         <h2 className="font-georgia text-2xl">{program.program_name}</h2>
         <h3 className="font-georgia text-xl/">{program.program_tagline}</h3>
         {
@@ -59,7 +59,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
           program.program_career_paths && program.program_career_paths.length > 0 && (
             <div className="flex flex-col gap-2">
               <h4 className="font-georgia">Potential Career Path</h4>
-              <ul className="grid grid-cols-2 lg:grid-cols-3 gap-5 text-sm text-[#4E4E4E] list-disc list-inside">
+              <ul className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 text-sm text-[#4E4E4E] list-disc list-inside">
                 {
                   program.program_career_paths.map((program_career_path, key) => (
                     <li key={key}>{program_career_path}</li>
