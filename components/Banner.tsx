@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 
-import VimeoVideoPopUp, { VimeoVideoPopupHandle } from "@/app/components/VimeoVideo";
+import VimeoVideoPopUp, { VimeoVideoPopupHandle } from "@/components/VimeoVideo";
 
 import parser from 'html-react-parser';
 import nl2br from "nl2br";

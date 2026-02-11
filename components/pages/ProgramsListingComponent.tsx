@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
-import Banner from "@/app/components/Banner";
-import Intro from "@/app/components/Intro";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
+import Intro from "@/components/Intro";
 
 import ProgramBlock from "../ProgramBlock";
 

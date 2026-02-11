@@ -16,12 +16,12 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
-import Banner from "@/app/components/Banner";
-import Intro from "@/app/components/Intro";
-import scrollWithOffset from "@/app/components/scrollWithOffset";
-import YTVideoPopUp, { YTVideoPopupHandle } from "@/app/components/YouTubeVideo";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
+import Intro from "@/components/Intro";
+import scrollWithOffset from "@/components/scrollWithOffset";
+import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import { MdArrowOutward } from "react-icons/md";
 import { FaPlayCircle } from "react-icons/fa";
