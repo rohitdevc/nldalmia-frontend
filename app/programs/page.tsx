@@ -1,7 +1,7 @@
 //import { getMetaData, getBanner } from "@/lib/home";
 
 import type { Metadata } from "next";
-import ProgramsListingComponent from "@/app/components/pages/ProgramsListingComponent";
+import ProgramsListingComponent from "@/components/pages/ProgramsListingComponent";
 
 //const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
