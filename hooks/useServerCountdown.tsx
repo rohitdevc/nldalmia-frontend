@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 type Countdown = {
     days: number;
@@ -7,53 +7,47 @@ type Countdown = {
     seconds: number;
 };
 
-export function useServerCountdown(endDate?: Date) {
-    const basePath = process.env.NEXT_PUBLIC_PATH;
+export function useServerCountdown(endDate: Date) {
+  const [timeLeft, setTimeLeft] = useState<Countdown | null>(null);
 
-    const [timeLeft, setTimeLeft] = useState<Countdown | null>(null);
+  const targetTime = endDate.getTime();
+  const offsetRef = useRef(0);
 
-    useEffect(() => {
-        if (!endDate) {
-            setTimeLeft(null);
-            return;
+  useEffect(() => {
+    if (!targetTime) return;
+
+    let interval: number;
+
+    async function init() {
+      console.log("FETCHING SERVER TIME NOW");
+      const res = await fetch(`/api/server-time`);
+      const { now } = await res.json();
+
+      offsetRef.current = now - Date.now();
+
+      interval = window.setInterval(() => {
+        const currentTime = Date.now() + offsetRef.current;
+        const diff = targetTime - currentTime;
+
+        if (diff <= 0) {
+          clearInterval(interval);
+          setTimeLeft(null);
+          return;
         }
 
-        const targetTime = endDate.getTime();
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
 
-        let interval: number | undefined;
+        setTimeLeft({ days, hours, minutes, seconds });
+      }, 1000);
+    }
 
-        async function init() {
-        const res = await fetch(`${basePath}api/server-time`);
-        const { now } = await res.json();
+    init();
 
-        let currentTime = now;
+    return () => clearInterval(interval);
+  }, [targetTime]);
 
-        interval = window.setInterval(() => {
-            currentTime += 1000;
-
-            const diff = targetTime - currentTime;
-
-            if (diff <= 0) {
-            clearInterval(interval);
-            setTimeLeft(null);
-            return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-
-            setTimeLeft({ days, hours, minutes, seconds });
-        }, 1000);
-        }
-
-        init();
-
-        return () => {
-            if (interval) clearInterval(interval);
-        };
-    }, [endDate]);
-
-    return timeLeft;
+  return timeLeft;
 }

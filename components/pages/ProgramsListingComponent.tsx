@@ -47,7 +47,7 @@ export default function ProgramsListingComponent() {
         'Operation Analyst',
         'Strategy Associate'
       ],
-      program_link: 'https://www.nldalmia.in'
+      program_link: basePath + 'programs/pgdm'
     },
     {
       id: 2,
@@ -71,7 +71,7 @@ export default function ProgramsListingComponent() {
         'Treasury Manager',
         'Wealth Advisor'
       ],
-      program_link: 'https://www.nldalmia.in'
+      program_link: basePath + 'programs/pgdm-finance'
     },
     {
       id: 3,
@@ -94,7 +94,7 @@ export default function ProgramsListingComponent() {
         'Product Analyst',
         'Strategy & Research Analyst'
       ],
-      program_link: 'https://www.nldalmia.in'
+      program_link: basePath + 'programs/pgdm-in-business-analytics'
     },
   ]
 
