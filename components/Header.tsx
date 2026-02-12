@@ -13,7 +13,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 
 type Ticker = {
     ticker_message?: string;
-    ticker_end_date?: Date;
+    ticker_end_date: Date;
     ticker_link?: string;
 };
 
