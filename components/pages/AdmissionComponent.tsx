@@ -73,6 +73,86 @@ export default function AdmissionComponent() {
     }
   ]
 
+  const admission_categories = [
+      {
+        id: 1,
+        admission_category_title: 'Eligibility',
+      },
+      {
+        id: 2,
+        admission_category_title: 'Admission Process'
+      }
+    ]
+  
+    const admission_process = [
+      {
+        id: 1,
+        admission_category_title: 'Eligibility',
+        admission_process_title: 'Eligibility',
+        admission_description: 'A Bachelor’s Degree in any discipline from a recognised university with minimum 50% aggregate marks (45% for reserved categories)<br /><br />Candidates appearing for their final year exams may also apply<br /><br />Valid score in any one of the accepted entrance exams: CAT, XAT, GMAT, CMAT, MH-CET'
+      },
+      {
+        id: 2,
+        admission_category_title: 'Eligibility',
+        admission_process_title: 'Admission Process',
+        admission_description: 'A Bachelor’s Degree in any discipline from a recognised university with minimum 50% aggregate marks (45% for reserved categories)<br /><br />Candidates appearing for their final year exams may also apply<br /><br />Valid score in any one of the accepted entrance exams: CAT, XAT, GMAT, CMAT, MH-CET'
+      },
+      {
+        id: 3,
+        admission_category_title: 'Admission Process',
+        admission_process_title: 'Admission Process',
+        admission_description: 'A Bachelor’s Degree in any discipline from a recognised university with minimum 50% aggregate marks (45% for reserved categories)<br /><br />Candidates appearing for their final year exams may also apply<br /><br />Valid score in any one of the accepted entrance exams: CAT, XAT, GMAT, CMAT, MH-CET'
+      },
+    ]
+  
+    type AdmissionProcess = {
+      id: number,
+      admission_category_title: string,
+      admission_process_title: string,
+      admission_description: string
+    }
+  
+    const admission_process_data: Record<string, AdmissionProcess[]> = {};
+  
+    admission_process.forEach((international_university) => {
+      if (!admission_process_data[international_university.admission_category_title]) {
+        admission_process_data[international_university.admission_category_title] = [];
+      }
+  
+      admission_process_data[international_university.admission_category_title].push(international_university);
+    })
+  
+    const [activeAdmissionCategory, updateActiveAdmissionCategory] = useState(admission_categories.length > 0 ? admission_categories[0].admission_category_title : '');
+    const [openAdmissionProcess, toggleAdmissionProcessAccordian] = useState(0);
+  
+    const ApplicationProcess = useRef<HTMLDivElement | null>(null);
+  
+    const updateActiveAdmissionCategoryFunc = (admission_category_title: string): void => {
+      updateActiveAdmissionCategory(admission_category_title);
+      toggleAdmissionProcessAccordian(0);
+      scrollWithOffset(ApplicationProcess);
+    }
+
+    useEffect(() => {
+      const wrappers = document.querySelectorAll(".responsive-table");
+      if (!wrappers.length) return;
+
+      wrappers.forEach((wrapper) => {
+        const table = wrapper.querySelector("table");
+        if (!table) return;
+        
+        const headers = Array.from(table.querySelectorAll("thead th")).map((th) => th.textContent.trim());
+        
+        table.querySelectorAll("tbody tr").forEach((tr) => {
+          Array.from(tr.children).forEach((td, index) => {
+            if (headers[index]) {
+              td.setAttribute("data-label", headers[index]);
+            }
+          });
+        });
+      })
+    }, []);
+
   return (
     <>
     <Header admissionPage={true} />
@@ -109,6 +189,181 @@ export default function AdmissionComponent() {
           </div>
         )
         }
+      </div>
+      <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+          <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+          <div className="flex flex-col gap-15 lg:gap-25 py-20 relative w-full h-full">
+            <h3 className="text-2xl lg:text-4xl font-georgia">Whether You Want To Explore More Or Are Ready <br />To Begin Your Application, We’re Here To Help.</h3>
+            <div className="flex flex-col gap-5 mt-auto lg:items-end">
+              <div className="flex flex-col gap-10 lg:w-1/2">
+                <div className="flex flex-col gap-5">
+                  <h2 className="font-georgia text-xl lg:text-2xl">Connect With Our Admission Office</h2>
+                  <p className="leading-snug text-sm md:text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
+                  <ul className="flex gap-5">
+                    <li>
+                      <Link href="" className="bg-white text-burgundy px-5 py-2 text-sm md:text-md">PGDM Office</Link>
+                    </li>
+                    <li>
+                      <Link href="" className="border border-white text-white px-5 py-2 text-sm md:text-md">Global MBA Office</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="flex flex-col gap-5">
+                  <h2 className="font-georgia text-xl lg:text-2xl">Start Your Application Process</h2>
+                  <p className="leading-snug text-sm md:text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
+                  <ul className="flex gap-5">
+                    <li>
+                      <Link href="" className="bg-white text-burgundy px-5 py-2 text-sm md:text-md">Apply Now</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      {
+        admission_categories && admission_categories.length > 0 && (
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <Intro introTitle="For Over Three Decades" introCaption="Understand Who Can Apply And How To Get Started With Your Application" introDescription="Find out if your quality for the program and understand the complete admission workflow-from application submission to interviews and final selection" />
+          <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
+              <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+                {
+                  admission_categories.map((admission_category, key) => (
+                    <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === (admission_category.admission_category_title) ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(admission_category.admission_category_title)}>
+                      <span className="relative">
+                        {admission_category.admission_category_title}
+                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100`}></span>
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div className="md:w-[75%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={ApplicationProcess}>
+                {
+                    admission_categories.map((admission_category, key) => (
+                    <div className={`w-full ${activeAdmissionCategory === admission_category.admission_category_title ? '' : 'hidden'}`} key={key}>
+                      {
+                        admission_process_data[admission_category.admission_category_title].map((admission_process, university_key) => (
+                          <div className={`w-full py-5 ${admission_process_data[admission_category.admission_category_title].length !== (university_key + 1) ? 'border-b' : '' } border-[#800000] `} key={university_key}>
+                            <div className="flex flex-col gap-3 lg:px-10">
+                              <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleAdmissionProcessAccordian(university_key)}>
+                                <div className="flex gap-5 justify-center items-center">
+                                  <h2 className="font-georgia text-xl">{admission_process.admission_process_title}</h2>
+                                </div>
+                                <IoIosArrowDown size={20} className={`transition-all duration-300 ${openAdmissionProcess === university_key ? "rotate-180" : ''}`} />
+                              </div>
+                              <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === university_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                                <div className="text-[#4E4E4E] university_description">
+                                  {parser(nl2br(admission_process.admission_description))}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))
+                      }
+    
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+        </div>
+          )
+      }
+      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <Intro introTitle="Scholarship" introCaption="Scholarships: Where Merit Meets Opportunity" introDescription="We offer a robust scholarship program that rewards excellence, promotes inclusivity and support deserving candidates. Scholarships are applicable for both years of the PGDM program and cannot be combined across categories." />
+          <h2 className="font-georgia text-3xl">Merit Based Scholarships</h2>
+          <div className="responsive-table">
+            <table className="w-full table-fixed text-[#4E4E4E] text-center my-5">
+              <thead>
+                <tr>
+                  <th>Scholarship</th>
+                  <th>Fee Wavier</th>
+                  <th>CAT</th>
+                  <th>GMAT Score</th>
+                  <th>CMAT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100%</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>&gt;99.00</td>
+                  <td>785+</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>75%</td>
+                  <td>Rs. 6,18,750</td>
+                  <td>&gt;98-98.99</td>
+                  <td>750-784+</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>50%</td>
+                  <td>Rs. 4,12,500</td>
+                  <td>&gt;95-95.97</td>
+                  <td>700-749+</td>
+                  <td>&gt;99.00</td>
+                </tr>
+                <tr>
+                  <td>25%</td>
+                  <td>Rs. 2,06,250</td>
+                  <td>&gt;92-94.99</td>
+                  <td>675-699+</td>
+                  <td>&gt;98.5-98.99</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <Intro introTitle="Tuition Fees" introCaption="Fee Structure Table" introDescription="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat." />
+          <h2 className="font-georgia text-3xl">Post Graduate Diploma In Management (PGDM)</h2>
+          <div className="responsive-table">
+            <table className="w-full table-fixed text-[#4E4E4E] text-center my-5">
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Year 1</th>
+                  <th>Year 2</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PGDM</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 16,50,000</td>
+                </tr>
+                <tr>
+                  <td>PGDM-Finance</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 16,50,000</td>
+                </tr>
+                <tr>
+                  <td>PGDM-Business Analytics</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 16,50,000</td>
+                </tr>
+                <tr>
+                  <td>PGDM-Marketing</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 16,50,000</td>
+                </tr>
+                <tr>
+                  <td>PGDM-Human Resource</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 8,25,000</td>
+                  <td>Rs. 16,50,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
       </div>
       <Footer />
       <YTVideoPopUp ref={videoPopupRef} />

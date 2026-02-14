@@ -32,21 +32,23 @@ export default function ProgramComponent() {
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
   
   useEffect(() => {
-    const wrapper = document.querySelector(".responsive-table");
-    if (!wrapper) return;
-    
-    const table = wrapper.querySelector("table");
-    if (!table) return;
-    
-    const headers = Array.from(table.querySelectorAll("thead th")).map((th) => th.textContent.trim());
-    
-    table.querySelectorAll("tbody tr").forEach((tr) => {
-      Array.from(tr.children).forEach((td, index) => {
-        if (headers[index]) {
-          td.setAttribute("data-label", headers[index]);
-        }
-      });
-    });
+      const wrappers = document.querySelectorAll(".responsive-table");
+      if (!wrappers.length) return;
+
+      wrappers.forEach((wrapper) => {
+        const table = wrapper.querySelector("table");
+        if (!table) return;
+        
+        const headers = Array.from(table.querySelectorAll("thead th")).map((th) => th.textContent.trim());
+        
+        table.querySelectorAll("tbody tr").forEach((tr) => {
+          Array.from(tr.children).forEach((td, index) => {
+            if (headers[index]) {
+              td.setAttribute("data-label", headers[index]);
+            }
+          });
+        });
+      })
   }, []);
 
   const sliderOne = [
@@ -283,7 +285,7 @@ export default function ProgramComponent() {
           </div>
         </div>
       </div>
-      <div className="w-full px-5 lg:px-30 flex flex-col gap-5">
+      <div className="w-full px-5 lg:px-30 flex flex-col gap-5 py-10">
         <CenterIntro introTitle="Celebrating Brilliance. Honoring Achievement." introCaption="A Balanced, Credit Based <br /> Learning Approach" introDescription="The PGDM Finance program consists of 130 credits spread across core courses, specialisations, electives, industry projects, skill developments and value-added programs. From financial theory to corporate strategy and digital finance tools-the curriculum ensures well-rounded expertise." />
         <div className="responsive-table">
           <table className="w-full table-fixed text-[#4E4E4E] text-center my-5">
