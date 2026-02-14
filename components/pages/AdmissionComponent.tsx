@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useState, useEffect, useRef, useMemo } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Controller } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
+import { Navigation } from "swiper/modules";
 
 import { IoIosArrowDown } from "react-icons/io";
+import { MdArrowOutward } from "react-icons/md";
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
@@ -20,6 +20,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
+import CenterIntro from "../CenterIntro";
 import scrollWithOffset from "@/components/scrollWithOffset";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
@@ -152,6 +153,39 @@ export default function AdmissionComponent() {
         });
       })
     }, []);
+
+    const financial_partners = [
+      {
+        id: 1,
+        financial_partner_name: 'IDFC First Bank',
+        financial_partner_logo: 'idfc.png',
+        financial_partner_url: 'https://www.idfcfirst.bank.in/'
+      },
+      {
+        id: 2,
+        financial_partner_name: 'Axis Bank',
+        financial_partner_logo: 'axis.png',
+        financial_partner_url: 'https://www.axis.bank.in/'
+      },
+      {
+        id: 3,
+        financial_partner_name: 'ICICI Bank iSmart Education Loans',
+        financial_partner_logo: 'icici-i-smart.jpg',
+        financial_partner_url: 'https://www.icici.bank.in/personal-banking/loans/education-loan'
+      },
+      {
+        id: 4,
+        financial_partner_name: 'Credila',
+        financial_partner_logo: 'credila.jpg',
+        financial_partner_url: 'https://www.credila.com/'
+      },
+      {
+        id: 5,
+        financial_partner_name: 'TATA Capital',
+        financial_partner_logo: 'tata-capital.jpg',
+        financial_partner_url: 'https://www.tatacapital.com/'
+      }
+    ]
 
   return (
     <>
@@ -365,6 +399,37 @@ export default function AdmissionComponent() {
             </table>
           </div>
       </div>
+      {
+          financial_partners && financial_partners.length > 0 && (
+            <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
+              <CenterIntro introCaption="Access Made Easy" introDescription="We partner with the leading financial institutions to support students with education loans on competitive terms" />
+              <div className="flex gap-3">
+                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_prev">
+                  <BsArrowLeftShort size={20} />
+                </span>
+                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_next">
+                  <BsArrowRightShort size={20} />
+                </span>
+              </div>
+              
+              <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation]} navigation={{prevEl: '.financial_partner_slider_prev', nextEl: '.financial_partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 } }} >
+                {
+                  financial_partners.map((financial_partner, key) => (
+                    <SwiperSlide title={financial_partner.financial_partner_name} key={key}>
+                      <div className="flex flex-col text-center gap-5">
+                        <div className="border-[0.5px] border-[#800000] flex justify-center items-center h-50">
+                          <Image src={`${basePath}images/admissions/${financial_partner.financial_partner_logo}`} alt={financial_partner.financial_partner_name} width={200} height={200} className="w-50" />
+                        </div>
+                        <h2 className="text-xl font-georgia h-15">{financial_partner.financial_partner_name}</h2>
+                        <Link href={financial_partner.financial_partner_url} target="_blank" className="flex gap-1 justify-center items-center">Know More <MdArrowOutward size={15} /></Link>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                }
+              </Swiper>
+            </div>
+            )
+      }
       <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
