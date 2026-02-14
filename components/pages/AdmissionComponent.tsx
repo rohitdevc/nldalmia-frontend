@@ -115,12 +115,12 @@ export default function AdmissionComponent() {
   
     const admission_process_data: Record<string, AdmissionProcess[]> = {};
   
-    admission_process.forEach((international_university) => {
-      if (!admission_process_data[international_university.admission_category_title]) {
-        admission_process_data[international_university.admission_category_title] = [];
+    admission_process.forEach((admission_process_row) => {
+      if (!admission_process_data[admission_process_row.admission_category_title]) {
+        admission_process_data[admission_process_row.admission_category_title] = [];
       }
   
-      admission_process_data[international_university.admission_category_title].push(international_university);
+      admission_process_data[admission_process_row.admission_category_title].push(admission_process_row);
     })
   
     const [activeAdmissionCategory, updateActiveAdmissionCategory] = useState(admission_categories.length > 0 ? admission_categories[0].admission_category_title : '');
@@ -186,6 +186,66 @@ export default function AdmissionComponent() {
         financial_partner_url: 'https://www.tatacapital.com/'
       }
     ]
+
+    const faq_categories = [
+      {
+        id: 1,
+        faq_category_title: 'Admissions',
+      },
+      {
+        id: 2,
+        faq_category_title: 'Academics'
+      }
+    ]
+  
+    const faqs = [
+      {
+        id: 1,
+        faq_category_title: 'Admissions',
+        faq_question: 'Are N. L. Dalmia Centre of Distance and Online Management Studies Programmes approved by any Government Body?',
+        faq_answer: 'Yes, Online Learning and Online Distance Learning (ODL) (refer programme list on website) offered by N. L. Dalmia Centre of Distance and Online Management Studies are approved by All India Council for Technical Education (AICTE).'
+      },
+      {
+        id: 2,
+        faq_category_title: 'Admissions',
+        faq_question: 'What are the eligibility criteria?',
+        faq_answer: 'Bachelor\'s degree holder / Graduate in any discipline from a recognised University.'
+      },
+      {
+        id: 3,
+        faq_category_title: 'Academics',
+        faq_question: 'Will you give the Study Material?',
+        faq_answer: 'For Online Learning the students are given access to e-study material through a state-of-the-art e-learning platform. After admission is confirmed, students are provided with the study material, which consists of e-books, videos, case studies etc. In case, students want printed books, he/she has to pay ₹-3000/- extra to acquire them. Also, students will get access to the Institute’s e-library with a remote access facility.'
+      },
+    ]
+  
+    type FAQ = {
+      id: number,
+      faq_category_title: string,
+      faq_question: string,
+      faq_answer: string
+    }
+  
+    const faqs_data: Record<string, FAQ[]> = {};
+  
+    faqs.forEach((faq) => {
+      if (!faqs_data[faq.faq_category_title]) {
+        faqs_data[faq.faq_category_title] = [];
+      }
+  
+      faqs_data[faq.faq_category_title].push(faq);
+    })
+  
+    const [activeFAQCategory, updateActiveFAQCategory] = useState(faq_categories.length > 0 ? faq_categories[0].faq_category_title : '');
+    const [openFAQ, toggleFAQAccordian] = useState(0);
+  
+    const FAQs = useRef<HTMLDivElement | null>(null);
+  
+    const updateActiveFAQCategoryFunc = (faq_category_title: string): void => {
+      updateActiveFAQCategory(faq_category_title);
+      toggleFAQAccordian(0);
+      scrollWithOffset(FAQs);
+    }
 
   return (
     <>
@@ -277,16 +337,16 @@ export default function AdmissionComponent() {
                     admission_categories.map((admission_category, key) => (
                     <div className={`w-full ${activeAdmissionCategory === admission_category.admission_category_title ? '' : 'hidden'}`} key={key}>
                       {
-                        admission_process_data[admission_category.admission_category_title].map((admission_process, university_key) => (
-                          <div className={`w-full py-5 ${admission_process_data[admission_category.admission_category_title].length !== (university_key + 1) ? 'border-b' : '' } border-[#800000] `} key={university_key}>
+                        admission_process_data[admission_category.admission_category_title].map((admission_process, admission_process_key) => (
+                          <div className={`w-full py-5 ${admission_process_data[admission_category.admission_category_title].length !== (admission_process_key + 1) ? 'border-b' : '' } border-[#800000] `} key={admission_process_key}>
                             <div className="flex flex-col gap-3 lg:px-10">
-                              <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleAdmissionProcessAccordian(university_key)}>
+                              <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleAdmissionProcessAccordian(admission_process_key)}>
                                 <div className="flex gap-5 justify-center items-center">
                                   <h2 className="font-georgia text-xl">{admission_process.admission_process_title}</h2>
                                 </div>
-                                <IoIosArrowDown size={20} className={`transition-all duration-300 ${openAdmissionProcess === university_key ? "rotate-180" : ''}`} />
+                                <IoIosArrowDown size={20} className={`transition-all duration-300 ${openAdmissionProcess === admission_process_key ? "rotate-180" : ''}`} />
                               </div>
-                              <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === university_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                              <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === admission_process_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
                                 <div className="text-[#4E4E4E] university_description">
                                   {parser(nl2br(admission_process.admission_description))}
                                 </div>
@@ -400,36 +460,94 @@ export default function AdmissionComponent() {
           </div>
       </div>
       {
-          financial_partners && financial_partners.length > 0 && (
-            <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
-              <CenterIntro introCaption="Access Made Easy" introDescription="We partner with the leading financial institutions to support students with education loans on competitive terms" />
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
-              
-              <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation]} navigation={{prevEl: '.financial_partner_slider_prev', nextEl: '.financial_partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 } }} >
-                {
-                  financial_partners.map((financial_partner, key) => (
-                    <SwiperSlide title={financial_partner.financial_partner_name} key={key}>
-                      <div className="flex flex-col text-center gap-5">
-                        <div className="border-[0.5px] border-[#800000] flex justify-center items-center h-50">
-                          <Image src={`${basePath}images/admissions/${financial_partner.financial_partner_logo}`} alt={financial_partner.financial_partner_name} width={200} height={200} className="w-50" />
-                        </div>
-                        <h2 className="text-xl font-georgia h-15">{financial_partner.financial_partner_name}</h2>
-                        <Link href={financial_partner.financial_partner_url} target="_blank" className="flex gap-1 justify-center items-center">Know More <MdArrowOutward size={15} /></Link>
+        financial_partners && financial_partners.length > 0 && (
+          <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
+            <CenterIntro introCaption="Access Made Easy" introDescription="We partner with the leading financial institutions to support students with education loans on competitive terms" />
+            <div className="flex gap-3">
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_prev">
+                <BsArrowLeftShort size={20} />
+              </span>
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_next">
+                <BsArrowRightShort size={20} />
+              </span>
+            </div>
+            
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation]} navigation={{prevEl: '.financial_partner_slider_prev', nextEl: '.financial_partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 } }} >
+              {
+                financial_partners.map((financial_partner, key) => (
+                  <SwiperSlide title={financial_partner.financial_partner_name} key={key}>
+                    <div className="flex flex-col text-center gap-5">
+                      <div className="border-[0.5px] border-[#800000] flex justify-center items-center h-50">
+                        <Image src={`${basePath}images/admissions/${financial_partner.financial_partner_logo}`} alt={financial_partner.financial_partner_name} width={200} height={200} className="w-50" />
                       </div>
-                    </SwiperSlide>
+                      <h2 className="text-xl font-georgia">{financial_partner.financial_partner_name}</h2>
+                      <Link href={financial_partner.financial_partner_url} target="_blank" className="flex gap-1 justify-center items-center">Know More <MdArrowOutward size={15} /></Link>
+                    </div>
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+          </div>
+          )
+      }
+      {
+        faq_categories && faq_categories.length > 0 && (
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <Intro introTitle="Queries" introCaption="Frequently Asked Questions" introDescription="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat." />
+          <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
+              <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+                {
+                  faq_categories.map((faq_category, key) => (
+                    <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === (faq_category.faq_category_title) ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(faq_category.faq_category_title)}>
+                      <span className="relative">
+                        {faq_category.faq_category_title}
+                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100`}></span>
+                      </span>
+                    </li>
                   ))
                 }
-              </Swiper>
+              </ul>
+              <div className="md:w-[75%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
+                {
+                    faq_categories.map((faq_category, key) => (
+                    <div className={`w-full ${activeFAQCategory === faq_category.faq_category_title ? '' : 'hidden'}`} key={key}>
+                      {
+                        faqs_data[faq_category.faq_category_title].map((faqs, faq_key) => (
+                          <div className={`w-full py-5 ${faqs_data[faq_category.faq_category_title].length !== (faq_key + 1) ? 'border-b' : '' } border-[#800000] `} key={faq_key}>
+                            <div className="flex flex-col gap-3 lg:px-10">
+                              <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleFAQAccordian(faq_key)}>
+                                <div className="flex gap-5 justify-center items-center">
+                                  <h2 className="font-georgia text-xl">{faqs.faq_question}</h2>
+                                </div>
+                                <IoIosArrowDown size={20} className={`transition-all duration-300 ${openFAQ === faq_key ? "rotate-180" : ''}`} />
+                              </div>
+                              <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFAQ === faq_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                                <div className="text-[#4E4E4E] university_description">
+                                  <p className="text-sm">{faqs.faq_answer}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))
+                      }
+    
+                    </div>
+                  ))
+                }
+              </div>
             </div>
-            )
+        </div>
+          )
       }
+      <div className="w-full relative bg-cover bg-center bg-no-repeat text-white h-[75vh] flex justify-center items-center text-center" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+          <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+          <form className="flex flex-col gap-5 py-20 relative px-5 w-full lg:w-xl justify-center items-center text-center">
+            <h3 className="text-2xl lg:text-4xl font-georgia">Get All The Details In One Place</h3>
+            <p className="text-sm leading-loose">Explore course structure, curriculum, highlights, faculty insights, placements stats and everything you need to make an informed decision.</p>
+            <input type="email" placeholder="Enter Your Email Address" className="w-xs lg:w-lg border-b py-2 border-white outline-none" />
+            <button type="submit" className="bg-[#800000] px-2 py-2 cursor-pointer">Submit & Download</button>
+          </form>
+      </div>
       <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>

@@ -17,8 +17,6 @@ type Ticker = {
     ticker_link?: string;
 };
 
-
-
 export default function Header({admissionPage = false}) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
@@ -130,15 +128,15 @@ export default function Header({admissionPage = false}) {
             {
                 admissionPage && (
                 <div className="w-full bg-[#FFCC33] flex justify-center lg:justify-end">
-                    <ul className="flex gap-3 text-white my-4 mx-8">
+                    <ul className="flex gap-3 text-white my-4 mx-1 lg:mx-8">
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-5 py-2">Apply for PGDM 2025/27</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] lg:text-sm">Apply for PGDM 2025/27</Link>
                         </li>
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-5 py-2">Apply For Global MBA</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] lg:text-sm">Apply For Global MBA</Link>
                         </li>
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-5 py-2">Download Brochure</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] lg:text-sm">Download Brochure</Link>
                         </li>
                     </ul>
                 </div>
