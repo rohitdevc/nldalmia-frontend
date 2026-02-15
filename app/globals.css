@@ -85,3 +85,19 @@ body {
     @apply absolute left-4 top-1/2 -translate-y-1/2 font-semibold w-[45%];
   }
 }
+
+form select, form input, form textarea {
+  @apply outline-none
+}
+
+form select {
+  @apply w-full pr-10 appearance-none
+}
+
+form .error {
+  @apply opacity-0 h-2 py-2
+}
+
+form .error span {
+  @apply text-sm
+}

@@ -108,7 +108,7 @@ export default function Header({admissionPage = false}) {
                         <Link href="">Life@NLD</Link>
                     </li>
                     <li>
-                        <Link href="">Admissions</Link>
+                        <Link href={`${basePath}admissions`}>Admissions</Link>
                     </li>
                 </ul>
                 <div className="flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function Header({admissionPage = false}) {
                             <CiSearch className="absolute right-18 top-1/2 -translate-y-1/2 text-gray-500 peer-not-placeholder-shown:hidden" size={18} />
                         </div>
                     </form>
-                    <Link href="" className="hidden lg:flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
+                    <Link href={`${basePath}contact-us`} className="hidden lg:flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
                         <IoMdMail size={20} />
                         <span>Contact Us</span>
                     </Link>
@@ -127,16 +127,16 @@ export default function Header({admissionPage = false}) {
             </div>
             {
                 admissionPage && (
-                <div className="w-full bg-[#FFCC33] flex justify-center lg:justify-end">
-                    <ul className="flex gap-3 text-white my-4 mx-1 lg:mx-8">
+                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                    <ul className="flex gap-3 text-white my-4 mx-1 sm:mx-8">
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] lg:text-sm">Apply for PGDM 2025/27</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply for PGDM 2025/27</Link>
                         </li>
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] lg:text-sm">Apply For Global MBA</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply For Global MBA</Link>
                         </li>
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] lg:text-sm">Download Brochure</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Download Brochure</Link>
                         </li>
                     </ul>
                 </div>

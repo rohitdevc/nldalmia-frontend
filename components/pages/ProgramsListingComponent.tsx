@@ -161,7 +161,7 @@ export default function ProgramsListingComponent() {
             <>
             <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               <div className="relative">
-                <select className="w-full px-2 pr-10 appearance-none" title="Career Path">
+                <select className="px-2" title="Career Path">
                   <option value="">Select Your Career Path</option>
                   {
                     career_paths && career_paths.length > 0 && career_paths.map((career_path, key) => (
@@ -175,7 +175,7 @@ export default function ProgramsListingComponent() {
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
               <div className="relative">
-                <select className="w-full px-2 pr-10 appearance-none" title="Preferred Duration">
+                <select className="px-2" title="Preferred Duration">
                   <option value="">Select Your Preferred Duration</option>
                   {
                     preferred_durations && preferred_durations.length > 0 && preferred_durations.map((preferred_duration, key) => (
@@ -189,7 +189,7 @@ export default function ProgramsListingComponent() {
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
               <div className="relative">
-                <select className="w-full px-2 pr-10 appearance-none" title="Specialization">
+                <select className="px-2" title="Specialization">
                   <option value="">Select Specialization</option>
                   {
                     specializations && specializations.length > 0 && specializations.map((specialization, key) => (
@@ -203,7 +203,7 @@ export default function ProgramsListingComponent() {
                 <span className="w-full absolute left-0 -bottom-1 h-[0.5px] bg-[#800000]"></span>
               </div>
               <div className="relative">
-                <select className="w-full px-2 pr-10 appearance-none" title="Eligibility">
+                <select className="px-2" title="Eligibility">
                   <option value="">Eligibility</option>
                   {
                      eligibilties && eligibilties.length > 0 && eligibilties.map((eligibilty, key) => (

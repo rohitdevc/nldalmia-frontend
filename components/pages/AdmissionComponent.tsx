@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -22,7 +22,6 @@ import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "../CenterIntro";
 import scrollWithOffset from "@/components/scrollWithOffset";
-import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -36,8 +35,6 @@ import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
 
 export default function AdmissionComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
   const admission_programs = [
     {
@@ -269,7 +266,7 @@ export default function AdmissionComponent() {
               </span>
             </div>
             
-            <Swiper className="w-full mt-10" slidesPerView={1} spaceBetween={0} modules={[Navigation]} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 20 } }} >
+            <Swiper className="w-full mt-10" slidesPerView={1} spaceBetween={0} modules={[Navigation]} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
               {
                 admission_programs.map((admission_program, key) => {
                   return (
@@ -461,7 +458,7 @@ export default function AdmissionComponent() {
       </div>
       {
         financial_partners && financial_partners.length > 0 && (
-          <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
+          <div className="w-full px-5 lg:px-30 py-5 md:px-15 flex flex-col gap-5">
             <CenterIntro introCaption="Access Made Easy" introDescription="We partner with the leading financial institutions to support students with education loans on competitive terms" />
             <div className="flex gap-3">
               <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_partner_slider_prev">
@@ -472,7 +469,7 @@ export default function AdmissionComponent() {
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation]} navigation={{prevEl: '.financial_partner_slider_prev', nextEl: '.financial_partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation]} navigation={{prevEl: '.financial_partner_slider_prev', nextEl: '.financial_partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 20 } }} >
               {
                 financial_partners.map((financial_partner, key) => (
                   <SwiperSlide title={financial_partner.financial_partner_name} key={key}>
@@ -549,7 +546,6 @@ export default function AdmissionComponent() {
           </form>
       </div>
       <Footer />
-      <YTVideoPopUp ref={videoPopupRef} />
     </main>
     </>
   );
