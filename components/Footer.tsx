@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="lg:border-r lg:pr-20 xl:pr-[30%] text-center md:text-left">
                 <p className="text-sm leading-loose">NLDIMSR was established in the year 1995 by the Late Shri Niranjanlalji Dalmia with a vision to become a World-Class Management Institute. Currently, our Institute ranks among the Top B-schools in India and is one of Mumbai’s most preferred business schools.</p>
             </div>
-            <Image src={`${basePath}white-logo.png`} alt="NL Dalmia Logo" width={200} height={60} className="w-70 md:w-100 md:h-20" />
+            <Image src={`${basePath}white-logo.svg`} alt="NL Dalmia Logo" width={200} height={60} className="w-70 md:w-100 md:h-20" />
         </div>
         <div className="w-full bg-[#FFCC33] text-sm grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 bg-[#FFCC33] px-5 md:px-20 py-5 md:py-20">
             <ul className="flex flex-col gap-4">

@@ -1,7 +1,7 @@
 //import { getMetaData, getBanner } from "@/lib/home";
 
 import type { Metadata } from "next";
-import ContactUsComponent from "@/components/pages/ContactUsComponent";
+import AwardsComponent from "@/components/pages/AwardsComponent";
 
 //const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function ContactUs() {
+export default async function Awards() {
   return (
-    <ContactUsComponent />
+    <AwardsComponent />
   )
 }

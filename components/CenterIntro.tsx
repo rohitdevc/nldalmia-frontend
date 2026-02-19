@@ -17,7 +17,7 @@ export default function CenterIntro({introTitle, introCaption, introDescription}
         }
         {
             introCaption && (
-                <p className="font-georgia text-2xl lg:text-5xl leading-snug">{parser(introCaption)}</p>
+                <p className="font-georgia text-2xl lg:text-4xl leading-snug">{parser(introCaption)}</p>
             )
         }
         {
