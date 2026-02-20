@@ -22,7 +22,7 @@ export default function MediaNavigation({activePage}: mediaNavProps) {
                 </Link>
             </li>
             <li className="group">
-                <Link href={`${basePath}media/press-release`} className="relative">
+                <Link href={`${basePath}media/print-coverage`} className="relative">
                     <span>Print Coverage</span>
                     <span className={`absolute w-full -bottom-1 left-0 h-[0.5px] bg-[#800000] origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activePage === "print-coverage" ? 'scale-x-100' : ''}`}></span>
                 </Link>

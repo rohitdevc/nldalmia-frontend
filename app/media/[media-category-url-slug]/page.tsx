@@ -12,6 +12,12 @@ export const viewport = {
   ],
 };
 
+type PageProps = {
+  params: Promise<{
+    "media-category-url-slug": string
+  }>
+}
+
 export const revalidate = 0;
 
 export const metadata: Metadata = {
@@ -43,8 +49,10 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Media() {
+export default async function Media({ params }: PageProps) {
+  const { "media-category-url-slug": media_category_url_slug } = await params;
+  
   return (
-    <MediaComponent />
+    <MediaComponent media_category_url_slug={media_category_url_slug} />
   )
 }
