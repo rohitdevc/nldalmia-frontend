@@ -1,13 +1,20 @@
 "use client"
 
+import Link from "next/link";
+
+import dayjs from 'dayjs';
+import utc from "dayjs/plugin/utc";
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(utc);
+dayjs.extend(advancedFormat);
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
-import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
 
-export default function AwardsComponent() {
+export default function MediaComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const awards = [
@@ -82,8 +89,7 @@ export default function AwardsComponent() {
       banner_caption="In The Spotlight"
       banner_description="Discover how N.L.Dalmmia Institute Of Management Studies and Research makes headlines, earns recognition, and share its voice across platforms from newsrooms to industry reports"/>
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
-        <CenterIntro introTitle="Media And Newsroom" introCaption="At NLDIMSR, We Believe In Leading With Impact And It Shows In The Stories We Tell And The Stories Told About Us." introDescription="Celebrate the milestone that define our legacy-from institutional accolades to individual excellence across academia, innovation and leadership" />
-        <MediaNavigation activePage="awards-and-achievements" />
+        <MediaNavigation activePage="press-release" />
         {
             awards && awards.length > 0 &&
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">

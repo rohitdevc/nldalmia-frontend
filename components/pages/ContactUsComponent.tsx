@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import Script from "next/script";
 
 import { IoIosArrowDown, IoMdMail } from "react-icons/io";
 import { PiMapPinAreaFill } from "react-icons/pi";
@@ -34,7 +35,9 @@ export default function ContactUsComponent() {
         <Intro introTitle="Let’s Talk" introCaption="Whether you’re a prospective student, parent Recruiter or academic partner - we’re here to help" introDescription="If you have any questions regarding programs, facilities or have requests or suggestions to make, feel free to give us a call or fill out the form below" />
       </div>
       <div className="w-full flex flex-col lg:flex-row gap-10 lg:justify-between px-5 md:px-15 xl:px-30 pb-10 text-burgundy">
-        <form id="enquiry_form" className="flex flex-col gap-10 w-full lg:w-[48%]">
+        <div className="npf_wgts w-full lg:w-[48%]" data-height="100%" data-w="fadeebfca2b2228b1b843986d291aa08"></div>
+        <Script src="https://widgets.in5.nopaperforms.com/emwgts.js" strategy="afterInteractive" />
+        <form id="enquiry_form" className="flex flex-col gap-10 w-full lg:w-[48%] hidden">
           <div className="relative">
             <select name="enquiry_reason">
               <option value="">Select A Reason For Enquiry</option>
