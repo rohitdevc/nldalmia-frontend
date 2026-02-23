@@ -19,7 +19,6 @@ export function useServerCountdown(endDate: Date) {
     let interval: number;
 
     async function init() {
-      console.log("FETCHING SERVER TIME NOW");
       const res = await fetch(`/api/server-time`);
       const { now } = await res.json();
 
