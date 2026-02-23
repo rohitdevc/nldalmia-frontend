@@ -60,7 +60,7 @@ export default function BlogComponent({blog_category_url_slug = ""}) {
                 <Link href="/blog/mba">MBA</Link>
               </li>
             </ul>
-            <Link href="/blog/mba/from-data-to-decisions" target="_blank" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+            <Link href="/blog/mba/from-data-to-decisions" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
           </div>
           <div className="w-full lg:w-[45%] flex gap-5 flex-col">
             <Image src={`${basePath}images/blog/blog-1.png`} alt="Blog" width={600} height={600} className="w-full lg:h-100" />
@@ -71,7 +71,7 @@ export default function BlogComponent({blog_category_url_slug = ""}) {
                 <Link href="/blog/mba">MBA</Link>
               </li>
             </ul>
-            <Link href="/blog/mba/from-data-to-decisions" target="_blank" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+            <Link href="/blog/mba/from-data-to-decisions" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function BlogComponent({blog_category_url_slug = ""}) {
                   </li>
                 </ul>
                 <p className="text-[#4E4E4E] text-sm">You are stepping into an exciting yet challenging business world. The MBA job market is changing faster than ever. Traditional skills alone are not enough. You need to show recruiters that you can turn data into decisions.</p>
-                <Link href="/blog/mba/from-data-to-decisions" target="_blank" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                <Link href="/blog/mba/from-data-to-decisions" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
               </div>
               <div className={`w-full lg:w-1/2 flex gap-10 flex-col order-${(j % 2) ? '1': '2'}`}>
                 {
@@ -130,7 +130,7 @@ export default function BlogComponent({blog_category_url_slug = ""}) {
                           </li>
                         </ul>
                         <p className="text-[#4E4E4E] text-sm">You are stepping into an exciting yet challenging business world. The MBA job market is changing faster than ever. Traditional skills alone are not enough. You need to show recruiters that you can turn data into decisions.</p>
-                        <Link href="/blog/mba/from-data-to-decisions" target="_blank" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                        <Link href="/blog/mba/from-data-to-decisions" className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
                       </div>
                     </div>
                   ))
