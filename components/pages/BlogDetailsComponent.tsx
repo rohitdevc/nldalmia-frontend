@@ -14,7 +14,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function BlogDetailsComponent({blog_category_url_slug = ""}) {
+export default function BlogDetailsComponent({blog_url_slug = ""}) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
