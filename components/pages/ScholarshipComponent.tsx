@@ -13,7 +13,7 @@ import CenterIntro from "@/components/CenterIntro";
 
 import { MdArrowOutward } from "react-icons/md";
 
-export default function AdmissionComponent() {
+export default function ScholarshipComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
   
   useEffect(() => {
