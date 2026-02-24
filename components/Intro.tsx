@@ -17,12 +17,12 @@ export default function Intro({introTitle, introCaption, introDescription} : Int
         }
         {
             introCaption && (
-                <p className="text-2xl md:text-4xl font-georgia w-full lg:w-3xl">{parser(introCaption)}</p>
+                <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{parser(introCaption)}</p>
             )
         }
         {
             introDescription && (
-                <p className="text-[#4E4E4E] text-md leading-loose">{parser(introDescription)}</p>
+                <p className="text-[#4E4E4E] text-md leading-loose w-full lg:w-4xl">{parser(introDescription)}</p>
             )
         }
         </div>

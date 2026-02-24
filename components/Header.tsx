@@ -81,7 +81,7 @@ export default function Header({admissionPage = false}) {
                     <Link href="">Media</Link>
                 </li>
                 <li>
-                    <Link href="">Scholarships</Link>
+                    <Link href={`${basePath}scholarship`}>Scholarship</Link>
                 </li>
             </ul>
             <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 xl:pl-[2%] pr-5 md:pr-10 xl:pr-[2%] text-sm bg-white">
