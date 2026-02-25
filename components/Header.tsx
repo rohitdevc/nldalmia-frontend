@@ -75,7 +75,7 @@ export default function Header({admissionPage = false}) {
                     <Link href="">IQAC</Link>
                 </li>
                 <li>
-                    <Link href="">Alumni</Link>
+                    <Link href={`${basePath}alumni`}>Alumni</Link>
                 </li>
                 <li>
                     <Link href="">Media</Link>

@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useEffect } from "react";
+import { useState } from "react";
+
+import { IoMdClose } from "react-icons/io";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -21,6 +23,8 @@ import "swiper/css/navigation";
 
 export default function CareerComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const [showVacancyPopUp, updateVacancyPopUp] = useState(false);
 
   const values = [
     {
@@ -170,7 +174,7 @@ export default function CareerComponent() {
                     <Link href="" className="text-white bg-[#800000] px-2 py-1">Apply Now</Link>
                   </li>
                   <li>
-                    <Link href="" className="text-burgundy bg-white border-[0.5px] border-[#800000] px-3 py-1">View Job Details</Link>
+                    <span className="text-burgundy bg-white border-[0.5px] border-[#800000] px-3 py-1 cursor-pointer" onClick={() => updateVacancyPopUp(true)}>View Job Details</span>
                   </li>
                 </ul>
               </div>
@@ -198,6 +202,25 @@ export default function CareerComponent() {
             <h3 className="font-georgia leading-relaxed text-center text-2xl lg:text-4xl lg:w-3xl">Enhance Your Leadership Skills With Our PGDM Programs</h3>
             <Link href="" className="flex items-center gap-2 px-3 py-1 bg-[#800000]" target="_blank">Apply Now</Link>
           </div>
+      </div> 
+      <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showVacancyPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
+        <div className="relative flex justify-center items-center py-10">
+          <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateVacancyPopUp(false)}/>
+          <div className="flex flex-col gap-4 p-5 lg:p-10 border-[0.5px] border-[#D6ACAC] mx-5 lg:mx-0 lg:w-4xl">
+            <h2 className="font-georgia text-lg">Assistant Professor - Finance</h2>
+            <h3 className="font-georgia text-lg">Department - PGDM, Full Time</h3>
+            <h3 className="font-georgia text-lg">6+ Years Of Academic Or Teaching Experience</h3>
+            <h4 className="font-georgia text-md">Job Summary</h4>
+            <p className="text-[#4E4E4E] text-sm leading-loose">N. L. Dalmia Institute Of Management Studies & Research is seeking a highly motivated and qualified individual for the role of Assistant Professor - Finance. The ideal candidate will bring a strong academic background, research expertise and a passion for teaching the next generation of business leaders.</p>
+            <h4 className="font-georgia text-md">Key Responsibility</h4>
+            <p className="text-[#4E4E4E] text-sm leading-loose">Deliver engaging lectures in core and advanced finance subjects (e.g Corporate Finance, Financial Markets, Investment Analysis). Guide students on academic projects, dissertations and internships. Participate actively in curriculum development and periodic syllabus reviews.</p>
+            <h4 className="font-georgia text-md">Qualification</h4>
+            <p className="text-[#4E4E4E] text-sm leading-loose">Ph.D. (or nearing completion) in finance or related discipline from a recognized university or institute. UGC NET/SET qualified (preferred). Minimum 3 years of teaching and or relevant industry experience.</p>
+            <h4 className="font-georgia text-md">How To Apply</h4>
+            <p className="text-[#4E4E4E] text-sm leading-loose">Interested candidates are requested to submit their resume, cover letter and list of publications (careers@nldalmia.edu.in) with the subject line - “Applicatio - Assistant Professor - Finance”</p>
+            <Link href="" className="text-white bg-[#800000] border-[0.5px] border-[#800000] w-25 text-center py-1 text-sm">Apply Now</Link>
+          </div>
+        </div>
       </div>
       <Footer />
     </main>
