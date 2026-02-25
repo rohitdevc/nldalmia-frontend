@@ -80,10 +80,10 @@ export default function CareerComponent() {
         <CenterIntro introTitle="Lorem Ipsum" introCaption="Our Values" introDescription="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea." />
         {
           values && values.length > 0 && ( 
-          <div className="flex flex-wrap gap-25 justify-center items-center text-center lg:px-10 text-[#4E4E4E]">
+          <div className="flex flex-wrap gap-10 lg:gap-25 justify-center items-center text-center lg:px-10 text-[#4E4E4E]">
             {
               values.map((value, key) => (
-                <div className="flex flex-col gap-5 items-center" key={key}>
+                <div className="flex flex-col gap-5 items-center w-35" key={key}>
                   <Image src={`${basePath}images/careers/${value.value_icon}`} alt={value.value_title} width={110} height={110} className="w-20" />
                   <h2 className="font-georgia text-xl">{value.value_title}</h2>
                 </div>
@@ -96,17 +96,20 @@ export default function CareerComponent() {
       {
         milestones && milestones.length > 0 && (
       <div className="w-full px-5 md:px-15 py-10">
-        <div className="flex flex-col lg:flex-row justify-between items-center bg-[#FFCC33] px-5 md:px-15 lg:px-30 py-10">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between items-center bg-[#FFCC33] px-5 md:px-15 lg:px-30 py-10">
           {
             milestones.map((milestone, key) => (
               <>
-              <div className="flex flex-col gap-5 items-center" key={key}>
+              <div className="flex flex-col gap-5 items-center text-center" key={key}>
                 <h2 className="text-3xl">{milestone.milestone_title}</h2>
                 <p className="text-[#4E4E4E] text-sm">{milestone.milestone_caption}</p>
               </div>
               {
                 ((key + 1) !== milestones.length) && (
-                  <span className="h-10 w-[0.5px] bg-[#4E4E4E]"></span>
+                  <>
+                  <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
+                  <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                  </>
                 )
               }
               </>
@@ -130,7 +133,7 @@ export default function CareerComponent() {
           {
             [...Array(5)].map((_, i) => (
             <SwiperSlide className="w-full">
-              <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-10 py-10" style={{backgroundImage: `url(${basePath}images/careers/intro-img.png)`}}>
+              <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10" style={{backgroundImage: `url(${basePath}images/careers/intro-img.png)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent"></div>
                 <div className="flex flex-col gap-5 relative mt-auto">
                   <h2 className="font-georgia text-2xl">Collaborative Environment</h2>
@@ -175,6 +178,26 @@ export default function CareerComponent() {
           ))
           }
         </Swiper>
+      </div>
+      <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-5">
+        <Intro introTitle="Application Process" introCaption="How To Apply" introDescription="Please follow steps below to successfully submit your application" />
+        <div className="flex flex-col lg:flex-row gap-10 py-5">
+          <div className="flex flex-col py-7 px-10 gap-3 bg-[#FFCC33] items-center text-center">
+            <h2 className="font-georgia text-xl">Browse Open Positions</h2>
+            <p className="text-[#4E4E4E] leading-loose">Browse through the latest openings across academic and administrative departments and find a role where your expertise can make a real impact. Can’t find a role that matches your profile? Reach out to us at <Link href="mailto:careers@nldalmia.edu.in" className="text-[#5D71E2]">careers@nldalmia.edu.in</Link></p>
+          </div>
+          <div className="flex flex-col py-7 px-10 gap-3 bg-[#FFCC33] items-center text-center">
+            <h2 className="font-georgia text-xl">Submit Your Resume & Cover Letter</h2>
+            <p className="text-[#4E4E4E] leading-loose">Browse through the latest openings across academic and administrative departments and find a role where your expertise can make a real impact. Can’t find a role that matches your profile? Reach out to us at <Link href="mailto:careers@nldalmia.edu.in" className="text-[#5D71E2]">careers@nldalmia.edu.in</Link></p>
+          </div>
+        </div>
+      </div>
+      <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20 mt-5" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+          <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+          <div className="flex flex-col gap-5 relative w-full h-full justify-center items-center">
+            <h3 className="font-georgia leading-relaxed text-center text-2xl lg:text-4xl lg:w-3xl">Enhance Your Leadership Skills With Our PGDM Programs</h3>
+            <Link href="" className="flex items-center gap-2 px-3 py-1 bg-[#800000]" target="_blank">Apply Now</Link>
+          </div>
       </div>
       <Footer />
     </main>
