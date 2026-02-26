@@ -139,18 +139,18 @@ export default function Alumni() {
             {
             [...Array(3)].map((_, i) => (
               <SwiperSlide>
-                <div className="flex flex-col lg:flex-row gap-5 lg:gap-15 px-10 lg:px-15 bg-[#800000]">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-10 lg:gap-15 px-10 lg:px-15 bg-[#800000] items-center">
                   <div className="lg:w-75 mt-auto">
                     <Image src={`${basePath}images/alumni/Gaurav-removebg-preview.png`} width={320} height={360} alt="Gaurav Jain" className="object-cover" />
                   </div>
                   <div className="flex flex-col gap-3 lg:gap-5 py-7 w-full text-sm">
                     <h2 className="font-georgia text-xl">Gaurav Jain</h2>
-                    <ul className="flex flex-col lg:flex-row gap-5 lg:gap-20">
+                    <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
                       <li>Company – Avendus Capital Limited</li>
                       <li>Designation – Director</li>
                       <li>Batch - 2006 – 2008</li>
                     </ul>
-                    <p className="leading-loose">Gaurav Jain is the Director- Institutional Equities at Avendus Spark Institutional Equities. Responsible for business development and strengthening existing business relations with clients across Asia, Domestic Insurance companies and AMCs. Initiated various proprietary services as part of investment assistance to clients; leading to scaling up of business with existing clients and instigating business with new clients.</p>
+                    <p className="leading-relaxed sm:leading-loose">Gaurav Jain is the Director- Institutional Equities at Avendus Spark Institutional Equities. Responsible for business development and strengthening existing business relations with clients across Asia, Domestic Insurance companies and AMCs. Initiated various proprietary services as part of investment assistance to clients; leading to scaling up of business with existing clients and instigating business with new clients.</p>
                     <span className="w-30 text-center text-burgundy bg-white py-1 text-sm cursor-pointer hidden">View More</span>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export default function Alumni() {
                 <div className="flex flex-col lg:flex-row gap-15 px-15 border">
                   <div className="flex flex-col gap-5 py-7 w-full">
                     <h2 className="font-georgia text-xl">Events</h2>
-                    <p className="leading-loose text-[#4E4E4E]">Gaurav Jain is the Director- Institutional Equities at Avendus Spark Institutional Equities. Responsible for business development and strengthening existing business relations with clients across Asia, Domestic Insurance companies and AMCs. Initiated various proprietary services as part of investment assistance to clients; leading to scaling up of business with existing clients and instigating business with new clients.</p>
+                    <p className="leading-relaxed lg:leading-loose text-[#4E4E4E]">Gaurav Jain is the Director- Institutional Equities at Avendus Spark Institutional Equities. Responsible for business development and strengthening existing business relations with clients across Asia, Domestic Insurance companies and AMCs. Initiated various proprietary services as part of investment assistance to clients; leading to scaling up of business with existing clients and instigating business with new clients.</p>
                     <span className="w-30 text-center text-burgundy bg-white py-1 text-sm cursor-pointer hidden">View More</span>
                   </div>
                 </div>
@@ -180,8 +180,8 @@ export default function Alumni() {
             ))}
           </Swiper>
         </div>
-        <div className="flex gap-5 justify-between">
-          <div className="w-1/2 relative">
+        <div className="w-full lg:flex gap-0 lg:justify-between">
+          <div className="w-full mb-10 lg:mb-0 lg:w-[48%] relative">
             <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 left-4 alumni_meet_slider_prev z-2">
               <BsArrowLeftShort size={20} />
             </span>
@@ -192,14 +192,14 @@ export default function Alumni() {
               {
               [...Array(3)].map((_, i) => (
                 <SwiperSlide>
-                  <div className="flex flex-col lg:flex-row gap-15 px-15 bg-[#800000] h-75">
+                  <div className="flex flex-col lg:flex-row gap-15 px-15 bg-[#800000] lg:h-85 xl:h-75">
                     <div className="flex flex-col gap-5 py-7 w-full">
                       <h2 className="font-georgia text-xl">Alumni Chapter Meet</h2>
-                      <ul className="flex gap-20">
+                      <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
                         <li>Uk Alumni Chapter Meet</li>
                         <li>24th January 2026</li>
                       </ul>
-                      <p className="leading-loose overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">Something exciting is rolling your way! It’s time to relive memories, reconnect with old friends and create new stories that will be remembered for years to come.</p>
+                      <p className="leading-relaxed lg:leading-loose overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">Something exciting is rolling your way! It’s time to relive memories, reconnect with old friends and create new stories that will be remembered for years to come.</p>
                       <Link href="" className="w-30 text-center text-burgundy bg-white py-1 text-sm cursor-pointer">Register Now</Link>
                     </div>
                   </div>
@@ -207,7 +207,7 @@ export default function Alumni() {
               ))}
             </Swiper>
           </div>
-          <div className="w-1/2 relative">
+          <div className="w-full lg:w-[48%] relative">
             <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 left-4 testimonial_slider_prev z-2">
               <BsArrowLeftShort size={20} />
             </span>
@@ -218,8 +218,8 @@ export default function Alumni() {
               {
               [...Array(3)].map((_, i) => (
                 <SwiperSlide>
-                  <div className="flex flex-col lg:flex-row gap-10 px-5 bg-white border h-75">
-                    <div className="w-75 mt-auto">
+                  <div className="flex flex-col sm:flex-row gap-10 px-5 bg-white border items-center lg:h-85 xl:h-75">
+                    <div className="w-50 lg:w-75 lg:mt-auto">
                       <Image src={`${basePath}images/alumni/Gaurav-removebg-preview.png`} width={320} height={360} alt="Gaurav Jain" className="object-cover" />
                     </div>
                     <div className="flex flex-col gap-5 py-7 w-full">
@@ -265,7 +265,7 @@ export default function Alumni() {
       </div>
       <div className="w-full relative text-black">
         <Image src={`${basePath}images/alumni/alumni-worldwide.png`} alt="Worldwide" width={1920} height={1080} className="w-full" />
-        <div className="absolute inset-0 flex justify-center text-center py-15">
+        <div className="lg:absolute inset-0 flex justify-center text-center px-5 lg:py-15">
           <p className="leading-loose mt-auto w-3xl">Our true legacy lies in our 9,000+ alumni who excel across various fields worldwide, from boardrooms to startups, academia to global enterprises.</p>
         </div>
       </div>
@@ -312,8 +312,8 @@ export default function Alumni() {
             {
             [...Array(3)].map((_, i) => (
               <SwiperSlide>
-                <div className="flex flex-col lg:flex-row gap-10 px-5 py-5 bg-white border">
-                  <div className="w-75 h-60 bg-[#800000]"></div>
+                <div className="flex flex-col sm:flex-row gap-10 px-5 py-5 bg-white border">
+                  <div className="sm:w-75 sm:h-50 lg:h-60 bg-[#800000]"></div>
                   <div className="flex flex-col gap-5 w-full">
                     <p className="text-[#4E4E4E] leading-loose">With a background in engineering, Ritika joined the PGDM Finance program to pivot into investment banking. The rigorous curriculum, supportive faculty and real world case simulations helped her build both technical and soft skills-eventually landing a coveted role at JPMorgan. She now leads key M&A mandates in the APAC region</p>
                     <h2 className="font-georgia">“NLDIMSR gave me the confidence to navigate boardrooms across the globe”</h2>
