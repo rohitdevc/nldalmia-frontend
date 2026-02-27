@@ -4,11 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { MdArrowOutward } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
+import { FaLinkedin  } from "react-icons/fa";
+import { FaSquareXTwitter  } from "react-icons/fa6";
+import { AiFillInstagram } from "react-icons/ai";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
@@ -28,6 +33,7 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
+import AlumniProfile from "@/components/AlumniProfile";
 
 export default function Alumni() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -117,6 +123,32 @@ export default function Alumni() {
       }
     }
   }
+
+  const [showConnectAlumniPopUp, updateConnectAlumniPopUp] = useState(false);
+  const [activeConnectAlumniIndex, setActiveConnectAlumniIndex] = useState(0);
+  const popupConnectAlumniRef = useRef<SwiperCore | null>(null);
+
+  const handleConnectAlumniClick = (index: number) => {
+    setActiveConnectAlumniIndex(index);
+    updateConnectAlumniPopUp(true);
+    
+    setTimeout(() => {
+      popupConnectAlumniRef.current?.slideTo(index);
+    }, 0);
+  };
+
+  const [showWallOfFamePopUp, updateWallOfFamePopUp] = useState(false);
+  const [activeWallOfFameIndex, setActiveWallOfFameIndex] = useState(0);
+  const popupWallOfFameRef = useRef<SwiperCore | null>(null);
+
+  const handleWallOfFameClick = (index: number) => {
+    setActiveWallOfFameIndex(index);
+    updateWallOfFamePopUp(true);
+    
+    setTimeout(() => {
+      popupWallOfFameRef.current?.slideTo(index);
+    }, 0);
+  };
 
   return (
     <>
@@ -239,13 +271,13 @@ export default function Alumni() {
         <Intro introTitle="Our Alumni" introCaption="Connect With Alumni" introDescription="Explore the achievements of our distinguished alumni who are making an impact across industries-from finance and analytics to entrepreneurship and global leadership." />
         <div className="w-full flex flex-col gap-5">
             <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_profiles_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_profiles_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_profiles_slider_prev">
+                <BsArrowLeftShort size={20} />
+              </span>
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_profiles_slider_next">
+                <BsArrowRightShort size={20} />
+              </span>
+            </div>
             <Swiper modules={[Navigation]} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_profiles_slider_prev', nextEl: '.alumni_profiles_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 alumni_profiles.map((alumni_profiles_row, key) => (
@@ -255,8 +287,7 @@ export default function Alumni() {
                       <h2 className="text-xl font-georgia lg:h-10">{alumni_profiles_row.alumni_profiles_name}</h2>
                       <p className="text-burgundy leading-loose lg:h-20 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(alumni_profiles_row.alumni_profiles_designation))}</p>
                     </div>
-                    <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={alumni_profiles_row.alumni_profiles_profile}>View Profile <MdArrowOutward size={20} /></Link>
-                    
+                    <span className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center cursor-pointer" onClick={() => handleConnectAlumniClick(key)}>View Profile <MdArrowOutward size={20} /></span>
                   </SwiperSlide>
                 ))
               }
@@ -289,8 +320,7 @@ export default function Alumni() {
                       <h2 className="text-xl font-georgia lg:h-10">{alumni_profiles_row.alumni_profiles_name}</h2>
                       <p className="text-burgundy leading-loose lg:h-20 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(alumni_profiles_row.alumni_profiles_designation))}</p>
                     </div>
-                    <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={alumni_profiles_row.alumni_profiles_profile}>View Profile <MdArrowOutward size={20} /></Link>
-                    
+                    <span className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center cursor-pointer" onClick={() => handleWallOfFameClick(key)}>View Profile <MdArrowOutward size={20} /></span>
                   </SwiperSlide>
                 ))
               }
@@ -391,7 +421,55 @@ export default function Alumni() {
             <p className="leading-loose lg:w-3xl">Access exclusive alumni, job boards, updates and opportunities. Register or Login to reconnect with batchmates and extend your Damian journey</p>
             <Link href="" className="flex items-center gap-2 px-3 py-1 bg-[#800000]" target="_blank">Login</Link>
           </div>
-      </div> 
+      </div>
+      <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
+        <div className="relative py-15 px-5 md:px-15 xl:px-30">
+          <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
+          <div className="flex gap-3">
+            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer connect_alumni_slider_prev">
+              <BsArrowLeftShort size={20} />
+            </span>
+            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer connect_alumni_slider_next">
+              <BsArrowRightShort size={20} />
+            </span>
+          </div>
+          <div className="py-5 lg:py-10">
+            <Swiper modules={[Navigation]} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeConnectAlumniIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.connect_alumni_slider_prev', nextEl: '.connect_alumni_slider_next'}}>
+              {
+                alumni_profiles.map((alumni_profiles_row, key) => (
+                  <SwiperSlide key={key}>
+                    <AlumniProfile alumni_profile={alumni_profiles_row} />
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+          </div>
+        </div>
+      </div>
+      <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
+        <div className="relative py-15 px-5 md:px-15 xl:px-30">
+          <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateWallOfFamePopUp(false)}/>
+          <div className="flex gap-3">
+            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer connect_alumni_slider_prev">
+              <BsArrowLeftShort size={20} />
+            </span>
+            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer connect_alumni_slider_next">
+              <BsArrowRightShort size={20} />
+            </span>
+          </div>
+          <div className="py-5 lg:py-10">
+            <Swiper modules={[Navigation]} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeWallOfFameIndex} onSwiper={(swiper) => (popupWallOfFameRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.connect_alumni_slider_prev', nextEl: '.connect_alumni_slider_next'}}>
+              {
+                alumni_profiles.map((alumni_profiles_row, key) => (
+                  <SwiperSlide key={key}>
+                    <AlumniProfile alumni_profile={alumni_profiles_row} />
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+          </div>
+        </div>
+      </div>
       <Footer />
     </main>
     </>
