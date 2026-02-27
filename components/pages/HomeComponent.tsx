@@ -902,7 +902,7 @@ export default function HomeComponent() {
                   </>
                 ))
                 }
-            </div>
+          </div>
         </div>
       )
       }

@@ -17,7 +17,7 @@ type Ticker = {
     ticker_link?: string;
 };
 
-export default function Header({admissionPage = false}) {
+export default function Header({admissionPage = false, alumniPage = false}) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker: Ticker = {
@@ -105,7 +105,7 @@ export default function Header({admissionPage = false}) {
                         <Link href="">Placements</Link>
                     </li>
                     <li>
-                        <Link href="">Life@NLD</Link>
+                        <Link href={`${basePath}life-at-nld`}>Life@NLD</Link>
                     </li>
                     <li>
                         <Link href={`${basePath}admissions`}>Admissions</Link>
@@ -137,6 +137,20 @@ export default function Header({admissionPage = false}) {
                         </li>
                         <li>
                             <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Download Brochure</Link>
+                        </li>
+                    </ul>
+                </div>
+                )
+            }
+            {
+                alumniPage && (
+                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                    <ul className="flex gap-3 text-white my-4 mx-1 sm:mx-8">
+                        <li>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Portal</Link>
+                        </li>
+                        <li>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Association Banner</Link>
                         </li>
                     </ul>
                 </div>

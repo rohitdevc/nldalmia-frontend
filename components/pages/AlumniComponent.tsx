@@ -11,9 +11,6 @@ import { useState, useRef } from "react";
 
 import { MdArrowOutward } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-import { FaLinkedin  } from "react-icons/fa";
-import { FaSquareXTwitter  } from "react-icons/fa6";
-import { AiFillInstagram } from "react-icons/ai";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
@@ -152,7 +149,7 @@ export default function Alumni() {
 
   return (
     <>
-    <Header />
+    <Header alumniPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image="banner.jpeg"
