@@ -379,7 +379,7 @@ export default function Alumni() {
                     <div className="group border-[0.5px] border-[#800000] text-white relative overflow-hidden">
                       <div className="flex py-7 px-5 transition-all duration-300 h-100 bg-cover bg-no-repeat bg-center relative" style={{backgroundImage: `url(${basePath}images/alumni/DecodeX-2024.jpg)`}}>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent"></div>
-                        <h2 className="font-helixa text-lg mt-auto relative">{alumni_event.alumni_event_name}</h2>
+                        <h2 className="font-georgia text-lg mt-auto relative">{alumni_event.alumni_event_name}</h2>
                       </div>
 
                       <div className={`absolute top-0 left-0 inset-0 flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeAlumniEvent === alumni_event.id ? "scale-y-100" : "scale-y-0"}`}>

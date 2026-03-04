@@ -4,16 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 
 import { useState, useRef } from "react";
 
-import { MdArrowOutward } from "react-icons/md";
-import { IoMdClose } from "react-icons/io";
-import { FaLinkedin  } from "react-icons/fa";
-import { FaSquareXTwitter  } from "react-icons/fa6";
-import { AiFillInstagram } from "react-icons/ai";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
