@@ -128,7 +128,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
             {
                 admissionPage && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
-                    <ul className="flex gap-3 text-white my-4 mx-1 sm:mx-8">
+                    <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply for PGDM 2025/27</Link>
                         </li>
@@ -145,7 +145,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
             {
                 alumniPage && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
-                    <ul className="flex gap-3 text-white my-4 mx-1 sm:mx-8">
+                    <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Portal</Link>
                         </li>
@@ -159,7 +159,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
             {
                 eventRegistrationURL && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
-                    <ul className="flex gap-3 text-white my-4 mx-1 sm:mx-8">
+                    <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href={eventRegistrationURL} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Register Now</Link>
                         </li>
