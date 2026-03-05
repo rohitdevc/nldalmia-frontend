@@ -99,7 +99,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
                         <Link href="">Executive Education</Link>
                     </li>
                     <li>
-                        <Link href="">Faculty</Link>
+                        <Link href={`${basePath}faculty`}>Faculty</Link>
                     </li>
                     <li>
                         <Link href="">Placements</Link>
@@ -144,7 +144,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
             }
             {
                 alumniPage && (
-                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-end">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Portal</Link>
@@ -158,7 +158,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
             }
             {
                 eventRegistrationURL && (
-                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-end">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href={eventRegistrationURL} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Register Now</Link>
