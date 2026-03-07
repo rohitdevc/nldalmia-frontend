@@ -1,7 +1,7 @@
 //import { getMetaData, getBanner } from "@/lib/home";
 
 import type { Metadata } from "next";
-import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
+import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
 
 //const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
@@ -14,7 +14,7 @@ export const viewport = {
 
 type PageProps = {
   params: Promise<{
-    "event-url-slug": string
+    "faculty-url-slug": string
   }>
 }
 
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Event({ params }: PageProps) {
-  const { "event-url-slug": event_url_slug } = await params;
+export default async function Faculty({ params }: PageProps) {
+  const { "faculty-url-slug": faculty_url_slug } = await params;
 
   return (
-    <EventDetailsComponent event_url_slug={event_url_slug} />
+    <FacultyDetailsComponent faculty_url_slug={faculty_url_slug} />
   )
 }

@@ -754,8 +754,8 @@ export default function HomeComponent() {
                     <Image src={`${basePath}images/home/testimonials/${testimonial.testimonial_thumbnail}`} alt={testimonial.testimonial_name} width={200} height={200} className="rounded-full w-30 h-30" />
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-md">{testimonial.testimonial_designation}</span>
-                      <span className="text-sm md:text-md">{testimonial.testimonial_company_name}</span>
+                      <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
+                      <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
                     </div>
                   </div>
                   <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === testimonial.id ? "scale-y-100" : "scale-y-0"}`}>
@@ -770,8 +770,8 @@ export default function HomeComponent() {
                         <p className="leading-loose">{testimonial.testimonial_content}</p>
                         <div className="mt-auto flex flex-col gap-3">
                           <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-sm md:text-md">{testimonial.testimonial_designation}</span>
-                          <span className="text-sm md:text-md">{testimonial.testimonial_company_name}</span>
+                          <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
+                          <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
                         </div>
                         </>
                       )

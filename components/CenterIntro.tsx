@@ -22,7 +22,7 @@ export default function CenterIntro({introTitle, introCaption, introDescription}
         }
         {
             introDescription && (
-                <p className="text-[#4E4E4E] text-md leading-loose px-5">{parser(introDescription)}</p>
+                <p className="text-[#4E4E4E]  leading-loose px-5">{parser(introDescription)}</p>
             )
         }
         </div>

@@ -57,11 +57,11 @@ export default function AlumniProfile({alumni_profile}: AlumniProfileProps) {
             </div>
         </div>
         <div className="flex flex-col gap-4 bg-white px-5 lg:px-20 py-5 lg:py-15 z-1">
-            <h4 className="font-georgia text-md">Bio</h4>
+            <h4 className="font-georgia ">Bio</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">Ritesh leads Amazon’s marketplace growth strategy across tier ll and tire lll cities, helping shape how millions shop online. With a deep passion for customer experience and data-led innovation, he’s been pivotal in scaling new vertical’s at lightning speed.</p>
-            <h4 className="font-georgia text-md">Career Journey</h4>
+            <h4 className="font-georgia ">Career Journey</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">After completing his PGDM in marketing at NLDIMSR, Ritesh began his career with Hindustan uniliver through campus placements. Over the next decade, he transitioned from FMCGto tech commerce, holding leadership roles at Flipkart and then amazon. His knack for balancing strategic vision with operational excellence continues to earn his industry recognition.</p>
-            <h4 className="font-georgia text-md">NLDIMSR Experience</h4>
+            <h4 className="font-georgia ">NLDIMSR Experience</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">“NLDIMSR didn’t just prepare me for business-it taught me how to think. The case-study approach, marketing labs and late-night discussion with faculty helped sharpen my strategic thinking. I owe confidence and clarity to that experience.”</p>
         </div>
     </div>

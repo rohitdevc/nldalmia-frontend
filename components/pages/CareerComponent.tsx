@@ -210,13 +210,13 @@ export default function CareerComponent() {
             <h2 className="font-georgia text-lg">Assistant Professor - Finance</h2>
             <h3 className="font-georgia text-lg">Department - PGDM, Full Time</h3>
             <h3 className="font-georgia text-lg">6+ Years Of Academic Or Teaching Experience</h3>
-            <h4 className="font-georgia text-md">Job Summary</h4>
+            <h4 className="font-georgia ">Job Summary</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">N. L. Dalmia Institute Of Management Studies & Research is seeking a highly motivated and qualified individual for the role of Assistant Professor - Finance. The ideal candidate will bring a strong academic background, research expertise and a passion for teaching the next generation of business leaders.</p>
-            <h4 className="font-georgia text-md">Key Responsibility</h4>
+            <h4 className="font-georgia ">Key Responsibility</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">Deliver engaging lectures in core and advanced finance subjects (e.g Corporate Finance, Financial Markets, Investment Analysis). Guide students on academic projects, dissertations and internships. Participate actively in curriculum development and periodic syllabus reviews.</p>
-            <h4 className="font-georgia text-md">Qualification</h4>
+            <h4 className="font-georgia ">Qualification</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">Ph.D. (or nearing completion) in finance or related discipline from a recognized university or institute. UGC NET/SET qualified (preferred). Minimum 3 years of teaching and or relevant industry experience.</p>
-            <h4 className="font-georgia text-md">How To Apply</h4>
+            <h4 className="font-georgia ">How To Apply</h4>
             <p className="text-[#4E4E4E] text-sm leading-loose">Interested candidates are requested to submit their resume, cover letter and list of publications (careers@nldalmia.edu.in) with the subject line - “Applicatio - Assistant Professor - Finance”</p>
             <Link href="" className="text-white bg-[#800000] border-[0.5px] border-[#800000] w-25 text-center py-1 text-sm">Apply Now</Link>
           </div>

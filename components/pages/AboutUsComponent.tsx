@@ -337,7 +337,7 @@ export default function AboutUsComponent() {
                   <SwiperSlide className="px-2 py-2 md:px-10 md:py-10 lg:px-50 lg:py-20 text-center" key={key}>
                     <div className="flex flex-col gap-10">
                       <h2 className="font-georgia text-2xl md:text-3xl lg:text-4xl">{timeline.timeline_year} - {timeline.timeline_caption}</h2>
-                      <p className="text-md lg:text-lg leading-normal md:leading-loose">{timeline.timeline_description}</p>
+                      <p className=" lg:text-lg leading-normal md:leading-loose">{timeline.timeline_description}</p>
                     </div>
                   </SwiperSlide>
                 ))

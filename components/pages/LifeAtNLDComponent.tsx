@@ -378,7 +378,7 @@ export default function LifeAtNLD() {
                       <div className="w-full lg:w-1/2 lg:order-2">
                         <Image src={`${basePath}images/life-at-nld/holistic.png`} alt="Student Club" width={500} height={300} className="object-cover w-full h-full" />
                       </div>
-                      <div className="flex flex-col gap-5 px-5 py-10 bg-[#FFCC33] w-full lg:w-1/2">
+                      <div className={`flex flex-col gap-5 px-5 py-10 w-full lg:w-1/2 ${(i % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
                         <h2 className="font-georgia text-lg">Lecture Halls - {holistic_learning_tab.holistic_learning_title} - {i}</h2>
                         <p className="text-sm leading-loose">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea.</p>
                       </div>

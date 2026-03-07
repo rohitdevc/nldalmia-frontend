@@ -1,7 +1,7 @@
 //import { getMetaData, getBanner } from "@/lib/home";
 
 import type { Metadata } from "next";
-import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
+import PlacementsComponent from "@/components/pages/PlacementsComponent";
 
 //const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
@@ -11,12 +11,6 @@ export const viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#2e4f84" },
   ],
 };
-
-type PageProps = {
-  params: Promise<{
-    "event-url-slug": string
-  }>
-}
 
 export const revalidate = 0;
 
@@ -49,10 +43,8 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Event({ params }: PageProps) {
-  const { "event-url-slug": event_url_slug } = await params;
-
+export default async function Placements() {
   return (
-    <EventDetailsComponent event_url_slug={event_url_slug} />
+    <PlacementsComponent />
   )
 }

@@ -383,15 +383,15 @@ export default function ProgramComponent() {
               <div className="flex flex-col gap-10 lg:w-1/2">
                 <div className="flex flex-col gap-3">
                   <h2 className="font-georgia text-xl lg:text-2xl">Proven Track Record Of Excellence</h2>
-                  <p className="leading-snug text-sm md:text-md">Among the top-ranked finance programs in India with consistently high placement rates and alumni in leading MNC’s</p>
+                  <p className="leading-snug text-sm md:text-lg">Among the top-ranked finance programs in India with consistently high placement rates and alumni in leading MNC’s</p>
                 </div>
                 <div className="flex flex-col gap-3">
                   <h2 className="font-georgia text-xl lg:text-2xl">Mentorship & Industry Connect</h2>
-                  <p className="leading-snug text-sm md:text-md">Network with CXOs, engage with alumni and learn through guests lectures by industry veterans.</p>
+                  <p className="leading-snug text-sm md:text-lg">Network with CXOs, engage with alumni and learn through guests lectures by industry veterans.</p>
                 </div>
                 <div className="flex flex-col gap-3">
                   <h2 className="font-georgia text-xl lg:text-2xl">Career Ready From Campus To Corporate</h2>
-                  <p className="leading-snug text-sm md:text-md">Extensive corporate engagement prepares students for real world financial decision making from strategy room to boardrooms</p>
+                  <p className="leading-snug text-sm md:text-lg">Extensive corporate engagement prepares students for real world financial decision making from strategy room to boardrooms</p>
                 </div>
               </div>
             </div>
@@ -497,7 +497,7 @@ export default function ProgramComponent() {
                       <div className="flex flex-col gap-2 font-semibold text-center md:text-left">
                         <h3 className="text-lg lg:text-2xl">{testimonial.testimonial_content}</h3>
                         <span>- {testimonial.testimonial_name}</span>
-                        <span className="text-sm lg:text-md">{testimonial.testimonial_designation}</span>
+                        <span className="text-sm lg:text-lg">{testimonial.testimonial_designation}</span>
                       </div>
                     </div>
                   </div>

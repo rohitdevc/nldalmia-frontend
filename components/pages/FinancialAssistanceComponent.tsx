@@ -72,7 +72,7 @@ export default function FinancialAssistance() {
           )
         }
         <div className="flex justify-center items-center">
-          <Link href="" className="text-white bg-[#800000] px-5 py-1 text-md">Download Guidelines</Link>
+          <Link href="" className="text-white bg-[#800000] px-5 py-1 ">Download Guidelines</Link>
         </div>
       </div>
       <Footer />

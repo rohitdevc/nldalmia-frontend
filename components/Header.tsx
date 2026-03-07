@@ -17,7 +17,15 @@ type Ticker = {
     ticker_link?: string;
 };
 
-export default function Header({admissionPage = false, alumniPage = false, eventRegistrationURL = ""}) {
+type HeaderProps = {
+  onDownloadBrochureClick?: () => void;
+  admissionPage?: boolean;
+  alumniPage?: boolean;
+  placementsPage?: boolean;
+  eventRegistrationURL?: string;
+}
+
+export default function Header({onDownloadBrochureClick, admissionPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = ""}: HeaderProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker: Ticker = {
@@ -35,7 +43,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
 
     return (
         <>
-        <header className="w-full fixed z-5 h-[175px]">
+        <header className="w-full fixed z-10 h-[175px]">
             {
                 ticker.ticker_message && (
                     <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
@@ -102,7 +110,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
                         <Link href={`${basePath}faculty`}>Faculty</Link>
                     </li>
                     <li>
-                        <Link href="">Placements</Link>
+                        <Link href={`${basePath}placements`}>Placements</Link>
                     </li>
                     <li>
                         <Link href={`${basePath}life-at-nld`}>Life@NLD</Link>
@@ -136,7 +144,7 @@ export default function Header({admissionPage = false, alumniPage = false, event
                             <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply For Global MBA</Link>
                         </li>
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Download Brochure</Link>
+                            <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
                         </li>
                     </ul>
                 </div>
@@ -162,6 +170,20 @@ export default function Header({admissionPage = false, alumniPage = false, event
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href={eventRegistrationURL} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Register Now</Link>
+                        </li>
+                    </ul>
+                </div>
+                )
+            }
+            {
+                placementsPage && (
+                <div className="w-full bg-[#FFCC33] flex justify-end">
+                    <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
+                        <li>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Placement Brochure</Link>
+                        </li>
+                        <li>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Enquire Now</Link>
                         </li>
                     </ul>
                 </div>

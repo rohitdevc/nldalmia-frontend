@@ -7,14 +7,11 @@ import { useState, useEffect, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import IndianStatesCities from "indian-states-cities-list";
 
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
-import dayjs from 'dayjs';
-import utc from "dayjs/plugin/utc";
-import advancedFormat from 'dayjs/plugin/advancedFormat'
-dayjs.extend(utc);
-dayjs.extend(advancedFormat);
+import { FaCheck } from "react-icons/fa6";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -35,6 +32,35 @@ import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
 
 export default function AdmissionComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const [activeState, setActiveState] = useState<string>("");
+  const [indian_cities, setIndianCities] = useState<string[]>([]);
+
+  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const index = e.target.selectedIndex - 1;
+    const state = e.target.value;
+    
+    setActiveState(state);
+    
+    const stateKeys = Object.keys(IndianStatesCities.STATE_WISE_CITIES);
+    const stateKey = stateKeys[index];
+    
+    const cities = stateKey
+    ? IndianStatesCities.STATE_WISE_CITIES[stateKey].map((city: any) => city.value)
+    : [];
+    
+    setIndianCities(cities);
+  };
+
+  const indian_states = IndianStatesCities.INDIAN_STATES_AND_UT_ARRAY;
+
+  const [checked, setChecked] = useState(true);
+
+  const [downloadBrochurePopUp, updateDownloadBrochurePopUp] = useState(false);
+  
+  const handleDownloadBrochure = () => {
+    updateDownloadBrochurePopUp(true);
+  };
 
   const admission_programs = [
     {
@@ -246,7 +272,7 @@ export default function AdmissionComponent() {
 
   return (
     <>
-    <Header admissionPage={true} />
+    <Header admissionPage={true} onDownloadBrochureClick={handleDownloadBrochure} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image="banner.jpeg"
@@ -289,22 +315,22 @@ export default function AdmissionComponent() {
               <div className="flex flex-col gap-10 lg:w-1/2">
                 <div className="flex flex-col gap-5">
                   <h2 className="font-georgia text-xl lg:text-2xl">Connect With Our Admission Office</h2>
-                  <p className="leading-snug text-sm md:text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
+                  <p className="leading-snug text-sm md:text-lg">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
                   <ul className="flex gap-5">
                     <li>
-                      <Link href="" className="bg-white text-burgundy px-5 py-2 text-sm md:text-md">PGDM Office</Link>
+                      <Link href="" className="bg-white text-burgundy px-5 py-2 text-sm md:text-lg">PGDM Office</Link>
                     </li>
                     <li>
-                      <Link href="" className="border border-white text-white px-5 py-2 text-sm md:text-md">Global MBA Office</Link>
+                      <Link href="" className="border border-white text-white px-5 py-2 text-sm md:text-lg">Global MBA Office</Link>
                     </li>
                   </ul>
                 </div>
                 <div className="flex flex-col gap-5">
                   <h2 className="font-georgia text-xl lg:text-2xl">Start Your Application Process</h2>
-                  <p className="leading-snug text-sm md:text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
+                  <p className="leading-snug text-sm md:text-lg">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
                   <ul className="flex gap-5">
                     <li>
-                      <Link href="" className="bg-white text-burgundy px-5 py-2 text-sm md:text-md">Apply Now</Link>
+                      <Link href="" className="bg-white text-burgundy px-5 py-2 text-sm md:text-lg">Apply Now</Link>
                     </li>
                   </ul>
                 </div>
@@ -498,7 +524,7 @@ export default function AdmissionComponent() {
                     <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === (faq_category.faq_category_title) ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(faq_category.faq_category_title)}>
                       <span className="relative">
                         {faq_category.faq_category_title}
-                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100`}></span>
+                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeFAQCategory === (faq_category.faq_category_title) ? 'scale-x-100' : ''}`}></span>
                       </span>
                     </li>
                   ))
@@ -544,6 +570,95 @@ export default function AdmissionComponent() {
             <input type="email" placeholder="Enter Your Email Address" className="w-xs lg:w-lg border-b py-2 border-white outline-none" />
             <button type="submit" className="bg-[#800000] px-2 py-2 cursor-pointer">Submit & Download</button>
           </form>
+      </div>
+      <div className={`fixed top-0 left-0 bg-black/40 z-10 w-full h-screen flex justify-center md:items-center transition-all duration-300 ${downloadBrochurePopUp ? 'scale-y-100': 'scale-y-0'}`}>
+        <div className="bg-white px-10 py-10 relative w-full lg:w-1/2">
+        <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateDownloadBrochurePopUp(false)}/>
+          <form className="flex flex-col gap-5" autoComplete="off">
+            <h2 className="font-georgia text-xl">Fill The Form To Download Brochure</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full text-[#4E4E4E]">
+              <div className="relative">
+                <input type="text" name="download_brochure_name" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Name" />
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <input type="text" name="download_brochure_email_id" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Email Address" />
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <input type="tel" name="download_brochure_mobile_number" maxLength={10} className="border-b border-[#800000] py-1 w-full pr-20" placeholder="Enter Mobile Number" inputMode="numeric" />
+                <span className="absolute right-0 underline text-burgundy cursor-pointer">Get OTP</span>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <input type="number" name="download_brochure_otp" min={0} maxLength={6} className="border-b border-[#800000] py-1 w-full appearance-none no-spinner" placeholder="Enter OTP" inputMode="numeric" />
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <select name="download_brochure_state_name" className="border-b border-[#800000] py-2 w-full" value={activeState} onChange={handleStateChange}>
+                  <option value="">Select State</option>
+                  {
+                    indian_states && indian_states.length > 0 && indian_states.map((indian_state, key) => (
+                      <option value={indian_state} key={key}>{indian_state}</option>
+                    ))
+                  }
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <select name="download_brochure_city_name" className="border-b border-[#800000] py-2 w-full" >
+                  <option value="">Select City</option>
+                  {
+                    indian_cities && indian_cities.length > 0 && indian_cities.map((indian_city, key) => (
+                      <option value={indian_city} key={key}>{indian_city}</option>
+                    ))
+                  }
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <select name="download_brochure_graduation_status" className="border-b border-[#800000] py-2 w-full" >
+                  <option value="">Select Graduation Status</option>
+                  <option value="Completed">Completed</option>
+                  <option value="In Last Year Of Graduation">In Last Year Of Graduation</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <label htmlFor="download_brochure_terms" className="flex gap-2 items-start cursor-pointer">
+              <div className="mt-1 h-5 w-5 shrink-0 rounded border-2 border-[#800000] bg-white flex items-center justify-center transition-all duration-150">
+                <input type="checkbox" id="download_brochure_terms" className="peer sr-only" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+                <FaCheck className="hidden peer-checked:block h-4 w-4 text-[#800000]" />
+              </div>
+              <p>I agree to receive information by signing up on N. L. Dalmia Institute of Management Studies and Research *</p>
+            </label>
+            
+            <button type="submit" className="cursor-pointer text-white bg-[#800000] w-fit px-5 py-1">Submit</button>
+          </form>
+        </div>
       </div>
       <Footer />
     </main>
