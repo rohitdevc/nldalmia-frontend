@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { useState, useRef } from "react";
 
-import { IoIosArrowDown, IoMdClose } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { FiPlayCircle } from "react-icons/fi";
 
 import { Swiper, SwiperSlide } from "swiper/react";
