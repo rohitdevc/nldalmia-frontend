@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 
 import VimeoVideoPopUp, { VimeoVideoPopupHandle } from "@/components/VimeoVideo";
@@ -13,9 +14,11 @@ type BannerInterface = {
     banner_caption?: string;
     banner_description?: string;
     banner_vimeo_video_id?: string;
+    banner_url?: string;
+    banner_button_caption?: string;
 }
 
-export default function Banner({banner_image, banner_caption, banner_description, banner_vimeo_video_id}: BannerInterface) {
+export default function Banner({banner_image, banner_caption, banner_description, banner_vimeo_video_id, banner_url, banner_button_caption}: BannerInterface) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const videoPopupRef = useRef<VimeoVideoPopupHandle>(null);
@@ -33,7 +36,7 @@ export default function Banner({banner_image, banner_caption, banner_description
                 }
                 {
                     banner_description && (
-                        <p className="text-xs md:text-sm md:w-3xl leading-normal">{parser(nl2br(banner_description))}</p>
+                        <p className="text-xs md:text-sm md:w-3xl leading-loose">{parser(nl2br(banner_description))}</p>
                     )
                 }
                 {
@@ -42,6 +45,13 @@ export default function Banner({banner_image, banner_caption, banner_description
                             <FaPlayCircle />
                             <span>Play Video</span>
                         </div>
+                    )
+                }
+                {
+                    banner_url && (
+                        <Link href={banner_url} className="px-3 py-1 bg-[#800000] text-white">
+                            <span>{banner_button_caption}</span>
+                        </Link>
                     )
                 }
             </div>

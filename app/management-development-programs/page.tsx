@@ -1,7 +1,7 @@
 //import { getMetaData, getBanner } from "@/lib/home";
 
 import type { Metadata } from "next";
-import BlogComponent from "@/components/pages/BlogComponent";
+import ManagementDevelopmentProgramsComponent from "@/components/pages/ManagementDevelopmentProgramsComponent";
 
 //const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
@@ -45,6 +45,6 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <BlogComponent />
+    <ManagementDevelopmentProgramsComponent />
   )
 }

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Faculty() {
+export default async function Page() {
   return (
     <FacultyComponent />
   )

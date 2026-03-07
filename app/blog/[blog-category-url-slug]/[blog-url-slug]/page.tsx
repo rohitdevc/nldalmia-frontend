@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function BlogDetails({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const { "blog-url-slug": blog_url_slug } = await params;
 
   return (

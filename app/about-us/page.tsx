@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function AboutUs() {
+export default async function Page() {
   return (
     <AboutUsComponent />
   )

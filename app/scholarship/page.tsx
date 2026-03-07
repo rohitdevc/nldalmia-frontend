@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Scholarship() {
+export default async function Page() {
   return (
     <ScholarshipComponent />
   )

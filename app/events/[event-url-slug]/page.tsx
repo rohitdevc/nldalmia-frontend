@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Event({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const { "event-url-slug": event_url_slug } = await params;
 
   return (

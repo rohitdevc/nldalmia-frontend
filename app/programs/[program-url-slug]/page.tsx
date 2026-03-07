@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function ProgramDetails() {
+export default async function Page() {
   return (
     <ProgramComponent />
   )

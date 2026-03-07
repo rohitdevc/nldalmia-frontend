@@ -17,7 +17,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
-import CenterIntro from "../CenterIntro";
+import CenterIntro from "@/components/CenterIntro";
 import scrollWithOffset from "@/components/scrollWithOffset";
 
 import "swiper/css";

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Media({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const { "media-category-url-slug": media_category_url_slug } = await params;
   
   return (

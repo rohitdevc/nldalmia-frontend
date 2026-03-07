@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Faculty({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const { "faculty-url-slug": faculty_url_slug } = await params;
 
   return (
