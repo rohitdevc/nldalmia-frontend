@@ -33,7 +33,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function FacultyDetails({event_url_slug = ""}) {
+export default function FacultyDetails({faculty_url_slug = ""}) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [openAccordian, toggleAccordian] = useState(1);
