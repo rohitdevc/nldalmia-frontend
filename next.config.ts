@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
 	        ],
 	      },
 	    ];
+	 },
+
+	 async redirects()  {
+		return [
+			{
+				source: '/faculty/research-papers-published',
+				destination: '/faculty/research-papers-published/journal-publications',
+				permanent: true
+			}
+		]
 	 }
 };
 
