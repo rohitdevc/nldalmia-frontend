@@ -86,10 +86,10 @@ export default function Header({onDownloadBrochureClick, admissionPage = false, 
                     <Link href={`${basePath}alumni`}>Alumni</Link>
                 </li>
                 <li>
-                    <Link href="">Media</Link>
+                    <Link href={`${basePath}media`}>Media</Link>
                 </li>
                 <li>
-                    <Link href={`${basePath}scholarship`}>Scholarship</Link>
+                    <Link href={`${basePath}scholarships`}>Scholarships</Link>
                 </li>
             </ul>
             <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 xl:pl-[2%] pr-5 md:pr-10 xl:pr-[2%] text-sm bg-white">
