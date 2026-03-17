@@ -21,7 +21,13 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function CareerComponent() {
+import { Banner as BannerProps } from "@/types/api";
+
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function CareerComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [showVacancyPopUp, updateVacancyPopUp] = useState(false);
@@ -73,9 +79,12 @@ export default function CareerComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Join Our Mission To Shape The Future Of Management Education"
-      banner_description="Discover a fulfilling career where excellence, innovation and purpose come together"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="Events" introCaption="We Are More Than Just An Institute - We’re A Community Of Passionate Educators, Researchers And Professionals Driven To Create Meaningful Impact." introDescription="With a legacy of academic excellence, dynamic leadership and a progressive environment, we welcome individuals who aspire to make a difference in the world of education." />
         <div className="w-full">

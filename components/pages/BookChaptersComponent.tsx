@@ -12,8 +12,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import ResearchPublicationTabs from "@/components/ResearchPublicationTabs";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function BookChaptersComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function BookChaptersComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const book_publications = [
@@ -100,9 +105,12 @@ export default function BookChaptersComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Faculty Research And Publications"
-      banner_description="Discover book articles, case studies, books and thought leadership from our faculty. Search by title, faculty or year, filter by type and download citations."/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <ResearchPublicationTabs page_name={page_name}  />
       <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 md:px-15 xl:px-30 py-10">
         <div className="relative lg:w-[45%] border-b border-[#800000] text-black">

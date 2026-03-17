@@ -24,7 +24,13 @@ import parser from 'html-react-parser';
 
 import { useServerCountdown } from "@/hooks/useServerCountdown";
 
-export default function Events() {
+import { Banner as BannerProps } from "@/types/api";
+
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function Events({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const events = [
@@ -93,8 +99,12 @@ export default function Events() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Life@ NLDIMSR Where Rigorous Academics Meet A Vibrant, Enriching Campus Experience"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       {
         events && events.length > 0 && (
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 md:px-15 xl:px-30 py-10">

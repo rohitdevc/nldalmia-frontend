@@ -1,9 +1,7 @@
-//import { getMetaData, getBanner } from "@/lib/home";
+import { getMediaCategory } from "@/lib/media";
 
 import type { Metadata } from "next";
 import MediaComponent from "@/components/pages/MediaComponent";
-
-//const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
 export const viewport = {
   themeColor: [
@@ -20,39 +18,47 @@ type PageProps = {
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: "",
-  description: "",
-  alternates: {
-    canonical: ""
-  },
-  openGraph: {
-      title: "",
-      description: "",
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { "media-category-url-slug": media_category_url_slug } = await params;
+
+  const media_category = await getMediaCategory(media_category_url_slug);
+
+  return {
+    title: media_category.meta_title,
+    description: media_category.meta_description,
+    alternates: {
+      canonical: media_category.canonical_tag,
+    },
+    openGraph: {
+      title: media_category.meta_title,
+      description: media_category.meta_description,
       type: "website",
-      url: "",
+      url: media_category.canonical_tag,
       siteName: "NL Dalmia",
       images: [
         {
-          url: "",
+          url: media_category.banner_image,
           width: 1200,
           height: 630,
-          alt: "",
+          alt: media_category.meta_title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "",
-      description: "",
-      images: [""],
+      title: media_category.meta_title,
+      description: media_category.meta_description,
+      images: [media_category.banner_image],
     },
-};
+  };
+}
 
 export default async function Page({ params }: PageProps) {
   const { "media-category-url-slug": media_category_url_slug } = await params;
+
+  const [ media_category ] = await Promise.all([ getMediaCategory(media_category_url_slug) ]);
   
   return (
-    <MediaComponent media_category_url_slug={media_category_url_slug} />
+    <MediaComponent banner={media_category} media_category_url_slug={media_category_url_slug} />
   )
 }

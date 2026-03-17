@@ -34,7 +34,13 @@ import "swiper/css/pagination";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 
-export default function AboutUsComponent() {
+import { Banner as BannerProps } from "@/types/api";
+
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function AboutUsComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -294,8 +300,12 @@ export default function AboutUsComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Shaping Business Leaders Of Tomorrow Since 1995, With 30+ Years Of Excellence In Management Education"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="About Us" introCaption="NAAC - Accredited, Industry-Aligned, And Committed To Transformative Learning Experiences" />
         <div className="flex flex-col lg:flex-row gap-10 md:mt-10 xl:mt-20">
@@ -452,7 +462,7 @@ export default function AboutUsComponent() {
         </div>
         )
       }
-      <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+      <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}} id="InternationalTieUps">
           <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
           <div className="flex flex-col gap-15 relative w-full h-full justify-center items-center">
             <p className="font-georgia leading-normal lg:leading-loose text-center text-2xl lg:text-4xl">Our State Of-The-Art Campus Is Designed To Inspire Learning, Collaboration And Innovation. From Modern Classrooms & High-Tech Labs To Collaborative Workspaces & Vibrant Student Areas, Every Corner Reflects Our Commitment To Excellence.</p>

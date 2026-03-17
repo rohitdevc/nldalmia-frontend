@@ -17,8 +17,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function ContactUsComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function ContactUsComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const enquiry_reasons = ['General', 'Admissions'];
@@ -28,9 +33,12 @@ export default function ContactUsComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Get In Touch With Us"
-      banner_description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet."/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="Let’s Talk" introCaption="Whether you’re a prospective student, parent Recruiter or academic partner - we’re here to help" introDescription="If you have any questions regarding programs, facilities or have requests or suggestions to make, feel free to give us a call or fill out the form below" />
       </div>

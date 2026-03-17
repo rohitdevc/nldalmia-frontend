@@ -24,7 +24,13 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function ManagementDevelopmentProgramsComponent() {
+import { Banner as BannerProps } from "@/types/api";
+
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function ManagementDevelopmentProgramsComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -163,11 +169,12 @@ export default function ManagementDevelopmentProgramsComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Empowering Professionals.<br/>Enabling Progress."
-      banner_description="Management Development Programs (MDPs) at N. L. Dalmia Institute of Management Studies & Research — practical, industry-aligned short programs to upskill leaders, managers and high-potential teams."
-      banner_url={`${basePath}programs`}
-      banner_button_caption="Explore Our Programs"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro introCaption="Overview" introDescription="Conduct focused, industry-relevant short-term programs (MDPs) that translate academic insights into practical skills and measurable outcomes for working professionals. We design programs to accelerate leadership capability and functional excellence." />
         <div className="flex flex-col lg:flex-row gap-5 w-full lg:items-center justify-between">

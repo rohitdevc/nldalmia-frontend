@@ -13,8 +13,14 @@ import { MdArrowOutward } from "react-icons/md";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Blog } from "@/types/api";
 
-export default function BlogDetailsComponent({blog_url_slug = ""}) {
+type PageProps = {
+  blog: Blog,
+  blog_url_slug: string;
+}
+
+export default function BlogDetailsComponent({blog, blog_url_slug}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (

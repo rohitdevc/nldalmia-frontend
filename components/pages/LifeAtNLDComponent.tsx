@@ -28,8 +28,13 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
+import { Banner as BannerProps } from "@/types/api";
 
-export default function LifeAtNLD() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function LifeAtNLD({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const eventsList = useRef<HTMLDivElement>(null);
@@ -181,8 +186,12 @@ export default function LifeAtNLD() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Life@ NLDIMSR Where Rigorous Academics Meet A Vibrant, Enriching Campus Experience"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       {
         event_timelines && event_timelines.length > 0 && (
       <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">

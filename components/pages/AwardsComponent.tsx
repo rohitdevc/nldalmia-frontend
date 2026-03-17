@@ -6,8 +6,13 @@ import Banner from "@/components/Banner";
 import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function AwardsComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function AwardsComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const awards = [
@@ -78,9 +83,12 @@ export default function AwardsComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="In The Spotlight"
-      banner_description="Discover how N.L.Dalmmia Institute Of Management Studies and Research makes headlines, earns recognition, and share its voice across platforms from newsrooms to industry reports"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
         <CenterIntro introTitle="Media And Newsroom" introCaption="At NLDIMSR, We Believe In Leading With Impact And It Shows In The Stories We Tell And The Stories Told About Us." introDescription="Celebrate the milestone that define our legacy-from institutional accolades to individual excellence across academia, innovation and leadership" />
         <MediaNavigation activePage="awards-and-achievements" />

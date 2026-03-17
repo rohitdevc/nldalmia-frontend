@@ -1,9 +1,7 @@
-//import { getMetaData, getBanner } from "@/lib/home";
+import { getProgram } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramComponent from "@/components/pages/ProgramComponent";
-
-//const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
 export const viewport = {
   themeColor: [
@@ -12,39 +10,55 @@ export const viewport = {
   ],
 };
 
+type PageProps = {
+  params: Promise<{
+    "program-url-slug": string
+  }>
+}
+
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: "",
-  description: "",
-  alternates: {
-    canonical: ""
-  },
-  openGraph: {
-      title: "",
-      description: "",
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { "program-url-slug": program_url_slug } = await params;
+
+  const program = await getProgram(program_url_slug);
+
+  return {
+    title: program.meta_title,
+    description: program.meta_description,
+    alternates: {
+      canonical: program.canonical_tag,
+    },
+    openGraph: {
+      title: program.meta_title,
+      description: program.meta_description,
       type: "website",
-      url: "",
+      url: program.canonical_tag,
       siteName: "NL Dalmia",
       images: [
         {
-          url: "",
+          url: program.og_image,
           width: 1200,
           height: 630,
-          alt: "",
+          alt: program.meta_title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "",
-      description: "",
-      images: [""],
+      title: program.meta_title,
+      description: program.meta_description,
+      images: [program.og_image],
     },
-};
+  };
+}
 
-export default async function Page() {
+export default async function Page({ params }: PageProps) {
+  const { "program-url-slug": program_url_slug } = await params;
+
+  const program = await getProgram(program_url_slug);
+
   return (
-    <ProgramComponent />
+    <ProgramComponent program={program} />
   )
 }

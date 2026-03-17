@@ -10,7 +10,13 @@ import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 
-export default function FinancialAssistance() {
+import { Banner as BannerProps } from "@/types/api";
+
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function FinancialAssistance({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const financial_partners = [
@@ -51,9 +57,12 @@ export default function FinancialAssistance() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Empowering Your Education Journey"
-      banner_description="Explore a range of education loan options and exclusive partner tie-ups designed to make quality management education accessible and stress free."/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
         <Intro introCaption="Trusted Financial Partners" introDescription="We’ve collaborated with leading financial institutions to offer simplified, student friendly loan solutions. Get fast track approvals, minimal documentation and flexible repayment options tailored for PGDM and MBA students." />
         {

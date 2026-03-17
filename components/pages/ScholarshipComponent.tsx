@@ -12,8 +12,13 @@ import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 
 import { MdArrowOutward } from "react-icons/md";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function ScholarshipComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function ScholarshipComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
   
   useEffect(() => {
@@ -41,9 +46,12 @@ export default function ScholarshipComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Where Merit Meets Opportunity"
-      banner_description="At N.L. Dalmia Institute Of Management Studies and Research, we believe academic brilliance and potential should never be limited by financial constraints. Our scholarship programs reward high achivers, encourage inclusivity and enable deserving student to access world class education"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="Events" introCaption="Empowering Ambition Through Financial Support" introDescription="The NLDIMSR Scholarship Program is designed to recognise merit, promote diversity and support students from economically or socially disadvantaged backgrounds. With both merit based and inclusivity based scholarships, we aim to build an ecosystem where every deserving candidate has the chance to excel." />
         <div className="w-full">

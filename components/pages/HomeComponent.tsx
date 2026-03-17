@@ -33,113 +33,29 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeed from "@/components/InstagramFeed";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection } from "@/types/api";
 
-export default function HomeComponent() {
+type PageProps = {
+  banner: BannerProps;
+  introduction: IntroProps;
+  career_finder: CareerFinderProps
+  career_paths: CareerPathProps
+  program_introduction: IntroProps
+  programs: ProgramsProps[]
+  video: VideoSection,
+  placement_partners_introduction: IntroProps
+  placement_partners: PlacementPartners[]
+  testimonials_introduction: IntroProps
+  testimonials: HomeTestimonials[]
+};
+
+export default function HomeComponent({banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const careetPaths = [
-    {
-      id: 1,
-      name: 'Finance'
-    },
-    {
-      id: 2,
-      name: 'Marketing'
-    },
-    {
-      id: 3,
-      name: 'Human Resources'
-    },
-    {
-      id: 4,
-      name: 'Digital Markerting'
-    }
-  ]
 
   const program_categories = [
     {
       id: 1,
-      program_category_name: 'Full Time Programs'
-    },
-    {
-      id: 2,
-      program_category_name: 'Online Learning'
-    },
-    {
-      id: 3,
-      program_category_name: 'Open Distance Learning'
-    },
-    {
-      id: 4,
-      program_category_name: 'Ph.D Programs'
-    },
-    {
-      id: 5,
-      program_category_name: 'Executive PGDM'
-    },
-    {
-      id: 6,
-      program_category_name: 'Global MBA'
-    },
-    {
-      id: 7,
-      program_category_name: 'Bloomberg Research Analyst'
-    }
-  ]
-
-  const partners = [
-    {
-      id: 1,
-      partner_name: 'Deutsche Bank',
-      partner_logo: 'deutsche-bank.png'
-    },
-    {
-      id: 1,
-      partner_name: 'Motilal Oswal',
-      partner_logo: 'motilal-oswal.png'
-    },
-    {
-      id: 1,
-      partner_name: 'Abbott',
-      partner_logo: 'abbott.png'
-    },
-    {
-      id: 1,
-      partner_name: 'Aditya Birla Group',
-      partner_logo: 'aditya-birla-group.png'
-    },
-    {
-      id: 1,
-      partner_name: 'Bloomberg',
-      partner_logo: 'bloomberg.png'
-    },
-  ]
-
-  const testimonials = [
-    {
-      id: 1,
-      testimonial_name: 'Ankita Mishra',
-      testimonial_thumbnail: 'ankita-mishra.png',
-      testimonial_designation: 'HR Business Partner',
-      testimonial_company_name: 'Amazon Development Centre India Ltd',
-      testimonial_content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 2,
-      testimonial_name: 'Rebuen D\'Souza',
-      testimonial_thumbnail: 'reuben-dsouza.png',
-      testimonial_designation: 'Senior Manager - Human Resources',
-      testimonial_company_name: 'UPL Limited',
-      testimonial_content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    },
-    {
-      id: 3,
-      testimonial_name: 'Ankita Mishra',
-      testimonial_thumbnail: 'ankita-mishra.png',
-      testimonial_designation: 'HR Business Partner',
-      testimonial_company_name: 'Amazon Development Centre India Ltd',
-      testimonial_content: '',
-      testimonial_youtube_video_id: 'loSuQcjtLYA'
+      program_category_name: 'Programs'
     }
   ]
 
@@ -424,7 +340,7 @@ export default function HomeComponent() {
 
   const updateActiveProgramCategoryFunc = (program_category_id: number): void => {
     updateActiveProgramCategory(program_category_id);
-    updateActiveProgram(0);
+    updateActiveProgram(-1);
 
     if(programsList.current) {
       const offset = 200;
@@ -437,7 +353,7 @@ export default function HomeComponent() {
     }
   }
 
-  const [activeProgram, updateActiveProgram] = useState(0);
+  const [activeProgram, updateActiveProgram] = useState(-1);
 
   const handleProgramClick = (program_id: number): React.MouseEventHandler<HTMLDivElement> => {
     return () => {
@@ -447,7 +363,7 @@ export default function HomeComponent() {
     }
   }
 
-  const [activeTestimonial, updateActiveTestimonial] = useState(0);
+  const [activeTestimonial, updateActiveTestimonial] = useState(-1);
 
   const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
     return () => {
@@ -462,42 +378,47 @@ export default function HomeComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="25+ Years Of Pioneering Management Education"
-      banner_description="We blend rich tradition with cutting edge education to cultivate tomorrow's leaders. We stand as a beacon of quality education, producing globally competent professionals committed to making a difference."
-      banner_vimeo_video_id="1159526203" />
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-        <Intro introTitle="For Over Three Decades" introCaption="Nldimsr has been at the froefront of <br /> management education, consistently ranked <br /> among the top business schools in the country" />
+        <Intro
+        introTitle={introduction.intro_title}
+        introCaption={introduction.intro_caption}
+        />
         <div className="flex flex-col md:flex-row gap-10 md:mt-10 lg:mt-20">
           <div className="w-full md:w-[40%] overflow-hidden">
-            <Image src={`${basePath}images/home/intro-img.png`} width={800} height={750} alt="NL Dalmia Intro" className="object-cover" />
+            <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_title} className="object-cover" />
           </div>
           <div className="w-full md:w-[60%] flex flex-col gap-5">
-            <p className="text-[#4E4E4E] text-sm leading-loose">With state-of-the-art infrastructure, a distinguished faculty, and industry- centric programs, we empower students to excel in an ever - changing global landscape. Our mission is to nuture thoughts leaders, innovators, and socially responsible professionals who shape the future with purpose and integrity.</p>
+            <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(introduction.intro_description))}</p>
             <ul className="flex flex-wrap md:flex-row justify-between text-sm text-burgundy">
               <li className="w-1/2 lg:w-40 mt-2">
-                <Link href="" className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
+                <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
               </li>
               <li className="w-1/2 lg:w-40 mt-2">
-                <Link href="" className="flex gap-1 items-center">Leadership <MdArrowOutward size={15} /></Link>
+                <Link href={`${basePath}about-us`} className="flex gap-1 items-center">Leadership <MdArrowOutward size={15} /></Link>
               </li>
               <li className="w-1/2 lg:w-40 mt-2">
-                <Link href="" className="flex gap-1 items-center">International Tie-Ups <MdArrowOutward size={15} /></Link>
+                <Link href={`${basePath}about-us#InternationalTieUps`} className="flex gap-1 items-center">International Tie-Ups <MdArrowOutward size={15} /></Link>
               </li>
               <li className="w-1/2 lg:w-40 mt-2">
-                <Link href="" className="flex gap-1 items-center">Program Outcomes <MdArrowOutward size={15} /></Link>
+                <Link href={`${basePath}about-us`} className="flex gap-1 items-center">Program Outcomes <MdArrowOutward size={15} /></Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div className={`w-full lg:h-100 relative bg-cover bg-center bg-no-repeat text-white`} style={{backgroundImage: `url(${basePath}images/home/career-path.png)`}}>
+      <div className={`w-full lg:h-100 relative bg-cover bg-center bg-no-repeat text-white`} style={{backgroundImage: `url(${career_finder.career_finder_image})`}}>
         <div className="absolute top-0 inset-0 bg-black/30 z-0"></div>
         <form className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10 relative">
-          <h2 className="text-xl md:text-2xl">Discover Your Perfect Course Fit By Aligning It With Your Career Expectations</h2>
+          <h2 className="text-xl md:text-2xl">{career_finder.career_finder_title}</h2>
           <div className="flex flex-col md:flex-row gap-3">
-            <h3 className="text-2xl md:text-3xl font-georgia">I'm Looking To Pursue A Career In</h3>
-            <Multiselect className="career-paths text-sm text-burgundy" selectedValues={{}} options={careetPaths} displayValue="name" placeholder="Select your Career Paths" showCheckbox={true} />
+            <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
+            <Multiselect className="career-paths text-sm text-burgundy" selectedValues={{}} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} />
           </div>
           <div className="flex gap-5">
             <input type="submit" value="Search Careers" className="bg-[#800000] py-2 w-35 text-sm cursor-pointer" />
@@ -505,214 +426,89 @@ export default function HomeComponent() {
           </div>
         </form>
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-          <Intro introTitle="Our Academic Programs" introCaption="Empowering 10,000+ Leaders. Your Gateway To <br /> Excellence In Management Education" introDescription="We offer a comprehensive suite of programs designed to meet evolving demands" />
-          <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
-            <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-100 gap-5 text-burgundy">
+      {
+        programs && programs.length > 0 && (
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+            <Intro
+            introTitle={program_introduction.intro_title}
+            introCaption={program_introduction.intro_caption}
+            introDescription={program_introduction.intro_description}
+            />
+            <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
+              <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-100 gap-5 text-burgundy">
+                {
+                  program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
+                    <li className={`cursor-pointer transition-all duration-300 ${activeProgramCategory === program_category.id ? 'text-xl font-medium' : ''}`} key={key} onClick={() => updateActiveProgramCategoryFunc(program_category.id)}>
+                      <span className="relative">
+                        {program_category.program_category_name}
+                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 ${activeProgramCategory === program_category.id ? 'scale-x-100' : 'scale-x-0'}`}></span>
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
               {
-                program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
-                  <li className={`cursor-pointer transition-all duration-300 ${activeProgramCategory === program_category.id ? 'text-xl font-medium' : ''}`} key={key} onClick={() => updateActiveProgramCategoryFunc(program_category.id)}>
-                    <span className="relative">
-                      {program_category.program_category_name}
-                      <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 ${activeProgramCategory === program_category.id ? 'scale-x-100' : 'scale-x-0'}`}></span>
-                    </span>
-                  </li>
+                  program_categories && program_categories.length > 0 && program_categories.map((program_category) => activeProgramCategory === program_category.id && (
+                  <div className={`max-w-full lg:max-w-5xl flex flex-wrap justify-center gap-5 text-white transition-opacity`} key={program_category.id} ref={programsList}>
+                    {
+                      programs.map((program, key) => (
+                      <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} onClick={handleProgramClick(key)} key={key}>
+                        <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
+                        
+                        <div className="relative h-full w-full flex flex-col">
+                          <div className="flex justify-end mt-2 mr-2">
+                            <span className="bg-[#800000] text-xs px-3 py-2">{program.program_type}</span>
+                          </div>
+                          <div className="mt-auto px-5 pb-10">
+                            <h2 className="text-2xl font-georgia">{program.program_name}</h2>
+                          </div>
+                        </div>
+
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === key ? "scale-y-100" : "scale-y-0"}`}>
+                          <div className="flex justify-end mt-2 mr-2">
+                            <span className="bg-white text-burgundy text-xs px-3 py-2">{program.program_type}</span>
+                          </div>
+                          <div className="px-5 flex flex-col gap-2 h-full">
+                            <h2 className="text-2xl font-georgia min-h-15">{program.program_name}</h2>
+                            <p className="leading-relaxed text-sm">{parser(nl2br(program.program_description))}</p>
+                            <ul className="flex mt-auto pb-5 gap-10 text-sm">
+                              <li><Link href={program.program_link} className="underline">Learn More</Link></li>
+                              <li><Link href={program.program_application_link} className="underline" target="_blank">Apply Now</Link></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                      </div>
+                    ))
+                    }
+                  </div>
                 ))
-              }
-            </ul>
-            {
-                program_categories && program_categories.length > 0 && program_categories.map((program_category) => activeProgramCategory === program_category.id && (
-                <div className={`max-w-full lg:max-w-5xl flex flex-wrap justify-center gap-5 text-white transition-opacity`} key={program_category.id} ref={programsList}>
-
-                  <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${basePath}images/home/pgdm-in-ba.png)`}} onClick={handleProgramClick(1)}>
-                    <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
-                    
-                    <div className="relative h-full w-full flex flex-col">
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-[#800000] text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="mt-auto px-5 pb-10">
-                        <h2 className="text-2xl font-georgia">PGDM in Business Analytics</h2>
-                      </div>
-                    </div>
-
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === 1 ? "scale-y-100" : "scale-y-0"}`}>
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-white text-burgundy text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="px-5 flex flex-col gap-2 h-full">
-                        <h2 className="text-2xl font-georgia min-h-15">PGDM in Business Analytics</h2>
-                        <p className="leading-relaxed text-sm">
-                          Best Suited For: Management Aspirants <br />
-                          Duration: 2 Year Course <br /><br />
-                          Holistic Development <br />
-                          Real World Experience <br />
-                          Industry Networking Opportunities
-                        </p>
-                        <ul className="flex mt-auto pb-5 gap-10 text-sm">
-                          <li><Link href="" className="underline">Learn More</Link></li>
-                          <li><Link href="" className="underline" target="_blank">Apply Now</Link></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${basePath}images/home/pgdm-in-finance.png)`}} onClick={handleProgramClick(2)}>
-                    <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
-                    
-                    <div className="relative h-full w-full flex flex-col">
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-[#800000] text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="mt-auto px-5 pb-10">
-                        <h2 className="text-2xl font-georgia">PGDM in Finance</h2>
-                      </div>
-                    </div>
-
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === 2 ? "scale-y-100" : "scale-y-0"}`}>
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-white text-burgundy text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="px-5 flex flex-col gap-2 h-full">
-                        <h2 className="text-2xl font-georgia min-h-15">PGDM in Finance</h2>
-                        <p className="leading-relaxed text-sm">
-                          Best Suited For: Management Aspirants <br />
-                          Duration: 2 Year Course <br /><br />
-                          Holistic Development <br />
-                          Real World Experience <br />
-                          Industry Networking Opportunities
-                        </p>
-                        <ul className="flex mt-auto pb-5 gap-10 text-sm">
-                          <li><Link href="" className="underline">Learn More</Link></li>
-                          <li><Link href="" className="underline" target="_blank">Apply Now</Link></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${basePath}images/home/pgdm-in-ba.png)`}} onClick={handleProgramClick(3)}>
-                    <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
-                    
-                    <div className="relative h-full w-full flex flex-col">
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-[#800000] text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="mt-auto px-5 pb-10">
-                        <h2 className="text-2xl font-georgia">PGDM in Business Analytics</h2>
-                      </div>
-                    </div>
-
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === 3 ? "scale-y-100" : "scale-y-0"}`}>
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-white text-burgundy text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="px-5 flex flex-col gap-2 h-full">
-                        <h2 className="text-2xl font-georgia min-h-15">PGDM in Business Analytics</h2>
-                        <p className="leading-relaxed text-sm">
-                          Best Suited For: Management Aspirants <br />
-                          Duration: 2 Year Course <br /><br />
-                          Holistic Development <br />
-                          Real World Experience <br />
-                          Industry Networking Opportunities
-                        </p>
-                        <ul className="flex mt-auto pb-5 gap-10 text-sm">
-                          <li><Link href="" className="underline">Learn More</Link></li>
-                          <li><Link href="" className="underline" target="_blank">Apply Now</Link></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${basePath}images/home/pgdm-in-ba.png)`}} onClick={handleProgramClick(4)}>
-                    <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
-                    
-                    <div className="relative h-full w-full flex flex-col">
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-[#800000] text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="mt-auto px-5 pb-10">
-                        <h2 className="text-2xl font-georgia">PGDM in Business Analytics</h2>
-                      </div>
-                    </div>
-
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === 4 ? "scale-y-100" : "scale-y-0"}`}>
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-white text-burgundy text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="px-5 flex flex-col gap-2 h-full">
-                        <h2 className="text-2xl font-georgia min-h-15">PGDM in Business Analytics</h2>
-                        <p className="leading-relaxed text-sm">
-                          Best Suited For: Management Aspirants <br />
-                          Duration: 2 Year Course <br /><br />
-                          Holistic Development <br />
-                          Real World Experience <br />
-                          Industry Networking Opportunities
-                        </p>
-                        <ul className="flex mt-auto pb-5 gap-10 text-sm">
-                          <li><Link href="" className="underline">Learn More</Link></li>
-                          <li><Link href="" className="underline" target="_blank">Apply Now</Link></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${basePath}images/home/pgdm-in-ba.png)`}} onClick={handleProgramClick(5)}>
-                    <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
-                    
-                    <div className="relative h-full w-full flex flex-col">
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-[#800000] text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="mt-auto px-5 pb-10">
-                        <h2 className="text-2xl font-georgia">PGDM in Business Analytics</h2>
-                      </div>
-                    </div>
-
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === 5 ? "scale-y-100" : "scale-y-0"}`}>
-                      <div className="flex justify-end mt-2 mr-2">
-                        <span className="bg-white text-burgundy text-xs px-3 py-2">{program_category.program_category_name}</span>
-                      </div>
-                      <div className="px-5 flex flex-col gap-2 h-full">
-                        <h2 className="text-2xl font-georgia min-h-15">PGDM in Business Analytics</h2>
-                        <p className="leading-relaxed text-sm">
-                          Best Suited For: Management Aspirants <br />
-                          Duration: 2 Year Course <br /><br />
-                          Holistic Development <br />
-                          Real World Experience <br />
-                          Industry Networking Opportunities
-                        </p>
-                        <ul className="flex mt-auto pb-5 gap-10 text-sm">
-                          <li><Link href="" className="underline">Learn More</Link></li>
-                          <li><Link href="" className="underline" target="_blank">Apply Now</Link></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              ))
-              }
-          </div>
-      </div>
-      <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
+                }
+            </div>
+        </div>
+      )
+      }
+      <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${video.video_background_image})`}}>
           <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
           <div className="flex flex-col gap-15 relative w-full h-full justify-center items-center">
-            <p className="font-georgia leading-normal lg:leading-loose text-center text-2xl lg:text-4xl">Our State Of-The-Art Campus Is Designed To Inspire Learning, Collaboration And Innovation. From Modern Classrooms & High-Tech Labs To Collaborative Workspaces & Vibrant Student Areas, Every Corner Reflects Our Commitment To Excellence.</p>
-            <div className="flex items-center gap-2 px-3 py-1 bg-[#800000] cursor-pointer" onClick={() => videoPopupRef.current?.open('loSuQcjtLYA')}>
+            <p className="font-georgia leading-normal lg:leading-loose text-center text-2xl lg:text-4xl">{parser(nl2br(video.video_title))}</p>
+            {
+              video.video_id && (
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#800000] cursor-pointer" onClick={() => videoPopupRef.current?.open(video.video_id)}>
                 <FaPlayCircle />
                 <span>Play Video</span>
             </div>
+            )
+            }
           </div>
       </div>
       {
-          partners && partners.length > 0 && (
+          placement_partners && placement_partners.length > 0 && (
             <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
-              <CenterIntro introTitle="24.46 Lpa Highest Placement Package From Pgdm Program 2023" introCaption="Our Placement Partners Include Some Of The World's Most Prestigious Organizations Across Diverse Sectors Like Finance, Marketing, Consulting, It & More." />
+              <CenterIntro
+              introTitle={placement_partners_introduction.intro_title}
+              introCaption={placement_partners_introduction.intro_caption}
+              introDescription={placement_partners_introduction.intro_description} />
               <div className="flex gap-3">
                 <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer partner_slider_prev">
                   <BsArrowLeftShort size={20} />
@@ -724,9 +520,9 @@ export default function HomeComponent() {
               
               <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation]} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
                 {
-                  partners.map((partner, key) => (
-                    <SwiperSlide className="rounded-full overflow-hidden border border-[#800000] !w-30 sm:!w-50" title={partner.partner_name} key={key}>
-                      <Image src={`${basePath}images/home/partners/${partner.partner_logo}`} alt={partner.partner_name} width={300} height={300} className="object-cover w-full" />
+                  placement_partners.map((placement_partner, key) => (
+                    <SwiperSlide className="rounded-full overflow-hidden border border-[#800000] !w-30 sm:!w-50" title={placement_partner.placement_partner_name} key={key}>
+                      <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_name} width={300} height={300} className="object-cover w-full" />
                     </SwiperSlide>
                   ))
                 }
@@ -737,7 +533,11 @@ export default function HomeComponent() {
       {
         testimonials && testimonials.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-          <Intro introTitle="Voices Of Success" introCaption="Join The Legacy Of Excellence & Let Your Success <br /> Story Begin Here." introDescription="Hear from our alumni and current students as they share their journey of transformation, Learning and success." />
+          <Intro
+          introTitle={testimonials_introduction.intro_title}
+          introCaption={testimonials_introduction.intro_caption}
+          introDescription={testimonials_introduction.intro_description}
+          />
           <div className="flex gap-3">
             <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
               <BsArrowLeftShort size={20} />
@@ -749,29 +549,27 @@ export default function HomeComponent() {
           <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation]} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
             {
               testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(testimonial.id)}>
+                <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
                     <Image src={`${basePath}images/home/testimonials/${testimonial.testimonial_thumbnail}`} alt={testimonial.testimonial_name} width={200} height={200} className="rounded-full w-30 h-30" />
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
-                      <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
+                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
                     </div>
                   </div>
-                  <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === testimonial.id ? "scale-y-100" : "scale-y-0"}`}>
+                  <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
                     {
-                      testimonial.testimonial_youtube_video_id ? (
-                        <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_video_id)}>
+                      testimonial.testimonial_youtube_id ? (
+                        <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_id)}>
                           <FiPlayCircle size={20} />
                           <span className="text-sm">Play Video</span>
                         </div>
                       ) : (
                         <>
-                        <p className="leading-loose">{testimonial.testimonial_content}</p>
+                        <p className="leading-loose">{testimonial.testimonial_description}</p>
                         <div className="mt-auto flex flex-col gap-3">
                           <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
-                          <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
+                          <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
                         </div>
                         </>
                       )
@@ -801,11 +599,11 @@ export default function HomeComponent() {
                 }
               </ul>
               {
-                  event_categories && event_categories.length > 0 && event_categories.map((event_category) => activeEventCategory === event_category.id && (
+                  event_categories && event_categories.length > 0 && event_categories.map((event_category, key) => activeEventCategory === event_category.id && (
                   <>
                   {
                     chunkedEvents && chunkedEvents.length > 0 && (
-                    <div className="w-full lg:w-[75%] flex flex-col gap-5" ref={eventsList}>
+                    <div className="w-full lg:w-[75%] flex flex-col gap-5" key={key} ref={eventsList}>
                       <div className="flex gap-3">
                         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_prev">
                           <BsArrowLeftShort size={20} />

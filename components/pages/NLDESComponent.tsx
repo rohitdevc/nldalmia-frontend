@@ -24,8 +24,13 @@ import CenterIntro from "@/components/CenterIntro";
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
+import { Banner as BannerProps } from "@/types/api";
 
-export default function NLDESComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function NLDESComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const company_objectives = [
@@ -83,9 +88,12 @@ export default function NLDESComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Building Institutions, Shaping Futures"
-      banner_description="A not for profit educational trust committed to delivering quality education, ethical leadership and longterm societal impact."/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <div className="flex flex-col lg:flex-row gap-5 w-full lg:items-center justify-between">
           <div className="lg:w-1/2 flex flex-col gap-5">

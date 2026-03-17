@@ -31,8 +31,13 @@ dayjs.extend(advancedFormat);
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 import AlumniProfile from "@/components/AlumniProfile";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function Alumni() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function Alumni({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const alumni_profiles = [
@@ -152,9 +157,12 @@ export default function Alumni() {
     <Header alumniPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Once A Dalmian, Always A Dalmian"
-      banner_description="Our alumni are the pride of N.L.Dalmia, They’re trailblazer, entrepreneurs and industry leaders shaping the global business landscape. This page celebrate their journey, offers networking opportunities and invites every alumnus to stay connected"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="Our Alumni" introCaption="Wall Of Fame" />
         <div className="w-full relative">

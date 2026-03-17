@@ -26,7 +26,9 @@ export default function Banner({banner_image, banner_caption, banner_description
     return (
         <>
         <div className="w-full h-screen relative text-white">
-            <Image src={`${basePath}images/home/${banner_image}`} fill alt="NL Dalmia" className="object-cover" />
+            {banner_image && (
+            <Image src={banner_image} fill alt="NL Dalmia" className="object-cover" />
+            )}
             <div className="inset-0 bg-black/30 absolute top-0 z-1"></div>
             <div className="inset-0 pt-[200px] absolute top-0 z-2 flex flex-col gap-10 justify-center items-center text-center">
                 {

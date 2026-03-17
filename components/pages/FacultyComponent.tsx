@@ -14,7 +14,13 @@ import Banner from "@/components/Banner";
 
 import lodash from 'lodash';
 
-export default function Faculty() {
+import { Banner as BannerProps } from "@/types/api";
+
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function Faculty({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const faculties = [
@@ -104,9 +110,12 @@ export default function Faculty() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Meet The Mind Shaping Tomorrow’s Business Leader"
-      banner_description="Explore the accomplished faculty behind NLDIMSR’s industry aligned PGDM programs. From finance experts to data science pioneers, discover the academic and real world experience that drives our classrooms."/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 md:px-15 xl:px-30 py-10">
         <div className="relative lg:w-[45%] border-b border-[#800000] text-black">
             <input type="search" placeholder="Search" className="peer py-2 focus:outline-none w-full placeholder-shown:pl-5 focus:pl-0 placeholder:text-black" value={search} onChange={handleSearch} />

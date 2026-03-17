@@ -32,7 +32,13 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function EventDetails({event_url_slug = ""}) {
+import { Event } from '@/types/api';
+
+type PageProps = {
+  event: Event
+}
+
+export default function EventDetails({event}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const milestones = [
@@ -336,8 +342,10 @@ export default function EventDetails({event_url_slug = ""}) {
     <Header eventRegistrationURL="https://www.nldalmia.in/" />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="DeCodeX 2025 - The Business Analytics Hackathon Crack The Code. Conquer The Clock"/>
+      banner_image={event.banner_image}
+      banner_caption={event.banner_image_caption}
+      banner_description={event.banner_image_description}
+      />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
           <Intro introTitle="Event Overview" introCaption="Where The Brightest Minds Meet Real-World Challenges" introDescription="DeCodeX 2025 is the flagship hackathon organized by the MetrixX Committee of N.L.Da.mia. This intense, overnight 24-hour business analytics challenge invites India’s sharpest young mind to decode a real world case study under pressure. Participants will leverage analytic tools, domain insights and pure critical thinking to generate actionable insights for high stakes business scenarios. The event stimulates real consulting enviorments and reward precision, logic and storytelling" />
           <div className="w-full lg:max-h-130">

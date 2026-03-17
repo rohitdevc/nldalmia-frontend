@@ -19,8 +19,13 @@ import "swiper/css/navigation";
 
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
+import { Banner as BannerProps } from "@/types/api";
 
-export default function InstitutionalPublicationsComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function InstitutionalPublicationsComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const institutional_publication_categories = [
@@ -63,7 +68,7 @@ export default function InstitutionalPublicationsComponent() {
   ]
 
   const [activeInstitutionalPublicationCategoryKey, updateActiveInstitutionalPublicationCategoryKey] = useState(0);
-  const [activeInstitutionalPublicationName, updateActiveInstitutionalPublicationName] = useState(institutional_publication_categories[0].institutional_publication_name);
+  const [activeInstitutionalPublicationName, updateActiveInstitutionalPublicationName] = useState("");
 
   const updateActiveInstitutionalPublicationCategoryKeyFunc = (keyCount: number) => {
     updateActiveInstitutionalPublicationCategoryKey(keyCount);
@@ -167,10 +172,12 @@ export default function InstitutionalPublicationsComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Institutional Publications"
-      banner_description="Management Development Programs (MDPs) at N. L. Dalmia Institute of Management Studies & Research — practical, industry-aligned short programs to upskill leaders, managers and high-potential teams."
-      />
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full px-10 md:px-15 xl:px-30 py-10 relative">
         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 left-5 lg:left-10 institutional_publication_categories_slider_prev z-2">
           <BsArrowLeftShort size={20} />

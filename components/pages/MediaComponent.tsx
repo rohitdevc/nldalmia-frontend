@@ -19,12 +19,14 @@ import Image from "next/image";
 import nl2br from "nl2br";
 import parser from "html-react-parser";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
+import { MediaCategory as BannerProps } from "@/types/api";
 
-type MediaCategoryProps = {
+type PageProps = {
+  banner: BannerProps;
   media_category_url_slug: string;
 }
 
-export default function MediaComponent({media_category_url_slug}: MediaCategoryProps) {
+export default function MediaComponent({banner, media_category_url_slug}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -109,9 +111,10 @@ export default function MediaComponent({media_category_url_slug}: MediaCategoryP
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="In The Spotlight"
-      banner_description="Discover how N.L.Dalmmia Institute Of Management Studies and Research makes headlines, earns recognition, and share its voice across platforms from newsrooms to industry reports"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_image_caption}
+      banner_description={banner.banner_image_description}
+      />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
         <MediaNavigation activePage={media_category_url_slug} />
         {

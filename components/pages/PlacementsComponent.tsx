@@ -25,8 +25,13 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function PlacementsComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function PlacementsComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const placement_tabs = [
@@ -335,9 +340,12 @@ export default function PlacementsComponent() {
     <Header placementsPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Your Career Begins Here"
-      banner_description="Empowering future leaders with industry ready skills and 100% placement opportunities at top global and Indian firms."/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
         <Intro introCaption="Placement Success That Speaks For Itself" introDescription="NLDIMSR’s legacy of excellence is reflected in its 100% placement track record. Our dedicated placement cell collaborates with leading organisations across sectors to ensure students find the right opportunities aligned with their aspirations. From global consulting firms to fast growing startups, our recruiters trust the talent we nurture." />
         <div className="flex gap-3">

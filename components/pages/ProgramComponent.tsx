@@ -25,8 +25,13 @@ import "swiper/css/navigation";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
+import { Program } from "@/types/api";
 
-export default function ProgramComponent() {
+type PageProps = {
+  program: Program
+}
+
+export default function ProgramComponent({program}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -241,8 +246,10 @@ export default function ProgramComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Global MBA:<br />A Dual Continent Advantage" />
+      banner_image={program.banner_image}
+      banner_caption={program.banner_image_caption}
+      banner_description={program.banner_image_description}
+      />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="About The Program" introCaption="Global Expertise Meets Local Relevance" introDescription="Offered in collaboration with renowned international academic partners, the program begins in Mumbai and culminates abroad-preparing students to lead in global business environments. With an emphasis on practical exposure, international curriculum and cross cultural learning, this program unlocks global career opportunities while ensuring a strong foundation in core management principles." />
         {

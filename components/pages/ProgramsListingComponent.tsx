@@ -11,8 +11,13 @@ import Intro from "@/components/Intro";
 import ProgramBlock from "../ProgramBlock";
 
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function ProgramsListingComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function ProgramsListingComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   type Program = {
@@ -149,9 +154,12 @@ export default function ProgramsListingComponent() {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Shape Your Future With A <br /> Globally Relevant PGDM"
-      banner_description="Explore our full-time AICTE-approved programs designed to build strategic, analytical and leadership <br /> capabilities-equipping your for tomorrow’s dynamic business world." />
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
         <Intro introTitle="About The Program" introCaption="Find The Right Program For Your Ambition" introDescription="Whether you’re passionate about finance, business strategy or data-driven decision-making discover which program align with your career aspirations" />
       </div>

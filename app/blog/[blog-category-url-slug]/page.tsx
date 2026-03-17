@@ -1,9 +1,9 @@
-//import { getMetaData, getBanner } from "@/lib/home";
+import { getMetaData, getBanner } from "@/lib/common";
 
 import type { Metadata } from "next";
 import BlogComponent from "@/components/pages/BlogComponent";
 
-//const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
+const [ meta, banner ] = await Promise.all([ getMetaData("Blog"), getBanner("Blog") ]);
 
 export const viewport = {
   themeColor: [
@@ -20,39 +20,43 @@ type PageProps = {
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: "",
-  description: "",
-  alternates: {
-    canonical: ""
-  },
-  openGraph: {
-      title: "",
-      description: "",
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { "blog-category-url-slug": blog_category_url_slug } = await params;
+
+  return {
+    title: meta.meta_title,
+    description: meta.meta_description,
+    alternates: {
+      canonical: meta.canonical_tag + "/" + blog_category_url_slug,
+    },
+    openGraph: {
+      title: meta.meta_title,
+      description: meta.meta_description,
       type: "website",
-      url: "",
+      url: meta.canonical_tag + "/" + blog_category_url_slug,
       siteName: "NL Dalmia",
       images: [
         {
-          url: "",
+          url: banner.banner_image,
           width: 1200,
           height: 630,
-          alt: "",
+          alt: meta.meta_title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "",
-      description: "",
-      images: [""],
+      title: meta.meta_title,
+      description: meta.meta_description,
+      images: [banner.banner_image],
     },
-};
+  };
+}
 
 export default async function Blog({ params }: PageProps) {
   const { "blog-category-url-slug": blog_category_url_slug } = await params;
 
   return (
-    <BlogComponent blog_category_url_slug={blog_category_url_slug} />
+    <BlogComponent banner={banner} blog_category_url_slug={blog_category_url_slug} />
   )
 }

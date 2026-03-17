@@ -17,8 +17,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function BlogComponent({blog_category_url_slug = ""}) {
+type PageProps = {
+  banner: BannerProps;
+  blog_category_url_slug?: string;
+};
+
+export default function BlogComponent({banner, blog_category_url_slug = ""}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const blog_categories = [
@@ -45,9 +51,12 @@ export default function BlogComponent({blog_category_url_slug = ""}) {
     <Header />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="In The Spotlight"
-      banner_description="Discover how N.L.Dalmmia Institute Of Management Studies and Research makes headlines, earns recognition, and share its voice across platforms from newsrooms to industry reports"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="Media And Newsroom" introCaption="At NLDIMSR, We Believe In Leading With Impact- And It Shows In The Stories We Tell And The Stories Told About Us." introDescription="Celebrate the milestone that define our legacy-from institutional accolades to individual excellence across academia, innovation and leadership" />
         <div className="flex gap-5 flex-col lg:flex-row">

@@ -29,8 +29,13 @@ import parser from 'html-react-parser';
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
+import { Banner as BannerProps } from "@/types/api";
 
-export default function AdmissionComponent() {
+type PageProps = {
+  banner: BannerProps;
+};
+
+export default function AdmissionComponent({banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [activeState, setActiveState] = useState<string>("");
@@ -275,9 +280,12 @@ export default function AdmissionComponent() {
     <Header admissionPage={true} onDownloadBrochureClick={handleDownloadBrochure} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
-      banner_image="banner.jpeg"
-      banner_caption="Your Journey At NLDIMSR"
-      banner_description="Join one of India’s most respected management institutes and take the first step towards a future in business leadership and innovation"/>
+      banner_image={banner.banner_image}
+      banner_caption={banner.banner_caption}
+      banner_description={banner.banner_description}
+      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_button_caption={banner.button_caption}
+      banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro introTitle="About The Program" introCaption="Open Admission" introDescription="Applications are now open for our AICTE-approved PGDM programs, recognised as MBA equivalent bu AIU. Explore specializations, benefits from a dynamic learning environment, and position yourself for a high-impact career." />
         {
