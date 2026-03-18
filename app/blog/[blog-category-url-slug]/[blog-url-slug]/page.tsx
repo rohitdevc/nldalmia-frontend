@@ -1,7 +1,13 @@
+import { getTicker } from "@/lib/common";
+
 import { getBlog } from "@/lib/blog";
 
 import type { Metadata } from "next";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
+
+const [ ticker ] = await Promise.all([
+  getTicker()
+])
 
 export const viewport = {
   themeColor: [
@@ -60,6 +66,10 @@ export default async function Page({ params }: PageProps) {
   const blog = await getBlog(blog_category_url_slug, blog_url_slug);
 
   return (
-    <BlogDetailsComponent blog={blog} blog_url_slug={blog_url_slug} />
+    <BlogDetailsComponent
+    ticker={ticker}
+    blog={blog}
+    blog_url_slug={blog_url_slug}
+    />
   )
 }

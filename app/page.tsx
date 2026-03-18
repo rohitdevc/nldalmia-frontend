@@ -1,10 +1,11 @@
-import { getMetaData, getBanner } from "@/lib/common";
-import { getHomeIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomePrograms, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials } from "@/lib/home";
+import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getHomeIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomePrograms, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeEvents, getHomeAwardsIntroduction, getHomeAwards, getHomeMediaIntroduction, getHomeMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction } from "@/lib/home";
 
 import type { Metadata } from "next";
 import HomeComponent from "@/components/pages/HomeComponent";
 
 const [
+  ticker,
   meta,
   banner,
   introduction,
@@ -16,8 +17,18 @@ const [
   placement_partners_introduction,
   placement_partners,
   testimonials_introduction,
-  testimonials
+  testimonials,
+  events_introduction,
+  events,
+  awards_introduction,
+  awards,
+  media_introduction,
+  media,
+  blog_introduction,
+  blogs,
+  instagram_introduction
 ] = await Promise.all([
+  getTicker(),
   getMetaData("Home"),
   getBanner("Home"),
   getHomeIntroduction(),
@@ -29,7 +40,16 @@ const [
   getHomePlacementPartnersIntroduction(),
   getHomePlacementPartners(),
   getHomeTestimonialsIntroduction(),
-  getHomeTestimonials()
+  getHomeTestimonials(),
+  getHomeEventsIntroduction(),
+  getHomeEvents(),
+  getHomeAwardsIntroduction(),
+  getHomeAwards(),
+  getHomeMediaIntroduction(),
+  getHomeMedia(),
+  getHomeBlogIntroduction(),
+  getHomeBlog(),
+  getHomeInstagramIntroduction()
 ]);
 
 export const viewport = {
@@ -73,6 +93,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <HomeComponent
+    ticker={ticker}
     banner={banner}
     introduction={introduction}
     career_finder={career_finder}
@@ -84,6 +105,15 @@ export default async function Page() {
     placement_partners={placement_partners}
     testimonials_introduction={testimonials_introduction}
     testimonials={testimonials}
+    events_introduction={events_introduction}
+    events={events}
+    awards_introduction={awards_introduction}
+    awards={awards}
+    media_introduction={media_introduction}
+    media={media}
+    blog_introduction={blog_introduction}
+    blogs={blogs}
+    instagram_introduction={instagram_introduction}
     />
   )
 }

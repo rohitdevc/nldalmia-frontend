@@ -25,13 +25,14 @@ import "swiper/css/navigation";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import { Program } from "@/types/api";
+import { Ticker, Program } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   program: Program
 }
 
-export default function ProgramComponent({program}: PageProps) {
+export default function ProgramComponent({ticker, program}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -243,7 +244,7 @@ export default function ProgramComponent({program}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={program.banner_image}

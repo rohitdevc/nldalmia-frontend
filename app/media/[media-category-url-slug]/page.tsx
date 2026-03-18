@@ -1,7 +1,12 @@
+import { getTicker } from "@/lib/common";
 import { getMediaCategory } from "@/lib/media";
 
 import type { Metadata } from "next";
 import MediaComponent from "@/components/pages/MediaComponent";
+
+const [ ticker ] = await Promise.all([
+  getTicker()
+])
 
 export const viewport = {
   themeColor: [
@@ -59,6 +64,9 @@ export default async function Page({ params }: PageProps) {
   const [ media_category ] = await Promise.all([ getMediaCategory(media_category_url_slug) ]);
   
   return (
-    <MediaComponent banner={media_category} media_category_url_slug={media_category_url_slug} />
+    <MediaComponent
+    ticker={ticker}
+    banner={media_category}
+    media_category_url_slug={media_category_url_slug} />
   )
 }

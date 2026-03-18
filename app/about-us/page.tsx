@@ -1,9 +1,42 @@
-import { getMetaData, getBanner } from "@/lib/common";
+import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getAboutUsObjectives, getAboutUsTimeline, getAboutUsFounderQuote, getAboutUsManagementQuotes, getManagingCouncilIntroduction, getAboutUsManagingCouncil, getAboutUsGoverningCouncilIntroduction, getAboutUsGoverningCouncil, getAboutUsVideoSection, getAboutUsInternationalUniversitiesIntroduction, getAboutUsInternationalUniversities } from "@/lib/about-us";
 
 import type { Metadata } from "next";
 import AboutUsComponent from "@/components/pages/AboutUsComponent";
 
-const [ meta, banner ] = await Promise.all([ getMetaData("About Us"), getBanner("About Us") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  objectives,
+  timeline,
+  founder_quote,
+  management_quotes,
+  managing_council_introduction,
+  managing_council,
+  governing_council_introduction,
+  governing_council,
+  video_section,
+  international_universities_introduction,
+  international_universities
+] = await Promise.all([
+  getTicker(),
+  getMetaData("About Us"),
+  getBanner("About Us"),
+  getIntroduction(),
+  getAboutUsObjectives(),
+  getAboutUsTimeline(),
+  getAboutUsFounderQuote(),
+  getAboutUsManagementQuotes(),
+  getManagingCouncilIntroduction(),
+  getAboutUsManagingCouncil(),
+  getAboutUsGoverningCouncilIntroduction(),
+  getAboutUsGoverningCouncil(),
+  getAboutUsVideoSection(),
+  getAboutUsInternationalUniversitiesIntroduction(),
+  getAboutUsInternationalUniversities()
+]);
 
 export const viewport = {
   themeColor: [
@@ -45,6 +78,21 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <AboutUsComponent banner={banner} />
+    <AboutUsComponent
+    ticker={ticker}
+    banner={banner}
+    introduction={introduction}
+    objectives={objectives}
+    timeline={timeline}
+    founder_quote={founder_quote}
+    management_quotes={management_quotes}
+    managing_council_introduction={managing_council_introduction}
+    managing_council={managing_council}
+    governing_council_introduction={governing_council_introduction}
+    governing_council={governing_council}
+    video_section={video_section}
+    international_universities_introduction={international_universities_introduction}
+    international_universities={international_universities}
+    />
   )
 }

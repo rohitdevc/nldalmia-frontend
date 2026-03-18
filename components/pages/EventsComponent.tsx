@@ -24,13 +24,14 @@ import parser from 'html-react-parser';
 
 import { useServerCountdown } from "@/hooks/useServerCountdown";
 
-import { Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps } from "@/types/api";
 
 type PageProps = {
-  banner: BannerProps;
+  ticker: Ticker
+  banner: BannerProps
 };
 
-export default function Events({banner}: PageProps) {
+export default function Events({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const events = [
@@ -96,7 +97,7 @@ export default function Events({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

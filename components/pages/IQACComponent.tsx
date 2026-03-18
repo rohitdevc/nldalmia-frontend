@@ -18,13 +18,14 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
-  banner: BannerProps;
+  ticker: Ticker
+  banner: BannerProps
 };
 
-export default function IQACsComponent({banner}: PageProps) {
+export default function IQACsComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const iqac_categories = ['NAAC Certificate', 'NAAC SSR', 'NIRF', 'IQAC SOP', 'Minutes of Meeting', 'Action Taken Report', 'Academic Calendar', 'Program Outcomes'];
@@ -62,7 +63,7 @@ export default function IQACsComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

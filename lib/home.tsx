@@ -9,7 +9,11 @@ import {
     ProgramsProps,
     VideoSection,
     PlacementPartners,
-    HomeTestimonials
+    HomeTestimonials,
+    HomeEvents,
+    HomeAwards,
+    HomeMedia,
+    HomeBlog
 } from "@/types/api";
 
 export const getHomeIntroduction = async () => apiFetch<IntroProps>(`home/introduction`, {
@@ -58,6 +62,51 @@ export const getHomeTestimonialsIntroduction = async () => apiFetch<IntroProps>(
 });
 
 export const getHomeTestimonials = async () => apiFetch<HomeTestimonials[]>(`home/testimonials`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeEventsIntroduction = async () => apiFetch<IntroProps>(`home/events/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeEvents = async () => apiFetch<HomeEvents[]>(`home/events`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeAwardsIntroduction = async () => apiFetch<IntroProps>(`home/awards/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeAwards = async () => apiFetch<HomeAwards[]>(`home/awards`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeMediaIntroduction = async () => apiFetch<IntroProps>(`home/media/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeMedia = async () => apiFetch<HomeMedia[]>(`home/media`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeBlogIntroduction = async () => apiFetch<IntroProps>(`home/blog/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeBlog = async () => apiFetch<HomeBlog[]>(`home/blog`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getHomeInstagramIntroduction = async () => apiFetch<IntroProps>(`home/instagram/introduction`, {
     method: "GET",
     headers: await buildHeaders()
 });

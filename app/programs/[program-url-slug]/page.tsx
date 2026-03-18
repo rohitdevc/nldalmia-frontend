@@ -1,7 +1,12 @@
+import { getTicker } from "@/lib/common";
 import { getProgram } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramComponent from "@/components/pages/ProgramComponent";
+
+const [ ticker ] = await Promise.all([
+  getTicker()
+])
 
 export const viewport = {
   themeColor: [
@@ -59,6 +64,8 @@ export default async function Page({ params }: PageProps) {
   const program = await getProgram(program_url_slug);
 
   return (
-    <ProgramComponent program={program} />
+    <ProgramComponent
+    ticker={ticker}
+    program={program} />
   )
 }

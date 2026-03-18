@@ -1,9 +1,9 @@
-import { getMetaData, getBanner } from "@/lib/common";
+import { getTicker, getMetaData, getBanner } from "@/lib/common";
 
 import type { Metadata } from "next";
 import ManagementDevelopmentProgramsComponent from "@/components/pages/ManagementDevelopmentProgramsComponent";
 
-const [ meta, banner ] = await Promise.all([ getMetaData("MDP"), getBanner("MDP") ]);
+const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("MDP"), getBanner("MDP") ]);
 
 export const viewport = {
   themeColor: [
@@ -45,6 +45,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <ManagementDevelopmentProgramsComponent banner={banner} />
+    <ManagementDevelopmentProgramsComponent
+    ticker={ticker}
+    banner={banner} />
   )
 }

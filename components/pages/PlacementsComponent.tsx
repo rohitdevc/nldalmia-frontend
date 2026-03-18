@@ -25,13 +25,14 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function PlacementsComponent({banner}: PageProps) {
+export default function PlacementsComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const placement_tabs = [
@@ -337,7 +338,7 @@ export default function PlacementsComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header placementsPage={true} />
+    <Header ticker_api={ticker} placementsPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

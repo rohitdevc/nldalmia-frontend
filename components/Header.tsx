@@ -10,46 +10,38 @@ import { IoMdMail } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiMenu3Fill } from "react-icons/ri";
-
-type Ticker = {
-    ticker_message?: string;
-    ticker_end_date: Date;
-    ticker_link?: string;
-};
+import { Ticker as TickerProps } from "@/types/api";
 
 type HeaderProps = {
-  onDownloadBrochureClick?: () => void;
-  admissionPage?: boolean;
-  alumniPage?: boolean;
-  placementsPage?: boolean;
-  eventRegistrationURL?: string;
+    ticker_api: TickerProps
+    onDownloadBrochureClick?: () => void;
+    admissionPage?: boolean;
+    alumniPage?: boolean;
+    placementsPage?: boolean;
+    eventRegistrationURL?: string;
 }
 
-export default function Header({onDownloadBrochureClick, admissionPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = ""}: HeaderProps) {
+export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = ""}: HeaderProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
-    const ticker: Ticker = {
-        ticker_message: 'Admission For Full Time Courses (PGDM) Are Open Now',
-        ticker_end_date: useMemo(
-            () => new Date('2026-12-31 20:00:00+05:30'),
-            []
-        ),
-        ticker_link: 'https://apply.nldalmia.in/pgdm-application-form'
-    }
+    const ticker_end_date = useMemo(
+        () => new Date(ticker_api.ticker_end_time),
+        []
+    )
 
-    const nowValid = !!ticker.ticker_end_date && ticker.ticker_end_date.getTime() > Date.now();
+    const nowValid = !!ticker_end_date && ticker_end_date.getTime() > Date.now();
     
-    const countdown = useServerCountdown(ticker.ticker_end_date);
+    const countdown = useServerCountdown(ticker_end_date);
 
     return (
         <>
         <header className="w-full fixed z-10 h-[175px]">
             {
-                ticker.ticker_message && (
+                ticker_api.ticker_caption && (
                     <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
-                        <li className="text-sm">{ticker.ticker_message} </li>
+                        <li className="text-sm">{ticker_api.ticker_caption} </li>
                         {
-                            ticker.ticker_end_date && nowValid && countdown && (
+                            ticker_end_date && nowValid && countdown && (
                                 <li>
                                     <ul className="flex gap-5 md:gap-10">
                                         <li className="text-lg font-semibold">
@@ -59,9 +51,9 @@ export default function Header({onDownloadBrochureClick, admissionPage = false, 
                                             {countdown.seconds}s
                                         </li>
                                         {
-                                            ticker.ticker_link && (
+                                            ticker_api.ticker_link && (
                                                 <li>
-                                                    <Link href={ticker.ticker_link} target="_blank" className="text-sm underline">Apply Now</Link>
+                                                    <Link href={ticker_api.ticker_link} target="_blank" className="text-sm underline">{ticker_api.ticker_link_caption}</Link>
                                                 </li>
                                             )
                                         }
@@ -80,7 +72,7 @@ export default function Header({onDownloadBrochureClick, admissionPage = false, 
                     <Link href="">MSR</Link>
                 </li>
                 <li>
-                    <Link href="">IQAC</Link>
+                    <Link href={`${basePath}iqac`}>IQAC</Link>
                 </li>
                 <li>
                     <Link href={`${basePath}alumni`}>Alumni</Link>

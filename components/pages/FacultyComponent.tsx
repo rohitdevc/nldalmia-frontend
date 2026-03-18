@@ -14,13 +14,14 @@ import Banner from "@/components/Banner";
 
 import lodash from 'lodash';
 
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function Faculty({banner}: PageProps) {
+export default function Faculty({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const faculties = [
@@ -107,7 +108,7 @@ export default function Faculty({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

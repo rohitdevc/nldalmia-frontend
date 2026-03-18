@@ -6,13 +6,14 @@ import Banner from "@/components/Banner";
 import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function AwardsComponent({banner}: PageProps) {
+export default function AwardsComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const awards = [
@@ -80,7 +81,7 @@ export default function AwardsComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

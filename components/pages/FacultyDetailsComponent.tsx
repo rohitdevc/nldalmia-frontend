@@ -33,20 +33,21 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Faculty } from '@/types/api';
+import { Ticker, Faculty } from '@/types/api';
 
 type PageProps = {
+  ticker: Ticker,
   faculty: Faculty
 }
 
-export default function FacultyDetails({faculty}: PageProps) {
+export default function FacultyDetails({ticker, faculty}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [openAccordian, toggleAccordian] = useState(1);
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <div className="w-full px-5 lg:px-30 flex flex-col gap-5 pt-45 bg-[#FFCC33] text-black">
         <Link className="flex items-center gap-1 font-semibold" href={`${basePath}faculty`}>

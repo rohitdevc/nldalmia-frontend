@@ -24,13 +24,14 @@ import CenterIntro from "@/components/CenterIntro";
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function NLDESComponent({banner}: PageProps) {
+export default function NLDESComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const company_objectives = [
@@ -85,7 +86,7 @@ export default function NLDESComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

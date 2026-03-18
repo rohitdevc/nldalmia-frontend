@@ -1,7 +1,12 @@
+import { getTicker } from "@/lib/common";
 import { getFaculty } from "@/lib/faculty";
 
 import type { Metadata } from "next";
 import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
+
+const [ ticker ] = await Promise.all([
+  getTicker()
+])
 
 export const viewport = {
   themeColor: [
@@ -59,6 +64,8 @@ export default async function Page({ params }: PageProps) {
   const faculty = await getFaculty(faculty_url_slug);
 
   return (
-    <FacultyDetailsComponent faculty={faculty} />
+    <FacultyDetailsComponent
+    ticker={ticker}
+    faculty={faculty} />
   )
 }

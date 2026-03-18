@@ -12,13 +12,14 @@ import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 
 import { MdArrowOutward } from "react-icons/md";
-import { Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function ScholarshipComponent({banner}: PageProps) {
+export default function ScholarshipComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
   
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function ScholarshipComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

@@ -31,13 +31,14 @@ dayjs.extend(advancedFormat);
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 import AlumniProfile from "@/components/AlumniProfile";
-import { Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function Alumni({banner}: PageProps) {
+export default function Alumni({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const alumni_profiles = [
@@ -154,7 +155,7 @@ export default function Alumni({banner}: PageProps) {
 
   return (
     <>
-    <Header alumniPage={true} />
+    <Header ticker_api={ticker} alumniPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

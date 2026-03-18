@@ -25,5 +25,9 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
         throw new Error(`API Error ${res.status}`);
     }
     
-    return res.json() as Promise<T>;
+    try {
+        return (await res.json()) as T;
+    } catch {
+        return null as T;
+    }
 }

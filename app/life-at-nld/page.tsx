@@ -1,9 +1,9 @@
-import { getMetaData, getBanner } from "@/lib/common";
+import { getTicker, getMetaData, getBanner } from "@/lib/common";
 
 import type { Metadata } from "next";
 import LifeAtNLDComponent from "@/components/pages/LifeAtNLDComponent";
 
-const [ meta, banner ] = await Promise.all([ getMetaData("Life@NLD"), getBanner("Life@NLD") ]);
+const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Life@NLD"), getBanner("Life@NLD") ]);
 
 export const viewport = {
   themeColor: [
@@ -45,6 +45,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <LifeAtNLDComponent banner={banner} />
+    <LifeAtNLDComponent
+    ticker={ticker}
+    banner={banner} />
   )
 }

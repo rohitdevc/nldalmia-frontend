@@ -17,14 +17,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
-  banner: BannerProps;
-  blog_category_url_slug?: string;
+  ticker: Ticker
+  banner: BannerProps
+  blog_category_url_slug?: string
 };
 
-export default function BlogComponent({banner, blog_category_url_slug = ""}: PageProps) {
+export default function BlogComponent({ticker, banner, blog_category_url_slug}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const blog_categories = [
@@ -48,7 +49,7 @@ export default function BlogComponent({banner, blog_category_url_slug = ""}: Pag
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

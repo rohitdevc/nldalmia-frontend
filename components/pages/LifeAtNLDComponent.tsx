@@ -28,13 +28,14 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function LifeAtNLD({banner}: PageProps) {
+export default function LifeAtNLD({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const eventsList = useRef<HTMLDivElement>(null);
@@ -183,7 +184,7 @@ export default function LifeAtNLD({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

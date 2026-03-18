@@ -11,13 +11,14 @@ import Intro from "@/components/Intro";
 import ProgramBlock from "../ProgramBlock";
 
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
-import { Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker
   banner: BannerProps;
 };
 
-export default function ProgramsListingComponent({banner}: PageProps) {
+export default function ProgramsListingComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   type Program = {
@@ -151,7 +152,7 @@ export default function ProgramsListingComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

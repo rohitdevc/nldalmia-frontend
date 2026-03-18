@@ -13,19 +13,20 @@ import { MdArrowOutward } from "react-icons/md";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Blog } from "@/types/api";
+import { Ticker, Blog } from "@/types/api";
 
 type PageProps = {
+  ticker: Ticker,
   blog: Blog,
   blog_url_slug: string;
 }
 
-export default function BlogDetailsComponent({blog, blog_url_slug}: PageProps) {
+export default function BlogDetailsComponent({ticker, blog, blog_url_slug}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <div className="pt-50 flex flex-col gap-10 justify-center text-center px-5 md:px-15 xl:px-30 py-5">
         <h1 className="font-georgia text-3xl lg:text-5xl">Building The Power Of Network With Alumni Connections At N. L. Dalmia Institute</h1>

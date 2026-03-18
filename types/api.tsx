@@ -13,6 +13,13 @@ export interface Banner {
     button_link: string;
 }
 
+export interface Ticker {
+    ticker_caption: string;
+    ticker_end_time: string;
+    ticker_link_caption: string;
+    ticker_link: string;
+}
+
 export interface TokenResponse {
   token: string;
 }
@@ -62,6 +69,40 @@ export interface HomeTestimonials {
     testimonial_description: string;
     testimonial_youtube_id: string;
     testimonial_thumbnail: string;
+}
+
+export interface HomeEvents {
+    event_category_name: string;
+    event_name: string;
+    event_start_date: string;
+    event_url_slug: string;
+    event_thumbnail: string;
+    event_description: string;
+}
+
+export interface HomeAwards {
+    award_name: string;
+    award_year: string;
+    award_thumbnail: string;
+}
+
+export interface HomeMedia {
+    media_title: string;
+    media_preview: string;
+    media_published_date: string;
+    media_link: string;
+    media_youtube_id: string;
+    media_thumbnail: string;
+    media_attachment: string;
+}
+
+export interface HomeBlog {
+    blog_title: string;
+    blog_preview: string;
+    blog_published_date: string;
+    blog_thumbnail: string;
+    blog_url_slug: string;
+    blog_author_name: string;
 }
 
 export interface MediaCategory {
@@ -191,4 +232,53 @@ export interface Program {
     meta_title: string;
     meta_description: string;
     canonical_tag: string;
+}
+
+export interface Objectives {
+    objective_caption: string;
+    objective_description: string;
+}
+
+export interface Timeline {
+    timeline_year: string;
+    timeline_caption: string;
+    timeline_description: string;
+    timeline_image: string;
+}
+
+export interface FounderQuote {
+    founder_quote_title: string;
+    founder_quote: string;
+    founder_bio: string;
+    founder_name: string;
+    founder_image: string;
+}
+
+export interface ManagementQuote {
+    management_caption: string;
+    management_quote: string;
+    management_thumbnail: string;
+    management_profile_link: string;
+}
+
+export interface ManagingCouncil {
+    managing_council_name: string;
+    managing_council_designation: string;
+    managing_council_thumbnail: string;
+    managing_council_profile_link: string;
+}
+
+export interface GoverningCouncil {
+    governing_council_name: string;
+    governing_council_designation: string;
+    governing_council_thumbnail: string;
+    governing_council_profile_link: string;
+}
+
+export interface InternationalUniversities {
+    international_university_country_name: string;
+    international_university_name: string;
+    international_university_caption: string;
+    international_university_description: string;
+    international_university_logo: string;
 }

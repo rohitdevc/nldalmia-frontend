@@ -32,13 +32,14 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Event } from '@/types/api';
+import { Ticker, Event } from '@/types/api';
 
 type PageProps = {
+  ticker: Ticker,
   event: Event
 }
 
-export default function EventDetails({event}: PageProps) {
+export default function EventDetails({ticker, event}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const milestones = [
@@ -339,7 +340,7 @@ export default function EventDetails({event}: PageProps) {
 
   return (
     <>
-    <Header eventRegistrationURL="https://www.nldalmia.in/" />
+    <Header ticker_api={ticker} eventRegistrationURL="https://www.nldalmia.in/" />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={event.banner_image}

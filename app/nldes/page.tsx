@@ -1,9 +1,9 @@
-import { getMetaData, getBanner } from "@/lib/common";
+import { getTicker, getMetaData, getBanner } from "@/lib/common";
 
 import type { Metadata } from "next";
 import NLDESComponent from "@/components/pages/NLDESComponent";
 
-const [ meta, banner ] = await Promise.all([ getMetaData("NLDES"), getBanner("NLDES") ]);
+const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("NLDES"), getBanner("NLDES") ]);
 
 export const viewport = {
   themeColor: [
@@ -45,6 +45,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <NLDESComponent banner={banner}/>
+    <NLDESComponent
+    ticker={ticker}
+    banner={banner}/>
   )
 }

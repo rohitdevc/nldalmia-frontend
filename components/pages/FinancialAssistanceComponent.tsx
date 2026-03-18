@@ -10,13 +10,14 @@ import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
-  banner: BannerProps;
+  ticker: Ticker
+  banner: BannerProps
 };
 
-export default function FinancialAssistance({banner}: PageProps) {
+export default function FinancialAssistance({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const financial_partners = [
@@ -54,7 +55,7 @@ export default function FinancialAssistance({banner}: PageProps) {
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

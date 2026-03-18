@@ -19,14 +19,15 @@ import Image from "next/image";
 import nl2br from "nl2br";
 import parser from "html-react-parser";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
-import { MediaCategory as BannerProps } from "@/types/api";
+import { MediaCategory as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
-  banner: BannerProps;
-  media_category_url_slug: string;
+  ticker: Ticker
+  banner: BannerProps
+  media_category_url_slug: string
 }
 
-export default function MediaComponent({banner, media_category_url_slug}: PageProps) {
+export default function MediaComponent({ticker, banner, media_category_url_slug}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -108,7 +109,7 @@ export default function MediaComponent({banner, media_category_url_slug}: PagePr
 
   return (
     <>
-    <Header />
+    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}

@@ -1,9 +1,9 @@
-import { getMetaData, getBanner } from "@/lib/common";
+import { getTicker, getMetaData, getBanner } from "@/lib/common";
 
 import type { Metadata } from "next";
 import IQACComponent from "@/components/pages/IQACComponent";
 
-const [ meta, banner ] = await Promise.all([ getMetaData("IQAC"), getBanner("IQAC") ]);
+const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("IQAC"), getBanner("IQAC") ]);
 
 export const viewport = {
   themeColor: [
@@ -45,6 +45,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <IQACComponent banner={banner} />
+    <IQACComponent
+    ticker={ticker}
+    banner={banner} />
   )
 }

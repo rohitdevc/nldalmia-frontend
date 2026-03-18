@@ -29,13 +29,14 @@ import parser from 'html-react-parser';
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
-import { Banner as BannerProps } from "@/types/api";
+import { Banner as BannerProps, Ticker } from "@/types/api";
 
 type PageProps = {
-  banner: BannerProps;
+  ticker: Ticker
+  banner: BannerProps
 };
 
-export default function AdmissionComponent({banner}: PageProps) {
+export default function AdmissionComponent({ticker, banner}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [activeState, setActiveState] = useState<string>("");
@@ -277,7 +278,7 @@ export default function AdmissionComponent({banner}: PageProps) {
 
   return (
     <>
-    <Header admissionPage={true} onDownloadBrochureClick={handleDownloadBrochure} />
+    <Header ticker_api={ticker} admissionPage={true} onDownloadBrochureClick={handleDownloadBrochure} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
