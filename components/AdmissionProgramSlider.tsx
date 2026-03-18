@@ -2,18 +2,14 @@ import { useServerCountdown } from "@/hooks/useServerCountdown";
 import Link from "next/link";
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
+import { AdmissionPrograms } from "@/types/api";
 
 type ProgramProp = {
-    program: {
-        program_admission_end_datetime: Date;
-        program_name: string;
-        program_link: string;
-        program_description: string;
-    }
+    program: AdmissionPrograms
 }
 
 export function AdmissionProgramSlider({program}: ProgramProp) {
-    const endDate = program.program_admission_end_datetime;
+    const endDate = new Date(program.program_application_end_date);
     
     const nowValid = !!endDate && new Date(endDate).getTime() > Date.now();
     
@@ -32,12 +28,20 @@ export function AdmissionProgramSlider({program}: ProgramProp) {
             </span>
         )}
         <ul className="flex gap-5">
-            <li>
-                <Link href="" target="_blank" className="bg-[#800000] text-white py-2 px-2 text-sm group-hover:bg-white group-hover:text-[#800000]">Apply Now</Link>
-            </li>
-            <li>
-                <Link href={program.program_link} target="_blank" className="border border-[#800000] bg-white py-2 px-2 text-sm group-hover:border-white group-hover:bg-[#800000] group-hover:text-white">View Program Details</Link>
-            </li>
+            {
+                program.program_application_link && (
+                    <li>
+                        <Link href={program.program_application_link} target="_blank" className="bg-[#800000] text-white py-2 px-2 text-sm group-hover:bg-white group-hover:text-[#800000]">Apply Now</Link>
+                    </li>
+                )
+            }
+            {
+                program.program_link && (
+                    <li>
+                        <Link href={program.program_link} target="_blank" className="border border-[#800000] bg-white py-2 px-2 text-sm group-hover:border-white group-hover:bg-[#800000] group-hover:text-white">View Program Details</Link>
+                    </li>
+                )
+            }
         </ul>
     </div>
     );

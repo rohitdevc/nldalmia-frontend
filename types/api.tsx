@@ -282,3 +282,29 @@ export interface InternationalUniversities {
     international_university_description: string;
     international_university_logo: string;
 }
+
+export interface AdmissionPrograms {
+    program_name: string;
+    program_description: string;
+    program_application_link: string;
+    program_application_end_date: string;
+    program_link: string;
+}
+
+export interface AdmissionProcessInformation {
+    information_category_title: string;
+    information_caption: string;
+    information_description: string;
+}
+
+export interface FinancialPartner {
+    partner_name: string;
+    partner_pdf: string;
+    partner_logo: string;
+}
+
+export interface FAQs {
+    faq_category_title: string;
+    faq_question: string;
+    faq_answer: string;
+}
