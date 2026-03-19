@@ -9,6 +9,7 @@ import {
     FinancialPartner,
     FAQs
 } from "@/types/api";
+import { AdmissionDownloadBrochure } from "@/types/forms";
 
 export const getIntroduction = async () => apiFetch<IntroProps>(`admissions/introduction`, {
     method: "GET",
@@ -74,3 +75,9 @@ export const getAdmissionsBrochureIntroduction = async () => apiFetch<IntroProps
     method: "GET",
     headers: await buildHeaders()
 });
+
+export const submitAdmissionDownloadBrochure = async (formData: AdmissionDownloadBrochure) => apiFetch<AdmissionDownloadBrochure>(`admissions/download-brochure`, {
+    method: "POST",
+    headers: await buildHeaders(),
+    body: JSON.stringify(formData)
+})

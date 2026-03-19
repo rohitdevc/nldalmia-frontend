@@ -19,9 +19,10 @@ type HeaderProps = {
     alumniPage?: boolean;
     placementsPage?: boolean;
     eventRegistrationURL?: string;
+    showLoader?: boolean
 }
 
-export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = ""}: HeaderProps) {
+export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false}: HeaderProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker_end_date = useMemo(
@@ -35,6 +36,7 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
 
     return (
         <>
+        <div className={`h-full w-full fixed top-0 left-0 z-15 cursor-wait bg-center bg-no-repeat bg-white opacity-50 ${showLoader === false ? 'hidden': ''}`} style={{backgroundImage: `url(${basePath}images/img_loader.gif)`}}></div>
         <header className="w-full fixed z-10 h-[175px]">
             {
                 ticker_api.ticker_caption && (

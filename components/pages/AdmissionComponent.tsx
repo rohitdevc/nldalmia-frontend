@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import IndianStatesCities from "indian-states-cities-list";
+import { isEmail, isEmpty } from 'validator';
 
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
@@ -29,7 +30,8 @@ import parser from 'html-react-parser';
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
-import { AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps, Ticker } from "@/types/api";
+import { AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps, Ticker,  } from "@/types/api";
+import { AdmissionDownloadBrochureFormErrors, AdmissionDownloadBrochure } from "@/types/forms";
 
 type PageProps = {
   ticker: Ticker
@@ -51,6 +53,107 @@ type PageProps = {
 
 export default function AdmissionComponent({ticker, banner, introduction, admission_programs, admissions_process_introduction, admission_process, admissions_scholarship_introduction, admissions_scholarship_table, admissions_tuition_introduction, admissions_tuition_table, admissions_finance_introduction, financial_assistance_partners, admissions_faqs_introduction, admissions_faqs, admissions_brochure_introduction }: PageProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
+
+    const [ip, setIp] = useState("");
+    const [showLoader, updateLoader] = useState(false);
+    const [errors, setErrors] = useState<AdmissionDownloadBrochureFormErrors>({});
+
+    const [admissionDownloadBrochureForm, setAdmissionDownloadBrochureForm] = useState<AdmissionDownloadBrochure>({
+      brochure_download_email_id: '',
+      ip_address: ip
+    });
+    
+    useEffect(() => {
+      async function getIp() {
+        const res = await fetch(basePath + "api/ip");
+        const data = await res.json();
+        setIp(data.ip);
+      }
+
+      getIp();
+    }, []);
+
+    const brochureDownloadEmailIDRef = useRef<HTMLInputElement | null>(null);
+
+    const handleAdmissionDownloadBrochureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+
+      setAdmissionDownloadBrochureForm(prev => ({ ...prev, [name]: value}));
+      
+      setErrors(prev => ({ ...prev, [name]: undefined}));
+    }
+
+    const refMap: Record<string, React.RefObject<HTMLInputElement | null>> = {
+      brochure_download_email_id: brochureDownloadEmailIDRef
+    };
+
+    const admissionDownloadBrochureSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if(isEmpty(admissionDownloadBrochureForm.brochure_download_email_id)) {
+            setErrors({brochure_download_email_id: 'Please enter your email address'});
+            brochureDownloadEmailIDRef.current?.focus();
+            return;
+        } else if(!isEmail(admissionDownloadBrochureForm.brochure_download_email_id)) {
+            setErrors({brochure_download_email_id: 'Please enter a valid email address'});
+            brochureDownloadEmailIDRef.current?.focus();
+            return;
+        }
+
+        updateLoader(true);
+
+        admissionDownloadBrochureForm.ip_address = ip;
+
+        const response = await fetch(basePath + "api/admissions/download-brochure", {
+          method: "POST",
+          body: JSON.stringify(admissionDownloadBrochureForm),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+
+        if (!response.ok) {
+          updateLoader(false);
+
+          const err = await response.json();
+
+          if(err.error) {
+            let error_response = JSON.parse(err.error);
+
+            if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
+              error_response = Object.values(error_response);
+
+              const { path, msg } = error_response[0][0];
+
+              const error_message = msg;
+              const error_path = path;
+
+              if(refMap[error_path]?.current) {
+                
+                refMap[error_path]?.current.focus();
+              }
+              setErrors({[error_path]: error_message});
+            }
+
+            return false;
+          }
+        }
+
+        const data = await response.json();
+
+        if(data.success) {
+          updateLoader(false);
+
+          setAdmissionDownloadBrochureForm({
+              brochure_download_email_id: '',
+              ip_address: ''
+          })
+
+          if(!data.result) return false;
+
+          if(data.result.brochure_pdf_link) window.location.href = data.result.brochure_pdf_link;
+        }
+  }
 
     const [activeState, setActiveState] = useState<string>("");
     const [indian_cities, setIndianCities] = useState<string[]>([]);
@@ -165,7 +268,7 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
 
   return (
     <>
-    <Header ticker_api={ticker} admissionPage={true} onDownloadBrochureClick={handleDownloadBrochure} />
+    <Header ticker_api={ticker} admissionPage={true} onDownloadBrochureClick={handleDownloadBrochure} showLoader={showLoader} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -414,10 +517,13 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
         admissions_brochure_introduction && (
         <div className="w-full relative bg-cover bg-center bg-no-repeat text-white h-[75vh] flex justify-center items-center text-center" style={{backgroundImage: `url(${admissions_brochure_introduction.intro_image})`}}>
             <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
-            <form className="flex flex-col gap-5 py-20 relative px-5 w-full lg:w-xl justify-center items-center text-center">
+            <form className="flex flex-col gap-5 py-20 relative px-5 w-full lg:w-xl justify-center items-center text-center" autoComplete="off" onSubmit={admissionDownloadBrochureSubmit}>
               <h3 className="text-2xl lg:text-4xl font-georgia">{admissions_brochure_introduction.intro_title}</h3>
               <p className="text-sm leading-loose">{parser(nl2br(admissions_brochure_introduction.intro_description))}</p>
-              <input type="email" placeholder="Enter Your Email Address" className="w-xs lg:w-lg border-b py-2 border-white outline-none" />
+              <input type="email" name="brochure_download_email_id" placeholder="Enter Your Email Address" className="w-xs lg:w-lg border-b py-2 border-white outline-none" onChange={handleAdmissionDownloadBrochureChange} value={admissionDownloadBrochureForm.brochure_download_email_id} ref={brochureDownloadEmailIDRef} />
+              <div className="text-white h-2">
+                <span className={`text-xs transition-all duration-200 ${errors.brochure_download_email_id ? "opacity-100" : "opacity-0"}`}>{errors.brochure_download_email_id}</span>
+              </div>
               <button type="submit" className="bg-[#800000] px-2 py-2 cursor-pointer">Submit & Download</button>
             </form>
         </div>

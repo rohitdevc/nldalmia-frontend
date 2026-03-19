@@ -31,6 +31,7 @@ export interface IntroProps {
     intro_image: string;
     intro_pdf: string;
     intro_video_id: string;
+    intro_link: string;
 }
 
 export interface CareerFinderProps {
@@ -307,4 +308,81 @@ export interface FAQs {
     faq_category_title: string;
     faq_question: string;
     faq_answer: string;
+}
+
+export interface WallOfFame {
+    wall_of_fame_name: string;
+    wall_of_fame_description: string;
+    wall_of_fame_thumbnail: string;
+    wall_of_fame_batch_year: string;
+    wall_of_fame_company_name: string;
+    wall_of_fame_designation: string;
+}
+
+export interface AlumniSlider {
+    slider_caption: string;
+    slider_description: string;
+}
+
+export interface AlumniMeet {
+    meet_caption: string;
+    meet_description: string;
+    meet_date: string;
+    meet_link: string;
+}
+
+export interface AlumniQuotes {
+    quote_text: string;
+    quote_name: string;
+    quote_date: string;
+    quote_link: string;
+    quote_thumbnail: string;
+    quote_pdf: string;
+}
+
+export interface AlumniConnect {
+    connect_name: string;
+    connect_description: string;
+    connect_thumbnail: string;
+    connect_designation: string;
+    connect_degree_year: string;
+    connect_areas_of_expertise: string;
+    connect_email_address: string;
+    connect_courses: string;
+    connect_phone_number: string;
+    connect_linked_in_url: string;
+    connect_instagram_url: string;
+    connect_twitter_url: string;
+}
+
+export interface AlumniHallOfFame {
+    hall_of_fame_name: string;
+    hall_of_fame_description: string;
+    hall_of_fame_thumbnail: string;
+    hall_of_fame_designation: string;
+    hall_of_fame_degree_year: string;
+    hall_of_fame_areas_of_expertise: string;
+    hall_of_fame_email_address: string;
+    hall_of_fame_courses: string;
+    hall_of_fame_phone_number: string;
+    hall_of_fame_linked_in_url: string;
+    hall_of_fame_instagram_url: string;
+    hall_of_fame_twitter_url: string;
+}
+
+export interface AlumniTestimonials {
+    testimonial_name: string;
+    testimonial_content: string;
+    testimonial_bio: string;
+    testimonial_designation: string;
+    testimonial_thumbnail: string;
+}
+
+export interface AlumniEvents {
+    event_title: string;
+    event_description: string;
+    event_start_date: string;
+    event_link: string;
+    event_thumbnail: string;
+    event_location: string;
 }

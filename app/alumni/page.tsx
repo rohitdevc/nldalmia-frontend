@@ -1,9 +1,48 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getAlumniWallOfFame, getAlumniSlider, getAlumniMeet, getAlumniQuotes, getAlumniConnectIntroduction, getAlumniConnect, getAlumniGlobal, getAlumniHallOfFameIntroduction, getAlumniHallOfFame, getAlumniTestimonialsIntroduction, getAlumniTestimonials, getAlumniEventsIntroduction, getAlumniEvents, getAlumniPortal } from "@/lib/alumni";
 
 import type { Metadata } from "next";
 import AlumniComponent from "@/components/pages/AlumniComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Alumni"), getBanner("Alumni") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  wall_of_fame,
+  slider,
+  alumni_meet,
+  alumni_quotes,
+  alumni_connect_introduction,
+  alumni_connect,
+  alumni_global,
+  alumni_hall_of_fame_introduction,
+  alumni_hall_of_fame,
+  alumni_testimonials_introduction,
+  alumni_testimonials,
+  alumni_events_introduction,
+  alumni_events,
+  alumni_portal
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Alumni"),
+  getBanner("Alumni"),
+  getIntroduction(),
+  getAlumniWallOfFame(),
+  getAlumniSlider(),
+  getAlumniMeet(),
+  getAlumniQuotes(),
+  getAlumniConnectIntroduction(),
+  getAlumniConnect(),
+  getAlumniGlobal(),
+  getAlumniHallOfFameIntroduction(),
+  getAlumniHallOfFame(),
+  getAlumniTestimonialsIntroduction(),
+  getAlumniTestimonials(),
+  getAlumniEventsIntroduction(),
+  getAlumniEvents(),
+  getAlumniPortal()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +86,22 @@ export default async function Page() {
   return (
     <AlumniComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    wall_of_fame={wall_of_fame}
+    slider={slider}
+    alumni_meet={alumni_meet}
+    alumni_quotes={alumni_quotes}
+    alumni_connect_introduction={alumni_connect_introduction}
+    alumni_connect={alumni_connect}
+    alumni_global={alumni_global}
+    alumni_hall_of_fame_introduction={alumni_hall_of_fame_introduction}
+    alumni_hall_of_fame={alumni_hall_of_fame}
+    alumni_testimonials_introduction={alumni_testimonials_introduction}
+    alumni_testimonials={alumni_testimonials}
+    alumni_events_introduction={alumni_events_introduction}
+    alumni_events={alumni_events}
+    alumni_portal={alumni_portal}
+    />
   )
 }
