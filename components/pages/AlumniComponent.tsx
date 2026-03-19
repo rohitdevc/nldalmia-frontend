@@ -611,7 +611,7 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
       }
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
-        <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
+        <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
           <div className="relative py-15 px-5 md:px-15 xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <div className="flex gap-3">
@@ -623,7 +623,7 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
               </span>
             </div>
             <div className="py-5 lg:py-10">
-              <Swiper modules={[Navigation]} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeConnectAlumniIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
+              <Swiper modules={[Navigation]} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeWallOfFameIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
                 {
                   alumni_hall_of_fame.map((alumni_row, key) => (
                     <SwiperSlide key={key}>

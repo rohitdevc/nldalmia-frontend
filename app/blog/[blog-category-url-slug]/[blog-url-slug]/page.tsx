@@ -1,6 +1,6 @@
 import { getTicker } from "@/lib/common";
 
-import { getBlog } from "@/lib/blog";
+import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
 
 import type { Metadata } from "next";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
@@ -64,12 +64,13 @@ export default async function Page({ params }: PageProps) {
   const { "blog-category-url-slug": blog_category_url_slug, "blog-url-slug": blog_url_slug } = await params;
   
   const blog = await getBlog(blog_category_url_slug, blog_url_slug);
+  const related_blog = await getBlogsRelatedByCategory(blog_category_url_slug, blog_url_slug);
 
   return (
     <BlogDetailsComponent
     ticker={ticker}
     blog={blog}
-    blog_url_slug={blog_url_slug}
+    related_blog={related_blog}
     />
   )
 }

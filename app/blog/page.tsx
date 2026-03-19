@@ -1,9 +1,26 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getBlogCategories, getBlogFeatured, getBlogs } from "@/lib/blog";
 
 import type { Metadata } from "next";
 import BlogComponent from "@/components/pages/BlogComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Blog"), getBanner("Blog") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  blog_categories,
+  blog_featured,
+  blogs
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Blog"),
+  getBanner("Blog"),
+  getIntroduction(),
+  getBlogCategories(),
+  getBlogFeatured(),
+  getBlogs()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +64,11 @@ export default async function Page() {
   return (
     <BlogComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    blog_categories={blog_categories}
+    blog_featured={blog_featured}
+    blogs={blogs}
+    />
   )
 }

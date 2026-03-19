@@ -6,78 +6,17 @@ import Banner from "@/components/Banner";
 import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
-import { Banner as BannerProps, Ticker } from "@/types/api";
+import { Awards, Banner as BannerProps, IntroProps, Ticker } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
-  banner: BannerProps;
+  banner: BannerProps
+  introduction: IntroProps
+  awards: Awards[]
 };
 
-export default function AwardsComponent({ticker, banner}: PageProps) {
+export default function AwardsComponent({ticker, banner, introduction, awards}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const awards = [
-    {
-      award_name: 'INS Hamla',
-      award_thumbnail: 'ins-hamla.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Best Green Campus',
-      award_thumbnail: 'best-green-campus.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Education Today',
-      award_thumbnail: 'education-today.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Best Education Brands 2023',
-      award_thumbnail: 'best-education-brands-2023.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'INS Hamla',
-      award_thumbnail: 'ins-hamla.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Best Green Campus',
-      award_thumbnail: 'best-green-campus.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Education Today',
-      award_thumbnail: 'education-today.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Best Education Brands 2023',
-      award_thumbnail: 'best-education-brands-2023.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'INS Hamla',
-      award_thumbnail: 'ins-hamla.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Best Green Campus',
-      award_thumbnail: 'best-green-campus.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Education Today',
-      award_thumbnail: 'education-today.png',
-      award_description: '2023, for seamless conduct of management phase'
-    },
-    {
-      award_name: 'Best Education Brands 2023',
-      award_thumbnail: 'best-education-brands-2023.png',
-      award_description: '2023, for seamless conduct of management phase'
-    }
-  ]
 
   return (
     <>
@@ -91,26 +30,32 @@ export default function AwardsComponent({ticker, banner}: PageProps) {
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
-        <CenterIntro introTitle="Media And Newsroom" introCaption="At NLDIMSR, We Believe In Leading With Impact And It Shows In The Stories We Tell And The Stories Told About Us." introDescription="Celebrate the milestone that define our legacy-from institutional accolades to individual excellence across academia, innovation and leadership" />
+        <CenterIntro
+        introTitle={introduction.intro_title}
+        introCaption={introduction.intro_caption}
+        introDescription={introduction.intro_description} />
         <MediaNavigation activePage="awards-and-achievements" />
         {
-            awards && awards.length > 0 &&
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
-              {
-                awards.map((award, key) => (
-                  <div className="flex flex-col gap-3 sm:w-50 text-center" key={key}>
-                    <div className="border-[0.5px] border-[#800000]">
-                      <Image src={`${basePath}images/awards/${award.award_thumbnail}`} className="object-cover w-full" width={300} height={300} alt={award.award_name} />
-                    </div>
-                    <h2 className="font-georgia text-xl">{award.award_name}</h2>
-                    <p className="text-[#4E4E4E] text-sm">{award.award_description}</p>
+          awards && awards.length > 0 &&
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+            {
+              awards.map((award, key) => (
+                <div className="flex flex-col gap-3 sm:w-50 text-center" key={key}>
+                  <div className="border-[0.5px] border-[#800000]">
+                    {
+                      award.award_thumbnail && (
+                      <Image src={award.award_thumbnail} className="object-cover w-full h-full" width={300} height={300} alt={award.award_name} />
+                      )
+                    }
                   </div>
-                ))
-              }
-            </div>
+                  <h2 className="font-georgia text-xl">{award.award_name}</h2>
+                  <p className="text-[#4E4E4E] text-sm">{award.award_year}</p>
+                </div>
+              ))
+            }
+          </div>
         }
       </div>
-      
       <Footer />
     </main>
     </>

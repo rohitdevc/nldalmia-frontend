@@ -386,3 +386,25 @@ export interface AlumniEvents {
     event_thumbnail: string;
     event_location: string;
 }
+
+export interface Awards {
+    award_name: string;
+    award_description: string;
+    award_year: number;
+    award_thumbnail: string;
+}
+
+export interface BlogCategories {
+    blog_category_title: string;
+    blog_category_url_slug: string;
+}
+
+export interface BlogListing {
+    blog_title: string;
+    blog_preview: string;
+    blog_category_name: string;
+    blog_category_url_slug: string;
+    blog_published_date: string;
+    blog_thumbnail: string;
+    blog_url_slug: string;
+}

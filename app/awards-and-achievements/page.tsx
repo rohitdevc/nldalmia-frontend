@@ -1,9 +1,22 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getAwards } from "@/lib/awards";
 
 import type { Metadata } from "next";
 import AwardsComponent from "@/components/pages/AwardsComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Awards"), getBanner("Awards") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  awards
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Awards"),
+  getBanner("Awards"),
+  getIntroduction(),
+  getAwards()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +60,9 @@ export default async function Page() {
   return (
     <AwardsComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    awards={awards}
+    />
   )
 }

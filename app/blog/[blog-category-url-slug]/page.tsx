@@ -1,9 +1,24 @@
+import { redirect } from "next/navigation";
+
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getBlogCategories, getBlogCategoryFeatured, getBlogsByCategory } from "@/lib/blog";
 
 import type { Metadata } from "next";
 import BlogComponent from "@/components/pages/BlogComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Blog"), getBanner("Blog") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  blog_categories
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Blog"),
+  getBanner("Blog"),
+  getIntroduction(),
+  getBlogCategories()
+]);
 
 export const viewport = {
   themeColor: [
@@ -56,10 +71,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Blog({ params }: PageProps) {
   const { "blog-category-url-slug": blog_category_url_slug } = await params;
 
+  const blog_featured = await getBlogCategoryFeatured(blog_category_url_slug);
+  const blogs = await getBlogsByCategory(blog_category_url_slug);
+
+  if(blogs.length === 0) redirect(process.env.NEXT_PUBLIC_PATH + "blog");
+
   return (
     <BlogComponent
     ticker={ticker}
     banner={banner}
-    blog_category_url_slug={blog_category_url_slug} />
+    blog_category_url_slug={blog_category_url_slug}
+    introduction={introduction}
+    blog_categories={blog_categories}
+    blog_featured={blog_featured}
+    blogs={blogs}
+    />
   )
 }
