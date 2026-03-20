@@ -128,6 +128,61 @@ export interface Blog {
     banner_image: string;
 }
 
+type EventMilestone = {
+    event_milestone_caption: string;
+    event_milestone_description: string;
+}
+
+type EventScheduleData = {
+    event_schedule_caption: string;
+    event_schedule_time: string;
+    event_schedule_description: string;
+}
+
+type EventSchedule = {
+    event_schedule_date: string;
+    event_schedule_data: EventScheduleData[]
+}
+
+type EventCompetition = {
+    event_competition_caption: string;
+    event_competition_description: string;
+    event_competition_image: string;
+}
+
+type EventSliders = {
+    event_slider_caption: string;
+    event_slider_image: string;
+}
+
+type EventRewards = {
+    event_reward_caption: string;
+    event_reward_description: string;
+}
+
+type EventSponser = {
+    event_sponser_name: string;
+    event_sponser_logo: string;
+}
+
+type EventTestimonials = {
+    event_testimonial_name: string;
+    event_testimonial_designation: string;
+    event_testimonial_about: string;
+    event_testimonial_content: string;
+    event_testimonial_image: string;
+}
+
+type EventFAQTabs = {
+    event_faq_question: string;
+    event_faq_answer: string;
+}
+
+type EventFAQs = {
+    event_faq_tab_title: string;
+    event_faq_tabs: EventFAQTabs[]
+}
+
 export interface Event {
     event_name: string;
     event_introduction_caption: string;
@@ -136,37 +191,37 @@ export interface Event {
     event_milestone_title: string;
     event_milestone_caption: string;
     event_milestone_description: string;
-    event_milestones: [Object];
+    event_milestones: EventMilestone[];
     event_schedule_caption: string;
     event_schedule_description: string;
-    event_schedules: [Object];
+    event_schedules: EventSchedule[];
     event_competition_title: string;
     event_competition_caption: string;
     event_competition_description: string;
-    event_competitions: [Object];
+    event_competitions: EventCompetition[];
     event_slider_title: string;
     event_slider_caption: string;
     event_slider_description: string;
-    event_sliders: [Object];
+    event_sliders: EventSliders[];
     event_reward_title: string;
     event_reward_caption: string;
     event_reward_description: string;
-    event_rewards: [Object];
+    event_rewards: EventRewards[];
     event_sponser_caption: string;
     event_sponser_description: string;
-    event_sponsers: [Object];
+    event_sponsers: EventSponser[];
     event_second_slider_title: string;
     event_second_slider_caption: string;
     event_second_slider_description: string;
-    event_second_sliders: [Object];
+    event_second_sliders: EventSliders[];
     event_testimonial_title: string;
     event_testimonial_caption: string;
     event_testimonial_description: string;
-    event_testimonials: [Object];
+    event_testimonials: EventTestimonials[];
     event_faq_title: string;
     event_faq_caption: string;
     event_faq_description: string;
-    event_faqs: [Object];
+    event_faqs: EventFAQs[];
     event_footer_section_caption: string;
     event_footer_section_description: string;
     event_registration_link: string;
@@ -407,4 +462,44 @@ export interface BlogListing {
     blog_published_date: string;
     blog_thumbnail: string;
     blog_url_slug: string;
+}
+
+export interface CareersOurValues {
+    our_value_title: string;
+    our_value_icon: string;
+}
+
+export interface CareerMilestones {
+    milestone_title: string;
+    milestone_description: string;
+}
+
+export interface CareersAchievements {
+    achievement_title: string;
+    achievement_caption: string;
+    achievement_image: string;
+}
+
+export interface CareersVacancies {
+    vacancy_title: string;
+    vacancy_preview: string;
+    vacancy_description: string;
+    vacancy_department: string;
+    vacancy_experience_required: string;
+    vacancy_location: string;
+}
+
+export interface CareersApplication {
+    application_title: string;
+    application_description: string;
+}
+
+export interface Events {
+    event_name: string;
+    event_start_date: string;
+    event_end_date: string;
+    event_url_slug: string;
+    event_registration_link: string;
+    event_thumbnail: string;
+    event_description: string;
 }

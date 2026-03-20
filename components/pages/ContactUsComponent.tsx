@@ -17,14 +17,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
-import { Ticker, Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps, IntroProps } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
-  banner: BannerProps;
+  banner: BannerProps
+  introduction: IntroProps
 };
 
-export default function ContactUsComponent({ticker, banner}: PageProps) {
+export default function ContactUsComponent({ticker, banner, introduction}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const enquiry_reasons = ['General', 'Admissions'];
@@ -41,7 +42,10 @@ export default function ContactUsComponent({ticker, banner}: PageProps) {
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-        <Intro introTitle="Let’s Talk" introCaption="Whether you’re a prospective student, parent Recruiter or academic partner - we’re here to help" introDescription="If you have any questions regarding programs, facilities or have requests or suggestions to make, feel free to give us a call or fill out the form below" />
+        <Intro
+        introTitle={introduction.intro_title}
+        introCaption={introduction.intro_caption}
+        introDescription={introduction.intro_description} />
       </div>
       <div className="w-full flex flex-col lg:flex-row gap-10 lg:justify-between px-5 md:px-15 xl:px-30 pb-10 text-burgundy">
         <div className="npf_wgts w-full lg:w-[48%]" data-height="100%" data-w="fadeebfca2b2228b1b843986d291aa08"></div>

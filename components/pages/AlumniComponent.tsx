@@ -63,23 +63,25 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
     if (!wrappers.length) return;
 
     wrappers.forEach((wrapper) => {
-      const heading = wrapper.querySelector("h4");
+      const headings = wrapper.querySelectorAll("h4");
 
-      if (!heading) return;
-
-      heading.classList.add("font-georgia");
+      headings.forEach((h4) => {
+        h4.classList.add(
+          "font-georgia"
+        );
+      });
     })
 
     wrappers.forEach((wrapper) => {
-      const paragraph = wrapper.querySelector("p");
+      const paragraphs = wrapper.querySelectorAll("p");
 
-      if (!paragraph) return;
-
-      paragraph.classList.add(
+      paragraphs.forEach((p) => {
+        p.classList.add(
           "text-[#4E4E4E]",
           "text-sm",
           "leading-loose"
-      );
+        );
+      });
     })
   }, []);
 

@@ -1,9 +1,40 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getCareersOurValuesIntroduction, getCareersOurValues, getCareersMilestones, getCareersAchievementsIntroduction, getCareersAchievements, getCareersVacanciesIntroduction, getCareersVacancies, getCareersApplicationIntroduction, getCareersApplication, getCareersProgramApplication } from "@/lib/career";
 
 import type { Metadata } from "next";
 import CareerComponent from "@/components/pages/CareerComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Careers"), getBanner("Careers") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  careers_our_values_introduction,
+  careers_our_values,
+  careers_milestones,
+  careers_achievements_introduction,
+  careers_achievements,
+  careers_vacancies_introduction,
+  careers_vacancies,
+  careers_application_introduction,
+  applications,
+  careers_program_application
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Careers"),
+  getBanner("Careers"),
+  getIntroduction(),
+  getCareersOurValuesIntroduction(),
+  getCareersOurValues(),
+  getCareersMilestones(),
+  getCareersAchievementsIntroduction(),
+  getCareersAchievements(),
+  getCareersVacanciesIntroduction(),
+  getCareersVacancies(),
+  getCareersApplicationIntroduction(),
+  getCareersApplication(),
+  getCareersProgramApplication()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +78,18 @@ export default async function Page() {
   return (
     <CareerComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    careers_our_values_introduction={careers_our_values_introduction}
+    careers_our_values={careers_our_values}
+    careers_milestones={careers_milestones}
+    careers_achievements_introduction={careers_achievements_introduction}
+    careers_achievements={careers_achievements}
+    careers_vacancies_introduction={careers_vacancies_introduction}
+    careers_vacancies={careers_vacancies}
+    careers_application_introduction={careers_application_introduction}
+    applications={applications}
+    careers_program_application={careers_program_application}
+    />
   )
 }
