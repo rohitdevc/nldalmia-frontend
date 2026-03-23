@@ -12,62 +12,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 
-import lodash from 'lodash';
-
-import { Banner as BannerProps, Ticker } from "@/types/api";
+import { Banner as BannerProps, Faculties, Ticker } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
-  banner: BannerProps;
+  banner: BannerProps
+  faculties: Faculties[]
 };
 
-export default function Faculty({ticker, banner}: PageProps) {
+export default function Faculty({ticker, banner, faculties}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const faculties = [
-    {
-      faculty_name: 'Shri Shivkumar Dalmia',
-      faculty_designation: 'Chairman, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'HR'
-    },
-    {
-      faculty_name: 'Prof. Dr. Seema Saini',
-      faculty_designation: 'CEO, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'Teacher'
-    },
-    {
-      faculty_name: 'Shri Shivkumar Dalmia',
-      faculty_designation: 'Chairman, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'Staff'
-    },
-    {
-      faculty_name: 'Prof. Dr. Seema Saini',
-      faculty_designation: 'CEO, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'Staff'
-    },
-    {
-      faculty_name: 'Shri Shivkumar Dalmia',
-      faculty_designation: 'Chairman, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'HR'
-    },
-    {
-      faculty_name: 'Prof. Dr. Seema Saini',
-      faculty_designation: 'CEO, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'Management'
-    },
-    {
-      faculty_name: 'Prof. Dr. Seema Saini',
-      faculty_designation: 'CEO, N.L. Dalmia Education society',
-      faculty_thumbnail: 'seema-saini.png',
-      faculty_department: 'Management'
-    }
-  ]
 
   const departments: string[] = [];
 
@@ -144,11 +98,15 @@ export default function Faculty({ticker, banner}: PageProps) {
                 return (
                   <div className="flex flex-col gap-4 xl:w-sm justify-center items-center text-center bg-white border-[0.5px] border-[#E0CDCD]" title={faculty.faculty_name} key={key}>
                     <div className="h-75">
-                      <Image src={`${basePath}images/about-us/management/${faculty.faculty_thumbnail}`} alt={faculty.faculty_name} width={500} height={500} className="object-contain w-full h-full" />
+                      {
+                        faculty.faculty_thumbnail && (
+                          <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_name} width={500} height={500} className="object-contain w-full h-full" />
+                        )
+                      }
                     </div>
                     <h2 className="font-georgia text-xl">{faculty.faculty_name}</h2>
                     <span className="text-[#4E4E4E]">{faculty.faculty_designation}</span>
-                    <Link className="w-full bg-[#800000] text-white py-1 flex justify-center items-center gap-2" href={`${basePath}faculty/${lodash.kebabCase(faculty.faculty_name)}`}>View Profile <MdArrowOutward size={20} /></Link>
+                    <Link className="w-full bg-[#800000] text-white py-1 flex justify-center items-center gap-2" href={`${basePath}faculty/${faculty.faculty_url_slug}`}>View Profile <MdArrowOutward size={20} /></Link>
                   </div>
                 )
               })

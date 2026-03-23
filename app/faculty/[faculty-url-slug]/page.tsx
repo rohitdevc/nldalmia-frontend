@@ -3,6 +3,7 @@ import { getFaculty } from "@/lib/faculty";
 
 import type { Metadata } from "next";
 import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
+import { redirect } from "next/navigation";
 
 const [ ticker ] = await Promise.all([
   getTicker()
@@ -27,6 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { "faculty-url-slug": faculty_url_slug } = await params;
 
   const faculty = await getFaculty(faculty_url_slug);
+
+  if(!faculty) redirect(process.env.NEXT_PUBLIC_PATH + 'faculty');
 
   return {
     title: faculty.meta_title,

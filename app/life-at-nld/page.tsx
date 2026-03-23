@@ -1,9 +1,45 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getLifeAtNLDEvents, getLifeAtNLDAchievementsIntroduction, getLifeAtNLDAchievements, getLifeAtNLDStudentClubIntroduction, getLifeAtNLDStudentClubs, getLifeAtNLDGallery, getLifeAtNLDInstagramIntroduction, getLifeAtNLDInsideNLDIntroduction, getLifeAtNLDInsideNLD, getLifeAtNLDMagazinesIntroduction, getLifeAtNLDMagazines } from "@/lib/life-at-nld";
+import { getAboutUsFounderQuote } from "@/lib/about-us";
 
 import type { Metadata } from "next";
 import LifeAtNLDComponent from "@/components/pages/LifeAtNLDComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Life@NLD"), getBanner("Life@NLD") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  events,
+  achievements_introduction,
+  achievements,
+  student_club_introduction,
+  student_clubs,
+  gallery,
+  founder_quote,
+  instagram_introduction,
+  inside_nld_introduction,
+  inside_nld,
+  magazines_introduction,
+  magazines
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Life@NLD"),
+  getBanner("Life@NLD"),
+  getIntroduction(),
+  getLifeAtNLDEvents(),
+  getLifeAtNLDAchievementsIntroduction(),
+  getLifeAtNLDAchievements(),
+  getLifeAtNLDStudentClubIntroduction(),
+  getLifeAtNLDStudentClubs(),
+  getLifeAtNLDGallery(),
+  getAboutUsFounderQuote(),
+  getLifeAtNLDInstagramIntroduction(),
+  getLifeAtNLDInsideNLDIntroduction(),
+  getLifeAtNLDInsideNLD(),
+  getLifeAtNLDMagazinesIntroduction(),
+  getLifeAtNLDMagazines()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +83,20 @@ export default async function Page() {
   return (
     <LifeAtNLDComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    events={events}
+    achievements_introduction={achievements_introduction}
+    achievements={achievements}
+    student_club_introduction={student_club_introduction}
+    student_clubs={student_clubs}
+    gallery={gallery}
+    founder_quote={founder_quote}
+    instagram_introduction={instagram_introduction}
+    inside_nld_introduction={inside_nld_introduction}
+    inside_nld={inside_nld}
+    magazines_introduction={magazines_introduction}
+    magazines={magazines}
+    />
   )
 }

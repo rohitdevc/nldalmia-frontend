@@ -1,9 +1,20 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getJournalPublications } from "@/lib/faculty";
 
 import type { Metadata } from "next";
 import JournalPublicationsComponent from "@/components/pages/JournalPublicationsComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Journal Publications"), getBanner("Journal Publications") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  journal_publications
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Journal Publications"),
+  getBanner("Journal Publications"),
+  getJournalPublications()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +58,7 @@ export default async function Page() {
   return (
     <JournalPublicationsComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    journal_publications={journal_publications} />
   )
 }

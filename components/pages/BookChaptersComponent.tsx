@@ -12,59 +12,22 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import ResearchPublicationTabs from "@/components/ResearchPublicationTabs";
-import { Ticker, Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps, BookChapters } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
   banner: BannerProps
+  book_publications: BookChapters[]
 };
 
-export default function BookChaptersComponent({ticker, banner}: PageProps) {
+export default function BookChaptersComponent({ticker, banner, book_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const book_publications = [
-    {
-      book_name: 'The Essentials Of World Religion',
-      book_author_name: 'Trilochan Sastry',
-      book_thumbnail: '9780143466888.jpg',
-      book_published_date: new Date('2026-01-04'),
-      book_link: 'https://www.midlandbookshop.com/en/product/the-essentials-of-world-religions?'
-    },
-    {
-      book_name: 'The Essentials Of World Religion',
-      book_author_name: 'Trilochan Sastry',
-      book_thumbnail: '9780143466888.jpg',
-      book_published_date: new Date('2026-01-04'),
-      book_link: 'https://www.midlandbookshop.com/en/product/the-essentials-of-world-religions?'
-    },
-    {
-      book_name: 'The Essentials Of World Religion',
-      book_author_name: 'Trilochan Sastry',
-      book_thumbnail: '9780143466888.jpg',
-      book_published_date: new Date('2023-04-04'),
-      book_link: 'https://www.midlandbookshop.com/en/product/the-essentials-of-world-religions?'
-    },
-    {
-      book_name: 'The Essentials Of World Religion',
-      book_author_name: 'Trilochan Sastry',
-      book_thumbnail: '9780143466888.jpg',
-      book_published_date: new Date('2026-01-04'),
-      book_link: 'https://www.midlandbookshop.com/en/product/the-essentials-of-world-religions?'
-    },
-    {
-      book_name: 'The Essentials Of World Religion',
-      book_author_name: 'Trilochan Sastry',
-      book_thumbnail: '9780143466888.jpg',
-      book_published_date: new Date('2022-09-14'),
-      book_link: 'https://www.midlandbookshop.com/en/product/the-essentials-of-world-religions?'
-    }
-  ]
 
   const book_published_years: number[] = [];
 
   book_publications.forEach((book_publication) => {
-    if(!book_published_years.includes(book_publication.book_published_date.getFullYear())) {
-      book_published_years.push(book_publication.book_published_date.getFullYear());
+    if(!book_published_years.includes(new Date(book_publication.book_chapter_date).getFullYear())) {
+      book_published_years.push(new Date(book_publication.book_chapter_date).getFullYear());
     }
   })
 
@@ -88,12 +51,12 @@ export default function BookChaptersComponent({ticker, banner}: PageProps) {
       const q = search.toLowerCase();
       
       return (
-        book.book_name.toLowerCase().includes(q) || book.book_author_name.toLowerCase().includes(q) || book.book_published_date.getFullYear().toString().includes(q)
+        book.book_chapter_title.toLowerCase().includes(q) || book.book_chapter_author.toLowerCase().includes(q) || new Date(book.book_chapter_date).getFullYear().toString().includes(q)
       );
     }
     
     if (year) {
-      return book.book_published_date.getFullYear().toString() === year;
+      return new Date(book.book_chapter_date).getFullYear().toString() === year;
     }
     
     return true;
@@ -138,14 +101,18 @@ export default function BookChaptersComponent({ticker, banner}: PageProps) {
             {
               filteredBooks.map((book, key) => {
                 return (
-                  <div className="flex flex-col sm:flex-row gap-5 bg-white text-burgundy border-[0.5px] border-[#800000] py-5 px-10 group transition-all duration-300 hover:bg-[#800000] hover:!text-white" title={book.book_name} key={key}>
+                  <div className="flex flex-col sm:flex-row gap-5 bg-white text-burgundy border-[0.5px] border-[#800000] py-5 px-10 group transition-all duration-300 hover:bg-[#800000] hover:!text-white" title={book.book_chapter_title} key={key}>
                     <div className="w-30">
-                      <Image src={`${basePath}images/research-published/${book.book_thumbnail}`} alt={book.book_name} width={300} height={300} className="object-cover w-full h-full" />
+                      <Image src={book.book_chapter_thumbnail} alt={book.book_chapter_title} width={300} height={300} className="object-cover w-full h-full" />
                     </div>
                     <div className="flex flex-col gap-5">
-                      <h2 className="font-georgia text-xl">{book.book_name}</h2>
-                      <h3>{book.book_author_name}</h3>
-                      <Link href={book.book_link} target="_blank" className="w-fit text-white bg-[#800000] px-3 py-1 group-hover:bg-white group-hover:text-[#800000]">View</Link>
+                      <h2 className="font-georgia text-xl">{book.book_chapter_title}</h2>
+                      <h3>{book.book_chapter_author}</h3>
+                      {
+                        book.book_chapter_link && (
+                          <Link href={book.book_chapter_link} target="_blank" className="w-fit text-white bg-[#800000] px-3 py-1 group-hover:bg-white group-hover:text-[#800000]">View</Link>
+                        )
+                      }
                     </div>
                   </div>
                 )

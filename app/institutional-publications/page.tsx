@@ -1,9 +1,22 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getInstitutionalPublicationCategories, getInstitutionalPublications } from "@/lib/institutional-publications";
 
 import type { Metadata } from "next";
 import InstitutionalPublicationsComponent from "@/components/pages/InstitutionalPublicationsComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Institutional Publications"), getBanner("Institutional Publications") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  institutional_publications_categories,
+  institutional_publications
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Institutional Publications"),
+  getBanner("Institutional Publications"),
+  getInstitutionalPublicationCategories(),
+  getInstitutionalPublications()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +60,9 @@ export default async function Page() {
   return (
     <InstitutionalPublicationsComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    institutional_publications_categories={institutional_publications_categories}
+    institutional_publications={institutional_publications}
+    />
   )
 }

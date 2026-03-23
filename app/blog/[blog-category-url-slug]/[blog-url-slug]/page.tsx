@@ -2,6 +2,7 @@ import { getTicker } from "@/lib/common";
 
 import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
 
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
 
@@ -29,6 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { "blog-category-url-slug": blog_category_url_slug, "blog-url-slug": blog_url_slug } = await params;
 
   const blog = await getBlog(blog_category_url_slug, blog_url_slug);
+
+  if(!blog) redirect(process.env.NEXT_PUBLIC_PATH + 'blog');
 
   return {
     title: blog.meta_title,

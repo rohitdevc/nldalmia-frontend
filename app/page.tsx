@@ -1,5 +1,5 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
-import { getHomeIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomePrograms, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeEvents, getHomeAwardsIntroduction, getHomeAwards, getHomeMediaIntroduction, getHomeMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction } from "@/lib/home";
+import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomePrograms, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeEvents, getHomeAwardsIntroduction, getHomeAwards, getHomeMediaIntroduction, getHomeMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction } from "@/lib/home";
 
 import type { Metadata } from "next";
 import HomeComponent from "@/components/pages/HomeComponent";
@@ -31,7 +31,7 @@ const [
   getTicker(),
   getMetaData("Home"),
   getBanner("Home"),
-  getHomeIntroduction(),
+  getIntroduction(),
   getHomeCareerFinder(),
   getHomeCareerPaths(),
   getHomeProgramsIntroduction(),

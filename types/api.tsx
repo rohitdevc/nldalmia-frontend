@@ -235,6 +235,11 @@ export interface Event {
     canonical_tag: string;
 }
 
+type FacultyAccordian = {
+    faculty_accordian_caption: string;
+    faculty_accordian_description: string;
+}
+
 export interface Faculty {
     faculty_name: string;
     faculty_thumbnail: string;
@@ -243,10 +248,18 @@ export interface Faculty {
     faculty_courses: string;
     faculty_email_address: string;
     faculty_linkedin_url: string;
-    faculty_accordians: [Object];
+    faculty_accordians: FacultyAccordian[];
     meta_title: string;
     meta_description: string;
     canonical_tag: string;
+}
+
+export interface Faculties {
+    faculty_name: string;
+    faculty_url_slug: string;
+    faculty_department: string;
+    faculty_designation: string;
+    faculty_thumbnail: string;
 }
 
 export interface Program {
@@ -502,4 +515,80 @@ export interface Events {
     event_registration_link: string;
     event_thumbnail: string;
     event_description: string;
+    event_report: string;
+}
+
+export interface BookChapters {
+    book_chapter_title: string;
+    book_chapter_author: string;
+    book_chapter_date: string;
+    book_chapter_link: string;
+    book_chapter_thumbnail: string;
+}
+
+export interface JournalPublications {
+    journal_publication_title: string;
+    journal_publication_caption: string;
+    journal_publication_description: string;
+    journal_publication_date: Date;
+    journal_publication_link: string;
+    journal_publication_authors: string;
+}
+
+export interface FinancialAssistancePartners {
+    partner_name: string;
+    partner_pdf: string;
+    partner_logo: string;
+}
+
+export interface InstitutionalPublicationCategories {
+    institutional_publication_category_title: string;
+    institutional_publication_description: string;
+}
+
+export interface InstitutionalPublications {
+    institutional_publication_category_title: string;
+    institutional_publication_title: string;
+    institutional_publication_caption: string;
+    institutional_publication_published_date: string;
+    institutional_publication_pdf: string;
+    institutional_publication_thumbnail: string;
+}
+
+export type IQACCategories = string[]
+
+export interface IQAC {
+    iqac_category_title: string;
+    iqac_title: string;
+    iqac_pdf: string;
+}
+
+export interface IQACPOE {
+    poe_title: string;
+}
+
+export interface LifeAtNLDAchievements {
+    achievement_caption: string;
+    achievement_description: string;
+    achievement_image: string;
+}
+
+export interface LifeAtNLDStudentClubs {
+    student_club_title: string;
+    student_club_caption: string;
+    student_club_description: string;
+    student_club_social_media: string;
+    student_club_image: string;
+}
+
+export interface LifeAtNLDGallery {
+    gallery_caption: string;
+    gallery_image: string;
+}
+
+export interface LifeAtNLDInsideNLD {
+    inside_nld_tab_title: string;
+    inside_nld_caption: string;
+    inside_nld_description: string;
+    inside_nld_image: string;
 }

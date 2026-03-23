@@ -3,6 +3,7 @@ import { getEvent } from "@/lib/event";
 
 import type { Metadata } from "next";
 import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
+import { redirect } from "next/navigation";
 
 const [ ticker ] = await Promise.all([
   getTicker()
@@ -27,6 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { "event-url-slug": event_url_slug } = await params;
 
   const event = await getEvent(event_url_slug);
+
+  if(!event) redirect(process.env.NEXT_PUBLIC_PATH + 'events');
 
   return {
     title: event.meta_title,

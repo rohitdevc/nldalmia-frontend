@@ -16,7 +16,7 @@ import {
     HomeBlog
 } from "@/types/api";
 
-export const getHomeIntroduction = async () => apiFetch<IntroProps>(`home/introduction`, {
+export const getIntroduction = async () => apiFetch<IntroProps>(`home/introduction`, {
     method: "GET",
     headers: await buildHeaders()
 });

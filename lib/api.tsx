@@ -21,8 +21,9 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
     
     if (!res.ok) {
         const message = await res.text();
-        console.error("API ERROR:", endpoint, res.status, message);
-        throw new Error(`API Error ${res.status}`);
+        //console.error("API ERROR:", endpoint, res.status, message);
+        //throw new Error(`API Error ${res.status}`);
+        return null as T;
     }
     
     try {

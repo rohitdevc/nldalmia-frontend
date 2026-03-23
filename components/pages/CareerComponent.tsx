@@ -72,16 +72,13 @@ export default function CareerComponent({ticker, banner, introduction, careers_o
 
     wrappers.forEach((wrapper) => {
       const headings = wrapper.querySelectorAll("h4");
+      const paragraphs = wrapper.querySelectorAll("p");
 
       headings.forEach((h4) => {
         h4.classList.add(
           "font-georgia"
         );
       });
-    })
-
-    wrappers.forEach((wrapper) => {
-      const paragraphs = wrapper.querySelectorAll("p");
 
       paragraphs.forEach((p) => {
         p.classList.add(
