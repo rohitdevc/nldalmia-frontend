@@ -12,7 +12,7 @@ import {
     HomeTestimonials,
     HomeEvents,
     HomeAwards,
-    HomeMedia,
+    Media,
     HomeBlog
 } from "@/types/api";
 
@@ -86,12 +86,12 @@ export const getHomeAwards = async () => apiFetch<HomeAwards[]>(`home/awards`, {
     headers: await buildHeaders()
 });
 
-export const getHomeMediaIntroduction = async () => apiFetch<IntroProps>(`home/media/introduction`, {
+export const getMediaIntroduction = async () => apiFetch<IntroProps>(`home/media/introduction`, {
     method: "GET",
     headers: await buildHeaders()
 });
 
-export const getHomeMedia = async () => apiFetch<HomeMedia[]>(`home/media`, {
+export const getMedia = async () => apiFetch<Media[]>(`home/media`, {
     method: "GET",
     headers: await buildHeaders()
 });

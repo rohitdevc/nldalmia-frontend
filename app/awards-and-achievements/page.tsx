@@ -1,5 +1,6 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getAwards } from "@/lib/awards";
+import { getMediaCategories } from "@/lib/media";
 
 import type { Metadata } from "next";
 import AwardsComponent from "@/components/pages/AwardsComponent";
@@ -9,13 +10,15 @@ const [
   meta,
   banner,
   introduction,
-  awards
+  awards,
+  media_categories
 ] = await Promise.all([
   getTicker(),
   getMetaData("Awards"),
   getBanner("Awards"),
   getIntroduction(),
-  getAwards()
+  getAwards(),
+  getMediaCategories()
 ]);
 
 export const viewport = {
@@ -63,6 +66,7 @@ export default async function Page() {
     banner={banner}
     introduction={introduction}
     awards={awards}
+    media_categories={media_categories}
     />
   )
 }

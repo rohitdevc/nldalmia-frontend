@@ -1,9 +1,30 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getScholarshipsMerit, getScholarshipsInclusivity, getScholarshipsSecondYear, getScholarshipsReportsIntroduction, getScholarshipsReports } from "@/lib/scholarships";
 
 import type { Metadata } from "next";
 import ScholarshipComponent from "@/components/pages/ScholarshipComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Scholarship"), getBanner("Scholarship") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  scholarship_merit,
+  scholarship_inclusivity,
+  scholarship_second_year,
+  reports_introduction,
+  reports
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Scholarship"),
+  getBanner("Scholarship"),
+  getIntroduction(),
+  getScholarshipsMerit(),
+  getScholarshipsInclusivity(),
+  getScholarshipsSecondYear(),
+  getScholarshipsReportsIntroduction(),
+  getScholarshipsReports()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +68,13 @@ export default async function Page() {
   return (
     <ScholarshipComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    scholarship_merit={scholarship_merit}
+    scholarship_inclusivity={scholarship_inclusivity}
+    scholarship_second_year={scholarship_second_year}
+    reports_introduction={reports_introduction}
+    reports={reports}
+    />
   )
 }

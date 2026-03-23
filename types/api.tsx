@@ -87,7 +87,12 @@ export interface HomeAwards {
     award_thumbnail: string;
 }
 
-export interface HomeMedia {
+export interface MediaCategoryListing {
+    media_category_title: string;
+    media_category_url_slug: string;
+}
+
+export interface Media {
     media_title: string;
     media_preview: string;
     media_published_date: string;
@@ -387,7 +392,8 @@ export interface WallOfFame {
     wall_of_fame_designation: string;
 }
 
-export interface AlumniSlider {
+export interface Slider {
+    slider_image: string;
     slider_caption: string;
     slider_description: string;
 }
@@ -591,4 +597,65 @@ export interface LifeAtNLDInsideNLD {
     inside_nld_caption: string;
     inside_nld_description: string;
     inside_nld_image: string;
+}
+
+export interface MDPPrograms {
+    program_name: string;
+    program_description: string;
+    program_application_link: string;
+    program_pdf: string;
+}
+
+export interface Testimonials {
+    testimonial_name: string;
+    testimonial_bio: string;
+    testimonial_designation: string;
+    testimonial_company_name: string;
+    testimonial_description: string;
+    testimonial_youtube_id: string;
+    testimonial_thumbnail: string;
+    testimonial_youtube_video_id: string;
+}
+
+export interface PlacementCorporateEngagement {
+    corporate_engagement_caption: string;
+    corporate_engagement_description: string;
+    corporate_engagement_icon: string;
+}
+
+export interface PlacementsTabs {
+    tab_title: string;
+    tab_content_caption: string;
+    tab_content_description: string;
+}
+
+export interface PlacementRecruiters {
+    recruiter_caption: string;
+    recruiter_logo: string;
+}
+
+export interface PlacementFeatures {
+    feature_category_title: string;
+    feature_caption: string;
+    feature_image: string;
+}
+
+export interface Contacts {
+    contact_name: string;
+    contact_designation: string;
+    contact_phone_number: string;
+    contact_email_address: string;
+}
+
+export interface Reports {
+    report_title: string;
+    report_pdf_file: string;
+}
+
+export interface ProgramsBlocks {
+    program_block_title: string;
+    program_block_caption: string;
+    program_block_description: string;
+    program_block_image: string;
+    program_block_application_link: string;
 }

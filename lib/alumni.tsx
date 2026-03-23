@@ -5,7 +5,7 @@ import { buildHeaders } from "./common";
 import {
     IntroProps,
     WallOfFame,
-    AlumniSlider,
+    Slider,
     AlumniMeet,
     AlumniQuotes,
     AlumniConnect,
@@ -24,7 +24,7 @@ export const getAlumniWallOfFame = async () => apiFetch<WallOfFame[]>(`alumni/wa
     headers: await buildHeaders()
 });
 
-export const getAlumniSlider = async () => apiFetch<AlumniSlider[]>(`alumni/slider`, {
+export const getSlider = async () => apiFetch<Slider[]>(`alumni/slider`, {
     method: "GET",
     headers: await buildHeaders()
 });

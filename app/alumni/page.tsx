@@ -1,5 +1,5 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
-import { getIntroduction, getAlumniWallOfFame, getAlumniSlider, getAlumniMeet, getAlumniQuotes, getAlumniConnectIntroduction, getAlumniConnect, getAlumniGlobal, getAlumniHallOfFameIntroduction, getAlumniHallOfFame, getAlumniTestimonialsIntroduction, getAlumniTestimonials, getAlumniEventsIntroduction, getAlumniEvents, getAlumniPortal } from "@/lib/alumni";
+import { getIntroduction, getAlumniWallOfFame, getSlider, getAlumniMeet, getAlumniQuotes, getAlumniConnectIntroduction, getAlumniConnect, getAlumniGlobal, getAlumniHallOfFameIntroduction, getAlumniHallOfFame, getAlumniTestimonialsIntroduction, getAlumniTestimonials, getAlumniEventsIntroduction, getAlumniEvents, getAlumniPortal } from "@/lib/alumni";
 
 import type { Metadata } from "next";
 import AlumniComponent from "@/components/pages/AlumniComponent";
@@ -29,7 +29,7 @@ const [
   getBanner("Alumni"),
   getIntroduction(),
   getAlumniWallOfFame(),
-  getAlumniSlider(),
+  getSlider(),
   getAlumniMeet(),
   getAlumniQuotes(),
   getAlumniConnectIntroduction(),

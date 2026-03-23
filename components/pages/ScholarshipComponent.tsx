@@ -11,15 +11,24 @@ import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 
+import parser from 'html-react-parser';
+import nl2br from "nl2br";
+
 import { MdArrowOutward } from "react-icons/md";
-import { Ticker, Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps, IntroProps, Reports } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
-  banner: BannerProps;
+  banner: BannerProps
+  introduction: IntroProps
+  scholarship_merit: IntroProps
+  scholarship_inclusivity: IntroProps
+  scholarship_second_year: IntroProps
+  reports_introduction: IntroProps
+  reports: Reports[]
 };
 
-export default function ScholarshipComponent({ticker, banner}: PageProps) {
+export default function ScholarshipComponent({ticker, banner, introduction, scholarship_merit, scholarship_inclusivity, scholarship_second_year, reports_introduction, reports}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
   
   useEffect(() => {
@@ -29,6 +38,14 @@ export default function ScholarshipComponent({ticker, banner}: PageProps) {
     wrappers.forEach((wrapper) => {
       const table = wrapper.querySelector("table");
       if (!table) return;
+
+      table.classList.add(
+        "w-full",
+        "table-fixed",
+        "text-[#4E4E4E]",
+        "text-center",
+        "my-5"
+      );
       
       const headers = Array.from(table.querySelectorAll("thead th")).map((th) => th.textContent.trim());
       
@@ -54,153 +71,86 @@ export default function ScholarshipComponent({ticker, banner}: PageProps) {
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-        <Intro introTitle="Events" introCaption="Empowering Ambition Through Financial Support" introDescription="The NLDIMSR Scholarship Program is designed to recognise merit, promote diversity and support students from economically or socially disadvantaged backgrounds. With both merit based and inclusivity based scholarships, we aim to build an ecosystem where every deserving candidate has the chance to excel." />
-        <div className="w-full">
-          <Image src={`${basePath}images/scholarship/scholarship.png`} alt="Scholarship" width={1920} height={900} className="object-cover" />
-        </div>
+        <Intro
+        introTitle={introduction.intro_title}
+        introCaption={introduction.intro_caption}
+        introDescription={introduction.intro_description} />
+        {
+          introduction.intro_image && (
+            <div className="w-full">
+              <Image src={introduction.intro_image} alt="Scholarship" width={1920} height={900} className="object-cover w-full h-full" />
+            </div>
+          )
+        }
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
-          <CenterIntro introCaption="Merit Based Scholarship" introDescription="To 10% of admitted students based on entrance scores, academic records, interviews and extracurriculars" />
-          <div className="responsive-table">
-            <table className="w-full table-fixed text-[#4E4E4E] text-center my-5">
-              <thead>
-                <tr>
-                  <th>Scholarship</th>
-                  <th>Fee Wavier</th>
-                  <th>CAT</th>
-                  <th>GMAT Score</th>
-                  <th>CMAT</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>100%</td>
-                  <td>Rs. 8,25,000</td>
-                  <td>&gt;99.00</td>
-                  <td>785+</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>75%</td>
-                  <td>Rs. 6,18,750</td>
-                  <td>&gt;98-98.99</td>
-                  <td>750-784+</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>50%</td>
-                  <td>Rs. 4,12,500</td>
-                  <td>&gt;95-95.97</td>
-                  <td>700-749+</td>
-                  <td>&gt;99.00</td>
-                </tr>
-                <tr>
-                  <td>25%</td>
-                  <td>Rs. 2,06,250</td>
-                  <td>&gt;92-94.99</td>
-                  <td>675-699+</td>
-                  <td>&gt;98.5-98.99</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <CenterIntro
+          introCaption={scholarship_merit.intro_title}
+          introDescription={scholarship_merit.intro_caption} />
+          {
+            scholarship_merit.intro_description && (
+              <div className="responsive-table">
+                {parser(scholarship_merit.intro_description)}
+              </div>
+            )
+          }
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
-          <CenterIntro introCaption="Inclusivity - Based Scholarships" introDescription="For students from EWS backgrounds, differently abled students, outstanding sports performance and children of alumni or faculty" />
-          <div className="responsive-table">
-            <table className="w-full table-fixed text-[#4E4E4E] text-center my-5">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Fee Wavier</th>
-                  <th>Amount</th>
-                  <th>Seats</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Economically Weaker Section</td>
-                  <td>30%</td>
-                  <td>₹ 2,47,500</td>
-                  <td>6</td>
-                </tr>
-                <tr>
-                  <td>Differently Abled Students</td>
-                  <td>30%</td>
-                  <td>₹ 2,47,500</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>Sports Excellence</td>
-                  <td>20%</td>
-                  <td>₹ 1,65,500</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>Alumni/Faculty Ward</td>
-                  <td>20%</td>
-                  <td>₹ 1,65,500</td>
-                  <td>5</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <CenterIntro
+          introCaption={scholarship_inclusivity.intro_title}
+          introDescription={scholarship_inclusivity.intro_caption} />
+          {
+            scholarship_inclusivity.intro_description && (
+              <div className="responsive-table">
+                {parser(scholarship_inclusivity.intro_description)}
+              </div>
+            )
+          }
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
-          <CenterIntro introCaption="Second Year Scholarships <br /> (Based on CGPI + 90% Attendance + Clean Record"/>
-          <div className="responsive-table">
-            <table className="w-full table-fixed text-[#4E4E4E] text-center my-5">
-              <thead>
-                <tr>
-                  <th>CGPI Range</th>
-                  <th>Fee Wavier</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>&gt;9.80</td>
-                  <td>100%</td>
-                  <td>₹ 8,25,000</td>
-                </tr>
-                <tr>
-                  <td>&gt;9.70 - 9.79</td>
-                  <td>75%</td>
-                  <td>₹ 6,18,750</td>
-                </tr>
-                <tr>
-                  <td>&gt;9.60 - 9.69</td>
-                  <td>50%</td>
-                  <td>₹ 4,12,500</td>
-                </tr>
-                <tr>
-                  <td>&gt;9.50 - 9.59</td>
-                  <td>25%</td>
-                  <td>₹ 2,06,250</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <CenterIntro
+          introCaption={scholarship_second_year.intro_title}/>
+          {
+            scholarship_second_year.intro_description &&  (
+              <div className="responsive-table">
+                {parser(scholarship_second_year.intro_description)}
+              </div>
+            )
+          }
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-        <Intro introTitle="Student Clubs" introCaption="Transparency In Action"/>
+        <Intro
+        introTitle={reports_introduction.intro_title}
+        introCaption={reports_introduction.intro_caption}
+        />
         <div className="flex flex-col lg:flex-row gap-10">
-          <div className="w-full lg:w-400">
-            <Image src={`${basePath}images/scholarship/scholarship-report.png`} alt="Scholarship Report" width={500} height={300} className="object-cover" />
-          </div>
+          {
+            reports_introduction.intro_image && (
+              <div className="w-full lg:w-400">
+                <Image src={reports_introduction.intro_image} alt={reports_introduction.intro_title} width={500} height={300} className="object-cover" />
+              </div>
+            )
+          }
           <div className="flex flex-col gap-5">
-            <p className="text-[#4E4E4E] leading-loose">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
-            <ul className="flex flex-col gap-3 text-burgundy">
-              <li>
-                <Link href="" target="_blank" className="flex gap-1 items-center">Scholarship Report 2025/2026 <MdArrowOutward size={15} /></Link>
-              </li>
-              <li>
-                <Link href="" target="_blank" className="flex gap-1 items-center">Scholarship Report 2025/2026 <MdArrowOutward size={15} /></Link>
-              </li>
-              <li>
-                <Link href="" target="_blank" className="flex gap-1 items-center">Scholarship Report 2025/2026 <MdArrowOutward size={15} /></Link>
-              </li>
-            </ul>
+            {
+              reports_introduction.intro_description && (
+                <p className="text-[#4E4E4E] leading-loose">{parser(nl2br(reports_introduction.intro_description))}</p>
+              )
+            }
+            {
+              reports && reports.length > 0 && (
+              <ul className="flex flex-col gap-3 text-burgundy">
+                {
+                  reports.map((report, key) => report.report_pdf_file && (
+                    <li key={key}>
+                      <Link href={report.report_pdf_file} target="_blank" className="flex gap-1 items-center">{report.report_title} <MdArrowOutward size={15} /></Link>
+                    </li>
+
+                  ))
+                }
+              </ul>
+              )
+            }
           </div>
         </div>
       </div>

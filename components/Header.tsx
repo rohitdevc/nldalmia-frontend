@@ -16,13 +16,14 @@ type HeaderProps = {
     ticker_api: TickerProps
     onDownloadBrochureClick?: () => void;
     admissionPage?: boolean;
+    programPage?: boolean;
     alumniPage?: boolean;
     placementsPage?: boolean;
     eventRegistrationURL?: string;
     showLoader?: boolean
 }
 
-export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false}: HeaderProps) {
+export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, programPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false}: HeaderProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker_end_date = useMemo(
@@ -127,6 +128,17 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                     <RiMenu3Fill size={25} className="cursor-pointer block xl:hidden" />
                 </div>
             </div>
+            {
+                programPage && (
+                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                    <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
+                        <li>
+                            <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
+                        </li>
+                    </ul>
+                </div>
+                )
+            }
             {
                 admissionPage && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">

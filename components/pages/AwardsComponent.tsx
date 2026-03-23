@@ -6,16 +6,17 @@ import Banner from "@/components/Banner";
 import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
-import { Awards, Banner as BannerProps, IntroProps, Ticker } from "@/types/api";
+import { Awards, Banner as BannerProps, IntroProps, Ticker, MediaCategoryListing } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
+  media_categories: MediaCategoryListing[]
   awards: Awards[]
 };
 
-export default function AwardsComponent({ticker, banner, introduction, awards}: PageProps) {
+export default function AwardsComponent({ticker, banner, introduction, awards, media_categories}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
@@ -34,7 +35,7 @@ export default function AwardsComponent({ticker, banner, introduction, awards}: 
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         introDescription={introduction.intro_description} />
-        <MediaNavigation activePage="awards-and-achievements" />
+        <MediaNavigation activePage="awards-and-achievements" media_categories={media_categories} />
         {
           awards && awards.length > 0 &&
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">

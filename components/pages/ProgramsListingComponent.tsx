@@ -9,17 +9,43 @@ import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 
 import ProgramBlock from "../ProgramBlock";
+import parser, { domToReact, HTMLReactParserOptions, Element } from 'html-react-parser';
+import nl2br from "nl2br";
 
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
-import { Ticker, Banner as BannerProps } from "@/types/api";
+import { Ticker, Banner as BannerProps, IntroProps, ProgramsBlocks } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
-  banner: BannerProps;
+  banner: BannerProps
+  introduction: IntroProps
+  program_blocks: ProgramsBlocks[]
+  scholarship_introduction: IntroProps
 };
 
-export default function ProgramsListingComponent({ticker, banner}: PageProps) {
+export default function ProgramsListingComponent({ticker, banner, introduction, program_blocks, scholarship_introduction}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const options: HTMLReactParserOptions  = {
+    replace: (domNode: any) => {
+      if (domNode.name === "ul") {
+        return (
+          <ul className="flex flex-col gap-3">
+            {domToReact(domNode.children as any, options)}
+          </ul>
+        );
+      }
+
+      if (domNode.name === "li") {
+        return (
+          <li className="flex items-center gap-1">
+            <IoMdCheckmarkCircleOutline size={15} />
+            {domToReact(domNode.children as any, options)}
+          </li>
+        );
+      }
+    },
+  };
 
   type Program = {
     id: number;
@@ -162,7 +188,10 @@ export default function ProgramsListingComponent({ticker, banner}: PageProps) {
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
-        <Intro introTitle="About The Program" introCaption="Find The Right Program For Your Ambition" introDescription="Whether you’re passionate about finance, business strategy or data-driven decision-making discover which program align with your career aspirations" />
+        <Intro
+        introTitle={introduction.intro_title}
+        introCaption={introduction.intro_caption}
+        introDescription={introduction.intro_description} />
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20">
         {
@@ -231,44 +260,53 @@ export default function ProgramsListingComponent({ticker, banner}: PageProps) {
                 <ProgramBlock program={firstProgramSet} index={0} />
               )
             }
-            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
-                <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
-                <div className="flex flex-col relative w-full h-full justify-center xl:items-end">
-                  <div className="flex flex-col gap-8">
-                    <p className="font-georgia leading-normal lg:leading-snug text-2xl lg:text-4xl">Transform Your Career At A Global Stage</p>
-                    <p className="text-xl">PGDM Programs upto 100% Scholarships For Meritorious Students</p>
-                    <ul className="flex flex-col gap-3">
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> South Asia’s largest Bloomberg lab</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Learn Techno Managerial Skills</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> 300+ Placement Partners</li>
-                    </ul>
-                    <Link href="" className="bg-[#800000] text-white text-center py-2 w-25">Apply Now</Link>
+            {
+              program_blocks && program_blocks.length > 0 && (
+              <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program_blocks[0].program_block_image})`}}>
+                  <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+                  <div className="flex flex-col relative w-full h-full justify-center xl:items-end">
+                    <div className="flex flex-col gap-8 program_block">
+                      <p className="font-georgia leading-normal lg:leading-snug text-2xl lg:text-4xl">{program_blocks[0].program_block_title}</p>
+                      <p className="text-xl">{program_blocks[0].program_block_caption}</p>
+                      {
+                        parser(program_blocks[0].program_block_description, options)
+                      }
+                      {
+                        program_blocks[0].program_block_application_link && (
+                          <Link href={program_blocks[0].program_block_application_link} target="_blank" className="bg-[#800000] text-white text-center py-2 w-25">Apply Now</Link>
+                        )
+                      }
+                    </div>
                   </div>
-                </div>
-            </div>
+              </div>
+            )
+            }
             {
               secondProgramSet && secondProgramSet.length > 0 && secondProgramSet.map((program, key) => (
                 <ProgramBlock program={program} index={(key + 1)} />
               ))
             }
-            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
-                <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
-                <div className="flex flex-col relative w-full h-full justify-center">
-                  <div className="flex flex-col gap-5">
-                    <p className="font-georgia leading-normal lg:leading-snug text-2xl lg:text-4xl">Enhance your leadership Skills With PGDM Programs</p>
-                    <p className="text-xl">Specialisation Offered</p>
-                    <ul className="flex flex-col gap-3">
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Finance</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Marketing</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Human Resource</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Business Analytics</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Business Analytics - Finance</li>
-                      <li className="flex items-center gap-1"><IoMdCheckmarkCircleOutline size={15} /> Business Analytics - Marketing</li>
-                    </ul>
-                    <Link href="" className="bg-[#800000] text-white text-center py-2 w-25">Apply Now</Link>
+            {
+              program_blocks && program_blocks.length > 1 && (
+              <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program_blocks[1].program_block_image})`}}>
+                  <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+                  <div className="flex flex-col relative w-full h-full justify-center">
+                    <div className="flex flex-col gap-5">
+                      <p className="font-georgia leading-normal lg:leading-snug text-2xl lg:text-4xl">{program_blocks[1].program_block_title}</p>
+                      <p className="text-xl">{program_blocks[1].program_block_caption}</p>
+                      {
+                        parser(program_blocks[1].program_block_description, options)
+                      }
+                      {
+                        program_blocks[1].program_block_application_link && (
+                          <Link href={program_blocks[1].program_block_application_link} target="_blank" className="bg-[#800000] text-white text-center py-2 w-25">Apply Now</Link>
+                        )
+                      }
+                    </div>
                   </div>
-                </div>
-            </div>
+              </div>
+              )
+            }
             {
               thirdProgramSet && thirdProgramSet.length > 0 && thirdProgramSet.map((program, key) => (
                 <ProgramBlock program={program} index={(key + 1)} />
@@ -278,21 +316,36 @@ export default function ProgramsListingComponent({ticker, banner}: PageProps) {
           )
         }
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
-        <Intro introTitle="Scholarship" introCaption="Where Merit Meets Opportunity" />
-        <div className="flex flex-col md:flex-row gap-10 md:mt-10">
-            <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer">
-              <Image src={`${basePath}images/programs/scholarship.png`} width={800} height={750} alt="NL Dalmia Scholarship" className="object-cover" />
+      {
+        scholarship_introduction && (
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+          <Intro
+          introTitle={scholarship_introduction.intro_title}
+          introCaption={scholarship_introduction.intro_caption} />
+          <div className="flex flex-col md:flex-row gap-10 md:mt-10">
+              <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer">
+                {
+                  scholarship_introduction.intro_image && (
+                    <Image src={scholarship_introduction.intro_image} width={800} height={750} alt={scholarship_introduction.intro_title} className="object-cover w-full h-full" />
+                  )
+                }
+              </div>
+              <div className="w-full lg:w-[60%] flex flex-col gap-5">
+                {
+                  scholarship_introduction.intro_description && (
+                    <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(scholarship_introduction.intro_description))}</p>
+                  )
+                }
+                {
+                  scholarship_introduction.intro_link && (
+                    <Link href={scholarship_introduction.intro_link} className="bg-[#800000] text-white text-center py-2 w-25">Scholarship</Link>
+                  )
+                }
+              </div>
             </div>
-            <div className="w-full lg:w-[60%] flex flex-col gap-5">
-              <p className="text-[#4E4E4E] text-sm leading-loose">At N.L. Dalmia Institute Of Management Studies and Research, we believe academic brilliance and potential should never be limited by financial constraints. Our scholarship programs reward high achivers, encourage inclusivity and enable deserving student to access world class education.
-              <br />
-              <br />
-              The NLDIMSR Scholarship Program is designed to recognise merit, promote diversity and support students from economically or socially disadvantaged backgrounds. With both merit based and inclusivity based scholarships, we aim to build an ecosystem where every deserving candidate has the chance to excel.</p>
-              <Link href="" className="bg-[#800000] text-white text-center py-2 w-25">Scholarship</Link>
-            </div>
-          </div>
-      </div>
+        </div>
+        )
+      }
       
       <Footer />
     </main>

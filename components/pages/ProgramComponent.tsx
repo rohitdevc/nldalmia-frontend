@@ -10,6 +10,7 @@ import { Navigation } from "swiper/modules";
 
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
+import IndianStatesCities from "indian-states-cities-list";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -23,8 +24,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { FaPlayCircle } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
+import { FaPlayCircle, FaCheck } from "react-icons/fa";
+import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { Ticker, Program } from "@/types/api";
 
 type PageProps = {
@@ -242,9 +243,38 @@ export default function ProgramComponent({ticker, program}: PageProps) {
     }
   ]
 
+  const [downloadBrochurePopUp, updateDownloadBrochurePopUp] = useState(false);
+    
+  const handleDownloadBrochure = () => {
+    updateDownloadBrochurePopUp(true);
+  };
+
+  const [activeState, setActiveState] = useState<string>("");
+  const [indian_cities, setIndianCities] = useState<string[]>([]);
+  
+  const indian_states = IndianStatesCities.INDIAN_STATES_AND_UT_ARRAY;
+
+  const [checked, setChecked] = useState(true);
+
+  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const index = e.target.selectedIndex - 1;
+    const state = e.target.value;
+    
+    setActiveState(state);
+    
+    const stateKeys = Object.keys(IndianStatesCities.STATE_WISE_CITIES);
+    const stateKey = stateKeys[index];
+    
+    const cities = stateKey
+    ? IndianStatesCities.STATE_WISE_CITIES[stateKey].map((city: any) => city.value)
+    : [];
+    
+    setIndianCities(cities);
+  };
+
   return (
     <>
-    <Header ticker_api={ticker} />
+    <Header ticker_api={ticker} onDownloadBrochureClick={handleDownloadBrochure} programPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={program.banner_image}
@@ -530,6 +560,95 @@ export default function ProgramComponent({ticker, program}: PageProps) {
               </li>
             </ul>
           </div>
+      </div>
+      <div className={`fixed top-0 left-0 bg-black/40 z-10 w-full h-screen flex justify-center md:items-center transition-all duration-300 ${downloadBrochurePopUp ? 'scale-y-100': 'scale-y-0'}`}>
+        <div className="bg-white px-10 py-10 relative w-full lg:w-1/2">
+        <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateDownloadBrochurePopUp(false)}/>
+          <form className="flex flex-col gap-5" autoComplete="off">
+            <h2 className="font-georgia text-xl">Fill The Form To Download Brochure</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full text-[#4E4E4E]">
+              <div className="relative">
+                <input type="text" name="download_brochure_name" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Name" />
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <input type="text" name="download_brochure_email_id" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Email Address" />
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <input type="tel" name="download_brochure_mobile_number" maxLength={10} className="border-b border-[#800000] py-1 w-full pr-20" placeholder="Enter Mobile Number" inputMode="numeric" />
+                <span className="absolute right-0 underline text-burgundy cursor-pointer">Get OTP</span>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <input type="number" name="download_brochure_otp" min={0} maxLength={6} className="border-b border-[#800000] py-1 w-full appearance-none no-spinner" placeholder="Enter OTP" inputMode="numeric" />
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <select name="download_brochure_state_name" className="border-b border-[#800000] py-2 w-full" value={activeState} onChange={handleStateChange}>
+                  <option value="">Select State</option>
+                  {
+                    indian_states && indian_states.length > 0 && indian_states.map((indian_state, key) => (
+                      <option value={indian_state} key={key}>{indian_state}</option>
+                    ))
+                  }
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <select name="download_brochure_city_name" className="border-b border-[#800000] py-2 w-full" >
+                  <option value="">Select City</option>
+                  {
+                    indian_cities && indian_cities.length > 0 && indian_cities.map((indian_city, key) => (
+                      <option value={indian_city} key={key}>{indian_city}</option>
+                    ))
+                  }
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+              <div className="relative">
+                <select name="download_brochure_graduation_status" className="border-b border-[#800000] py-2 w-full" >
+                  <option value="">Select Graduation Status</option>
+                  <option value="Completed">Completed</option>
+                  <option value="In Last Year Of Graduation">In Last Year Of Graduation</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
+                  <IoIosArrowDown size={25} />
+                </div>
+                <div className="error">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <label htmlFor="download_brochure_terms" className="flex gap-2 items-start cursor-pointer">
+              <div className="mt-1 h-5 w-5 shrink-0 rounded border-2 border-[#800000] bg-white flex items-center justify-center transition-all duration-150">
+                <input type="checkbox" id="download_brochure_terms" className="peer sr-only" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+                <FaCheck className="hidden peer-checked:block h-4 w-4 text-[#800000]" />
+              </div>
+              <p>I agree to receive information by signing up on N. L. Dalmia Institute of Management Studies and Research *</p>
+            </label>
+            
+            <button type="submit" className="cursor-pointer text-white bg-[#800000] w-fit px-5 py-1">Submit</button>
+          </form>
+        </div>
       </div>
       <Footer />
       <YTVideoPopUp ref={videoPopupRef} />

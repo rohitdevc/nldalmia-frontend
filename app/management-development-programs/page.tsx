@@ -1,9 +1,34 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getWhyChooseIntroduction, getMDPProgramsIntroduction, getMDPPrograms, getMDPTestimonialsIntroduction, getMDPTestimonials, getMDPFAQsIntroduction, getMDPFAQs } from "@/lib/mdp";
 
 import type { Metadata } from "next";
 import ManagementDevelopmentProgramsComponent from "@/components/pages/ManagementDevelopmentProgramsComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("MDP"), getBanner("MDP") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  why_choose_introduction,
+  programs_introduction,
+  programs,
+  testimonial_introduction,
+  testimonials,
+  faqs_introduction,
+  faqs
+] = await Promise.all([
+  getTicker(),
+  getMetaData("MDP"),
+  getBanner("MDP"),
+  getIntroduction(),
+  getWhyChooseIntroduction(),
+  getMDPProgramsIntroduction(),
+  getMDPPrograms(),
+  getMDPTestimonialsIntroduction(),
+  getMDPTestimonials(),
+  getMDPFAQsIntroduction(),
+  getMDPFAQs()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +72,15 @@ export default async function Page() {
   return (
     <ManagementDevelopmentProgramsComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    why_choose_introduction={why_choose_introduction}
+    programs_introduction={programs_introduction}
+    programs={programs}
+    testimonial_introduction={testimonial_introduction}
+    testimonials={testimonials}
+    faqs_introduction={faqs_introduction}
+    faqs={faqs}
+    />
   )
 }

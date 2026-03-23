@@ -1,12 +1,11 @@
 import { getTicker } from "@/lib/common";
-import { getMediaCategory } from "@/lib/media";
+import { getMediaCategory, getMedia, getMediaCategories } from "@/lib/media";
 
 import type { Metadata } from "next";
 import MediaComponent from "@/components/pages/MediaComponent";
+import { redirect } from "next/navigation";
 
-const [ ticker ] = await Promise.all([
-  getTicker()
-])
+const [ ticker ] = await Promise.all([ getTicker() ])
 
 export const viewport = {
   themeColor: [
@@ -27,6 +26,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { "media-category-url-slug": media_category_url_slug } = await params;
 
   const media_category = await getMediaCategory(media_category_url_slug);
+
+  if(!media_category) redirect(process.env.NEXT_PUBLIC_PATH + "media");
 
   return {
     title: media_category.meta_title,
@@ -61,12 +62,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { "media-category-url-slug": media_category_url_slug } = await params;
 
-  const [ media_category ] = await Promise.all([ getMediaCategory(media_category_url_slug) ]);
+  const media_category = await getMediaCategory(media_category_url_slug);
+
+  const media_categories = await getMediaCategories();
+
+  const media = await getMedia(media_category_url_slug);
+
+  if(!media.length) redirect(process.env.NEXT_PUBLIC_PATH + "media");
   
   return (
     <MediaComponent
     ticker={ticker}
     banner={media_category}
-    media_category_url_slug={media_category_url_slug} />
+    media_category_url_slug={media_category_url_slug}
+    media_categories={media_categories}
+    media={media}
+     />
   )
 }

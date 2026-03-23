@@ -1,9 +1,24 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getProgramsBlocks, getProgramsScholarshipIntroduction } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramsListingComponent from "@/components/pages/ProgramsListingComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("Programs"), getBanner("Programs") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  program_blocks,
+  scholarship_introduction
+] = await Promise.all([
+  getTicker(),
+  getMetaData("Programs"),
+  getBanner("Programs"),
+  getIntroduction(),
+  getProgramsBlocks(),
+  getProgramsScholarshipIntroduction()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +62,10 @@ export default async function Page() {
   return (
     <ProgramsListingComponent
     ticker={ticker}
-    banner={banner} />
+    banner={banner}
+    introduction={introduction}
+    program_blocks={program_blocks}
+    scholarship_introduction={scholarship_introduction}
+    />
   )
 }

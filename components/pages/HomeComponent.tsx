@@ -33,7 +33,7 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeed from "@/components/InstagramFeed";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, HomeMedia, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, Ticker, VideoSection } from "@/types/api";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, Ticker, VideoSection } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker,
@@ -53,7 +53,7 @@ type PageProps = {
   awards_introduction: IntroProps
   awards: HomeAwards[]
   media_introduction: IntroProps
-  media: HomeMedia[]
+  media: Media[]
   blog_introduction: IntroProps
   blogs: HomeBlog[]
   instagram_introduction: IntroProps

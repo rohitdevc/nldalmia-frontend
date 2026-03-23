@@ -33,14 +33,14 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Ticker, Banner as BannerProps, IntroProps, WallOfFame, AlumniSlider, AlumniQuotes, AlumniMeet, AlumniConnect, AlumniHallOfFame, AlumniTestimonials, AlumniEvents } from "@/types/api";
+import { Ticker, Banner as BannerProps, IntroProps, WallOfFame, Slider, AlumniQuotes, AlumniMeet, AlumniConnect, AlumniHallOfFame, AlumniTestimonials, AlumniEvents } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   wall_of_fame: WallOfFame[]
-  slider: AlumniSlider[]
+  slider: Slider[]
   alumni_meet: AlumniMeet[]
   alumni_quotes: AlumniQuotes[]
   alumni_connect_introduction: IntroProps
