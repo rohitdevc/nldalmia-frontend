@@ -267,47 +267,6 @@ export interface Faculties {
     faculty_thumbnail: string;
 }
 
-export interface Program {
-    program_name: string;
-    program_introduction_caption: string;
-    program_introduction_description: string;
-    program_sliders: [Object];
-    program_highlights: [string];
-    program_highlights_image: string;
-    program_credit_title: string;
-    program_credit_caption: string;
-    program_credit_description: string;
-    program_credit_content: string;
-    program_international_partner_caption: string;
-    program_international_partner_description: string;
-    program_international_partners: [Object];
-    program_outcomes: [Object];
-    program_advantage_image: string;
-    program_advantages: [Object];
-    program_application_title: string;
-    program_application_caption: string;
-    program_application_description: string;
-    program_admissions: [Object];
-    program_second_slider_caption: string;
-    program_second_slider_description: string;
-    program_second_sliders: [Object];
-    program_testimonial_title: string;
-    program_testimonial_caption: string;
-    program_testimonial_description: string;
-    program_testimonials: [Object];
-    program_footer_section_image: string;
-    program_footer_section_caption: string;
-    program_footer_section_description: string;
-    program_application_link: string;
-    og_image: string;
-    banner_image: string;
-    banner_image_caption: string;
-    banner_image_description: string;
-    meta_title: string;
-    meta_description: string;
-    canonical_tag: string;
-}
-
 export interface Objectives {
     objective_caption: string;
     objective_description: string;
@@ -658,4 +617,130 @@ export interface ProgramsBlocks {
     program_block_description: string;
     program_block_image: string;
     program_block_application_link: string;
+}
+
+export interface ProgramListing {
+    program_name: string;
+    program_url_slug: string;
+    program_tagline: string;
+    program_career_paths: string[];
+    program_description: string;
+    program_highlights: string[];
+    program_thumbnail: string;
+}
+
+type ProgramSlider = {
+    program_slider_caption: string;
+    program_slider_image: string;
+}
+
+type ProgramInternationalPartner = {
+    program_international_partner_name: string;
+    program_international_partner_country: string;
+    program_international_partner_description: string;
+    program_international_partner_logo: string;
+}
+
+type ProgramOutcome = {
+    program_outcome_caption: string;
+    program_outcome_description: string;
+}
+
+type ProgramAdvantage = {
+    program_advantage_caption: string;
+    program_advantage_description: string;
+}
+
+export interface ProgramAdmissionTab {
+    program_admission_tab_content_caption: string;
+    program_admission_tab_content_description: string;
+}
+
+export interface ProgramAdmission {
+    program_admission_tab_title: string;
+    program_admission_tabs: ProgramAdmissionTab[]
+}
+
+type ProgramTestimonial = {
+    program_testimonial_name: string;
+    program_testimonial_designation: string;
+    program_testimonial_about: string;
+    program_testimonial_content: string;
+    program_testimonial_image: string;
+}
+
+export interface Program {
+    program_name: string;
+    program_introduction_caption: string;
+    program_introduction_description: string;
+    program_sliders: ProgramSlider[];
+    program_highlights: string[];
+    program_highlights_image: string;
+    program_highlights_youtube_id: string;
+    program_credit_title: string;
+    program_credit_caption: string;
+    program_credit_description: string;
+    program_credit_content: string;
+    program_international_partner_caption: string;
+    program_international_partner_description: string;
+    program_international_partners: ProgramInternationalPartner[];
+    program_outcomes: ProgramOutcome[]
+    program_advantage_image: string;
+    program_advantages: ProgramAdvantage[]
+    program_application_title: string;
+    program_application_caption: string;
+    program_application_description: string;
+    program_admissions: ProgramAdmission[]
+    program_second_slider_caption: string;
+    program_second_slider_description: string;
+    program_second_sliders: ProgramSlider[]
+    program_testimonial_title: string;
+    program_testimonial_caption: string;
+    program_testimonial_description: string;
+    program_testimonials: ProgramTestimonial[];
+    program_footer_section_image: string;
+    program_footer_section_caption: string;
+    program_footer_section_description: string;
+    program_application_link: string;
+    program_eligibility_and_fees: string;
+    og_image: string;
+    banner_image: string;
+    banner_image_caption: string;
+    banner_image_description: string;
+    meta_title: string;
+    meta_description: string;
+    canonical_tag: string;
+}
+
+export interface NLDESObjectives {
+    objective_caption: string;
+    objective_description: string;
+}
+
+export interface Institutes {
+    institute_caption: string;
+    institute_description: string;
+    institute_link: string;
+    institute_thumbnail: string;
+}
+
+export interface NLDESManagement {
+    management_category_title: string;
+    management_name: string;
+    management_designation: string;
+    management_link: string;
+    management_image: string;
+}
+
+export interface NLDESSocialResponsibility {
+    social_responsibility_caption: string;
+    social_responsibility_description: string;
+    social_responsibility_image: string;
+}
+
+export interface NLDESCareers {
+    career_caption: string;
+    career_description: string;
+    career_link: string;
+    career_thumbnail: string;
 }

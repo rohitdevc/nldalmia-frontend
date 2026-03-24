@@ -13,7 +13,7 @@ import parser, { domToReact, HTMLReactParserOptions, Element } from 'html-react-
 import nl2br from "nl2br";
 
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
-import { Ticker, Banner as BannerProps, IntroProps, ProgramsBlocks } from "@/types/api";
+import { Ticker, Banner as BannerProps, IntroProps, ProgramsBlocks, ProgramListing } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
@@ -21,9 +21,10 @@ type PageProps = {
   introduction: IntroProps
   program_blocks: ProgramsBlocks[]
   scholarship_introduction: IntroProps
+  programs: ProgramListing[]
 };
 
-export default function ProgramsListingComponent({ticker, banner, introduction, program_blocks, scholarship_introduction}: PageProps) {
+export default function ProgramsListingComponent({ticker, banner, introduction, program_blocks, scholarship_introduction, programs}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const options: HTMLReactParserOptions  = {
@@ -47,92 +48,9 @@ export default function ProgramsListingComponent({ticker, banner, introduction, 
     },
   };
 
-  type Program = {
-    id: number;
-    program_name: string;
-    program_tagline: string;
-    program_thumbnail: string;
-    program_description: string;
-    program_highlights?: string[];
-    program_career_paths?: string[];
-    program_link: string;
-  }
-
-  const programs = [
-    {
-      id: 1,
-      program_name: 'PGDM - Post Graduate Diploma In Management',
-      program_tagline: 'Empowering Future Business Leaders',
-      program_thumbnail: 'pgdm.png',
-      program_description: 'The two-year full-time PGDM program at NLDIMSR is designed to equip students with industry - relevant skills and knowledge. The curriculum integrates best practices to ensure students are prepared for dynamic business environment.',
-      program_highlights: [
-        'A well-rounded, full time 2-year program fostering leadership, strategic thinking and cross functional expertise.',
-        'AICTE approved, NBA accredited and AIU recognised - offerings equivalence to MBA.',
-        'Industry-integrated curriculum with live projects, case studies and stimulation-based learning, dual specialization options across marketing, HR, Finance, Operations and Business Analytics.',
-        'Extensive corporate exposure through gust lectures, conclaves and summer internships, holistic development with emphasis on communication, ethics and entrepreneurial thinking.'
-      ],
-      program_career_paths: [
-        'Business Consultant',
-        'Brand Manager',
-        'HR Business Partner',
-        'Product Manager',
-        'Operation Analyst',
-        'Strategy Associate'
-      ],
-      program_link: basePath + 'programs/pgdm'
-    },
-    {
-      id: 2,
-      program_name: 'PGDM - Finance',
-      program_tagline: 'Shaping Financial Visionaries',
-      program_thumbnail: 'pgdm-finance.png',
-      program_description: 'Designed for aspiring finance professionals, this program delivers rigorous training in corporate finance, equity research, investment banking and financial markets with access to tools like the Bloomberg terminal.',
-      program_highlights: [
-        'Specialised full-time PGDM focused exclusively on finance and capital markets.',
-        'Curriculum covers investment banking, risk management, equity research, fintech, portfolio management and more.',
-        'Access to Bloomberg lab and financial analytics tools for real-time market insights and stimulations.',
-        'Advanced courses in financial modelling, mergers and acquisition and global strategies.',
-        'Strong industry connect through finance conclaves, guests sessions from CXOs and alumni mentorship.',
-        'Highly regarded by BFSI recruiters for producing job ready finance professionals'
-      ],
-      program_career_paths: [
-        'Investment Banking Analyst',
-        'Equity Research Associates',
-        'Risk and Compliance Manager',
-        'Credit Analyst',
-        'Treasury Manager',
-        'Wealth Advisor'
-      ],
-      program_link: basePath + 'programs/pgdm-finance'
-    },
-    {
-      id: 3,
-      program_name: 'PGDM in Business Analytics',
-      program_tagline: 'Transforming Data into Strategic Decision',
-      program_thumbnail: 'pgdm.png',
-      program_description: 'Built for data-driven problem solvers, this program combines analytics tools, business acumen and AI/ML concepts to prepare students for high-growth analytical roles in business consulting',
-      program_highlights: [
-        'Future-centric full time PGDM bridging data science with business strategy.',
-        'Hands-on training in python, R, Tableau, Power BI, Excel and SQL across all semesters.',
-        'Core modules in data-driven decision making predictive modelling, machine learning and AI for business',
-        'Real-world industry projects and capstones in collaboration with analytics firms',
-        'Cross-disciplinary focus on marketing analytics, HR analytics, financial analytics and more'
-      ],
-      program_career_paths: [
-        'Business Analyst',
-        'Data Analyst',
-        'Analytics Consultant',
-        'BI Developer',
-        'Product Analyst',
-        'Strategy & Research Analyst'
-      ],
-      program_link: basePath + 'programs/pgdm-in-business-analytics'
-    },
-  ]
-
-  let firstProgramSet: Program | null = null;
-  let secondProgramSet: Program[] = [];
-  let thirdProgramSet: Program[] = [];
+  let firstProgramSet: ProgramListing | null = null;
+  let secondProgramSet: ProgramListing[] = [];
+  let thirdProgramSet: ProgramListing[] = [];
 
   if(programs.length > 0) {
     firstProgramSet = programs[0];

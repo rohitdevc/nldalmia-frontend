@@ -1,9 +1,42 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getIntroduction, getNLDESObjectivesIntroduction, getNLDESObjectives, getNLDESInstitutesIntroduction, getNLDESInstitutes, getNLDESManagementIntroduction, getNLDESManagement, getNLDESSocialResponsibilityIntroduction, getNLDESSocialResponsibility, getNLDESCareersIntroduction, getNLDESCareers, getNLDESFooter } from "@/lib/nldes";
 
 import type { Metadata } from "next";
 import NLDESComponent from "@/components/pages/NLDESComponent";
 
-const [ ticker, meta, banner ] = await Promise.all([ getTicker(), getMetaData("NLDES"), getBanner("NLDES") ]);
+const [
+  ticker,
+  meta,
+  banner,
+  introduction,
+  objectives_introduction,
+  objectives,
+  institutes_introduction,
+  institutes,
+  management_introduction,
+  management,
+  social_responsibility_introduction,
+  social_responsibilities,
+  careers_introduction,
+  careers,
+  footer
+] = await Promise.all([
+  getTicker(),
+  getMetaData("NLDES"),
+  getBanner("NLDES"),
+  getIntroduction(),
+  getNLDESObjectivesIntroduction(),
+  getNLDESObjectives(),
+  getNLDESInstitutesIntroduction(),
+  getNLDESInstitutes(),
+  getNLDESManagementIntroduction(),
+  getNLDESManagement(),
+  getNLDESSocialResponsibilityIntroduction(),
+  getNLDESSocialResponsibility(),
+  getNLDESCareersIntroduction(),
+  getNLDESCareers(),
+  getNLDESFooter()
+]);
 
 export const viewport = {
   themeColor: [
@@ -47,6 +80,19 @@ export default async function Page() {
   return (
     <NLDESComponent
     ticker={ticker}
-    banner={banner}/>
+    banner={banner}
+    introduction={introduction}
+    objectives_introduction={objectives_introduction}
+    objectives={objectives}
+    institutes_introduction={institutes_introduction}
+    institutes={institutes}
+    management_introduction={management_introduction}
+    management={management}
+    social_responsibility_introduction={social_responsibility_introduction}
+    social_responsibilities={social_responsibilities}
+    careers_introduction={careers_introduction}
+    careers={careers}
+    footer={footer}
+    />
   )
 }

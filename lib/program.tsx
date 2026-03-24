@@ -5,7 +5,8 @@ import { buildHeaders } from "./common";
 import {
     IntroProps,
     Program,
-    ProgramsBlocks
+    ProgramsBlocks,
+    ProgramListing
 } from "@/types/api";
 
 export const getIntroduction = async () => apiFetch<IntroProps>(`programs/introduction`, {
@@ -24,6 +25,11 @@ export const getProgramsBlocks = async () => apiFetch<ProgramsBlocks[]>(`program
 });
 
 export const getProgramsScholarshipIntroduction = async () => apiFetch<IntroProps>(`programs/scholarship/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getPrograms = async () => apiFetch<ProgramListing[]>(`programs`, {
     method: "GET",
     headers: await buildHeaders()
 });

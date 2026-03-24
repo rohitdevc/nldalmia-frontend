@@ -1,5 +1,5 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
-import { getIntroduction, getProgramsBlocks, getProgramsScholarshipIntroduction } from "@/lib/program";
+import { getIntroduction, getProgramsBlocks, getProgramsScholarshipIntroduction, getPrograms } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramsListingComponent from "@/components/pages/ProgramsListingComponent";
@@ -10,14 +10,16 @@ const [
   banner,
   introduction,
   program_blocks,
-  scholarship_introduction
+  scholarship_introduction,
+  programs
 ] = await Promise.all([
   getTicker(),
   getMetaData("Programs"),
   getBanner("Programs"),
   getIntroduction(),
   getProgramsBlocks(),
-  getProgramsScholarshipIntroduction()
+  getProgramsScholarshipIntroduction(),
+  getPrograms()
 ]);
 
 export const viewport = {
@@ -66,6 +68,7 @@ export default async function Page() {
     introduction={introduction}
     program_blocks={program_blocks}
     scholarship_introduction={scholarship_introduction}
+    programs={programs}
     />
   )
 }

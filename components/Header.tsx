@@ -21,9 +21,11 @@ type HeaderProps = {
     placementsPage?: boolean;
     eventRegistrationURL?: string;
     showLoader?: boolean
+    programApplicationLink?: string;
+    programEligibilityFees?: string;
 }
 
-export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, programPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false}: HeaderProps) {
+export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, programPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false, programApplicationLink = "", programEligibilityFees = ""}: HeaderProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker_end_date = useMemo(
@@ -132,9 +134,23 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                 programPage && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
+                        {
+                            programEligibilityFees && (
+                                <li>
+                                    <Link className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm" href={programEligibilityFees} target="_blank">Program Eligibility & Fees</Link>
+                                </li>
+                            )
+                        }
                         <li>
                             <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
                         </li>
+                        {
+                            programApplicationLink && (
+                                <li>
+                                    <Link className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm" href={programApplicationLink} target="_blank">Apply Now</Link>
+                                </li>
+                            )
+                        }
                     </ul>
                 </div>
                 )

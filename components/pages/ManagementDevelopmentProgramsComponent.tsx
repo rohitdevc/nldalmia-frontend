@@ -27,7 +27,7 @@ import "swiper/css/navigation";
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
 
-import { Ticker, Banner as BannerProps, IntroProps, MDPPrograms, MDPTestimonials, FAQs } from "@/types/api";
+import { Ticker, Banner as BannerProps, IntroProps, MDPPrograms, Testimonials, FAQs } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
@@ -37,12 +37,13 @@ type PageProps = {
   programs_introduction: IntroProps
   programs: MDPPrograms[]
   testimonial_introduction: IntroProps
-  testimonials: MDPTestimonials[]
+  testimonials: Testimonials[]
   faqs_introduction: IntroProps
   faqs: FAQs[]
+  enquiry: IntroProps
 };
 
-export default function ManagementDevelopmentProgramsComponent({ticker, banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs}: PageProps) {
+export default function ManagementDevelopmentProgramsComponent({ticker, banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   useEffect(() => {
@@ -339,9 +340,17 @@ export default function ManagementDevelopmentProgramsComponent({ticker, banner, 
           )
       }
       <div className="w-full bg-[#FFCC33] flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-        <h3 className="font-georgia text-3xl">Enquire Now</h3>
-        <p className="text-[#4E4E4E] text-sm leading-loose">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-        <button className="cursor-pointer bg-[#800000] text-white px-3 py-1 w-fit">Enquire Now</button>
+        <h3 className="font-georgia text-3xl">{enquiry.intro_caption}</h3>
+        {
+          enquiry.intro_description && (
+            <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(enquiry.intro_description))}</p>
+          )
+        }
+        {
+          enquiry.intro_link && (
+            <Link href={enquiry.intro_link} className="cursor-pointer bg-[#800000] text-white px-3 py-1 w-fit">Enquire Now</Link>
+          )
+        }
       </div>
       <Footer />
       <YTVideoPopUp ref={videoPopupRef} />

@@ -5,7 +5,7 @@ import { buildHeaders } from "./common";
 import {
     IntroProps,
     MDPPrograms,
-    MDPTestimonials,
+    Testimonials,
     FAQs
 } from "@/types/api";
 
@@ -34,7 +34,7 @@ export const getMDPTestimonialsIntroduction = async () => apiFetch<IntroProps>(`
     headers: await buildHeaders()
 });
 
-export const getMDPTestimonials = async () => apiFetch<MDPTestimonials[]>(`mdp/testimonials`, {
+export const getMDPTestimonials = async () => apiFetch<Testimonials[]>(`mdp/testimonials`, {
     method: "GET",
     headers: await buildHeaders()
 });
@@ -45,6 +45,11 @@ export const getMDPFAQsIntroduction = async () => apiFetch<IntroProps>(`mdp/faqs
 });
 
 export const getMDPFAQs = async () => apiFetch<FAQs[]>(`mdp/faqs`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getMDPEnquiry = async () => apiFetch<IntroProps>(`mdp/enquiry`, {
     method: "GET",
     headers: await buildHeaders()
 });

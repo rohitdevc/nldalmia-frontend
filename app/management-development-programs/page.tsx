@@ -1,5 +1,5 @@
 import { getTicker, getMetaData, getBanner } from "@/lib/common";
-import { getIntroduction, getWhyChooseIntroduction, getMDPProgramsIntroduction, getMDPPrograms, getMDPTestimonialsIntroduction, getMDPTestimonials, getMDPFAQsIntroduction, getMDPFAQs } from "@/lib/mdp";
+import { getIntroduction, getWhyChooseIntroduction, getMDPProgramsIntroduction, getMDPPrograms, getMDPTestimonialsIntroduction, getMDPTestimonials, getMDPFAQsIntroduction, getMDPFAQs, getMDPEnquiry } from "@/lib/mdp";
 
 import type { Metadata } from "next";
 import ManagementDevelopmentProgramsComponent from "@/components/pages/ManagementDevelopmentProgramsComponent";
@@ -15,7 +15,8 @@ const [
   testimonial_introduction,
   testimonials,
   faqs_introduction,
-  faqs
+  faqs,
+  enquiry
 ] = await Promise.all([
   getTicker(),
   getMetaData("MDP"),
@@ -27,7 +28,8 @@ const [
   getMDPTestimonialsIntroduction(),
   getMDPTestimonials(),
   getMDPFAQsIntroduction(),
-  getMDPFAQs()
+  getMDPFAQs(),
+  getMDPEnquiry()
 ]);
 
 export const viewport = {
@@ -81,6 +83,7 @@ export default async function Page() {
     testimonials={testimonials}
     faqs_introduction={faqs_introduction}
     faqs={faqs}
+    enquiry={enquiry}
     />
   )
 }

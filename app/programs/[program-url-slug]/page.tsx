@@ -3,6 +3,7 @@ import { getProgram } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramComponent from "@/components/pages/ProgramComponent";
+import { redirect } from "next/navigation";
 
 const [ ticker ] = await Promise.all([
   getTicker()
@@ -27,6 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { "program-url-slug": program_url_slug } = await params;
 
   const program = await getProgram(program_url_slug);
+
+  if(!program) redirect(process.env.NEXT_PUBLIC_PATH + "programs");
 
   return {
     title: program.meta_title,
