@@ -149,9 +149,9 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
 
           if(!data.result) return false;
 
-          if(data.result.brochure_pdf_link) window.location.href = data.result.brochure_pdf_link;
+          if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
         }
-  }
+    }
 
     const admission_categories: string[] = [];
   

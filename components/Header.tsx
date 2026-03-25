@@ -23,9 +23,10 @@ type HeaderProps = {
     showLoader?: boolean
     programApplicationLink?: string;
     programEligibilityFees?: string;
+    programBrochureAvailable?: boolean;
 }
 
-export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, programPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false, programApplicationLink = "", programEligibilityFees = ""}: HeaderProps) {
+export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, programPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false, programApplicationLink = "", programEligibilityFees = "", programBrochureAvailable = false}: HeaderProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker_end_date = useMemo(
@@ -131,7 +132,7 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                 </div>
             </div>
             {
-                programPage && (
+                programPage && (programEligibilityFees || programBrochureAvailable || programApplicationLink) && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         {
@@ -141,9 +142,13 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                                 </li>
                             )
                         }
-                        <li>
-                            <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
-                        </li>
+                        {
+                            programBrochureAvailable && (
+                            <li>
+                                <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
+                            </li>
+                            )
+                        }
                         {
                             programApplicationLink && (
                                 <li>

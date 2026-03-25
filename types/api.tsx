@@ -702,6 +702,7 @@ export interface Program {
     program_footer_section_caption: string;
     program_footer_section_description: string;
     program_application_link: string;
+    program_brochure: string;
     program_eligibility_and_fees: string;
     og_image: string;
     banner_image: string;

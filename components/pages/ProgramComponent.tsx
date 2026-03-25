@@ -11,6 +11,7 @@ import { Navigation } from "swiper/modules";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import IndianStatesCities from "indian-states-cities-list";
+import { isEmail, isEmpty, isMobilePhone, isLength } from 'validator';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +28,7 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { FaPlayCircle, FaCheck } from "react-icons/fa";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { Ticker, Program } from "@/types/api";
+import { ProgramDownloadBrochureFormErrors, ProgramDownloadBrochure } from "@/types/forms";
 
 type PageProps = {
   ticker: Ticker
@@ -37,6 +39,202 @@ export default function ProgramComponent({ticker, program}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
+
+  const [ip, setIp] = useState("");
+  const [showLoader, updateLoader] = useState(false);
+  const [errors, setErrors] = useState<ProgramDownloadBrochureFormErrors>({});
+
+  const [activeState, setActiveState] = useState<string>("");
+  const [indian_cities, setIndianCities] = useState<string[]>([]);
+  
+  const indian_states = IndianStatesCities.INDIAN_STATES_AND_UT_ARRAY;
+
+  const [checked, setChecked] = useState(true);
+
+  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
+    setErrors({});
+  }
+
+  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const index = e.target.selectedIndex - 1;
+    const state = e.target.value;
+    
+    setActiveState(state);
+    
+    const stateKeys = Object.keys(IndianStatesCities.STATE_WISE_CITIES);
+    const stateKey = stateKeys[index];
+    
+    const cities = stateKey
+    ? IndianStatesCities.STATE_WISE_CITIES[stateKey].map((city: any) => city.value)
+    : [];
+    
+    setIndianCities(cities);
+  };
+  
+  const [programDownloadBrochureForm, setProgramDownloadBrochureForm] = useState<ProgramDownloadBrochure>({
+    program_name: program.program_name,
+    downloader_full_name: '',
+    downloader_email_id: '',
+    downloader_mobile_number: '',
+    downloader_state_name: activeState,
+    downloader_city_name: '',
+    downloader_graduation_status: '',
+    ip_address: ip
+  });
+
+  useEffect(() => {
+    async function getIp() {
+      const res = await fetch(basePath + "api/ip");
+      const data = await res.json();
+      setIp(data.ip);
+    }
+
+    getIp();
+  }, []);
+
+  const brochureDownloadFullNameRef = useRef<HTMLInputElement | null>(null);
+  const brochureDownloadEmailIDRef = useRef<HTMLInputElement | null>(null);
+  const brochureDownloadMobileNumberRef = useRef<HTMLInputElement | null>(null);
+  const brochureDownloadStateNameRef = useRef<HTMLSelectElement | null>(null);
+  const brochureDownloadCityNameRef = useRef<HTMLSelectElement | null>(null);
+  const brochureDownloadGraduationStatusRef = useRef<HTMLSelectElement | null>(null);
+
+  const handleProgramDownloadBrochureChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+
+    setProgramDownloadBrochureForm(prev => ({ ...prev, [name]: value}));
+    
+    setErrors(prev => ({ ...prev, [name]: undefined}));
+  }
+
+  const refMap: Record<string, React.RefObject<HTMLInputElement | HTMLSelectElement | null>> = {
+      downloader_full_name: brochureDownloadFullNameRef,
+      downloader_email_id: brochureDownloadEmailIDRef,
+      downloader_mobile_number: brochureDownloadMobileNumberRef,
+      downloader_state_name: brochureDownloadStateNameRef,
+      downloader_city_name: brochureDownloadCityNameRef,
+      downloader_graduation_status: brochureDownloadGraduationStatusRef
+  };
+
+  const programDownloadBrochureSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if(isEmpty(programDownloadBrochureForm.downloader_full_name)) {
+            setErrors({downloader_full_name: 'Please enter your full name'});
+            brochureDownloadFullNameRef.current?.focus();
+            return;
+        }
+
+        if(isEmpty(programDownloadBrochureForm.downloader_email_id)) {
+            setErrors({downloader_email_id: 'Please enter your email address'});
+            brochureDownloadEmailIDRef.current?.focus();
+            return;
+        } else if(!isEmail(programDownloadBrochureForm.downloader_email_id)) {
+            setErrors({downloader_email_id: 'Please enter a valid email address'});
+            brochureDownloadEmailIDRef.current?.focus();
+            return;
+        }
+
+        if(isEmpty(programDownloadBrochureForm.downloader_mobile_number)) {
+            setErrors({downloader_mobile_number: 'Please enter your mobile number'});
+            brochureDownloadMobileNumberRef.current?.focus();
+            return;
+        } else if(!isLength(programDownloadBrochureForm.downloader_mobile_number, { min: 10, max: 10 })) {
+            setErrors({downloader_mobile_number: 'Please enter a valid mobile number'});
+            brochureDownloadMobileNumberRef.current?.focus();
+            return;
+        } else if(!isMobilePhone(programDownloadBrochureForm.downloader_mobile_number, 'en-IN')) {
+            setErrors({downloader_mobile_number: 'Please enter a valid mobile number'});
+            brochureDownloadMobileNumberRef.current?.focus();
+            return;
+        }
+
+        programDownloadBrochureForm.downloader_state_name = activeState;
+
+        if(isEmpty(programDownloadBrochureForm.downloader_state_name)) {
+            setErrors({downloader_state_name: 'Please select your state name'});
+            brochureDownloadStateNameRef.current?.focus();
+            return;
+        }
+
+        if(isEmpty(programDownloadBrochureForm.downloader_city_name)) {
+            setErrors({downloader_city_name: 'Please select your city name'});
+            brochureDownloadCityNameRef.current?.focus();
+            return;
+        }
+
+        if(isEmpty(programDownloadBrochureForm.downloader_graduation_status)) {
+            setErrors({downloader_graduation_status: 'Please select your graduation status'});
+            brochureDownloadGraduationStatusRef.current?.focus();
+            return;
+        }
+
+        if(!checked) {
+          setErrors({downloader_terms_agree: 'You have not agreed to our terms and conditions'});
+          return;
+        }
+
+        updateLoader(true);
+
+        programDownloadBrochureForm.ip_address = ip;
+
+        const response = await fetch(basePath + "api/program/download-brochure", {
+          method: "POST",
+          body: JSON.stringify(programDownloadBrochureForm),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+
+        if (!response.ok) {
+          updateLoader(false);
+
+          const err = await response.json();
+
+          if(err.error) {
+            let error_response = JSON.parse(err.error);
+
+            if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
+              error_response = Object.values(error_response);
+
+              const { path, msg } = error_response[0][0];
+
+              const error_message = msg;
+              const error_path = path;
+
+              if(refMap[error_path]?.current) {
+                
+                refMap[error_path]?.current.focus();
+              }
+              setErrors({[error_path]: error_message});
+            }
+
+            return false;
+          }
+        }
+
+        const data = await response.json();
+
+        if(data.success) {
+          updateLoader(false);
+          setProgramDownloadBrochureForm({
+              program_name: '',
+              downloader_full_name: '',
+              downloader_email_id: '',
+              downloader_mobile_number: '',
+              downloader_state_name: '',
+              downloader_city_name: '',
+              downloader_graduation_status: '',
+              ip_address: ''
+          })
+          setActiveState('');
+
+          if(!data.result) return false;
+
+          if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
+        }
+    }
   
   useEffect(() => {
       const wrappers = document.querySelectorAll(".responsive-table");
@@ -91,32 +289,11 @@ export default function ProgramComponent({ticker, program}: PageProps) {
     updateDownloadBrochurePopUp(true);
   };
 
-  const [activeState, setActiveState] = useState<string>("");
-  const [indian_cities, setIndianCities] = useState<string[]>([]);
-  
-  const indian_states = IndianStatesCities.INDIAN_STATES_AND_UT_ARRAY;
-
-  const [checked, setChecked] = useState(true);
-
-  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const index = e.target.selectedIndex - 1;
-    const state = e.target.value;
-    
-    setActiveState(state);
-    
-    const stateKeys = Object.keys(IndianStatesCities.STATE_WISE_CITIES);
-    const stateKey = stateKeys[index];
-    
-    const cities = stateKey
-    ? IndianStatesCities.STATE_WISE_CITIES[stateKey].map((city: any) => city.value)
-    : [];
-    
-    setIndianCities(cities);
-  };
+  const programBrochureAvailable = (program.program_brochure) ? true : false;
 
   return (
     <>
-    <Header ticker_api={ticker} onDownloadBrochureClick={handleDownloadBrochure} programPage={true} programApplicationLink={program.program_application_link} programEligibilityFees={program.program_eligibility_and_fees} />
+    <Header ticker_api={ticker} onDownloadBrochureClick={handleDownloadBrochure} programPage={true} programApplicationLink={program.program_application_link} programEligibilityFees={program.program_eligibility_and_fees} programBrochureAvailable={programBrochureAvailable} showLoader={showLoader} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={program.banner_image}
@@ -451,36 +628,35 @@ export default function ProgramComponent({ticker, program}: PageProps) {
       <div className={`fixed top-0 left-0 bg-black/40 z-10 w-full h-screen flex justify-center md:items-center transition-all duration-300 ${downloadBrochurePopUp ? 'scale-y-100': 'scale-y-0'}`}>
         <div className="bg-white px-10 py-10 relative w-full lg:w-1/2">
         <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateDownloadBrochurePopUp(false)}/>
-          <form className="flex flex-col gap-5" autoComplete="off">
+          <form className="flex flex-col gap-5" autoComplete="off" onSubmit={programDownloadBrochureSubmit}>
             <h2 className="font-georgia text-xl">Fill The Form To Download Brochure</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full text-[#4E4E4E]">
               <div className="relative">
-                <input type="text" name="download_brochure_name" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Name" />
-                <div className="error">
-                  <span></span>
+                <input type="text" name="downloader_full_name" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Name" ref={brochureDownloadFullNameRef} onChange={handleProgramDownloadBrochureChange} value={programDownloadBrochureForm.downloader_full_name} />
+                <div className="text-red h-2">
+                  <span className={`text-xs transition-all duration-200 ${errors.downloader_full_name ? "opacity-100" : "opacity-0"}`}>{errors.downloader_full_name}</span>
                 </div>
               </div>
               <div className="relative">
-                <input type="text" name="download_brochure_email_id" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Email Address" />
-                <div className="error">
-                  <span></span>
+                <input type="text" name="downloader_email_id" className="border-b border-[#800000] py-1 w-full" placeholder="Enter Email Address" ref={brochureDownloadEmailIDRef} onChange={handleProgramDownloadBrochureChange} value={programDownloadBrochureForm.downloader_email_id} />
+                <div className="text-red h-2">
+                  <span className={`text-xs transition-all duration-200 ${errors.downloader_email_id ? "opacity-100" : "opacity-0"}`}>{errors.downloader_email_id}</span>
                 </div>
               </div>
               <div className="relative">
-                <input type="tel" name="download_brochure_mobile_number" maxLength={10} className="border-b border-[#800000] py-1 w-full pr-20" placeholder="Enter Mobile Number" inputMode="numeric" />
+                <input type="tel" name="downloader_mobile_number" maxLength={10} className="border-b border-[#800000] py-1 w-full pr-20" placeholder="Enter Mobile Number" inputMode="numeric" ref={brochureDownloadMobileNumberRef} onChange={handleProgramDownloadBrochureChange} value={programDownloadBrochureForm.downloader_mobile_number} />
                 <span className="absolute right-0 underline text-burgundy cursor-pointer">Get OTP</span>
-                <div className="error">
-                  <span></span>
+                <div className="text-red h-2">
+                  <span className={`text-xs transition-all duration-200 ${errors.downloader_mobile_number ? "opacity-100" : "opacity-0"}`}>{errors.downloader_mobile_number}</span>
                 </div>
               </div>
               <div className="relative">
-                <input type="number" name="download_brochure_otp" min={0} maxLength={6} className="border-b border-[#800000] py-1 w-full appearance-none no-spinner" placeholder="Enter OTP" inputMode="numeric" />
-                <div className="error">
-                  <span></span>
+                <input type="number" name="downloader_verification_otp" min={0} maxLength={6} className="border-b border-[#800000] py-1 w-full appearance-none no-spinner" placeholder="Enter OTP" inputMode="numeric"  />
+                <div className="text-red h-2">
                 </div>
               </div>
               <div className="relative">
-                <select name="download_brochure_state_name" className="border-b border-[#800000] py-2 w-full" value={activeState} onChange={handleStateChange}>
+                <select name="downloader_state_name" className="border-b border-[#800000] py-2 w-full" value={activeState} ref={brochureDownloadStateNameRef} onChange={handleStateChange}>
                   <option value="">Select State</option>
                   {
                     indian_states && indian_states.length > 0 && indian_states.map((indian_state, key) => (
@@ -491,12 +667,12 @@ export default function ProgramComponent({ticker, program}: PageProps) {
                 <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
                   <IoIosArrowDown size={25} />
                 </div>
-                <div className="error">
-                  <span></span>
+                <div className="text-red h-2">
+                  <span className={`text-xs transition-all duration-200 ${errors.downloader_state_name ? "opacity-100" : "opacity-0"}`}>{errors.downloader_state_name}</span>
                 </div>
               </div>
               <div className="relative">
-                <select name="download_brochure_city_name" className="border-b border-[#800000] py-2 w-full" >
+                <select name="downloader_city_name" className="border-b border-[#800000] py-2 w-full" ref={brochureDownloadCityNameRef} onChange={handleProgramDownloadBrochureChange} value={programDownloadBrochureForm.downloader_city_name}>
                   <option value="">Select City</option>
                   {
                     indian_cities && indian_cities.length > 0 && indian_cities.map((indian_city, key) => (
@@ -507,12 +683,12 @@ export default function ProgramComponent({ticker, program}: PageProps) {
                 <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
                   <IoIosArrowDown size={25} />
                 </div>
-                <div className="error">
-                  <span></span>
+                <div className="text-red h-2">
+                  <span className={`text-xs transition-all duration-200 ${errors.downloader_city_name ? "opacity-100" : "opacity-0"}`}>{errors.downloader_city_name}</span>
                 </div>
               </div>
               <div className="relative">
-                <select name="download_brochure_graduation_status" className="border-b border-[#800000] py-2 w-full" >
+                <select name="downloader_graduation_status" className="border-b border-[#800000] py-2 w-full" ref={brochureDownloadGraduationStatusRef} onChange={handleProgramDownloadBrochureChange} value={programDownloadBrochureForm.downloader_graduation_status}>
                   <option value="">Select Graduation Status</option>
                   <option value="Completed">Completed</option>
                   <option value="In Last Year Of Graduation">In Last Year Of Graduation</option>
@@ -520,18 +696,21 @@ export default function ProgramComponent({ticker, program}: PageProps) {
                 <div className="pointer-events-none absolute inset-y-0 right-2 bottom-5 flex items-center">
                   <IoIosArrowDown size={25} />
                 </div>
-                <div className="error">
-                  <span></span>
+                <div className="text-red h-2">
+                  <span className={`text-xs transition-all duration-200 ${errors.downloader_graduation_status ? "opacity-100" : "opacity-0"}`}>{errors.downloader_graduation_status}</span>
                 </div>
               </div>
             </div>
-            <label htmlFor="download_brochure_terms" className="flex gap-2 items-start cursor-pointer">
+            <label htmlFor="downloader_terms_agree" className="flex gap-2 items-start cursor-pointer">
               <div className="mt-1 h-5 w-5 shrink-0 rounded border-2 border-[#800000] bg-white flex items-center justify-center transition-all duration-150">
-                <input type="checkbox" id="download_brochure_terms" className="peer sr-only" checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+                <input type="checkbox" id="downloader_terms_agree" className="peer sr-only" checked={checked} onChange={(e) => handleCheckbox(e)} />
                 <FaCheck className="hidden peer-checked:block h-4 w-4 text-[#800000]" />
               </div>
               <p>I agree to receive information by signing up on N. L. Dalmia Institute of Management Studies and Research *</p>
             </label>
+            <div className="text-red h-2 -mt-4 mb-2">
+              <span className={`text-xs transition-all duration-200 ${errors.downloader_terms_agree ? "opacity-100" : "opacity-0"}`}>{errors.downloader_terms_agree}</span>
+            </div>
             
             <button type="submit" className="cursor-pointer text-white bg-[#800000] w-fit px-5 py-1">Submit</button>
           </form>

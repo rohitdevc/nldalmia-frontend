@@ -64,7 +64,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { "program-url-slug": program_url_slug } = await params;
 
+  if(!program_url_slug) { return false };
+
   const program = await getProgram(program_url_slug);
+
+  if(!program) return false;
 
   return (
     <ProgramComponent

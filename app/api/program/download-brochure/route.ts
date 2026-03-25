@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { submitAdmissionDownloadBrochure } from "@/lib/admission";
+import { submitProgramDownloadBrochure } from "@/lib/program";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    const result = await submitAdmissionDownloadBrochure(body);
+    const result = await submitProgramDownloadBrochure(body);
 
     return NextResponse.json(
       { success: true, result },
