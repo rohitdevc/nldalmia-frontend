@@ -232,7 +232,7 @@ export default function HomeComponent({ticker, banner, introduction, career_find
             introDescription={program_introduction.intro_description}
             />
             <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
-              <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-100 gap-5 text-burgundy">
+              <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-fit gap-5 text-burgundy">
                 {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
                     <li className={`cursor-pointer transition-all duration-300 ${activeProgramCategory === key ? 'text-xl font-medium' : ''}`} key={key} onClick={() => updateActiveProgramCategoryFunc(key)}>
@@ -246,7 +246,7 @@ export default function HomeComponent({ticker, banner, introduction, career_find
               </ul>
               {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => activeProgramCategory === key && (
-                  <div className={`max-w-full lg:max-w-5xl flex flex-wrap justify-center gap-5 text-white transition-opacity`} key={key} ref={programsList}>
+                  <div className={`max-w-full lg:max-w-5xl flex flex-wrap gap-5 text-white transition-opacity`} key={key} ref={programsList}>
                     {
                       programs.map((program, key) => (
                       <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} onClick={handleProgramClick(key)} key={key}>

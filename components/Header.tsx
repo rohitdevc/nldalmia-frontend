@@ -75,7 +75,7 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                     <Link href={`${basePath}events`}>Events</Link>
                 </li>
                 <li>
-                    <Link href="">MSR</Link>
+                    <Link href={`${basePath}management-development-programs`}>MSR</Link>
                 </li>
                 <li>
                     <Link href={`${basePath}iqac`}>IQAC</Link>

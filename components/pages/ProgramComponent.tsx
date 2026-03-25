@@ -487,7 +487,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
                     <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === program_admission.program_admission_tab_title ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(program_admission.program_admission_tab_title)}>
                       <span className="relative">
                         {program_admission.program_admission_tab_title}
-                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100`}></span>
+                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeAdmissionCategory === program_admission.program_admission_tab_title ? 'scale-x-100' : ''}`}></span>
                       </span>
                     </li>
                   ))

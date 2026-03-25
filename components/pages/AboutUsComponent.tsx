@@ -111,8 +111,8 @@ export default function AboutUsComponent({ticker, banner, introduction, objectiv
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         />
-        <div className="flex flex-col lg:flex-row gap-10 md:mt-10 xl:mt-20">
-          <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer md:h-40 lg:h-full aspect-[800/400]" onClick={() => videoPopupRef.current?.open(introduction.intro_video_id)}>
+        <div className="flex flex-col lg:flex-row gap-10 py-10 items-center">
+          <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer md:h-40 lg:h-100" onClick={() => videoPopupRef.current?.open(introduction.intro_video_id)}>
           {
             introduction.intro_image && (
             <Image src={introduction.intro_image} width={800} height={400} alt={introduction.intro_title} className="object-cover w-full h-full" />
@@ -120,7 +120,7 @@ export default function AboutUsComponent({ticker, banner, introduction, objectiv
           }
           {
             introduction.intro_video_id && (
-              <FaPlayCircle size={35} className="absolute inset-0 m-auto text-white" />
+              <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
             )
           } 
           </div>
@@ -173,10 +173,10 @@ export default function AboutUsComponent({ticker, banner, introduction, objectiv
       }
       {
         founder_quote && (
-        <div className="w-full px-5 md:px-15 lg:px-20 py-10 bg-[#FFCC33] flex flex-col gap-10">
+        <div className="w-full px-5 md:px-15 lg:px-20 py-10 bg-[#FFCC33] flex flex-col gap-5">
           <h2 className="text-2xl lg:text-4xl font-georgia">{founder_quote.founder_quote_title}</h2>
-          <div className="flex flex-col lg:flex-row gap-5 lg:gap-20 justify-center items-center">
-            <div className="w-80">
+          <div className="flex flex-col lg:flex-row gap-5 justify-center items-center">
+            <div className="w-300">
               {
                 founder_quote.founder_image && (
                   <Image src={founder_quote.founder_image} width={800} height={750} alt="NL Dalmia Intro" className="object-cover w-full h-full" />
@@ -218,7 +218,7 @@ export default function AboutUsComponent({ticker, banner, introduction, objectiv
                         }
                       </div>
                       <h2 className="text-xl font-georgia">{management_quote.management_caption}</h2>
-                      <p className="text-burgundy leading-loose lg:h-40 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{management_quote.management_quote}</p>
+                      <p className="text-burgundy leading-loose lg:h-50 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{management_quote.management_quote}</p>
                     </div>
                     {
                       management_quote.management_profile_link && (
