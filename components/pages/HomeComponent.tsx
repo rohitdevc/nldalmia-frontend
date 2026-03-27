@@ -32,8 +32,8 @@ import "swiper/css/navigation";
 
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
-import InstagramFeed from "@/components/InstagramFeed";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, Ticker, VideoSection } from "@/types/api";
+import InstagramFeedComp from "@/components/InstagramFeedComp";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, Ticker, VideoSection, InstagramFeed } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker,
@@ -57,9 +57,10 @@ type PageProps = {
   blog_introduction: IntroProps
   blogs: HomeBlog[]
   instagram_introduction: IntroProps
+  instagram_feed: InstagramFeed[]
 };
 
-export default function HomeComponent({ticker, banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction}: PageProps) {
+export default function HomeComponent({ticker, banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const program_categories = ['Programs'];
@@ -651,7 +652,7 @@ export default function HomeComponent({ticker, banner, introduction, career_find
         introTitle={instagram_introduction.intro_title}
         introCaption={instagram_introduction.intro_caption}
         introDescription={instagram_introduction.intro_description} />
-        <InstagramFeed />
+        <InstagramFeedComp instagram_feed={instagram_feed} />
       </div>
       <Footer />
       <YTVideoPopUp ref={videoPopupRef} />

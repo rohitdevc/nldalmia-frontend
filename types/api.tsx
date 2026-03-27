@@ -745,3 +745,10 @@ export interface NLDESCareers {
     career_link: string;
     career_thumbnail: string;
 }
+
+export interface InstagramFeed {
+    instagram_caption: string;
+    instagram_media_url: string;
+    instagram_permalink: string;
+    instagram_post_type: string;
+}

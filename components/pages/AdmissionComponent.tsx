@@ -377,6 +377,9 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
               <div className="responsive-table">
                 {parser(admissions_scholarship_table.intro_description)}
               </div>
+              <div className="w-full text-center">
+                <Link href={`${basePath}scholarships`} className="w-fit text-white bg-[#800000] px-3 py-2">View Scholarship Page</Link>
+              </div>
           </div>
         )
         }

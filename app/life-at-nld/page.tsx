@@ -1,4 +1,4 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getTicker, getMetaData, getBanner, getInstagramFeed } from "@/lib/common";
 import { getIntroduction, getLifeAtNLDEvents, getLifeAtNLDAchievementsIntroduction, getLifeAtNLDAchievements, getLifeAtNLDStudentClubIntroduction, getLifeAtNLDStudentClubs, getLifeAtNLDGallery, getLifeAtNLDInstagramIntroduction, getLifeAtNLDInsideNLDIntroduction, getLifeAtNLDInsideNLD, getLifeAtNLDMagazinesIntroduction, getLifeAtNLDMagazines } from "@/lib/life-at-nld";
 import { getAboutUsFounderQuote } from "@/lib/about-us";
 
@@ -21,7 +21,8 @@ const [
   inside_nld_introduction,
   inside_nld,
   magazines_introduction,
-  magazines
+  magazines,
+  instagram_feed
 ] = await Promise.all([
   getTicker(),
   getMetaData("Life@NLD"),
@@ -38,7 +39,8 @@ const [
   getLifeAtNLDInsideNLDIntroduction(),
   getLifeAtNLDInsideNLD(),
   getLifeAtNLDMagazinesIntroduction(),
-  getLifeAtNLDMagazines()
+  getLifeAtNLDMagazines(),
+  getInstagramFeed()
 ]);
 
 export const viewport = {
@@ -97,6 +99,7 @@ export default async function Page() {
     inside_nld={inside_nld}
     magazines_introduction={magazines_introduction}
     magazines={magazines}
+    instagram_feed={instagram_feed}
     />
   )
 }

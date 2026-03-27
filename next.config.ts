@@ -5,12 +5,18 @@ const isNetlifyDomain = process.env.URL?.includes("netlify.app");
 const nextConfig: NextConfig = {
 	images: {
     remotePatterns: [
-		{
-			protocol: 'https',
-			hostname: 'www.nldalmia.in',
-			port: '',
-			pathname: '/**'
-		},
+			{
+				protocol: 'https',
+				hostname: 'www.nldalmia.in',
+				port: '',
+				pathname: '/**'
+			},
+			{
+				protocol: 'https',
+				hostname: 'scontent.cdninstagram.com',
+				port: '',
+				pathname: '/**'
+			}
 		]
 	},
 	async headers() {

@@ -18,7 +18,7 @@ import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
-import InstagramFeed from "@/components/InstagramFeed";
+import InstagramFeedComp from "@/components/InstagramFeedComp";
 
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
@@ -28,7 +28,7 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Banner as BannerProps, Events, FounderQuote, InstitutionalPublications, IntroProps, LifeAtNLDAchievements, LifeAtNLDGallery, LifeAtNLDInsideNLD, LifeAtNLDStudentClubs, Ticker } from "@/types/api";
+import { Banner as BannerProps, Events, FounderQuote, InstagramFeed, InstitutionalPublications, IntroProps, LifeAtNLDAchievements, LifeAtNLDGallery, LifeAtNLDInsideNLD, LifeAtNLDStudentClubs, Ticker } from "@/types/api";
 
 type PageProps = {
   ticker: Ticker
@@ -46,9 +46,10 @@ type PageProps = {
   inside_nld: LifeAtNLDInsideNLD[]
   magazines_introduction: IntroProps
   magazines: InstitutionalPublications[]
+  instagram_feed: InstagramFeed[]
 };
 
-export default function LifeAtNLD({ticker, banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines}: PageProps) {
+export default function LifeAtNLD({ticker, banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const eventsList = useRef<HTMLDivElement>(null);
@@ -408,7 +409,7 @@ export default function LifeAtNLD({ticker, banner, introduction, events, achieve
           introCaption={instagram_introduction.intro_caption}
           introDescription={instagram_introduction.intro_description}
           />
-          <InstagramFeed />
+          <InstagramFeedComp instagram_feed={instagram_feed} />
       </div>
       {
         inside_nld && inside_nld.length > 0 && (

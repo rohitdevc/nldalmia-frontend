@@ -5,7 +5,8 @@ import { getAuthToken } from './auth';
 import {
     MetaData,
     Banner,
-    Ticker
+    Ticker,
+    InstagramFeed
 } from "@/types/api";
 
 export const buildHeaders = async () => {
@@ -29,6 +30,11 @@ export const getBanner = async (page_name: string) => apiFetch<Banner>("banner",
 });
 
 export const getTicker = async () => apiFetch<Ticker>("ticker", {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getInstagramFeed = async () => apiFetch<InstagramFeed[]>("nldalmia/instagram/feed", {
     method: "GET",
     headers: await buildHeaders()
 });
