@@ -201,7 +201,7 @@ export default function ProgramsListingComponent({ticker, banner, introduction, 
             }
             {
               secondProgramSet && secondProgramSet.length > 0 && secondProgramSet.map((program, key) => (
-                <ProgramBlock program={program} index={(key + 1)} />
+                <ProgramBlock program={program} key={key} index={(key + 1)} />
               ))
             }
             {
@@ -227,7 +227,7 @@ export default function ProgramsListingComponent({ticker, banner, introduction, 
             }
             {
               thirdProgramSet && thirdProgramSet.length > 0 && thirdProgramSet.map((program, key) => (
-                <ProgramBlock program={program} index={(key + 1)} />
+                <ProgramBlock program={program} key={key} index={(key + 1)} />
               ))
             }
             </>

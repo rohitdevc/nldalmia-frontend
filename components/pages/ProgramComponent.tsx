@@ -330,7 +330,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
         }
         {
           program.program_highlights && program.program_highlights.length > 0 && (
-          <div className="flex flex-col md:flex-row gap-10 md:mt-10">
+          <div className="flex flex-col md:flex-row gap-10 md:mt-10 items-center">
             <div className="w-full md:w-[60%] flex flex-col gap-5">
               <h2 className="font-georgia text-2xl lg:text-4xl">Program Highlights</h2>
               <ul className="flex flex-col gap-5 text-[#4E4E4E] list-disc list-inside">
@@ -343,7 +343,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
             </div>
             {
               program.program_highlights_image && (
-              <div className="w-full md:w-[40%] relative cursor-pointer md:h-40 lg:h-full aspect-[800/400]" onClick={() => videoPopupRef.current?.open(program.program_highlights_youtube_id)}>
+              <div className={`w-full md:w-[40%] relative ${program.program_highlights_youtube_id ? 'cursor-pointer': ''} md:h-40 lg:h-95 aspect-[800/400]`} onClick={() => videoPopupRef.current?.open(program.program_highlights_youtube_id)}>
                 <Image src={program.program_highlights_image} width={800} height={400} alt={program.program_name} className="object-cover w-full h-full" />
                 {
                   program.program_highlights_youtube_id && (
@@ -359,7 +359,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
       </div>
       {
         program.program_credit_content && (
-        <div className="w-full px-5 lg:px-30 flex flex-col gap-5 py-10">
+        <div className="w-full px-5 lg:px-30 flex flex-col gap-5 py-5">
           <CenterIntro
           introTitle={program.program_credit_title}
           introCaption={program.program_credit_caption}
@@ -418,7 +418,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
       }
       {
         program.program_outcomes && program.program_outcomes.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 flex flex-col gap-5">
+        <div className="w-full px-5 lg:px-30 py-5 flex flex-col gap-5 py-10">
           <CenterIntro introCaption="Program Outcomes" />
             <div className="flex gap-3">
                 <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_outcome_prev">
@@ -475,7 +475,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
       }
       {
           program.program_admissions && program.program_admissions.length > 0 && (
-          <div className="w-full px-5 lg:px-30 py-10 flex flex-col gap-5">
+          <div className="w-full px-5 lg:px-30 py-15 flex flex-col gap-5">
             <CenterIntro
             introTitle={program.program_application_title}
             introCaption={program.program_application_caption}
@@ -570,27 +570,27 @@ export default function ProgramComponent({ticker, program}: PageProps) {
             {
               program.program_testimonials.map((testimonial, key) => (
                 <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">
-                  <div className="flex flex-col md:flex-row gap-5">
-                    <div className="md:w-[30%] lg:w-[20%] flex justify-center">
+                  <div className="flex flex-col md:flex-row gap-15">
+                    <div className="md:w-[30%] lg:w-[15%] flex justify-center">
                       {
                         testimonial.program_testimonial_image && (
                           <Image src={testimonial.program_testimonial_image} alt={testimonial.program_testimonial_name} width={200} height={300} className="object-cover w-full h-full" />
                         )
                       }
                     </div>
-                    <div className="md:w-[70%] lg:w-[80%] flex flex-col gap-10 mt-auto">
+                    <div className="md:w-[70%] lg:w-[85%] flex flex-col gap-10 mt-auto">
                       {
                         testimonial.program_testimonial_about && (
                           <p className="text-[#4E4E4E] leading-loose text-sm lg:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
                         )
                       }
-                      <div className="flex flex-col gap-2 font-semibold text-center md:text-left">
+                      <div className="flex flex-col gap-2 font-normal text-center md:text-left">
                         {
                           testimonial.program_testimonial_content && (
                             <h3 className="text-lg lg:text-2xl">{parser(nl2br(testimonial.program_testimonial_content))}</h3>
                           )
                         }
-                        <span>- {testimonial.program_testimonial_name}</span>
+                        <span>{testimonial.program_testimonial_name}</span>
                         {
                           testimonial.program_testimonial_designation && (
                             <span className="text-sm lg:text-lg">{parser(nl2br(testimonial.program_testimonial_designation))}</span>
