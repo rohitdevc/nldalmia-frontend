@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import parser from 'html-react-parser';
 
 import { FiPlayCircle } from "react-icons/fi";
@@ -13,8 +13,8 @@ import { Navigation } from "swiper/modules";
 import { IoIosArrowDown, IoMdMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { useHeader } from '@/context/HeaderContext'
+
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -25,11 +25,10 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { Ticker, Banner as BannerProps, IntroProps, Slider, PlacementCorporateEngagement, PlacementsTabs, PlacementRecruiters, PlacementFeatures, Testimonials, Contacts } from "@/types/api";
+import { Banner as BannerProps, IntroProps, Slider, PlacementCorporateEngagement, PlacementsTabs, PlacementRecruiters, PlacementFeatures, Testimonials, Contacts } from "@/types/api";
 import nl2br from "nl2br";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   sliders: Slider[]
@@ -44,8 +43,16 @@ type PageProps = {
   contacts: Contacts[]
 };
 
-export default function PlacementsComponent({ticker, banner, introduction, sliders, corporate_engagements, placement_content, recruiters_introduction, recruiters, features_introduction, placement_features, testimonials, contacts_introduction, contacts}: PageProps) {
+export default function PlacementsComponent({ banner, introduction, sliders, corporate_engagements, placement_content, recruiters_introduction, recruiters, features_introduction, placement_features, testimonials, contacts_introduction, contacts}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader();
+
+  useEffect(() => {
+    setHeaderProps({
+      placementsPage: true
+    })
+  }, []);
 
   const placement_tabs: string[] = [];
 
@@ -120,8 +127,6 @@ export default function PlacementsComponent({ticker, banner, introduction, slide
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} placementsPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -411,9 +416,7 @@ export default function PlacementsComponent({ticker, banner, introduction, slide
         </div>
       )
       }
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }

@@ -19,8 +19,8 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { useHeader } from '@/context/HeaderContext'
+
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import { useServerCountdown } from "@/hooks/useServerCountdown";
@@ -58,7 +58,13 @@ type PageProps = {
 export default function Alumni({ticker, banner, introduction, wall_of_fame, slider, alumni_meet, alumni_quotes, alumni_connect_introduction, alumni_connect, alumni_global, alumni_hall_of_fame_introduction, alumni_hall_of_fame, alumni_testimonials_introduction, alumni_testimonials, alumni_events_introduction, alumni_events, alumni_portal}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
+  const { setHeaderProps } = useHeader();
+
   useEffect(() => {
+    setHeaderProps({
+      alumniPage: true
+    })
+
     const wrappers = document.querySelectorAll(".connect_description");
     if (!wrappers.length) return;
 
@@ -122,8 +128,6 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
   };
 
   return (
-    <>
-    <Header ticker_api={ticker} alumniPage={true} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -720,8 +724,6 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
         </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

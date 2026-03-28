@@ -12,8 +12,8 @@ import { isEmail, isEmpty } from 'validator';
 import { IoIosArrowDown } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { useHeader } from '@/context/HeaderContext'
+
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -28,11 +28,10 @@ import parser from 'html-react-parser';
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
-import { AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps, Ticker,  } from "@/types/api";
+import { AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps } from "@/types/api";
 import { AdmissionDownloadBrochureFormErrors, AdmissionDownloadBrochure } from "@/types/forms";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   admission_programs: AdmissionPrograms[]
@@ -49,8 +48,10 @@ type PageProps = {
   admissions_brochure_introduction: IntroProps
 };
 
-export default function AdmissionComponent({ticker, banner, introduction, admission_programs, admissions_process_introduction, admission_process, admissions_scholarship_introduction, admissions_scholarship_table, admissions_tuition_introduction, admissions_tuition_table, admissions_finance_introduction, financial_assistance_partners, admissions_faqs_introduction, admissions_faqs, admissions_brochure_introduction }: PageProps) {
+export default function AdmissionComponent({ banner, introduction, admission_programs, admissions_process_introduction, admission_process, admissions_scholarship_introduction, admissions_scholarship_table, admissions_tuition_introduction, admissions_tuition_table, admissions_finance_introduction, financial_assistance_partners, admissions_faqs_introduction, admissions_faqs, admissions_brochure_introduction }: PageProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
+
+    const { setHeaderProps } = useHeader();
 
     const [ip, setIp] = useState("");
     const [showLoader, updateLoader] = useState(false);
@@ -67,6 +68,12 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
         const data = await res.json();
         setIp(data.ip);
       }
+
+      setHeaderProps({
+        admissionPage: true,
+        showLoader: showLoader,
+        onDownloadBrochureClick: handleDownloadBrochure
+      })
 
       getIp();
     }, []);
@@ -242,8 +249,6 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
     };
 
     return (
-      <>
-      <Header ticker_api={ticker} admissionPage={true} showLoader={showLoader} onDownloadBrochureClick={handleDownloadBrochure} />
       <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
         <Banner
         banner_image={banner.banner_image}
@@ -507,8 +512,6 @@ export default function AdmissionComponent({ticker, banner, introduction, admiss
           </div>
           )
         }
-        <Footer />
       </main>
-      </>
     );
 }

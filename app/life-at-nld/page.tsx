@@ -1,4 +1,4 @@
-import { getTicker, getMetaData, getBanner, getInstagramFeed } from "@/lib/common";
+import { getMetaData, getBanner, getInstagramFeed } from "@/lib/common";
 import { getIntroduction, getLifeAtNLDEvents, getLifeAtNLDAchievementsIntroduction, getLifeAtNLDAchievements, getLifeAtNLDStudentClubIntroduction, getLifeAtNLDStudentClubs, getLifeAtNLDGallery, getLifeAtNLDInstagramIntroduction, getLifeAtNLDInsideNLDIntroduction, getLifeAtNLDInsideNLD, getLifeAtNLDMagazinesIntroduction, getLifeAtNLDMagazines } from "@/lib/life-at-nld";
 import { getAboutUsFounderQuote } from "@/lib/about-us";
 
@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import LifeAtNLDComponent from "@/components/pages/LifeAtNLDComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -24,7 +23,6 @@ const [
   magazines,
   instagram_feed
 ] = await Promise.all([
-  getTicker(),
   getMetaData("Life@NLD"),
   getBanner("Life@NLD"),
   getIntroduction(),
@@ -84,7 +82,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <LifeAtNLDComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     events={events}

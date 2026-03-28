@@ -6,7 +6,6 @@ import {
     IntroProps,
     CareerFinderProps,
     CareerPathProps,
-    ProgramsProps,
     VideoSection,
     PlacementPartners,
     HomeTestimonials,
@@ -32,11 +31,6 @@ export const getHomeCareerPaths = async () => apiFetch<CareerPathProps>(`home/ca
 });
 
 export const getHomeProgramsIntroduction = async () => apiFetch<IntroProps>(`home/programs/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
-});
-
-export const getHomePrograms = async () => apiFetch<ProgramsProps[]>(`home/programs`, {
     method: "GET",
     headers: await buildHeaders()
 });

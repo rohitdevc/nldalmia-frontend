@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getCareersOurValuesIntroduction, getCareersOurValues, getCareersMilestones, getCareersAchievementsIntroduction, getCareersAchievements, getCareersVacanciesIntroduction, getCareersVacancies, getCareersApplicationIntroduction, getCareersApplication, getCareersProgramApplication } from "@/lib/career";
 
 import type { Metadata } from "next";
 import CareerComponent from "@/components/pages/CareerComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -20,7 +19,6 @@ const [
   applications,
   careers_program_application
 ] = await Promise.all([
-  getTicker(),
   getMetaData("Careers"),
   getBanner("Careers"),
   getIntroduction(),
@@ -77,7 +75,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <CareerComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     careers_our_values_introduction={careers_our_values_introduction}

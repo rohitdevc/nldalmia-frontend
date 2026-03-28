@@ -8,8 +8,6 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
@@ -19,16 +17,15 @@ import "swiper/css/navigation";
 
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
-import { Banner as BannerProps, InstitutionalPublicationCategories, InstitutionalPublications, Ticker } from "@/types/api";
+import { Banner as BannerProps, InstitutionalPublicationCategories, InstitutionalPublications } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   institutional_publications_categories: InstitutionalPublicationCategories[]
   institutional_publications: InstitutionalPublications[]
 };
 
-export default function InstitutionalPublicationsComponent({ticker, banner, institutional_publications_categories, institutional_publications}: PageProps) {
+export default function InstitutionalPublicationsComponent({ banner, institutional_publications_categories, institutional_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const filtered_institutional_publications_categories = institutional_publications_categories.filter(
@@ -61,8 +58,6 @@ export default function InstitutionalPublicationsComponent({ticker, banner, inst
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -132,8 +127,6 @@ export default function InstitutionalPublicationsComponent({ticker, banner, inst
           )
         }
       </div>
-      <Footer />
     </main>
-    </>
   );
 }

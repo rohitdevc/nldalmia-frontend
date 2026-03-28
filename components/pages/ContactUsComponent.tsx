@@ -13,26 +13,21 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
-import { Ticker, Banner as BannerProps, IntroProps } from "@/types/api";
+import { Banner as BannerProps, IntroProps } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
 };
 
-export default function ContactUsComponent({ticker, banner, introduction}: PageProps) {
+export default function ContactUsComponent({ banner, introduction}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const enquiry_reasons = ['General', 'Admissions'];
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -148,8 +143,6 @@ export default function ContactUsComponent({ticker, banner, introduction}: PageP
           </div>
         </div>
       </div>
-      <Footer />
     </main>
-    </>
   );
 }

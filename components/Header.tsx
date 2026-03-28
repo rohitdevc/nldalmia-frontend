@@ -1,4 +1,5 @@
 "use client"
+
 import Link from "next/link"
 import Image from "next/image";
 
@@ -12,21 +13,28 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiMenu3Fill } from "react-icons/ri";
 import { Ticker as TickerProps } from "@/types/api";
 
+import { useHeader } from '@/context/HeaderContext'
+
 type HeaderProps = {
     ticker_api: TickerProps
-    onDownloadBrochureClick?: () => void;
-    admissionPage?: boolean;
-    programPage?: boolean;
-    alumniPage?: boolean;
-    placementsPage?: boolean;
-    eventRegistrationURL?: string;
-    showLoader?: boolean
-    programApplicationLink?: string;
-    programEligibilityFees?: string;
-    programBrochureAvailable?: boolean;
 }
 
-export default function Header({ticker_api, onDownloadBrochureClick, admissionPage = false, programPage = false, alumniPage = false, placementsPage = false, eventRegistrationURL = "", showLoader = false, programApplicationLink = "", programEligibilityFees = "", programBrochureAvailable = false}: HeaderProps) {
+export default function Header({ticker_api }: HeaderProps) {
+    const { headerProps } = useHeader()
+
+    let {
+        showLoader = false,
+        programPage = false,
+        admissionPage = false,
+        alumniPage = false,
+        placementsPage = false,
+        eventRegistrationURL = "",
+        programApplicationLink = "",
+        programEligibilityFees = "",
+        programBrochureAvailable = "",
+        onDownloadBrochureClick
+    } = headerProps;
+
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const ticker_end_date = useMemo(
@@ -84,6 +92,9 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                     <Link href={`${basePath}alumni`}>Alumni</Link>
                 </li>
                 <li>
+                    <Link href={`${basePath}awards-and-achievements`}>Awards</Link>
+                </li>
+                <li>
                     <Link href={`${basePath}media`}>Media</Link>
                 </li>
                 <li>
@@ -100,9 +111,6 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                     </li>
                     <li>
                         <Link href={`${basePath}programs`} className="flex gap-2 items-center">Programs <MdKeyboardArrowDown size={25} /></Link>
-                    </li>
-                    <li>
-                        <Link href="">Executive Education</Link>
                     </li>
                     <li>
                         <Link href={`${basePath}faculty`}>Faculty</Link>
@@ -165,10 +173,10 @@ export default function Header({ticker_api, onDownloadBrochureClick, admissionPa
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply for PGDM 2025/27</Link>
+                            <Link href="https://apply.nldalmia.in/pgdm-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply for PGDM 2025/27</Link>
                         </li>
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply For Global MBA</Link>
+                            <Link href="https://apply.nldalmia.in/global-mba-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply For Global MBA</Link>
                         </li>
                         <li>
                             <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>

@@ -14,14 +14,11 @@ import { useState } from "react";
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
-import { Banner as BannerProps, BlogCategories, BlogListing, IntroProps, Ticker } from "@/types/api";
+import { Banner as BannerProps, BlogCategories, BlogListing, IntroProps } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   blog_category_url_slug?: string
   introduction: IntroProps
@@ -30,7 +27,7 @@ type PageProps = {
   blogs: BlogListing[]
 };
 
-export default function BlogComponent({ticker, banner, blog_category_url_slug, introduction, blog_categories, blog_featured, blogs}: PageProps) {
+export default function BlogComponent({banner, blog_category_url_slug, introduction, blog_categories, blog_featured, blogs}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const blogs_data: Record<string, [BlogListing, BlogListing[]][]> = {};
@@ -67,8 +64,6 @@ export default function BlogComponent({ticker, banner, blog_category_url_slug, i
   const [activeBlogCategory, updateActiveBlogCategory] = useState(activeBlogCategorySlug);
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -212,8 +207,6 @@ export default function BlogComponent({ticker, banner, blog_category_url_slug, i
           </div>
         ))}
       </div>
-      <Footer />
     </main>
-    </>
   );
 }

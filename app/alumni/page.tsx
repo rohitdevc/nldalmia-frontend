@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getAlumniWallOfFame, getSlider, getAlumniMeet, getAlumniQuotes, getAlumniConnectIntroduction, getAlumniConnect, getAlumniGlobal, getAlumniHallOfFameIntroduction, getAlumniHallOfFame, getAlumniTestimonialsIntroduction, getAlumniTestimonials, getAlumniEventsIntroduction, getAlumniEvents, getAlumniPortal } from "@/lib/alumni";
 
 import type { Metadata } from "next";
 import AlumniComponent from "@/components/pages/AlumniComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -24,7 +23,6 @@ const [
   alumni_events,
   alumni_portal
 ] = await Promise.all([
-  getTicker(),
   getMetaData("Alumni"),
   getBanner("Alumni"),
   getIntroduction(),
@@ -85,7 +83,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <AlumniComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     wall_of_fame={wall_of_fame}

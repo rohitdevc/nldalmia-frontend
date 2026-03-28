@@ -8,19 +8,16 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import ResearchPublicationTabs from "@/components/ResearchPublicationTabs";
-import { Ticker, Banner as BannerProps, BookChapters } from "@/types/api";
+import { Banner as BannerProps, BookChapters } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   book_publications: BookChapters[]
 };
 
-export default function BookChaptersComponent({ticker, banner, book_publications}: PageProps) {
+export default function BookChaptersComponent({ banner, book_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const book_published_years: number[] = [];
@@ -65,8 +62,6 @@ export default function BookChaptersComponent({ticker, banner, book_publications
   const page_name = "Book/Book Chapters";
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -121,8 +116,6 @@ export default function BookChaptersComponent({ticker, banner, book_publications
           </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

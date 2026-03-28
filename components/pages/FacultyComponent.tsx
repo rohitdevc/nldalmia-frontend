@@ -8,19 +8,16 @@ import { CiSearch } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 
-import { Banner as BannerProps, Faculties, Ticker } from "@/types/api";
+import { Banner as BannerProps, Faculties } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   faculties: Faculties[]
 };
 
-export default function Faculty({ticker, banner, faculties}: PageProps) {
+export default function Faculty({ banner, faculties}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const departments: string[] = [];
@@ -61,8 +58,6 @@ export default function Faculty({ticker, banner, faculties}: PageProps) {
   });
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -114,8 +109,6 @@ export default function Faculty({ticker, banner, faculties}: PageProps) {
           </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

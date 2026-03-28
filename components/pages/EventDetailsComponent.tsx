@@ -3,14 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-import { FiPlayCircle } from "react-icons/fi";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { useHeader } from '@/context/HeaderContext'
+
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -32,10 +31,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Ticker, Event } from '@/types/api';
+import { Event } from '@/types/api';
 
 type PageProps = {
-  ticker: Ticker,
   event: Event
 }
 
@@ -96,8 +94,16 @@ function transformSchedule(data: EventScheduleDay[]): TransformedSchedule[] {
   });
 }
 
-export default function EventDetails({ticker, event}: PageProps) {
+export default function EventDetails({ event }: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader();
+
+  useEffect(() => {
+    setHeaderProps({
+      eventRegistrationURL: event.event_registration_link
+    })
+  }, []);
 
   const schedule_itineraries = (event.event_schedules.length > 0) ? transformSchedule(event.event_schedules) : [];
 
@@ -142,8 +148,6 @@ export default function EventDetails({ticker, event}: PageProps) {
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} eventRegistrationURL={event.event_registration_link} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={event.banner_image}
@@ -504,9 +508,7 @@ export default function EventDetails({ticker, event}: PageProps) {
         </div>
       )
       }
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }

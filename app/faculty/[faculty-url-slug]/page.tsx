@@ -1,13 +1,8 @@
-import { getTicker } from "@/lib/common";
 import { getFaculty } from "@/lib/faculty";
 
 import type { Metadata } from "next";
 import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
 import { redirect } from "next/navigation";
-
-const [ ticker ] = await Promise.all([
-  getTicker()
-])
 
 export const viewport = {
   themeColor: [
@@ -68,7 +63,6 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <FacultyDetailsComponent
-    ticker={ticker}
     faculty={faculty} />
   )
 }

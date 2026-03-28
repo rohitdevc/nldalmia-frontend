@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 
 import dayjs from 'dayjs';
@@ -21,15 +20,14 @@ import parser from 'html-react-parser';
 
 import { useServerCountdown } from "@/hooks/useServerCountdown";
 
-import { Ticker, Banner as BannerProps, Events as EventProps } from "@/types/api";
+import { Banner as BannerProps, Events as EventProps } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   events: EventProps[]
 };
 
-export default function Events({ticker, banner, events}: PageProps) {
+export default function Events({ banner, events}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [activeEvent, updateActiveEvent] = useState(-1);
@@ -43,8 +41,6 @@ export default function Events({ticker, banner, events}: PageProps) {
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -99,8 +95,6 @@ export default function Events({ticker, banner, events}: PageProps) {
           </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

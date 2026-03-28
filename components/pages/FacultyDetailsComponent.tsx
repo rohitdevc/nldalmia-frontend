@@ -5,18 +5,8 @@ import Link from "next/link";
 
 import { useState, useEffect } from "react";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-import { FiPlayCircle } from "react-icons/fi";
 import { RiArrowLeftSLine } from "react-icons/ri";
-
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Banner from "@/components/Banner";
-import Intro from "@/components/Intro";
-import CenterIntro from "@/components/CenterIntro";
-import scrollWithOffset from "@/components/scrollWithOffset";
-import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
@@ -27,20 +17,13 @@ dayjs.extend(advancedFormat);
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/navigation";
-
-import { Ticker, Faculty } from '@/types/api';
+import { Faculty } from '@/types/api';
 
 type PageProps = {
-  ticker: Ticker,
   faculty: Faculty
 }
 
-export default function FacultyDetails({ticker, faculty}: PageProps) {
+export default function FacultyDetails({ faculty}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [openAccordian, toggleAccordian] = useState(0);
@@ -78,8 +61,6 @@ export default function FacultyDetails({ticker, faculty}: PageProps) {
   }, []);
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <div className="w-full px-5 lg:px-30 flex flex-col gap-5 pt-45 bg-[#FFCC33] text-black">
         <Link className="flex items-center gap-1 font-semibold" href={`${basePath}faculty`}>
@@ -163,8 +144,6 @@ export default function FacultyDetails({ticker, faculty}: PageProps) {
         </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getAboutUsObjectives, getAboutUsTimeline, getAboutUsFounderQuote, getAboutUsManagementQuotes, getManagingCouncilIntroduction, getAboutUsManagingCouncil, getAboutUsGoverningCouncilIntroduction, getAboutUsGoverningCouncil, getAboutUsVideoSection, getAboutUsInternationalUniversitiesIntroduction, getAboutUsInternationalUniversities } from "@/lib/about-us";
 
 import type { Metadata } from "next";
 import AboutUsComponent from "@/components/pages/AboutUsComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -21,7 +20,6 @@ const [
   international_universities_introduction,
   international_universities
 ] = await Promise.all([
-  getTicker(),
   getMetaData("About Us"),
   getBanner("About Us"),
   getIntroduction(),
@@ -79,7 +77,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <AboutUsComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     objectives={objectives}

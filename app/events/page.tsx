@@ -1,16 +1,14 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getEvents } from "@/lib/event";
 
 import type { Metadata } from "next";
 import EventsComponent from "@/components/pages/EventsComponent";
 
 const [
-  ticker,
   meta,
   banner,
   events
 ] = await Promise.all([
-  getTicker(),
   getMetaData("Events"),
   getBanner("Events"),
   getEvents()
@@ -57,7 +55,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <EventsComponent
-    ticker={ticker}
     banner={banner}
     events={events}
     />

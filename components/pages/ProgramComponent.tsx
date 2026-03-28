@@ -13,8 +13,8 @@ import parser from 'html-react-parser';
 import IndianStatesCities from "indian-states-cities-list";
 import { isEmail, isEmpty, isMobilePhone, isLength } from 'validator';
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { useHeader } from '@/context/HeaderContext'
+
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -27,16 +27,17 @@ import "swiper/css/navigation";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { FaPlayCircle, FaCheck } from "react-icons/fa";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
-import { Ticker, Program } from "@/types/api";
+import { Program } from "@/types/api";
 import { ProgramDownloadBrochureFormErrors, ProgramDownloadBrochure } from "@/types/forms";
 
 type PageProps = {
-  ticker: Ticker
   program: Program
 }
 
-export default function ProgramComponent({ticker, program}: PageProps) {
+export default function ProgramComponent({ program}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader();
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
@@ -89,6 +90,15 @@ export default function ProgramComponent({ticker, program}: PageProps) {
       const data = await res.json();
       setIp(data.ip);
     }
+
+    setHeaderProps({
+      onDownloadBrochureClick: handleDownloadBrochure,
+      programPage: true,
+      programApplicationLink: program.program_application_link,
+      programEligibilityFees: program.program_eligibility_and_fees,
+      programBrochureAvailable: programBrochureAvailable,
+      showLoader: showLoader
+    })
 
     getIp();
   }, []);
@@ -292,8 +302,6 @@ export default function ProgramComponent({ticker, program}: PageProps) {
   const programBrochureAvailable = (program.program_brochure) ? true : false;
 
   return (
-    <>
-    <Header ticker_api={ticker} onDownloadBrochureClick={handleDownloadBrochure} programPage={true} programApplicationLink={program.program_application_link} programEligibilityFees={program.program_eligibility_and_fees} programBrochureAvailable={programBrochureAvailable} showLoader={showLoader} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={program.banner_image}
@@ -716,9 +724,7 @@ export default function ProgramComponent({ticker, program}: PageProps) {
           </form>
         </div>
       </div>
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }

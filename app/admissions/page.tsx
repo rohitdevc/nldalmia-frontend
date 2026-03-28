@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getAdmissionsPrograms, getAdmissionsProcessIntroduction, getAdmissionsProcessInformation, getAdmissionsScholarshipIntroduction, getAdmissionsScholarshipTable, getAdmissionsTuitionIntroduction, getAdmissionsTuitionTable, getAdmissionsFinanceIntroduction, getFinancialAssistancePartners, getAdmissionsFAQsIntroduction, getAdmissionsFAQs, getAdmissionsBrochureIntroduction } from "@/lib/admission";
 
 import type { Metadata } from "next";
 import AdmissionComponent from "@/components/pages/AdmissionComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -21,8 +20,7 @@ const [
   admissions_faqs_introduction,
   admissions_faqs,
   admissions_brochure_introduction
-] = await Promise.all([
-  getTicker(),
+] = await Promise.all([  
   getMetaData("Admissions"),
   getBanner("Admissions"),
   getIntroduction(),
@@ -81,7 +79,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <AdmissionComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     admission_programs={admission_programs}

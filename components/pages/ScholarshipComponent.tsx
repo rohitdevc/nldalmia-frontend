@@ -5,8 +5,6 @@ import Link from "next/link";
 
 import { useEffect } from "react";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -15,10 +13,9 @@ import parser from 'html-react-parser';
 import nl2br from "nl2br";
 
 import { MdArrowOutward } from "react-icons/md";
-import { Ticker, Banner as BannerProps, IntroProps, Reports } from "@/types/api";
+import { Banner as BannerProps, IntroProps, Reports } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   scholarship_merit: IntroProps
@@ -28,7 +25,7 @@ type PageProps = {
   reports: Reports[]
 };
 
-export default function ScholarshipComponent({ticker, banner, introduction, scholarship_merit, scholarship_inclusivity, scholarship_second_year, reports_introduction, reports}: PageProps) {
+export default function ScholarshipComponent({ banner, introduction, scholarship_merit, scholarship_inclusivity, scholarship_second_year, reports_introduction, reports}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
   
   useEffect(() => {
@@ -60,8 +57,6 @@ export default function ScholarshipComponent({ticker, banner, introduction, scho
   }, []);
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -154,8 +149,6 @@ export default function ScholarshipComponent({ticker, banner, introduction, scho
           </div>
         </div>
       </div>
-      <Footer />
-    </main>
-    </>
+    </main>    
   );
 }

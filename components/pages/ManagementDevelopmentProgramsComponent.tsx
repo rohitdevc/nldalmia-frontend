@@ -11,8 +11,6 @@ import { FiPlayCircle } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -27,10 +25,9 @@ import "swiper/css/navigation";
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
 
-import { Ticker, Banner as BannerProps, IntroProps, MDPPrograms, Testimonials, FAQs } from "@/types/api";
+import { Banner as BannerProps, IntroProps, MDPPrograms, Testimonials, FAQs } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   why_choose_introduction: IntroProps
@@ -43,7 +40,7 @@ type PageProps = {
   enquiry: IntroProps
 };
 
-export default function ManagementDevelopmentProgramsComponent({ticker, banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
+export default function ManagementDevelopmentProgramsComponent({ banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   useEffect(() => {
@@ -107,8 +104,6 @@ export default function ManagementDevelopmentProgramsComponent({ticker, banner, 
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -352,9 +347,7 @@ export default function ManagementDevelopmentProgramsComponent({ticker, banner, 
           )
         }
       </div>
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }

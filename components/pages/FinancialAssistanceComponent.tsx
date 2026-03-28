@@ -5,26 +5,21 @@ import Link from "next/link";
 
 import { MdArrowOutward } from "react-icons/md";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 
-import { Banner as BannerProps, FinancialAssistancePartners, IntroProps, Ticker } from "@/types/api";
+import { Banner as BannerProps, FinancialAssistancePartners, IntroProps } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   financial_assistance_partners: FinancialAssistancePartners[]
 };
 
-export default function FinancialAssistance({ticker, banner, introduction, financial_assistance_partners}: PageProps) {
+export default function FinancialAssistance({ banner, introduction, financial_assistance_partners}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -69,8 +64,6 @@ export default function FinancialAssistance({ticker, banner, introduction, finan
           )
         }
       </div>
-      <Footer />
     </main>
-    </>
   );
 }

@@ -7,23 +7,20 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import ResearchPublicationTabs from "@/components/ResearchPublicationTabs";
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
-import { Ticker, Banner as BannerProps, JournalPublications } from "@/types/api";
+import { Banner as BannerProps, JournalPublications } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   journal_publications: JournalPublications[]
 };
 
-export default function JournalPublicationsComponent({ticker, banner, journal_publications}: PageProps) {
+export default function JournalPublicationsComponent({ banner, journal_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const journal_published_years: number[] = [];
@@ -68,8 +65,6 @@ export default function JournalPublicationsComponent({ticker, banner, journal_pu
   const page_name = "Journal Publications";
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -124,8 +119,6 @@ export default function JournalPublicationsComponent({ticker, banner, journal_pu
           </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

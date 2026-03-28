@@ -1,14 +1,8 @@
-import { getTicker } from "@/lib/common";
-
 import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
 
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
-
-const [ ticker ] = await Promise.all([
-  getTicker()
-])
 
 export const viewport = {
   themeColor: [
@@ -71,7 +65,6 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <BlogDetailsComponent
-    ticker={ticker}
     blog={blog}
     related_blog={related_blog}
     />

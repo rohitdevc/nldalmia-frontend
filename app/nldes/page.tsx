@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getNLDESObjectivesIntroduction, getNLDESObjectives, getNLDESInstitutesIntroduction, getNLDESInstitutes, getNLDESManagementIntroduction, getNLDESManagement, getNLDESSocialResponsibilityIntroduction, getNLDESSocialResponsibility, getNLDESCareersIntroduction, getNLDESCareers, getNLDESFooter } from "@/lib/nldes";
 
 import type { Metadata } from "next";
 import NLDESComponent from "@/components/pages/NLDESComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -21,7 +20,6 @@ const [
   careers,
   footer
 ] = await Promise.all([
-  getTicker(),
   getMetaData("NLDES"),
   getBanner("NLDES"),
   getIntroduction(),
@@ -79,7 +77,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <NLDESComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     objectives_introduction={objectives_introduction}

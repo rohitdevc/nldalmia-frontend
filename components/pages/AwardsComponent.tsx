@@ -1,27 +1,22 @@
 "use client"
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
-import { Awards, Banner as BannerProps, IntroProps, Ticker, MediaCategoryListing } from "@/types/api";
+import { Awards, Banner as BannerProps, IntroProps, MediaCategoryListing } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   media_categories: MediaCategoryListing[]
   awards: Awards[]
 };
 
-export default function AwardsComponent({ticker, banner, introduction, awards, media_categories}: PageProps) {
+export default function AwardsComponent({banner, introduction, awards, media_categories}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -57,8 +52,6 @@ export default function AwardsComponent({ticker, banner, introduction, awards, m
           </div>
         }
       </div>
-      <Footer />
     </main>
-    </>
   );
 }

@@ -16,7 +16,6 @@ dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -33,10 +32,9 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeedComp from "@/components/InstagramFeedComp";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, Ticker, VideoSection, InstagramFeed } from "@/types/api";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker,
   banner: BannerProps;
   introduction: IntroProps;
   career_finder: CareerFinderProps
@@ -60,7 +58,7 @@ type PageProps = {
   instagram_feed: InstagramFeed[]
 };
 
-export default function HomeComponent({ticker, banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
+export default function HomeComponent({banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const program_categories = ['Programs'];
@@ -169,7 +167,6 @@ export default function HomeComponent({ticker, banner, introduction, career_find
 
   return (
     <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -412,10 +409,7 @@ export default function HomeComponent({ticker, banner, introduction, career_find
                 }
               </ul>
               {
-                  event_categories && event_categories.length > 0 && event_categories.map((event_category, key) => activeEventCategory === key && (
-                  <>
-                  {
-                    chunkedEvents && chunkedEvents.length > 0 && (
+                  event_categories && event_categories.length > 0 && event_categories.map((event_category, key) => activeEventCategory === key && chunkedEvents && chunkedEvents.length > 0 && (
                     <div className="w-full lg:w-[75%] flex flex-col gap-5" key={key} ref={eventsList}>
                       <div className="flex gap-3">
                         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_prev">
@@ -473,9 +467,7 @@ export default function HomeComponent({ticker, banner, introduction, career_find
                       </Swiper>
                     </div>
                     )
-                  }
-                  </>
-                ))
+                  )
                 }
           </div>
         </div>
@@ -654,7 +646,6 @@ export default function HomeComponent({ticker, banner, introduction, career_find
         introDescription={instagram_introduction.intro_description} />
         <InstagramFeedComp instagram_feed={instagram_feed} />
       </div>
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
     </>

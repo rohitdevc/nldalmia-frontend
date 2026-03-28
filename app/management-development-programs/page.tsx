@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getWhyChooseIntroduction, getMDPProgramsIntroduction, getMDPPrograms, getMDPTestimonialsIntroduction, getMDPTestimonials, getMDPFAQsIntroduction, getMDPFAQs, getMDPEnquiry } from "@/lib/mdp";
 
 import type { Metadata } from "next";
 import ManagementDevelopmentProgramsComponent from "@/components/pages/ManagementDevelopmentProgramsComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -18,7 +17,6 @@ const [
   faqs,
   enquiry
 ] = await Promise.all([
-  getTicker(),
   getMetaData("MDP"),
   getBanner("MDP"),
   getIntroduction(),
@@ -73,7 +71,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <ManagementDevelopmentProgramsComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     why_choose_introduction={why_choose_introduction}

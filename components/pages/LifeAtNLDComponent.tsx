@@ -13,8 +13,6 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -28,10 +26,9 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Banner as BannerProps, Events, FounderQuote, InstagramFeed, InstitutionalPublications, IntroProps, LifeAtNLDAchievements, LifeAtNLDGallery, LifeAtNLDInsideNLD, LifeAtNLDStudentClubs, Ticker } from "@/types/api";
+import { Banner as BannerProps, Events, FounderQuote, InstagramFeed, InstitutionalPublications, IntroProps, LifeAtNLDAchievements, LifeAtNLDGallery, LifeAtNLDInsideNLD, LifeAtNLDStudentClubs } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   events: Events[]
@@ -49,7 +46,7 @@ type PageProps = {
   instagram_feed: InstagramFeed[]
 };
 
-export default function LifeAtNLD({ticker, banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
+export default function LifeAtNLD({ banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const eventsList = useRef<HTMLDivElement>(null);
@@ -163,8 +160,6 @@ export default function LifeAtNLD({ticker, banner, introduction, events, achieve
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -507,8 +502,6 @@ export default function LifeAtNLD({ticker, banner, introduction, events, achieve
         </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

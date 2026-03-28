@@ -1,13 +1,8 @@
-import { getTicker } from "@/lib/common";
 import { getEvent } from "@/lib/event";
 
 import type { Metadata } from "next";
 import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
 import { redirect } from "next/navigation";
-
-const [ ticker ] = await Promise.all([
-  getTicker()
-])
 
 export const viewport = {
   themeColor: [
@@ -68,7 +63,6 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <EventDetailsComponent
-    ticker={ticker}
     event={event} />
   )
 }

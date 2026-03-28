@@ -1,11 +1,10 @@
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getBlogCategories, getBlogFeatured, getBlogs } from "@/lib/blog";
 
 import type { Metadata } from "next";
 import BlogComponent from "@/components/pages/BlogComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
@@ -13,7 +12,6 @@ const [
   blog_featured,
   blogs
 ] = await Promise.all([
-  getTicker(),
   getMetaData("Blog"),
   getBanner("Blog"),
   getIntroduction(),
@@ -63,7 +61,6 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <BlogComponent
-    ticker={ticker}
     banner={banner}
     introduction={introduction}
     blog_categories={blog_categories}

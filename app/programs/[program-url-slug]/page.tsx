@@ -1,13 +1,8 @@
-import { getTicker } from "@/lib/common";
 import { getProgram } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramComponent from "@/components/pages/ProgramComponent";
 import { redirect } from "next/navigation";
-
-const [ ticker ] = await Promise.all([
-  getTicker()
-])
 
 export const viewport = {
   themeColor: [
@@ -72,7 +67,6 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <ProgramComponent
-    ticker={ticker}
     program={program} />
   )
 }

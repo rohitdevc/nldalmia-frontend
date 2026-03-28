@@ -11,24 +11,19 @@ dayjs.extend(advancedFormat);
 
 import { MdArrowOutward } from "react-icons/md";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Ticker, Blog, BlogListing } from "@/types/api";
+import { Blog, BlogListing } from "@/types/api";
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
 
 type PageProps = {
-  ticker: Ticker
   blog: Blog
   related_blog: BlogListing[]
 }
 
-export default function BlogDetailsComponent({ticker, blog, related_blog}: PageProps) {
+export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <div className="pt-50 flex flex-col gap-10 justify-center text-center px-5 md:px-15 xl:px-30 py-5">
         <h1 className="font-georgia text-3xl lg:text-5xl">{blog.blog_title}</h1>
@@ -115,8 +110,6 @@ export default function BlogDetailsComponent({ticker, blog, related_blog}: PageP
         </div>
         )
       }
-      <Footer />
     </main>
-    </>
   );
 }

@@ -6,7 +6,8 @@ import {
     MetaData,
     Banner,
     Ticker,
-    InstagramFeed
+    InstagramFeed,
+    ProgramsProps
 } from "@/types/api";
 
 export const buildHeaders = async () => {
@@ -35,6 +36,11 @@ export const getTicker = async () => apiFetch<Ticker>("ticker", {
 });
 
 export const getInstagramFeed = async () => apiFetch<InstagramFeed[]>("nldalmia/instagram/feed", {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getCommonPrograms = async () => apiFetch<ProgramsProps[]>(`home/programs`, {
     method: "GET",
     headers: await buildHeaders()
 });

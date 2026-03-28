@@ -11,32 +11,27 @@ dayjs.extend(advancedFormat);
 
 import { MdArrowOutward } from "react-icons/md";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
 import nl2br from "nl2br";
 import parser from "html-react-parser";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
-import { MediaCategory as BannerProps, Media, MediaCategoryListing, Ticker } from "@/types/api";
+import { MediaCategory as BannerProps, Media, MediaCategoryListing } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   media_category_url_slug: string
   media_categories: MediaCategoryListing[]
   media: Media[]
 }
 
-export default function MediaComponent({ticker, banner, media_category_url_slug, media, media_categories}: PageProps) {
+export default function MediaComponent({ banner, media_category_url_slug, media, media_categories}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -83,9 +78,7 @@ export default function MediaComponent({ticker, banner, media_category_url_slug,
           )
         }
       </div>
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }

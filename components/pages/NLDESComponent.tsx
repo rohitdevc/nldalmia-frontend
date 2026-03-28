@@ -14,18 +14,15 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Ticker, Banner as BannerProps, IntroProps, Objectives, Institutes, NLDESManagement, NLDESSocialResponsibility, NLDESCareers } from "@/types/api";
+import { Banner as BannerProps, IntroProps, Objectives, Institutes, NLDESManagement, NLDESSocialResponsibility, NLDESCareers } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   objectives_introduction: IntroProps
@@ -41,7 +38,7 @@ type PageProps = {
   footer: IntroProps
 };
 
-export default function NLDESComponent({ticker, banner, introduction, objectives_introduction, objectives, institutes_introduction, institutes, management_introduction, management, social_responsibility_introduction, social_responsibilities, careers_introduction, careers, footer}: PageProps) {
+export default function NLDESComponent({ banner, introduction, objectives_introduction, objectives, institutes_introduction, institutes, management_introduction, management, social_responsibility_introduction, social_responsibilities, careers_introduction, careers, footer}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [activeBlock, updateActiveBlock] = useState(-1);
@@ -127,8 +124,6 @@ export default function NLDESComponent({ticker, banner, introduction, objectives
   }, []);
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -367,8 +362,6 @@ export default function NLDESComponent({ticker, banner, introduction, objectives
         </div>
       )
       }
-      <Footer />
     </main>
-    </>
   );
 }

@@ -9,8 +9,6 @@ import { MdArrowOutward } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
@@ -18,17 +16,16 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Banner as BannerProps, IQAC, IQACCategories, IQACPOE, Ticker } from "@/types/api";
+import { Banner as BannerProps, IQAC, IQACCategories, IQACPOE } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   iqac_categories: IQACCategories
   iqac_pdfs: IQAC[]
   iqac_poe: IQACPOE[]
 };
 
-export default function IQACsComponent({ticker, banner, iqac_categories, iqac_pdfs, iqac_poe}: PageProps) {
+export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqac_poe}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const filtered_iqac_categories = iqac_categories.filter(
@@ -50,8 +47,6 @@ export default function IQACsComponent({ticker, banner, iqac_categories, iqac_pd
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -114,8 +109,6 @@ export default function IQACsComponent({ticker, banner, iqac_categories, iqac_pd
         </div>
       )
       }
-      <Footer />
     </main>
-    </>
   );
 }

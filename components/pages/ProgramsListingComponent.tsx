@@ -3,20 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 
 import ProgramBlock from "../ProgramBlock";
-import parser, { domToReact, HTMLReactParserOptions, Element } from 'html-react-parser';
+import parser, { domToReact, HTMLReactParserOptions } from 'html-react-parser';
 import nl2br from "nl2br";
 
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
 import { Ticker, Banner as BannerProps, IntroProps, ProgramsBlocks, ProgramListing } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   program_blocks: ProgramsBlocks[]
@@ -24,7 +21,7 @@ type PageProps = {
   programs: ProgramListing[]
 };
 
-export default function ProgramsListingComponent({ticker, banner, introduction, program_blocks, scholarship_introduction, programs}: PageProps) {
+export default function ProgramsListingComponent({ banner, introduction, program_blocks, scholarship_introduction, programs}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const options: HTMLReactParserOptions  = {
@@ -95,8 +92,6 @@ export default function ProgramsListingComponent({ticker, banner, introduction, 
   ]
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -264,9 +259,6 @@ export default function ProgramsListingComponent({ticker, banner, introduction, 
         </div>
         )
       }
-      
-      <Footer />
     </main>
-    </>
   );
 }

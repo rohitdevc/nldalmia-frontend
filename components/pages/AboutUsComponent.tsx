@@ -16,8 +16,6 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import scrollWithOffset from "@/components/scrollWithOffset";
@@ -34,10 +32,9 @@ import "swiper/css/pagination";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 
-import { Banner as BannerProps, FounderQuote, GoverningCouncil, InternationalUniversities, IntroProps, ManagementQuote, ManagingCouncil, Objectives, Ticker, Timeline, VideoSection } from "@/types/api";
+import { Banner as BannerProps, FounderQuote, GoverningCouncil, InternationalUniversities, IntroProps, ManagementQuote, ManagingCouncil, Objectives, Timeline, VideoSection } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   objectives: Objectives[]
@@ -53,7 +50,7 @@ type PageProps = {
   international_universities: InternationalUniversities[]
 };
 
-export default function AboutUsComponent({ticker, banner, introduction, objectives, timeline, founder_quote, management_quotes, managing_council_introduction, managing_council, governing_council_introduction, governing_council, video_section, international_universities_introduction, international_universities}: PageProps) {
+export default function AboutUsComponent({banner, introduction, objectives, timeline, founder_quote, management_quotes, managing_council_introduction, managing_council, governing_council_introduction, governing_council, video_section, international_universities_introduction, international_universities}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
@@ -96,8 +93,6 @@ export default function AboutUsComponent({ticker, banner, introduction, objectiv
   }
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -399,10 +394,7 @@ export default function AboutUsComponent({ticker, banner, introduction, objectiv
         </div>
       )
       }
-      
-      <Footer />
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }

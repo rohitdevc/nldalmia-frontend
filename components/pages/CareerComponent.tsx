@@ -11,7 +11,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -24,10 +23,9 @@ import "swiper/css/navigation";
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
-import { Ticker, Banner as BannerProps, IntroProps, CareersOurValues, CareerMilestones, CareersAchievements, CareersVacancies, CareersApplication } from "@/types/api";
+import { Banner as BannerProps, IntroProps, CareersOurValues, CareerMilestones, CareersAchievements, CareersVacancies, CareersApplication } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps,
   introduction: IntroProps
   careers_our_values_introduction: IntroProps
@@ -42,7 +40,7 @@ type PageProps = {
   careers_program_application: IntroProps
 };
 
-export default function CareerComponent({ticker, banner, introduction, careers_our_values_introduction, careers_our_values, careers_milestones, careers_achievements_introduction, careers_achievements, careers_vacancies_introduction, careers_vacancies, careers_application_introduction, applications, careers_program_application}: PageProps) {
+export default function CareerComponent({banner, introduction, careers_our_values_introduction, careers_our_values, careers_milestones, careers_achievements_introduction, careers_achievements, careers_vacancies_introduction, careers_vacancies, careers_application_introduction, applications, careers_program_application}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const [showVacancyPopUp, updateVacancyPopUp] = useState(false);
@@ -91,8 +89,6 @@ export default function CareerComponent({ticker, banner, introduction, careers_o
   }, [jobDescription]);
 
   return (
-    <>
-    <Header ticker_api={ticker} />
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -287,8 +283,6 @@ export default function CareerComponent({ticker, banner, introduction, careers_o
           </div>
         </div>
       </div>
-      <Footer />
     </main>
-    </>
   );
 }

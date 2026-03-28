@@ -1,19 +1,17 @@
 import { redirect } from "next/navigation";
 
-import { getTicker, getMetaData, getBanner } from "@/lib/common";
+import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getBlogCategories, getBlogCategoryFeatured, getBlogsByCategory } from "@/lib/blog";
 
 import type { Metadata } from "next";
 import BlogComponent from "@/components/pages/BlogComponent";
 
 const [
-  ticker,
   meta,
   banner,
   introduction,
   blog_categories
 ] = await Promise.all([
-  getTicker(),
   getMetaData("Blog"),
   getBanner("Blog"),
   getIntroduction(),
@@ -78,7 +76,6 @@ export default async function Blog({ params }: PageProps) {
 
   return (
     <BlogComponent
-    ticker={ticker}
     banner={banner}
     blog_category_url_slug={blog_category_url_slug}
     introduction={introduction}
