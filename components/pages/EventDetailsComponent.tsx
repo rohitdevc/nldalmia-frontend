@@ -271,7 +271,11 @@ export default function EventDetails({ event }: PageProps) {
               {
                 event.event_competitions.map((round, key) => (
                   <div key={key}>
-                    <Image src={round.event_competition_image} alt={round.event_competition_caption} width={600} height={450} className="w-full" />
+                    {
+                      round.event_competition_image && (
+                        <Image src={round.event_competition_image} alt={round.event_competition_caption} width={600} height={450} className="w-full" />
+                      )
+                    }
                     <div className="flex flex-col gap-5 bg-[#FFCC33] justify-center items-center text-center py-5 px-5 lg:px-10">
                       <h2 className="font-georgia text-xl">{round.event_competition_caption}</h2>
                       <div className="flex flex-wrap gap-3 justify-center lg:justify-between w-full text-[#4E4E4E]">

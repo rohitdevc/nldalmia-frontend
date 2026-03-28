@@ -1,6 +1,10 @@
 "use server";
 
 export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+    if(!endpoint) {
+        return false as T;
+    }
+
     const baseUrl = process.env.API_DOMAIN_NAME;
 
     if (!baseUrl) {

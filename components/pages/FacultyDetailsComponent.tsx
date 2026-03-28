@@ -120,7 +120,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
           <div className="flex flex-col gap-4 px-5 lg:px-20 py-5 lg:py-15 z-1">
             {
               faculty.faculty_accordians.map((faculty_accordian, key) => (
-              <div className={`w-full py-5 border-b border-[#800000] `} key={key}>
+              <div className={`w-full py-5 ${(key + 1 != faculty.faculty_accordians.length) ? 'border-b' : '' } border-[#800000]`} key={key}>
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleAccordian(key)}>
                     <div className="flex gap-5 justify-center items-center">

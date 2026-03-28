@@ -6,6 +6,7 @@ type HeaderProps = {
     admissionPage?: boolean;
     programPage?: boolean;
     alumniPage?: boolean;
+    alumniPortal?: string;
     placementsPage?: boolean;
     eventRegistrationURL?: string;
     showLoader?: boolean

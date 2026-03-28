@@ -19,7 +19,7 @@ type HeaderProps = {
     ticker_api: TickerProps
 }
 
-export default function Header({ticker_api }: HeaderProps) {
+export default function Header({ ticker_api }: HeaderProps) {
     const { headerProps } = useHeader()
 
     let {
@@ -27,6 +27,7 @@ export default function Header({ticker_api }: HeaderProps) {
         programPage = false,
         admissionPage = false,
         alumniPage = false,
+        alumniPortal = "",
         placementsPage = false,
         eventRegistrationURL = "",
         programApplicationLink = "",
@@ -189,9 +190,13 @@ export default function Header({ticker_api }: HeaderProps) {
                 alumniPage && (
                 <div className="w-full bg-[#FFCC33] flex justify-end">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
-                        <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Portal</Link>
-                        </li>
+                        {
+                            alumniPortal && (
+                            <li>
+                                <Link href={alumniPortal} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Portal</Link>
+                            </li>
+                            )
+                        }
                         <li>
                             <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Association Banner</Link>
                         </li>

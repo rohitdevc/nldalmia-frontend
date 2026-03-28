@@ -109,9 +109,11 @@ export default function InstitutionalPublicationsComponent({ banner, institution
                   }
                   </div>
                   <div className={`absolute inset-0 bg-[#800000] left-0 top-0 transition-all duration-300 scale-y-0 group-hover:scale-y-100 ${key === activeMagazine ? 'scale-y-100': ''} flex flex-col gap-3 justify-center items-center text-center`}>
+                      <h2 className="font-georgia text-lg lg:text-xl">{institutional_publication.institutional_publication_title}</h2>
+                      
                     {
-                      institutional_publication.institutional_publication_title && (
-                        <h2 className="font-georgia text-lg lg:text-xl">{parser(nl2br(institutional_publication.institutional_publication_title))}</h2>
+                      institutional_publication.institutional_publication_caption && (
+                        <p className="text-sm">{parser(nl2br(institutional_publication.institutional_publication_caption))}</p>
                       )
                     }
                     {

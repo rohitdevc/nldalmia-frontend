@@ -33,10 +33,9 @@ dayjs.extend(advancedFormat);
 
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-import { Ticker, Banner as BannerProps, IntroProps, WallOfFame, Slider, AlumniQuotes, AlumniMeet, AlumniConnect, AlumniHallOfFame, AlumniTestimonials, AlumniEvents } from "@/types/api";
+import { Banner as BannerProps, IntroProps, WallOfFame, Slider, AlumniQuotes, AlumniMeet, AlumniConnect, AlumniHallOfFame, AlumniTestimonials, AlumniEvents } from "@/types/api";
 
 type PageProps = {
-  ticker: Ticker
   banner: BannerProps
   introduction: IntroProps
   wall_of_fame: WallOfFame[]
@@ -55,24 +54,25 @@ type PageProps = {
   alumni_portal: IntroProps
 };
 
-export default function Alumni({ticker, banner, introduction, wall_of_fame, slider, alumni_meet, alumni_quotes, alumni_connect_introduction, alumni_connect, alumni_global, alumni_hall_of_fame_introduction, alumni_hall_of_fame, alumni_testimonials_introduction, alumni_testimonials, alumni_events_introduction, alumni_events, alumni_portal}: PageProps) {
+export default function Alumni({ banner, introduction, wall_of_fame, slider, alumni_meet, alumni_quotes, alumni_connect_introduction, alumni_connect, alumni_global, alumni_hall_of_fame_introduction, alumni_hall_of_fame, alumni_testimonials_introduction, alumni_testimonials, alumni_events_introduction, alumni_events, alumni_portal}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const { setHeaderProps } = useHeader();
 
   useEffect(() => {
     setHeaderProps({
-      alumniPage: true
+      alumniPage: true,
+      alumniPortal: alumni_portal?.intro_link
     })
 
     const wrappers = document.querySelectorAll(".connect_description");
     if (!wrappers.length) return;
 
     wrappers.forEach((wrapper) => {
-      const headings = wrapper.querySelectorAll("h4");
+      const headings = wrapper.querySelectorAll("h3");
 
-      headings.forEach((h4) => {
-        h4.classList.add(
+      headings.forEach((h3) => {
+        h3.classList.add(
           "font-georgia"
         );
       });
@@ -104,6 +104,23 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
   const [showConnectAlumniPopUp, updateConnectAlumniPopUp] = useState(false);
   const [activeConnectAlumniIndex, setActiveConnectAlumniIndex] = useState(0);
   const popupConnectAlumniRef = useRef<SwiperCore | null>(null);
+
+  useEffect(() => {
+    if (!showConnectAlumniPopUp) return;
+    
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        updateConnectAlumniPopUp(false);
+      }
+    
+    };
+    
+    window.addEventListener("keydown", handleEsc);
+    
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [showConnectAlumniPopUp]);
 
   const handleConnectAlumniClick = (index: number) => {
     setActiveConnectAlumniIndex(index);
@@ -313,8 +330,8 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
                         <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_name} width={150} height={150} className="w-30" />
                         )
                       }
-                      <h2 className="text-xl font-georgia lg:h-10">{alumni_row.connect_name}</h2>
-                      <p className="text-burgundy leading-loose lg:h-20 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(alumni_row.connect_designation))}</p>
+                      <h2 className="text-xl font-georgia">{alumni_row.connect_name}</h2>
+                      <p className="text-burgundy leading-loose">{parser(nl2br(alumni_row.connect_designation))}</p>
                     </div>
                     <span className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center cursor-pointer" onClick={() => handleConnectAlumniClick(key)}>View Profile <MdArrowOutward size={20} /></span>
                   </SwiperSlide>
@@ -526,10 +543,10 @@ export default function Alumni({ticker, banner, introduction, wall_of_fame, slid
                     <SwiperSlide key={key}>
                       <div className="flex flex-col">
                           <div className="flex flex-col lg:flex-row gap-10 items-center bg-[#FFCC33] px-5 py-5 lg:py-0 lg:px-20 lg:pt-10 lg:pb-5">
-                              <div className="w-sm h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
+                              <div className="w-75 h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
                                   {
                                       alumni_row.connect_thumbnail && (
-                                          <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_name} width={300} height={300} className="w-full h-full object-cover" />
+                                          <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_name} width={500} height={500} className="w-full h-full object-cover" />
                                       )
                                   }
                               </div>

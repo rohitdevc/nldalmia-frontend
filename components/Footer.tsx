@@ -140,7 +140,7 @@ export default function Footer({common_programs}: PageProps) {
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Financial Assistance</li>
                     <li>
-                        <Link href="">Financial Aid</Link>
+                        <Link href={`${basePath}financial-assistance`}>Financial Aid</Link>
                     </li>
                     <li>
                         <Link href={`${basePath}scholarships`}>Scholarship</Link>

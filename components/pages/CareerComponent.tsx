@@ -10,7 +10,6 @@ import { IoMdClose } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -63,6 +62,23 @@ export default function CareerComponent({banner, introduction, careers_our_value
       }
     }
   }
+
+  useEffect(() => {
+    if (!showVacancyPopUp) return;
+    
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        updateVacancyPopUp(false);
+      }
+    
+    };
+    
+    window.addEventListener("keydown", handleEsc);
+    
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [showVacancyPopUp]);
 
   useEffect(() => {
     const wrappers = document.querySelectorAll(".job_description");
