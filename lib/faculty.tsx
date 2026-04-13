@@ -6,7 +6,9 @@ import {
     Faculties,
     Faculty,
     BookChapters,
-    JournalPublications
+    JournalPublications,
+    CaseStudies,
+    Reports
 } from "@/types/api";
 
 export const getFaculties = async () => apiFetch<Faculties[]>(`faculties`, {
@@ -25,6 +27,16 @@ export const getBookChapters = async () => apiFetch<BookChapters[]>(`faculty/res
 });
 
 export const getJournalPublications = async () => apiFetch<JournalPublications[]>(`faculty/research-papers-published/journal-publications`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getCaseStudies = async () => apiFetch<CaseStudies[]>(`faculty/research-papers-published/case-studies`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getReports = async () => apiFetch<Reports[]>(`faculty/research-papers-published/reports`, {
     method: "GET",
     headers: await buildHeaders()
 });

@@ -500,6 +500,24 @@ export interface JournalPublications {
     journal_publication_authors: string;
 }
 
+export interface Reports {
+    report_title: string;
+    report_caption: string;
+    report_description: string;
+    report_date: Date;
+    report_link: string;
+    report_authors: string;
+}
+
+export interface CaseStudies {
+    case_study_title: string;
+    case_study_caption: string;
+    case_study_description: string;
+    case_study_date: Date;
+    case_study_link: string;
+    case_study_authors: string;
+}
+
 export interface FinancialAssistancePartners {
     partner_name: string;
     partner_pdf: string;
