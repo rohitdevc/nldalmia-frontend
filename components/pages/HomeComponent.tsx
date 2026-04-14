@@ -15,7 +15,6 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 
-import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
@@ -61,7 +60,7 @@ type PageProps = {
 export default function HomeComponent({banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
-  const program_categories = ['Programs'];
+  const program_categories = ['Programs', 'Executive Education'];
 
   const event_categories: string[] = [];
 
@@ -246,7 +245,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => activeProgramCategory === key && (
                   <div className={`max-w-full lg:max-w-5xl flex flex-wrap gap-5 text-white transition-opacity`} key={key} ref={programsList}>
                     {
-                      programs.map((program, key) => (
+                      programs.map((program, key) => program.program_type === program_category && (
                       <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} onClick={handleProgramClick(key)} key={key}>
                         <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                         

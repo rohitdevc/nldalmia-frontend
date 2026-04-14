@@ -62,7 +62,7 @@ export default function Footer({common_programs}: PageProps) {
                         <li className="font-bold underline">Programs</li>
                         <li className="font-bold underline">Full-Time Programs</li>
                         {
-                            common_programs.map((program, key) => (   
+                            common_programs.map((program, key) => program.program_application_link && (   
                             <li key={key}>
                                 <Link href={program.program_application_link} target="_blank">{program.program_name}</Link>
                             </li>

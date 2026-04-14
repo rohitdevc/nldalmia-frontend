@@ -93,9 +93,6 @@ export default function Header({ ticker_api }: HeaderProps) {
                     <Link href={`${basePath}alumni`}>Alumni</Link>
                 </li>
                 <li>
-                    <Link href={`${basePath}awards-and-achievements`}>Awards</Link>
-                </li>
-                <li>
                     <Link href={`${basePath}media`}>Media</Link>
                 </li>
                 <li>
