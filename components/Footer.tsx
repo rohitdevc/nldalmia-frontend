@@ -1,3 +1,4 @@
+import React from "react";
 import { ProgramsProps } from "@/types/api";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,10 +6,11 @@ import { FaFacebookSquare, FaInstagram, FaLinkedin, FaYoutube, FaRegCopyright } 
 import { IoLogoWhatsapp } from "react-icons/io";
 
 type PageProps = {
+    program_categories: string[]
     common_programs: ProgramsProps[]
 }
 
-export default function Footer({common_programs}: PageProps) {
+export default function Footer({program_categories, common_programs}: PageProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     return (
@@ -56,21 +58,23 @@ export default function Footer({common_programs}: PageProps) {
                         <Link href={`${basePath}careers`}>Work With Us</Link>
                     </li>
                 </ul>
-                {
-                    common_programs && common_programs.length > 0 && (
                     <ul className="flex flex-col gap-4">
                         <li className="font-bold underline">Programs</li>
-                        <li className="font-bold underline">Full-Time Programs</li>
                         {
-                            common_programs.map((program, key) => program.program_application_link && (   
-                            <li key={key}>
-                                <Link href={program.program_application_link} target="_blank">{program.program_name}</Link>
-                            </li>
-                            ))
-                        }
+                            program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
+                                <React.Fragment key={key}>
+                                <li className="font-bold underline">{program_category}</li>
+                                {
+                                    common_programs.length > 0 && common_programs.map((program, sub_key) => program.program_type === program_category && program.program_application_link && (
+                                    <li key={sub_key}>
+                                        <Link href={program.program_application_link} target="_blank">{program.program_name}</Link>
+                                    </li>
+                                    ))
+                                }
+                            </React.Fragment>
+                        )
+                        )}
                     </ul>
-                    )
-                }
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Placements</li>
                     <li>

@@ -7,6 +7,8 @@ import { getTicker, getCommonPrograms } from "@/lib/common";
 import Header from '@/components/Header'
 import Footer from "@/components/Footer";
 
+const program_categories = ['Programs', 'Executive Education'];
+
 const [
   ticker,
   common_programs
@@ -24,10 +26,16 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <HeaderProvider>
-          <Header ticker_api={ticker} />
+          <Header
+          common_programs={common_programs}
+          program_categories={program_categories}
+          ticker_api={ticker} />
           {children}
         </HeaderProvider>
-        <Footer common_programs={common_programs} />
+        <Footer
+        program_categories={program_categories}
+        common_programs={common_programs}
+        />
       </body>
     </html>
   );

@@ -323,8 +323,10 @@ export default function HomeComponent({banner, introduction, career_finder, care
               <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation]} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
                 {
                   placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
-                    <SwiperSlide className="rounded-full overflow-hidden border border-[#800000] !w-30 sm:!w-50" title={placement_partner.placement_partner_name} key={key}>
-                      <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_name} width={300} height={300} className="object-cover w-full" />
+                    <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
+                      <div className="rounded-full overflow-hidden border border-[#800000] w-50 h-50 flex items-center p-1">
+                        <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_name} width={300} height={300} className="object-cover w-full" />
+                      </div>
                     </SwiperSlide>
                   ))
                 }
