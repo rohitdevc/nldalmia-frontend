@@ -53,6 +53,8 @@ export default function Header({ program_categories, common_programs, ticker_api
 
     const [hoverProgram, updateHoverProgram] = useState(false);
 
+    const [hoverExecutiveEducation, updateHoverExecutiveEducation] = useState(false);
+
     return (
         <>
         <div className={`h-full w-full fixed top-0 left-0 z-15 cursor-wait bg-center bg-no-repeat bg-white opacity-50 ${showLoader === false ? 'hidden': ''}`} style={{backgroundImage: `url(${basePath}images/img_loader.gif)`}}></div>
@@ -110,26 +112,29 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                 </Link>
                 <ul className="gap-5 xl:gap-7 items-center hidden lg:flex">
-                    <li>
-                        <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
+                    <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
+                        <Link href={`${basePath}about-us`}>About Us </Link>
                     </li>
-                    <li>
-                        <Link href={`${basePath}programs`} className="flex gap-1 items-center" onMouseOver={() => updateHoverProgram(true)}>Programs <MdKeyboardArrowDown size={25} /></Link>
+                    <li onMouseOver={() => { updateHoverProgram(true); updateHoverExecutiveEducation(false) }}>
+                        <Link href={`${basePath}programs`} className="flex gap-1 items-center">Programs <MdKeyboardArrowDown size={25} /></Link>
                     </li>
-                    <li>
+                    <li onMouseOver={() => { updateHoverExecutiveEducation(true); updateHoverProgram(false) }}>
+                        <span className="flex gap-1 items-center cursor-pointer">Executive Education <MdKeyboardArrowDown size={25} /></span>
+                    </li>
+                    <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
                         <Link href={`${basePath}faculty`}>Faculty</Link>
                     </li>
-                    <li>
+                    <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
                         <Link href={`${basePath}placements`}>Placements</Link>
                     </li>
-                    <li>
+                    <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
                         <Link href={`${basePath}life-at-nld`}>Life@NLD</Link>
                     </li>
-                    <li>
+                    <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
                         <Link href={`${basePath}admissions`}>Admissions</Link>
                     </li>
                 </ul>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1" onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
                     <form>
                         <div className="relative">
                             <input type="search" placeholder="Search" className="peer text-right pr-3 py-2 focus:outline-none w-full lg:w-25 xl:w-full" />
@@ -147,7 +152,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <ul className="bg-[#800000] w-[20%] flex flex-col text-white text-md pl-10 py-10">
                             {
                                 program_categories.map((program_category, key) => (
-                                    <li key={key} onClick={() => updateActiveProgramCategory(program_category)} className={`duration-300 transition-all flex items-center px-5 h-10 cursor-pointer ${activeProgramCategory === program_category ? 'bg-white text-burgundy' : ''}`}>{program_category}</li>
+                                    <li key={key} onMouseEnter={() => updateActiveProgramCategory(program_category)} className={`duration-300 transition-all flex items-center px-5 h-10 cursor-pointer ${activeProgramCategory === program_category ? 'bg-white text-burgundy' : ''}`}>{program_category}</li>
                                 ))
                             }
                         </ul>
@@ -155,6 +160,28 @@ export default function Header({ program_categories, common_programs, ticker_api
                             {
                                 program_categories.map((program_category, key) => program_category === activeProgramCategory && (
                                     common_programs.map((program, sub_key) => program.program_type === activeProgramCategory && program.program_link && (
+                                        <li key={sub_key} className="w-75 h-5 flex items-center text-center justify-center border-r last:border-r-0 border-[#800000]">
+                                            <Link href={program.program_link}>{program.program_name}</Link>
+                                        </li>
+                                    ))
+                                )
+                            )}
+                        </ul>
+                    </div>
+                </div>
+                <div onMouseLeave={() => updateHoverExecutiveEducation(false)} className={`absolute top-17 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverExecutiveEducation ? 'scale-y-100' : 'scale-y-0'}`}>
+                    <div className="flex h-full">
+                        <ul className="bg-[#800000] w-[20%] flex flex-col text-white text-md pl-10 py-10">
+                            {
+                                program_categories.map((program_category, key) => program_category === "Executive Education" && (
+                                    <li key={key} className={`duration-300 transition-all flex items-center px-5 h-10 cursor-pointer bg-white text-burgundy`}>{program_category}</li>
+                                ))
+                            }
+                        </ul>
+                        <ul className="bg-white w-[80%] flex py-10">
+                            {
+                                program_categories.map((program_category, key) => program_category === "Executive Education" && (
+                                    common_programs.map((program, sub_key) => program.program_type === "Executive Education" && program.program_link && (
                                         <li key={sub_key} className="w-75 h-5 flex items-center text-center justify-center border-r last:border-r-0 border-[#800000]">
                                             <Link href={program.program_link}>{program.program_name}</Link>
                                         </li>
