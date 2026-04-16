@@ -45,6 +45,7 @@ export default function ContactUsComponent({ banner, introduction}: PageProps) {
       <div className="w-full flex flex-col lg:flex-row gap-10 lg:justify-between px-5 md:px-15 xl:px-30 pb-10 text-burgundy">
         <div className="npf_wgts w-full lg:w-[48%]" data-height="100%" data-w="fadeebfca2b2228b1b843986d291aa08"></div>
         <Script src="https://widgets.in5.nopaperforms.com/emwgts.js" strategy="afterInteractive" />
+        {/*
         <form id="enquiry_form" className="flex flex-col gap-10 w-full lg:w-[48%] hidden">
           <div className="relative">
             <select name="enquiry_reason">
@@ -107,6 +108,7 @@ export default function ContactUsComponent({ banner, introduction}: PageProps) {
           </label>
           <button type="submit" className="cursor-pointer bg-[#800000] text-white w-25 py-1">Submit</button>
         </form>
+        */}
         <div className="flex flex-col gap-10 w-full lg:w-[48%]">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11819.740141891483!2d72.86741968343927!3d19.27176639693743!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b119eba09105%3A0xf92e0d09d89208e3!2sN.%20L.%20Dalmia%20College%20of%20Arts%2C%20Commerce%20%26%20Science!5e0!3m2!1sen!2sin!4v1771137798786!5m2!1sen!2sin" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="border-0 w-full h-100"></iframe>
           <div className="flex flex-col gap-5">
