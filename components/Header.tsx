@@ -9,8 +9,8 @@ import { useServerCountdown } from "@/hooks/useServerCountdown";
 
 import { IoMdMail } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { RiMenu3Fill } from "react-icons/ri";
+import { MdKeyboardArrowDown, MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { RiMenu3Fill, RiCloseLargeFill } from "react-icons/ri";
 import { Ticker as TickerProps, ProgramsProps } from "@/types/api";
 
 import { useHeader } from '@/context/HeaderContext'
@@ -54,6 +54,10 @@ export default function Header({ program_categories, common_programs, ticker_api
     const [hoverProgram, updateHoverProgram] = useState(false);
 
     const [hoverExecutiveEducation, updateHoverExecutiveEducation] = useState(false);
+
+    const [openMobileMenu, updateMobileMenu] = useState(false);
+
+    const [step, setStep] = useState(0);
 
     return (
         <>
@@ -145,7 +149,8 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <IoMdMail size={20} />
                         <span>Contact Us</span>
                     </Link>
-                    <RiMenu3Fill size={25} className="cursor-pointer block lg:hidden" />
+                    <RiMenu3Fill size={25} className={`cursor-pointer lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
+                    <RiCloseLargeFill size={25} className={`cursor-pointer transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
                 </div>
                 <div onMouseLeave={() => updateHoverProgram(false)} className={`absolute top-17 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverProgram ? 'scale-y-100' : 'scale-y-0'}`}>
                     <div className="flex h-full">
@@ -192,7 +197,79 @@ export default function Header({ program_categories, common_programs, ticker_api
                     </div>
                 </div>
             </div>
-            
+            <div className={`overflow-hidden w-full h-screen bg-white ${openMobileMenu ? 'scale-y-100': 'scale-y-0'}`}>
+                <div className="flex transition-transform duration-300 ease-in-out w-full h-full" style={{ transform: `translateX(-${step * 100}%)` }}>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li>
+                                <Link href={`${basePath}about-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us </Link>
+                            </li>
+                            <li onClick={() => { setStep(1); }}>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
+                            </li>
+                            <li onClick={() => { setStep(3) }}>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}faculty`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}admissions`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Admissions</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(0); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">All Programs </Link>
+                            </li>
+                            <li onClick={() => { setStep(2) }}>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
+                            </li>
+                            <li onClick={() => { setStep(3) }}>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(1); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            {
+                                common_programs.map((program, key) => program.program_type === "Programs" && program.program_link && (
+                                    <li key={key}>
+                                        <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(1); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            {
+                                common_programs.map((program, key) => program.program_type === "Executive Education" && program.program_link && (
+                                    <li key={key}>
+                                        <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
             {
                 programPage && (programEligibilityFees || programBrochureAvailable || programApplicationLink) && (
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
