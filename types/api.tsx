@@ -648,6 +648,7 @@ export interface ProgramListing {
     program_name: string;
     program_url_slug: string;
     program_tagline: string;
+    program_duration: string;
     program_career_paths: string[];
     program_description: string;
     program_highlights: string[];
