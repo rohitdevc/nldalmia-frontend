@@ -583,6 +583,13 @@ export interface MDPPrograms {
     program_pdf: string;
 }
 
+export interface FDPPrograms {
+    program_name: string;
+    program_description: string;
+    program_application_link: string;
+    program_pdf: string;
+}
+
 export interface Testimonials {
     testimonial_name: string;
     testimonial_bio: string;

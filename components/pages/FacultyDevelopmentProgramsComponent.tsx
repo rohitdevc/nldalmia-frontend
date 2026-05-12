@@ -25,14 +25,14 @@ import "swiper/css/navigation";
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
 
-import { Banner as BannerProps, IntroProps, MDPPrograms, Testimonials, FAQs } from "@/types/api";
+import { Banner as BannerProps, IntroProps, FDPPrograms, Testimonials, FAQs } from "@/types/api";
 
 type PageProps = {
   banner: BannerProps
   introduction: IntroProps
   why_choose_introduction: IntroProps
   programs_introduction: IntroProps
-  programs: MDPPrograms[]
+  programs: FDPPrograms[]
   testimonial_introduction: IntroProps
   testimonials: Testimonials[]
   faqs_introduction: IntroProps
@@ -40,7 +40,7 @@ type PageProps = {
   enquiry: IntroProps
 };
 
-export default function ManagementDevelopmentProgramsComponent({ banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
+export default function FacultyDevelopmentProgramsComponent({ banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   useEffect(() => {
