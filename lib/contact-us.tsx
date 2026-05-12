@@ -1,5 +1,6 @@
 "use server";
 
+import { EnquiryForm } from "@/types/forms";
 import { apiFetch } from "./api";
 import { buildHeaders } from "./common";
 import {
@@ -10,3 +11,14 @@ export const getIntroduction = async () => apiFetch<IntroProps>(`contact-us/intr
     method: "GET",
     headers: await buildHeaders()
 });
+
+export const getEnquiryReasons = async () => apiFetch<string[]>(`contact-us/reasons`, {
+    method: "GET",
+    headers: await buildHeaders()
+})
+
+export const submitEnquiry = async (formData: EnquiryForm) => apiFetch<EnquiryForm>(`contact-us/enquiry`, {
+    method: "POST",
+    headers: await buildHeaders(),
+    body: JSON.stringify(formData)
+})

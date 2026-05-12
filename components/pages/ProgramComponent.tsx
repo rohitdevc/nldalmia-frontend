@@ -81,7 +81,8 @@ export default function ProgramComponent({ program}: PageProps) {
     downloader_state_name: activeState,
     downloader_city_name: '',
     downloader_graduation_status: '',
-    ip_address: ip
+    ip_address: ip,
+    referer_url: window.location.href
   });
 
   useEffect(() => {
@@ -236,7 +237,8 @@ export default function ProgramComponent({ program}: PageProps) {
               downloader_state_name: '',
               downloader_city_name: '',
               downloader_graduation_status: '',
-              ip_address: ''
+              ip_address: '',
+              referer_url: window.location.href
           })
           setActiveState('');
 
@@ -244,7 +246,7 @@ export default function ProgramComponent({ program}: PageProps) {
 
           if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
         }
-    }
+  }
   
   useEffect(() => {
       const wrappers = document.querySelectorAll(".responsive-table");

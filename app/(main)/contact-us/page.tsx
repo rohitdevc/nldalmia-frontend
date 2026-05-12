@@ -1,5 +1,5 @@
 import { getMetaData, getBanner } from "@/lib/common";
-import { getIntroduction } from "@/lib/contact-us";
+import { getIntroduction, getEnquiryReasons } from "@/lib/contact-us";
 
 import type { Metadata } from "next";
 import ContactUsComponent from "@/components/pages/ContactUsComponent";
@@ -7,11 +7,13 @@ import ContactUsComponent from "@/components/pages/ContactUsComponent";
 const [
   meta,
   banner,
-  introduction
+  introduction,
+  enquiry_reasons
 ] = await Promise.all([
   getMetaData("Contact Us"),
   getBanner("Contact Us"),
-  getIntroduction()
+  getIntroduction(),
+  getEnquiryReasons()
 ]);
 
 export const viewport = {
@@ -56,6 +58,7 @@ export default async function Page() {
   return (
     <ContactUsComponent
     banner={banner}
-    introduction={introduction} />
+    introduction={introduction}
+    enquiry_reasons={enquiry_reasons} />
   )
 }

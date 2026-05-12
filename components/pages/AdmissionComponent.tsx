@@ -59,7 +59,8 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
 
     const [admissionDownloadBrochureForm, setAdmissionDownloadBrochureForm] = useState<AdmissionDownloadBrochure>({
       brochure_download_email_id: '',
-      ip_address: ip
+      ip_address: ip,
+      referer_url: window.location.href
     });
     
     useEffect(() => {
@@ -151,7 +152,8 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
 
           setAdmissionDownloadBrochureForm({
               brochure_download_email_id: '',
-              ip_address: ''
+              ip_address: '',
+              referer_url: window.location.href
           })
 
           if(!data.result) return false;
