@@ -1,5 +1,5 @@
 import { getMetaData, getBanner } from "@/lib/common";
-import { getIntroduction, getPlacementsSlider, getPlacementCorporateEngagement, getPlacementsTabs, getPlacementRecruitersIntroduction, getPlacementRecruiters, getPlacementsFeaturesIntroduction, getPlacementsFeatures, getPlacementsTestimonials, getPlacementsContactsIntroduction, getPlacementsContacts } from "@/lib/placements";
+import { getIntroduction, getPlacementsSlider, getPlacementCorporateEngagement, getPlacementsTabs, getPlacementRecruitersIntroduction, getPlacementRecruiters, getPlacementsFeaturesIntroduction, getPlacementsFeatures, getPlacementsLatestBrochure, getPlacementsReportsIntroduction, getPlacementsReports, getPlacementsTestimonials, getPlacementsContactsIntroduction, getPlacementsContacts } from "@/lib/placements";
 
 import type { Metadata } from "next";
 import PlacementsComponent from "@/components/pages/PlacementsComponent";
@@ -15,6 +15,9 @@ const [
   recruiters,
   features_introduction,
   placement_features,
+  placement_latest_brochure,
+  reports_introduction,
+  placement_reports,
   testimonials,
   contacts_introduction,
   contacts
@@ -29,6 +32,9 @@ const [
   getPlacementRecruiters(),
   getPlacementsFeaturesIntroduction(),
   getPlacementsFeatures(),
+  getPlacementsLatestBrochure(),
+  getPlacementsReportsIntroduction(),
+  getPlacementsReports(),
   getPlacementsTestimonials(),
   getPlacementsContactsIntroduction(),
   getPlacementsContacts()
@@ -84,6 +90,9 @@ export default async function Page() {
     recruiters={recruiters}
     features_introduction={features_introduction}
     placement_features={placement_features}
+    placement_latest_brochure={placement_latest_brochure}
+    reports_introduction={reports_introduction}
+    placement_reports={placement_reports}
     testimonials={testimonials}
     contacts_introduction={contacts_introduction}
     contacts={contacts}

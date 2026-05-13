@@ -9,6 +9,7 @@ import {
     PlacementsTabs,
     PlacementRecruiters,
     PlacementFeatures,
+    PlacementReports,
     Testimonials,
     Contacts
 } from "@/types/api";
@@ -49,6 +50,21 @@ export const getPlacementsFeaturesIntroduction = async () => apiFetch<IntroProps
 });
 
 export const getPlacementsFeatures = async () => apiFetch<PlacementFeatures[]>(`placements/features`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getPlacementsLatestBrochure = async () => apiFetch<IntroProps>(`placements/latest-brochure`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getPlacementsReportsIntroduction = async () => apiFetch<IntroProps>(`placements/reports/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getPlacementsReports = async () => apiFetch<PlacementFeatures[]>(`placements/reports`, {
     method: "GET",
     headers: await buildHeaders()
 });

@@ -624,6 +624,12 @@ export interface PlacementFeatures {
     feature_image: string;
 }
 
+export interface PlacementReports {
+    report_category_title: string;
+    report_caption: string;
+    report_pdf: string;
+}
+
 export interface Contacts {
     contact_name: string;
     contact_designation: string;

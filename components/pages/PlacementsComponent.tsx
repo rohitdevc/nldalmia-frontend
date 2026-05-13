@@ -25,7 +25,7 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { Banner as BannerProps, IntroProps, Slider, PlacementCorporateEngagement, PlacementsTabs, PlacementRecruiters, PlacementFeatures, Testimonials, Contacts } from "@/types/api";
+import { Banner as BannerProps, IntroProps, Slider, PlacementCorporateEngagement, PlacementsTabs, PlacementRecruiters, PlacementFeatures, Testimonials, Contacts, PlacementReports } from "@/types/api";
 import nl2br from "nl2br";
 
 type PageProps = {
@@ -38,18 +38,22 @@ type PageProps = {
   recruiters: PlacementRecruiters[]
   features_introduction: IntroProps
   placement_features: PlacementFeatures[]
+  placement_latest_brochure: IntroProps
+  reports_introduction: IntroProps
+  placement_reports: PlacementReports[]
   testimonials: Testimonials[]
   contacts_introduction: IntroProps
   contacts: Contacts[]
 };
 
-export default function PlacementsComponent({ banner, introduction, sliders, corporate_engagements, placement_content, recruiters_introduction, recruiters, features_introduction, placement_features, testimonials, contacts_introduction, contacts}: PageProps) {
+export default function PlacementsComponent({ banner, introduction, sliders, corporate_engagements, placement_content, recruiters_introduction, recruiters, features_introduction, placement_features, placement_latest_brochure, reports_introduction, placement_reports, testimonials, contacts_introduction, contacts}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const { setHeaderProps } = useHeader();
 
   useEffect(() => {
     setHeaderProps({
+      placement_latest_brochure,
       placementsPage: true
     })
   }, []);
@@ -115,8 +119,25 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
     placement_features_data[feature.feature_category_title].push(feature);
   })
 
+  const placement_reports_tabs: string[] = [];
+  const placement_reports_data: Record<string, PlacementReports[]> = {};
+
+  placement_reports.forEach((report) => {
+    if (!placement_reports_data[report.report_category_title]) {
+      placement_reports_data[report.report_category_title] = [];
+    }
+
+    if(!placement_reports_tabs.includes(report.report_category_title)) {
+      placement_reports_tabs.push(report.report_category_title);
+    }
+
+    placement_reports_data[report.report_category_title].push(report);
+  })
+
   const [activeFeatureCategory, updateActiveFeatureCategory] = useState(placement_features_tabs.length > 0 ? placement_features_tabs[0] : '');
   const [openFeature, toggleFeatureAccordian] = useState(0);
+
+  const [activeReportCategory, updateActiveReportCategory] = useState(placement_reports_tabs.length > 0 ? placement_reports_tabs[0] : '');
 
   const Features = useRef<HTMLDivElement | null>(null);
 
@@ -124,6 +145,13 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
     updateActiveFeatureCategory(feature_category_title);
     toggleFeatureAccordian(0);
     scrollWithOffset(Features);
+  }
+
+  const Reports = useRef<HTMLDivElement | null>(null);
+
+  const updateActiveReportCategoryFunc = (report_category_title: string): void => {
+    updateActiveReportCategory(report_category_title);
+    scrollWithOffset(Reports);
   }
 
   return (
@@ -312,6 +340,45 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                       }
     
                     </div>
+                  ))
+                }
+              </div>
+            </div>
+        </div>
+          )
+      }
+      {
+        placement_reports_tabs && placement_reports_tabs.length > 0 && (
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <Intro
+          introTitle={reports_introduction.intro_title}
+          introCaption={reports_introduction.intro_caption}
+          introDescription={reports_introduction.intro_description} />
+          <div className="flex flex-col lg:flex-row lg:gap-5 lg:gap-10">
+              <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
+                {
+                  placement_reports_tabs.map((report_category, key) => (
+                    <li className={`group cursor-pointer transition-all duration-300 ${activeReportCategory === report_category ? 'text-2xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveReportCategoryFunc(report_category)}>
+                      <span className="relative">
+                        {report_category}
+                        <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeReportCategory === report_category ? 'scale-x-100' : ''}`}></span>
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div className="lg:w-[75%] lg:border-l-[0.5px] border-[#DCBABA]" ref={Reports}>
+                {
+                    placement_reports_tabs.map((report_category, key) => (
+                    <ul className={`w-full px-5 ${activeReportCategory === report_category ? '' : 'hidden'}`} key={key}>
+                      {
+                        placement_reports_data[report_category].map((placement_report, report_key) => placement_report.report_pdf && (
+                          <li className="py-2" key={report_key}>
+                            <Link href={placement_report.report_pdf} target="_blank">{placement_report.report_caption}</Link>
+                          </li>
+                        ))
+                      }
+                    </ul>
                   ))
                 }
               </div>

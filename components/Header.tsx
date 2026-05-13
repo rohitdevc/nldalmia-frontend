@@ -30,6 +30,7 @@ export default function Header({ program_categories, common_programs, ticker_api
         admissionPage = false,
         alumniPage = false,
         alumniPortal = "",
+        placement_latest_brochure = {},
         placementsPage = false,
         eventRegistrationURL = "",
         programApplicationLink = "",
@@ -62,7 +63,7 @@ export default function Header({ program_categories, common_programs, ticker_api
     return (
         <>
         <div className={`h-full w-full fixed top-0 left-0 z-15 cursor-wait bg-center bg-no-repeat bg-white opacity-50 ${showLoader === false ? 'hidden': ''}`} style={{backgroundImage: `url(${basePath}images/img_loader.gif)`}}></div>
-        <header className="w-full fixed z-10 h-[175px]">
+        <header className="w-full fixed z-10 h-[210px]">
             {
                 ticker_api.ticker_caption && (
                     <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
@@ -272,7 +273,7 @@ export default function Header({ program_categories, common_programs, ticker_api
             </div>
             {
                 programPage && (programEligibilityFees || programBrochureAvailable || programApplicationLink) && (
-                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         {
                             programEligibilityFees && (
@@ -301,7 +302,7 @@ export default function Header({ program_categories, common_programs, ticker_api
             }
             {
                 admissionPage && (
-                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href="https://apply.nldalmia.in/pgdm-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply for PGDM 2025/27</Link>
@@ -318,7 +319,7 @@ export default function Header({ program_categories, common_programs, ticker_api
             }
             {
                 alumniPage && (
-                <div className="w-full bg-[#FFCC33] flex justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         {
                             alumniPortal && (
@@ -336,7 +337,7 @@ export default function Header({ program_categories, common_programs, ticker_api
             }
             {
                 eventRegistrationURL && (
-                <div className="w-full bg-[#FFCC33] flex justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
                             <Link href={eventRegistrationURL} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Register Now</Link>
@@ -347,13 +348,17 @@ export default function Header({ program_categories, common_programs, ticker_api
             }
             {
                 placementsPage && (
-                <div className="w-full bg-[#FFCC33] flex justify-end">
+                <div className="w-full bg-[#FFCC33] flex justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
+                        {
+                            placement_latest_brochure.intro_pdf && (
+                            <li>
+                                <Link href={placement_latest_brochure.intro_pdf} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">{placement_latest_brochure.intro_title}</Link>
+                            </li>
+                        )
+                        }
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Placement Brochure</Link>
-                        </li>
-                        <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Enquire Now</Link>
+                            <Link href={`${basePath}contact-us`} className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Enquire Now</Link>
                         </li>
                     </ul>
                 </div>
