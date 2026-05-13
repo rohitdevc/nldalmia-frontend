@@ -97,12 +97,17 @@ export default function ProgramComponent({ program}: PageProps) {
       programPage: true,
       programApplicationLink: program.program_application_link,
       programEligibilityFees: program.program_eligibility_and_fees,
-      programBrochureAvailable: programBrochureAvailable,
-      showLoader: showLoader
+      programBrochureAvailable,
     })
 
     getIp();
   }, []);
+
+  useEffect(() => {
+      setHeaderProps({
+        showLoader
+      });
+  }, [showLoader, setHeaderProps]);
 
   const brochureDownloadFullNameRef = useRef<HTMLInputElement | null>(null);
   const brochureDownloadEmailIDRef = useRef<HTMLInputElement | null>(null);
@@ -188,63 +193,72 @@ export default function ProgramComponent({ program}: PageProps) {
 
         updateLoader(true);
 
-        programDownloadBrochureForm.ip_address = ip;
+        await new Promise((resolve) => requestAnimationFrame(resolve));
 
-        const response = await fetch(basePath + "api/program/download-brochure", {
-          method: "POST",
-          body: JSON.stringify(programDownloadBrochureForm),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
+        try {
+          const payload = {
+            ...programDownloadBrochureForm,
+            ip_address: ip,
+            referer_url: window.location.href
+          };
 
-        if (!response.ok) {
-          updateLoader(false);
-
-          const err = await response.json();
-
-          if(err.error) {
-            let error_response = JSON.parse(err.error);
-
-            if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
-              error_response = Object.values(error_response);
-
-              const { path, msg } = error_response[0][0];
-
-              const error_message = msg;
-              const error_path = path;
-
-              if(refMap[error_path]?.current) {
-                
-                refMap[error_path]?.current.focus();
-              }
-              setErrors({[error_path]: error_message});
+          const response = await fetch(basePath + "api/program/download-brochure", {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+              "Content-Type": "application/json"
             }
-
-            return false;
-          }
-        }
-
-        const data = await response.json();
-
-        if(data.success) {
-          updateLoader(false);
-          setProgramDownloadBrochureForm({
-              program_name: '',
-              downloader_full_name: '',
-              downloader_email_id: '',
-              downloader_mobile_number: '',
-              downloader_state_name: '',
-              downloader_city_name: '',
-              downloader_graduation_status: '',
-              ip_address: '',
-              referer_url: window.location.href
           })
-          setActiveState('');
 
-          if(!data.result) return false;
+          if (!response.ok) {
+            const err = await response.json();
 
-          if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
+            if(err.error) {
+              let error_response = JSON.parse(err.error);
+
+              if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
+                error_response = Object.values(error_response);
+
+                const { path, msg } = error_response[0][0];
+
+                const error_message = msg;
+                const error_path = path;
+
+                if(refMap[error_path]?.current) {
+                  
+                  refMap[error_path]?.current.focus();
+                }
+                setErrors({[error_path]: error_message});
+              }
+
+              return false;
+            }
+          }
+
+          const data = await response.json();
+
+          if(data.success) {
+            setProgramDownloadBrochureForm({
+                program_name: '',
+                downloader_full_name: '',
+                downloader_email_id: '',
+                downloader_mobile_number: '',
+                downloader_state_name: '',
+                downloader_city_name: '',
+                downloader_graduation_status: '',
+                ip_address: '',
+                referer_url: window.location.href
+            })
+            setActiveState('');
+
+            if(!data.result) return false;
+
+            if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
+          }
+        } catch(error) {
+          console.error(error);
+        } finally {
+          updateLoader(false);
         }
   }
   

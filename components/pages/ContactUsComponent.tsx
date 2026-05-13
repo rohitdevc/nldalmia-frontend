@@ -62,13 +62,15 @@ export default function ContactUsComponent({ banner, introduction, enquiry_reaso
         const data = await res.json();
         setIp(data.ip);
       }
-
-      setHeaderProps({
-        showLoader
-      })
   
       getIp();
   }, []);
+
+  useEffect(() => {
+    setHeaderProps({
+      showLoader
+    });
+  }, [showLoader, setHeaderProps]);
 
   const enquiryReasonRef = useRef<HTMLSelectElement | null>(null);
   const enquiryFullNameRef = useRef<HTMLInputElement | null>(null);
@@ -152,65 +154,70 @@ export default function ContactUsComponent({ banner, introduction, enquiry_reaso
 
         updateLoader(true);
 
-        await new Promise(resolve => setTimeout(resolve, 0));
+        await new Promise((resolve) => requestAnimationFrame(resolve));
 
-        enquiryForm.ip_address = ip;
+        try {
+          const payload = {
+            ...enquiryForm,
+            ip_address: ip,
+            referer_url: window.location.href
+          };
 
-        enquiryForm.referer_url = window.location.href;
-
-        const response = await fetch(basePath + "api/contact-us/enquiry", {
-          method: "POST",
-          body: JSON.stringify(enquiryForm),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-
-        if (!response.ok) {
-          updateLoader(false);
-
-          const err = await response.json();
-
-          if(err.error) {
-            let error_response = JSON.parse(err.error);
-
-            if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
-              error_response = Object.values(error_response);
-
-              const { path, msg } = error_response[0][0];
-
-              const error_message = msg;
-              const error_path = path;
-
-              if(refMap[error_path]?.current) {
-                
-                refMap[error_path]?.current.focus();
-              }
-              setErrors({[error_path]: error_message});
+          const response = await fetch(basePath + "api/contact-us/enquiry", {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+              "Content-Type": "application/json"
             }
-
-            return false;
-          }
-        }
-
-        const data = await response.json();
-
-        if(data.success) {
-          updateLoader(false);
-          setEnquiryForm({
-              enquiry_reason: '',
-              enquiry_full_name: '',
-              enquiry_email_id: '',
-              enquiry_mobile_number: '',
-              enquiry_city_name: '',
-              enquiry_remarks: '',
-              ip_address: '',
-              referer_url: window.location.href
           })
 
-          if(!data.result) return false;
+          if (!response.ok) {
+            const err = await response.json();
 
-          alert(data.result.display_message);
+            if(err.error) {
+              let error_response = JSON.parse(err.error);
+
+              if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
+                error_response = Object.values(error_response);
+
+                const { path, msg } = error_response[0][0];
+
+                const error_message = msg;
+                const error_path = path;
+
+                if(refMap[error_path]?.current) {
+                  
+                  refMap[error_path]?.current.focus();
+                }
+                setErrors({[error_path]: error_message});
+              }
+
+              return false;
+            }
+          }
+
+          const data = await response.json();
+
+          if(data.success) {
+            setEnquiryForm({
+                enquiry_reason: '',
+                enquiry_full_name: '',
+                enquiry_email_id: '',
+                enquiry_mobile_number: '',
+                enquiry_city_name: '',
+                enquiry_remarks: '',
+                ip_address: '',
+                referer_url: window.location.href
+            })
+
+            if(!data.result) return false;
+
+            alert(data.result.display_message);
+          }
+        } catch(error) {
+          console.error(error);
+        } finally {
+          updateLoader(false);
         }
     }
 

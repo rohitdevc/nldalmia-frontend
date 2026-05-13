@@ -72,12 +72,17 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
 
       setHeaderProps({
         admissionPage: true,
-        showLoader: showLoader,
         onDownloadBrochureClick: handleDownloadBrochure
       })
 
       getIp();
     }, []);
+
+    useEffect(() => {
+        setHeaderProps({
+          showLoader
+        });
+    }, [showLoader, setHeaderProps]);
 
     const brochureDownloadEmailIDRef = useRef<HTMLInputElement | null>(null);
 
@@ -108,57 +113,65 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
 
         updateLoader(true);
 
-        admissionDownloadBrochureForm.ip_address = ip;
+        await new Promise((resolve) => requestAnimationFrame(resolve));
 
-        const response = await fetch(basePath + "api/admissions/download-brochure", {
-          method: "POST",
-          body: JSON.stringify(admissionDownloadBrochureForm),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
+        try {
+          const payload = {
+            ...admissionDownloadBrochureForm,
+            ip_address: ip,
+            referer_url: window.location.href
+          };
 
-        if (!response.ok) {
-          updateLoader(false);
-
-          const err = await response.json();
-
-          if(err.error) {
-            let error_response = JSON.parse(err.error);
-
-            if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
-              error_response = Object.values(error_response);
-
-              const { path, msg } = error_response[0][0];
-
-              const error_message = msg;
-              const error_path = path;
-
-              if(refMap[error_path]?.current) {
-                
-                refMap[error_path]?.current.focus();
-              }
-              setErrors({[error_path]: error_message});
+          const response = await fetch(basePath + "api/admissions/download-brochure", {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+              "Content-Type": "application/json"
             }
-
-            return false;
-          }
-        }
-
-        const data = await response.json();
-
-        if(data.success) {
-          updateLoader(false);
-
-          setAdmissionDownloadBrochureForm({
-              brochure_download_email_id: '',
-              ip_address: '',
-              referer_url: window.location.href
           })
 
-          if(!data.result) return false;
+          if (!response.ok) {
+            const err = await response.json();
 
-          if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
+            if(err.error) {
+              let error_response = JSON.parse(err.error);
+
+              if(typeof error_response === "object" && error_response !== null && !Array.isArray(error_response)) {
+                error_response = Object.values(error_response);
+
+                const { path, msg } = error_response[0][0];
+
+                const error_message = msg;
+                const error_path = path;
+
+                if(refMap[error_path]?.current) {
+                  
+                  refMap[error_path]?.current.focus();
+                }
+                setErrors({[error_path]: error_message});
+              }
+
+              return false;
+            }
+          }
+
+          const data = await response.json();
+
+          if(data.success) {
+            setAdmissionDownloadBrochureForm({
+                brochure_download_email_id: '',
+                ip_address: '',
+                referer_url: window.location.href
+            })
+
+            if(!data.result) return false;
+
+            if (data.result.brochure_pdf_link) {window.open(data.result.brochure_pdf_link, '_blank');}
+          }
+        } catch(error) {
+          console.error(error)
+        } finally {
+          updateLoader(false);
         }
     }
 
