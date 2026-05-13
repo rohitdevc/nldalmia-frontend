@@ -64,7 +64,7 @@ export const getPlacementsReportsIntroduction = async () => apiFetch<IntroProps>
     headers: await buildHeaders()
 });
 
-export const getPlacementsReports = async () => apiFetch<PlacementFeatures[]>(`placements/reports`, {
+export const getPlacementsReports = async () => apiFetch<PlacementReports[]>(`placements/reports`, {
     method: "GET",
     headers: await buildHeaders()
 });
