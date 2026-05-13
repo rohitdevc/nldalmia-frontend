@@ -7,6 +7,7 @@ import { useState, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { useRouter } from "next/navigation";
 
 import Multiselect from 'multiselect-react-dropdown';
 import dayjs from 'dayjs';
@@ -57,8 +58,36 @@ type PageProps = {
   instagram_feed: InstagramFeed[]
 };
 
+type CareerPath = {
+  career_path_title: string;
+};
+
 export default function HomeComponent({banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const router = useRouter();
+
+  const [selectedCareerPaths, setSelectedCareerPaths] = useState<CareerPath[]>([]);
+
+  const handleCareerPathFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const selected = selectedCareerPaths.map(
+      (item) => item.career_path_title
+    )
+
+    const params = new URLSearchParams();
+
+    selected.forEach(path => {
+      params.append('career_path', path);
+    })
+
+    router.push(`${basePath}programs?${params.toString()}`);
+  }
+
+  const handleClear = () => {
+    setSelectedCareerPaths([]);
+  }
 
   const program_categories = ['Programs', 'Executive Education'];
 
@@ -208,11 +237,11 @@ export default function HomeComponent({banner, introduction, career_finder, care
       </div>
       <div className={`w-full lg:h-100 relative bg-cover bg-center bg-no-repeat text-white`} style={{backgroundImage: `url(${career_finder.career_finder_image})`}}>
         <div className="absolute top-0 inset-0 bg-black/30 z-0"></div>
-        <form className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10 relative">
+        <form className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10 relative" onSubmit={handleCareerPathFormSubmit}>
           <h2 className="text-xl md:text-2xl">{career_finder.career_finder_title}</h2>
           <div className="flex flex-col md:flex-row gap-3">
             <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
-            <Multiselect className="career-paths text-sm text-burgundy" selectedValues={{}} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} />
+            <Multiselect className="career-paths text-sm text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
           </div>
           <div className="flex gap-5">
             <input type="submit" value="Search Careers" className="bg-[#800000] py-2 w-35 text-sm cursor-pointer" />

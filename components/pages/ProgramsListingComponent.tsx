@@ -11,6 +11,10 @@ import ProgramBlock from "../ProgramBlock";
 import parser, { domToReact, HTMLReactParserOptions } from 'html-react-parser';
 import nl2br from "nl2br";
 
+import { useSearchParams } from "next/navigation";
+
+import { useEffect } from "react";
+
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
 import { Ticker, Banner as BannerProps, IntroProps, ProgramsBlocks, ProgramListing } from "@/types/api";
 
@@ -52,6 +56,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
   const [activeDuration, updateActiveDuration] = useState<string>('');
   const [activeProgram, updateActiveProgram] = useState<string>('');
   const [filteredPrograms, setFilteredPrograms] = useState(programs);
+  const [manualFilter, setManualFilter] = useState(false);
 
   type ProgramFilterProps = {
     career_path?: string;
@@ -59,7 +64,27 @@ export default function ProgramsListingComponent({ banner, introduction, program
     program?: string;
   }
 
+  const searchParams = useSearchParams();
+
+  const selectedCareerPaths = searchParams.getAll('career_path');
+
+  useEffect(() => {
+    if (manualFilter) return;
+
+    if(selectedCareerPaths.length > 0) {
+      let filtered = [...programs];
+
+      selectedCareerPaths.forEach((career_path) => {
+        filtered = filtered.filter(x => x.program_career_paths.includes(career_path));
+      })
+
+      setFilteredPrograms(filtered);
+    }
+  }, [selectedCareerPaths, programs, manualFilter])
+
   const program_filters = ({career_path, duration, program}: ProgramFilterProps) => {
+    setManualFilter(true);
+    
     let filtered = [...programs];
 
     if(career_path) {
