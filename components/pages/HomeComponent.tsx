@@ -654,7 +654,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                         <ul className="flex mt-auto text-sm">
                           {
                             blog.blog_url_slug && (
-                              <li><Link href={blog.blog_url_slug} className="underline">Learn More</Link></li>
+                              <li><Link href={basePath + blog.blog_url_slug} className="underline">Learn More</Link></li>
                             )
                           }
                         </ul>

@@ -72,11 +72,11 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
                     <ul className="flex gap-10 text-[#4E4E4E] text-sm">
                       <li>{dayjs.utc(blog.blog_published_date).format('Do MMMM, YYYY')}</li>
                       <li>
-                        <Link href={blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
+                        <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
                       </li>
                     </ul>
                     <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview))}</p>
-                    <Link href={blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-sm">Learn More <MdArrowOutward size={15} /></Link>
+                    <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-sm">Learn More <MdArrowOutward size={15} /></Link>
                   </div>
                 </div>
               ))
@@ -97,11 +97,11 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
                   <ul className="flex gap-10 text-[#4E4E4E] text-sm">
                     <li>{dayjs.utc(blog.blog_published_date).format('Do MMMM, YYYY')}</li>
                     <li>
-                      <Link href={blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
+                      <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
                     </li>
                   </ul>
                   <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview))}</p>
-                  <Link href={blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-sm">Learn More <MdArrowOutward size={15} /></Link>
+                  <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-sm">Learn More <MdArrowOutward size={15} /></Link>
                 </div>
               </div>
               ))

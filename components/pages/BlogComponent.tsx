@@ -92,10 +92,10 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                 <ul className="flex gap-10 text-[#4E4E4E]">
                   <li>{dayjs.utc(blog_featured[0].blog_published_date).format('Do MMMM, YYYY')}</li>
                   <li>
-                    <Link href={blog_featured[0].blog_category_url_slug}>{blog_featured[0].blog_category_name}</Link>
+                    <Link href={basePath + blog_featured[0].blog_category_url_slug}>{blog_featured[0].blog_category_name}</Link>
                   </li>
                 </ul>
-                <Link href={blog_featured[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                <Link href={basePath + blog_featured[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
               </div>
               )
             }
@@ -111,10 +111,10 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                 <ul className="flex gap-10 text-[#4E4E4E]">
                   <li>{dayjs.utc(blog_featured[1].blog_published_date).format('Do MMMM, YYYY')}</li>
                   <li>
-                    <Link href={blog_featured[1].blog_category_url_slug}>{blog_featured[1].blog_category_name}</Link>
+                    <Link href={basePath + blog_featured[1].blog_category_url_slug}>{blog_featured[1].blog_category_name}</Link>
                   </li>
                 </ul>
-                <Link href={blog_featured[1].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                <Link href={basePath + blog_featured[1].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
               </div>
               )
             }
@@ -127,7 +127,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
         <div className="w-full px-5 md:px-15 xl:px-30 py-10">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-25 lg:justify-between border-t border-b border-[#D3D3D3] py-10">
             <h3 className="font-georgia text-xl w-50">Featured Blog</h3>
-            <Link href={blog_featured[0].blog_url_slug} className="font-georgia text-4xl">{blog_featured[0].blog_title}</Link>
+            <Link href={basePath + blog_featured[0].blog_url_slug} className="font-georgia text-4xl">{blog_featured[0].blog_title}</Link>
           </div>
         </div>
         )
@@ -167,11 +167,11 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                     <ul className="flex gap-10 text-[#4E4E4E]">
                       <li>{dayjs.utc(blog_data[0].blog_published_date).format('Do MMMM, YYYY')}</li>
                       <li>
-                        <Link href={blog_data[0].blog_category_url_slug}>{blog_data[0].blog_category_name}</Link>
+                        <Link href={basePath + blog_data[0].blog_category_url_slug}>{blog_data[0].blog_category_name}</Link>
                       </li>
                     </ul>
                     <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog_data[0].blog_preview))}</p>
-                    <Link href={blog_data[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                    <Link href={basePath + blog_data[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
                   </div>
                   )
                 }
@@ -190,11 +190,11 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                             <ul className="flex gap-10 text-[#4E4E4E]">
                               <li>{dayjs.utc(blog.blog_published_date).format('Do MMMM, YYYY')}</li>
                               <li>
-                                <Link href={blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
+                                <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
                               </li>
                             </ul>
                             <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview))}</p>
-                            <Link href={blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                            <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
                           </div>
                         </div>
                       ))
