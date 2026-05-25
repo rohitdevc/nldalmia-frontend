@@ -19,6 +19,8 @@ type PageProps = {
 
 export const revalidate = 0;
 
+const basePath = process.env.NEXT_PUBLIC_PATH;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "event-url-slug": event_url_slug } = await params;
 
@@ -26,17 +28,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if(!event) redirect(process.env.NEXT_PUBLIC_PATH + 'events');
 
+  const canonical_tag = basePath + event.canonical_tag;
+
   return {
     title: event.meta_title,
     description: event.meta_description,
     alternates: {
-      canonical: event.canonical_tag,
+      canonical: canonical_tag,
     },
     openGraph: {
       title: event.meta_title,
       description: event.meta_description,
       type: "website",
-      url: event.canonical_tag,
+      url: canonical_tag,
       siteName: "NL Dalmia",
       images: [
         {

@@ -9,6 +9,8 @@ type ProgramProp = {
 }
 
 export function AdmissionProgramSlider({program}: ProgramProp) {
+    const basePath = process.env.NEXT_PUBLIC_PATH;
+    
     const endDate = new Date(program.program_application_end_date);
     
     const nowValid = !!endDate && new Date(endDate).getTime() > Date.now();
@@ -38,7 +40,7 @@ export function AdmissionProgramSlider({program}: ProgramProp) {
             {
                 program.program_link && (
                     <li>
-                        <Link href={program.program_link} target="_blank" className="border border-[#800000] bg-white py-2 px-2 text-sm group-hover:border-white group-hover:bg-[#800000] group-hover:text-white">View Program Details</Link>
+                        <Link href={basePath + program.program_link} target="_blank" className="border border-[#800000] bg-white py-2 px-2 text-sm group-hover:border-white group-hover:bg-[#800000] group-hover:text-white">View Program Details</Link>
                     </li>
                 )
             }

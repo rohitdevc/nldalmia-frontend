@@ -167,7 +167,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 program_categories.map((program_category, key) => program_category === activeProgramCategory && (
                                     common_programs.map((program, sub_key) => program.program_type === activeProgramCategory && program.program_link && (
                                         <li key={sub_key} className="w-75 h-5 flex items-center text-center justify-center border-r last:border-r-0 border-[#800000]">
-                                            <Link href={program.program_link}>{program.program_name}</Link>
+                                            <Link href={basePath + program.program_link}>{program.program_name}</Link>
                                         </li>
                                     ))
                                 )
@@ -249,7 +249,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             {
                                 common_programs.map((program, key) => program.program_type === "Programs" && program.program_link && (
                                     <li key={key}>
-                                        <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
+                                        <Link href={basePath + program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
                                     </li>
                                 ))
                             }
@@ -263,7 +263,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             {
                                 common_programs.map((program, key) => program.program_type === "Executive Education" && program.program_link && (
                                     <li key={key}>
-                                        <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
+                                        <Link href={basePath + program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
                                     </li>
                                 ))
                             }

@@ -43,17 +43,21 @@ export const viewport = {
 
 export const revalidate = 0;
 
+const basePath = process.env.NEXT_PUBLIC_PATH;
+
+const canonical_tag = basePath + meta.canonical_tag;
+
 export const metadata: Metadata = {
   title: meta.meta_title,
   description: meta.meta_description,
   alternates: {
-    canonical: meta.canonical_tag
+    canonical: canonical_tag
   },
   openGraph: {
       title: meta.meta_title,
       description: meta.meta_description,
       type: "website",
-      url: meta.canonical_tag,
+      url: canonical_tag,
       siteName: "NL Dalmia",
       images: [
         {

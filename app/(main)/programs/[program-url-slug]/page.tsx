@@ -19,6 +19,8 @@ type PageProps = {
 
 export const revalidate = 0;
 
+const basePath = process.env.NEXT_PUBLIC_PATH;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "program-url-slug": program_url_slug } = await params;
 
@@ -26,17 +28,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if(!program) redirect(process.env.NEXT_PUBLIC_PATH + "programs");
 
+  const canonical_tag = basePath + program.canonical_tag;
+
   return {
     title: program.meta_title,
     description: program.meta_description,
     alternates: {
-      canonical: program.canonical_tag,
+      canonical: canonical_tag,
     },
     openGraph: {
       title: program.meta_title,
       description: program.meta_description,
       type: "website",
-      url: program.canonical_tag,
+      url: canonical_tag,
       siteName: "NL Dalmia",
       images: [
         {

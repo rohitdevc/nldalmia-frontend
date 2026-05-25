@@ -297,7 +297,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                             <ul className="flex mt-auto pb-5 gap-10 text-sm">
                               {
                                 program.program_link && (
-                                <li><Link href={program.program_link} className="underline">Learn More</Link></li>
+                                <li><Link href={basePath + program.program_link} className="underline">Learn More</Link></li>
                                 )
                               }
                               {

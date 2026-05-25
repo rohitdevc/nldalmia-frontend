@@ -33,6 +33,10 @@ type PageProps = {
 
 export const revalidate = 0;
 
+const basePath = process.env.NEXT_PUBLIC_PATH;
+
+const canonical_tag = basePath + meta.canonical_tag;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "blog-category-url-slug": blog_category_url_slug } = await params;
 
@@ -40,13 +44,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: meta.meta_title,
     description: meta.meta_description,
     alternates: {
-      canonical: meta.canonical_tag + "/" + blog_category_url_slug,
+      canonical: canonical_tag + "/" + blog_category_url_slug,
     },
     openGraph: {
       title: meta.meta_title,
       description: meta.meta_description,
       type: "website",
-      url: meta.canonical_tag + "/" + blog_category_url_slug,
+      url: canonical_tag + "/" + blog_category_url_slug,
       siteName: "NL Dalmia",
       images: [
         {

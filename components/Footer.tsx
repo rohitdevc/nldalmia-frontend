@@ -67,7 +67,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                                 {
                                     common_programs.length > 0 && common_programs.map((program, sub_key) => program.program_type === program_category && program.program_link && (
                                     <li key={sub_key}>
-                                        <Link href={program.program_link} target="_blank">{program.program_name}</Link>
+                                        <Link href={basePath + program.program_link} target="_blank">{program.program_name}</Link>
                                     </li>
                                     ))
                                 }
