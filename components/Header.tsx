@@ -112,7 +112,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <Link href={`${basePath}scholarships`}>Scholarships</Link>
                 </li>
             </ul>
-            <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] pr-2 xl:pr-[2%] text-sm bg-white relative h-17">
+            <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] pr-2 xl:pr-[2%] text-sm bg-white relative h-17 z-1">
                 <Link href={`${basePath}`}>
                     <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                 </Link>
