@@ -31,7 +31,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
           program.program_description && (
             <div className="flex flex-col gap-2">
               <h4 className="font-georgia">Course Description</h4>
-              <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(program.program_description))}</p>
+              <p className="text-[#4E4E4E] text-base leading-loose">{parser(nl2br(program.program_description))}</p>
             </div>
           )
         }
@@ -39,7 +39,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
           program.program_highlights && program.program_highlights.length > 0 && (
             <div className="flex flex-col gap-2">
               <h4 className="font-georgia">Program Highlights</h4>
-              <ul className="flex flex-col gap-3 text-sm text-[#4E4E4E] list-disc list-inside">
+              <ul className="flex flex-col gap-3 text-base text-[#4E4E4E] list-disc list-inside">
                 {
                   program.program_highlights.map((program_highlight, key) => (
                     <li key={key} className="leading-loose">{program_highlight}</li>
@@ -53,7 +53,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
           program.program_career_paths && program.program_career_paths.length > 0 && (
             <div className="flex flex-col gap-2">
               <h4 className="font-georgia">Potential Career Path</h4>
-              <ul className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 text-sm text-[#4E4E4E] list-disc list-inside">
+              <ul className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 text-base text-[#4E4E4E] list-disc list-inside">
                 {
                   program.program_career_paths.map((program_career_path, key) => (
                     <li key={key}>{program_career_path}</li>

@@ -98,7 +98,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
           "flex",
           "flex-col",
           "gap-4",
-          "text-sm",
+          "text-base",
           "list-disc",
           "text-[#4E4E4E]",
           "px-4"
@@ -138,7 +138,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
           <div className="flex flex-col lg:flex-row gap-5 w-full lg:items-center justify-between">
             <div className="lg:w-1/2 flex flex-col gap-5">
               <h2 className="font-georgia text-xl lg:text-3xl">{introduction.intro_title}</h2>
-              <p className="text-sm leading-loose text-[#707070]">{parser(nl2br(introduction.intro_caption))}</p>
+              <p className="text-base leading-loose text-[#707070]">{parser(nl2br(introduction.intro_caption))}</p>
               {
                 introduction.intro_description && (
                   <div className="w-full nldes_description">
@@ -194,7 +194,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                     <h2 className="font-georgia text-2xl">{institute.institute_caption}</h2>
                     {
                       institute.institute_description && (
-                        <p className="text-sm leading-loose">{parser(nl2br(institute.institute_description))}</p>
+                        <p className="text-base leading-loose">{parser(nl2br(institute.institute_description))}</p>
                       )
                     }
                     {
@@ -301,7 +301,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                       <h2 className="font-georgia text-lg">{social_responsibility.social_responsibility_caption}</h2>
                       {
                         social_responsibility.social_responsibility_description && (
-                          <p className="text-sm leading-loose">{parser(nl2br(social_responsibility.social_responsibility_description))}</p>
+                          <p className="text-base leading-loose">{parser(nl2br(social_responsibility.social_responsibility_description))}</p>
                         )
                       }
                     </div>
@@ -331,7 +331,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                     <h2 className="font-georgia text-2xl">{career.career_caption}</h2>
                     {
                       career.career_description && (
-                        <p className="text-sm leading-loose">{parser(nl2br(career.career_description))}</p>
+                        <p className="text-base leading-loose">{parser(nl2br(career.career_description))}</p>
                       )
                     }
                     {
@@ -355,7 +355,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
               <h3 className="text-2xl lg:text-4xl font-georgia">{footer.intro_caption}</h3>
               {
                 footer.intro_description && (
-                  <p className="text-sm leading-loose lg:w-3xl">{parser(nl2br(footer.intro_description))}</p>
+                  <p className="text-base leading-loose lg:w-3xl">{parser(nl2br(footer.intro_description))}</p>
                 )
               }
             </div>

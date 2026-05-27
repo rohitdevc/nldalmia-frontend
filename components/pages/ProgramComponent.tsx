@@ -485,7 +485,7 @@ export default function ProgramComponent({ program}: PageProps) {
                     <h2 className="font-georgia text-xl lg:text-2xl">{program_advantage.program_advantage_caption}</h2>
                     {
                       program_advantage.program_advantage_description && (
-                        <p className="leading-snug text-sm md:text-lg">{parser(nl2br(program_advantage.program_advantage_description))}</p>   
+                        <p className="leading-snug text-base md:text-lg">{parser(nl2br(program_advantage.program_advantage_description))}</p>   
                       )
                     }
                   </div>
@@ -605,7 +605,7 @@ export default function ProgramComponent({ program}: PageProps) {
                     <div className="md:w-[70%] lg:w-[85%] flex flex-col gap-10 mt-auto">
                       {
                         testimonial.program_testimonial_about && (
-                          <p className="text-[#4E4E4E] leading-loose text-sm lg:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
+                          <p className="text-[#4E4E4E] leading-loose text-base lg:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
                         )
                       }
                       <div className="flex flex-col gap-2 font-normal text-center md:text-left">
@@ -617,7 +617,7 @@ export default function ProgramComponent({ program}: PageProps) {
                         <span>{testimonial.program_testimonial_name}</span>
                         {
                           testimonial.program_testimonial_designation && (
-                            <span className="text-sm lg:text-lg">{parser(nl2br(testimonial.program_testimonial_designation))}</span>
+                            <span className="text-base lg:text-lg">{parser(nl2br(testimonial.program_testimonial_designation))}</span>
                           )
                         }
                       </div>

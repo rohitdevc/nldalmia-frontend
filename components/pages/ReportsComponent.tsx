@@ -104,7 +104,7 @@ export default function ReportsComponent({ banner, reports}: PageProps) {
                     <h3 className="font-georgia text-xl">{parser(nl2br(report.report_authors))}</h3>
                     {
                       report.report_description && (
-                        <p className="leading-loose text-sm">{parser(nl2br(report.report_description))}</p>
+                        <p className="leading-loose text-base">{parser(nl2br(report.report_description))}</p>
                       )
                     }
                     {

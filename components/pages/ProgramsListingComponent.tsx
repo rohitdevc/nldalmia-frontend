@@ -281,7 +281,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
               <div className="w-full lg:w-[60%] flex flex-col gap-5">
                 {
                   scholarship_introduction.intro_description && (
-                    <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(scholarship_introduction.intro_description))}</p>
+                    <p className="text-[#4E4E4E] text-base leading-loose">{parser(nl2br(scholarship_introduction.intro_description))}</p>
                   )
                 }
                 {

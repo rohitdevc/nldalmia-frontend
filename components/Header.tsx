@@ -67,7 +67,7 @@ export default function Header({ program_categories, common_programs, ticker_api
             {
                 ticker_api.ticker_caption && (
                     <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
-                        <li className="text-sm">{ticker_api.ticker_caption} </li>
+                        <li className="text-base">{ticker_api.ticker_caption} </li>
                         {
                             ticker_end_date && nowValid && countdown && (
                                 <li>
@@ -81,7 +81,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                         {
                                             ticker_api.ticker_link && (
                                                 <li>
-                                                    <Link href={ticker_api.ticker_link} target="_blank" className="text-sm underline">{ticker_api.ticker_link_caption}</Link>
+                                                    <Link href={ticker_api.ticker_link} target="_blank" className="text-base underline">{ticker_api.ticker_link_caption}</Link>
                                                 </li>
                                             )
                                         }
@@ -92,7 +92,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     </ul>
                 )
             }
-            <ul className="w-full flex gap-4 md:gap-10 py-3 md:pr-15 text-sm justify-center lg:justify-end items-center border-b border-[#70707054] bg-white">
+            <ul className="w-full flex gap-4 md:gap-10 py-3 md:pr-15 text-base justify-center lg:justify-end items-center border-b border-[#70707054] bg-white">
                 <li>
                     <Link href={`${basePath}events`}>Events</Link>
                 </li>
@@ -112,7 +112,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <Link href={`${basePath}scholarships`}>Scholarships</Link>
                 </li>
             </ul>
-            <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] pr-2 xl:pr-[2%] text-sm bg-white relative h-17 z-1">
+            <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] pr-2 xl:pr-[2%] text-base bg-white relative h-17 z-1">
                 <Link href={`${basePath}`}>
                     <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                 </Link>
@@ -228,7 +228,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <div className={`w-full shrink-0`}>
                         <ul>
                             <li onClick={() => { setStep(0); }}>
-                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-base"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
                                 <Link href={`${basePath}programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">All Programs </Link>
@@ -244,7 +244,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <div className={`w-full shrink-0`}>
                         <ul>
                             <li onClick={() => { setStep(1); }}>
-                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-base"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             {
                                 common_programs.map((program, key) => program.program_type === "Programs" && program.program_link && (
@@ -258,7 +258,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <div className={`w-full shrink-0`}>
                         <ul>
                             <li onClick={() => { setStep(1); }}>
-                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-base"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             {
                                 common_programs.map((program, key) => program.program_type === "Executive Education" && program.program_link && (
@@ -278,21 +278,21 @@ export default function Header({ program_categories, common_programs, ticker_api
                         {
                             programEligibilityFees && (
                                 <li>
-                                    <Link className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm" href={programEligibilityFees} target="_blank">Program Eligibility & Fees</Link>
+                                    <Link className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base" href={programEligibilityFees} target="_blank">Program Eligibility & Fees</Link>
                                 </li>
                             )
                         }
                         {
                             programBrochureAvailable && (
                             <li>
-                                <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
+                                <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
                             </li>
                             )
                         }
                         {
                             programApplicationLink && (
                                 <li>
-                                    <Link className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm" href={programApplicationLink} target="_blank">Apply Now</Link>
+                                    <Link className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base" href={programApplicationLink} target="_blank">Apply Now</Link>
                                 </li>
                             )
                         }
@@ -305,13 +305,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                 <div className="w-full bg-[#FFCC33] flex justify-center sm:justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
-                            <Link href="https://apply.nldalmia.in/pgdm-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply for PGDM 2025/27</Link>
+                            <Link href="https://apply.nldalmia.in/pgdm-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">Apply for PGDM 2025/27</Link>
                         </li>
                         <li>
-                            <Link href="https://apply.nldalmia.in/global-mba-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Apply For Global MBA</Link>
+                            <Link href="https://apply.nldalmia.in/global-mba-application-form" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">Apply For Global MBA</Link>
                         </li>
                         <li>
-                            <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
+                            <span className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base cursor-pointer" onClick={onDownloadBrochureClick}>Download Brochure</span>
                         </li>
                     </ul>
                 </div>
@@ -324,12 +324,12 @@ export default function Header({ program_categories, common_programs, ticker_api
                         {
                             alumniPortal && (
                             <li>
-                                <Link href={alumniPortal} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Portal</Link>
+                                <Link href={alumniPortal} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">Alumni Portal</Link>
                             </li>
                             )
                         }
                         <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Association Banner</Link>
+                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">Alumni Association Banner</Link>
                         </li>
                     </ul>
                 </div>
@@ -340,7 +340,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                 <div className="w-full bg-[#FFCC33] flex justify-end absolute bottom-0">
                     <ul className="flex gap-3 text-white my-2 sm:my-3 lg:my-4 mx-1 sm:mx-8">
                         <li>
-                            <Link href={eventRegistrationURL} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Register Now</Link>
+                            <Link href={eventRegistrationURL} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">Register Now</Link>
                         </li>
                     </ul>
                 </div>
@@ -353,12 +353,12 @@ export default function Header({ program_categories, common_programs, ticker_api
                         {
                             placement_latest_brochure.intro_pdf && (
                             <li>
-                                <Link href={placement_latest_brochure.intro_pdf} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">{placement_latest_brochure.intro_title}</Link>
+                                <Link href={placement_latest_brochure.intro_pdf} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">{placement_latest_brochure.intro_title}</Link>
                             </li>
                         )
                         }
                         <li>
-                            <Link href={`${basePath}contact-us`} className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Enquire Now</Link>
+                            <Link href={`${basePath}contact-us`} className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-base">Enquire Now</Link>
                         </li>
                     </ul>
                 </div>

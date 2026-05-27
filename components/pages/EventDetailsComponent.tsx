@@ -236,7 +236,7 @@ export default function EventDetails({ event }: PageProps) {
                                   schedule_itinerary_timeline_row.schedule_itinerary && schedule_itinerary_timeline_row.schedule_itinerary.length > 0 && schedule_itinerary_timeline_row.schedule_itinerary.map((schedule_itinerary_row, schedule_itinerary_row_key) => (
                                     <div className="flex flex-col gap-3" key={schedule_itinerary_row_key}>
                                       <span className="font-georgia text-xl">{parser(nl2br(schedule_itinerary_row.schedule_itinerary_caption))}</span>
-                                      <ul className="list-disc list-inside text-sm">
+                                      <ul className="list-disc list-inside text-base">
                                         {schedule_itinerary_row.schedule_itinerary_description?.split('\n').filter(line => line.trim() !== '').map((line, index) => (
                                           <li key={index}>{line}</li>
                                         )
@@ -430,14 +430,14 @@ export default function EventDetails({ event }: PageProps) {
                     <Image src={testimonial.event_testimonial_image} alt={testimonial.event_testimonial_name} width={200} height={200} className="rounded-full w-30 h-30" />
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.event_testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.event_testimonial_designation))}</span>
+                      <span className="text-base md:text-lg">{parser(nl2br(testimonial.event_testimonial_designation))}</span>
                     </div>
                   </div>
                   <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
                     <p className="leading-loose">{parser(nl2br(testimonial.event_testimonial_content))}</p>
                     <div className="mt-auto flex flex-col gap-3">
                       <span className="font-georgia text-xl lg:text-2xl">{testimonial.event_testimonial_name}</span>
-                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.event_testimonial_designation))}</span>
+                      <span className="text-base md:text-lg">{parser(nl2br(testimonial.event_testimonial_designation))}</span>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -482,7 +482,7 @@ export default function EventDetails({ event }: PageProps) {
                               </div>
                               <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFAQ === faq_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
                                 <div className="text-[#4E4E4E] university_description">
-                                  <p className="text-sm">{faq.event_faq_answer}</p>
+                                  <p className="text-base">{faq.event_faq_answer}</p>
                                 </div>
                               </div>
                             </div>
