@@ -203,7 +203,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-15">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -218,17 +218,17 @@ export default function HomeComponent({banner, introduction, career_finder, care
           </div>
           <div className="w-full md:w-[60%] flex flex-col gap-5">
             <p className="text-[#4E4E4E] text-base leading-loose">{parser(nl2br(introduction.intro_description))}</p>
-            <ul className="flex flex-wrap md:flex-row justify-between text-base text-burgundy">
-              <li className="w-1/2 lg:w-40 mt-2">
+            <ul className="flex flex-wrap md:flex-row justify-between text-base text-burgundy mt-2">
+              <li className="w-1/2 lg:w-auto">
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
               </li>
-              <li className="w-1/2 lg:w-40 mt-2">
+              <li className="w-1/2 lg:w-auto">
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">Leadership <MdArrowOutward size={15} /></Link>
               </li>
-              <li className="w-1/2 lg:w-40 mt-2">
+              <li className="w-1/2 lg:w-auto">
                 <Link href={`${basePath}about-us#InternationalTieUps`} className="flex gap-1 items-center">International Tie-Ups <MdArrowOutward size={15} /></Link>
               </li>
-              <li className="w-1/2 lg:w-40 mt-2">
+              <li className="w-1/2 lg:w-auto">
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">Program Outcomes <MdArrowOutward size={15} /></Link>
               </li>
             </ul>
@@ -292,12 +292,12 @@ export default function HomeComponent({banner, introduction, career_finder, care
                             <span className="bg-white text-burgundy text-xs px-3 py-2">{program.program_type}</span>
                           </div>
                           <div className="px-5 flex flex-col gap-2 h-full">
-                            <h2 className="text-2xl font-georgia min-h-15">{program.program_name}</h2>
-                            <p className="leading-relaxed text-base">{parser(nl2br(program.program_description))}</p>
+                            <h2 className="text-2xl font-georgia">{program.program_name}</h2>
+                            <p className="leading-relaxed text-base max-h-[180px] overflow-hidden overflow-y-auto pr-1 [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-full scrollbar-thin scrollbar-track-transparent">{parser(nl2br(program.program_description))}</p>
                             <ul className="flex mt-auto pb-5 gap-10 text-base">
                               {
                                 program.program_link && (
-                                <li><Link href={basePath + program.program_link} className="underline">Learn More</Link></li>
+                                <li><Link href={program.program_link} className="underline">Learn More</Link></li>
                                 )
                               }
                               {
