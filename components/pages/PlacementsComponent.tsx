@@ -283,11 +283,13 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation]} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 150 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation]} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 recruiters.map((recruiter, key) => recruiter.recruiter_logo && (
-                  <SwiperSlide className="rounded-full overflow-hidden border border-[#800000] !w-30 sm:!w-50" title={recruiter.recruiter_caption} key={key}>
-                    <Image src={recruiter.recruiter_logo} alt={recruiter.recruiter_caption} width={300} height={300} className="object-cover w-full" />
+                  <SwiperSlide title={recruiter.recruiter_caption} key={key}>
+                    <div className="rounded-full overflow-hidden border border-[#800000] w-50 h-50 flex items-center p-1">
+                      <Image src={recruiter.recruiter_logo} alt={recruiter.recruiter_caption} width={300} height={300} className="object-cover w-full" />
+                    </div>
                   </SwiperSlide>
                 ))
               }
