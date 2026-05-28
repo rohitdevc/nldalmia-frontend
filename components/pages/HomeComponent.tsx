@@ -382,7 +382,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
           <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation]} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
             {
               testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
+                <SwiperSlide className="group relative w-full min-h-85 md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
                     {
                       testimonial.testimonial_thumbnail && (
