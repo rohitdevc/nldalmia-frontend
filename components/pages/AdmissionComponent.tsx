@@ -28,13 +28,15 @@ import parser from 'html-react-parser';
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
-import { AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps } from "@/types/api";
+import { AdmissionHelpOptions, AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps } from "@/types/api";
 import { AdmissionDownloadBrochureFormErrors, AdmissionDownloadBrochure } from "@/types/forms";
 
 type PageProps = {
   banner: BannerProps
   introduction: IntroProps
   admission_programs: AdmissionPrograms[]
+  admission_help_introduction: IntroProps,
+  admission_help_options: AdmissionHelpOptions[]
   admissions_process_introduction: IntroProps
   admission_process: AdmissionProcessInformation[]
   admissions_scholarship_introduction: IntroProps
@@ -48,7 +50,7 @@ type PageProps = {
   admissions_brochure_introduction: IntroProps
 };
 
-export default function AdmissionComponent({ banner, introduction, admission_programs, admissions_process_introduction, admission_process, admissions_scholarship_introduction, admissions_scholarship_table, admissions_tuition_introduction, admissions_tuition_table, admissions_finance_introduction, financial_assistance_partners, admissions_faqs_introduction, admissions_faqs, admissions_brochure_introduction }: PageProps) {
+export default function AdmissionComponent({ banner, introduction, admission_programs, admission_help_introduction, admission_help_options, admissions_process_introduction, admission_process, admissions_scholarship_introduction, admissions_scholarship_table, admissions_tuition_introduction, admissions_tuition_table, admissions_finance_introduction, financial_assistance_partners, admissions_faqs_introduction, admissions_faqs, admissions_brochure_introduction }: PageProps) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const { setHeaderProps } = useHeader();
@@ -60,7 +62,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
     const [admissionDownloadBrochureForm, setAdmissionDownloadBrochureForm] = useState<AdmissionDownloadBrochure>({
       brochure_download_email_id: '',
       ip_address: ip,
-      referer_url: window.location.href
+      referer_url: ''
     });
     
     useEffect(() => {
@@ -304,37 +306,52 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
           )
           }
         </div>
-        <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${basePath}images/home/college-kids.png)`}}>
-            <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
-            <div className="flex flex-col gap-15 lg:gap-25 py-20 relative w-full h-full">
-              <h3 className="text-2xl lg:text-4xl font-georgia">Whether You Want To Explore More Or Are Ready <br />To Begin Your Application, We’re Here To Help.</h3>
-              <div className="flex flex-col gap-5 mt-auto lg:items-end">
-                <div className="flex flex-col gap-10 lg:w-1/2">
-                  <div className="flex flex-col gap-5">
-                    <h2 className="font-georgia text-xl lg:text-2xl">Connect With Our Admission Office</h2>
-                    <p className="leading-snug text-base md:text-lg">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
-                    <ul className="flex gap-5">
-                      <li>
-                        <Link href="" className="bg-white text-burgundy px-5 py-2 text-base md:text-lg">PGDM Office</Link>
-                      </li>
-                      <li>
-                        <Link href="" className="border border-white text-white px-5 py-2 text-base md:text-lg">Global MBA Office</Link>
-                      </li>
-                    </ul>
+        {
+          admission_help_introduction && (
+          <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${admission_help_introduction.intro_image})`}} title={admission_help_introduction.intro_image_alt}>
+              <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+              <div className="flex flex-col gap-15 lg:gap-25 py-20 relative w-full h-full">
+                <h3 className="text-2xl lg:text-4xl font-georgia">{parser(nl2br(admission_help_introduction.intro_caption))}</h3>
+                {
+                  admission_help_options && admission_help_options.length > 0 && (
+                  <div className="flex flex-col gap-5 mt-auto lg:items-end">
+                    <div className="flex flex-col gap-10 lg:w-1/2">
+                      {
+                        admission_help_options.map((admission_help_option, key) => (
+                        <div className="flex flex-col gap-5" key={key}>
+                          <h2 className="font-georgia text-xl lg:text-2xl">{admission_help_option.help_option_caption}</h2>
+                          {
+                            admission_help_option.help_option_description && (
+                            <p className="leading-snug text-base md:text-lg">{parser(nl2br(admission_help_option.help_option_description))}</p>
+                            )
+                          }
+                          <ul className="flex gap-5">
+                            {
+                              admission_help_option.help_option_button_one_url && admission_help_option.help_option_button_one_caption && (
+                              <li>
+                                <Link href={admission_help_option.help_option_button_one_url} className="bg-white text-burgundy px-5 py-2 text-base md:text-lg">{admission_help_option.help_option_button_one_caption}</Link>
+                              </li>
+                            )
+                            }
+                            {
+                              admission_help_option.help_option_button_two_url && admission_help_option.help_option_button_two_caption && (
+                            <li>
+                              <Link href={admission_help_option.help_option_button_two_url} className="border border-white text-white px-5 py-2 text-base md:text-lg">{admission_help_option.help_option_button_two_caption}</Link>
+                            </li>
+                            )
+                            }
+                          </ul>
+                        </div>
+                      ))
+                      }
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-5">
-                    <h2 className="font-georgia text-xl lg:text-2xl">Start Your Application Process</h2>
-                    <p className="leading-snug text-base md:text-lg">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</p>
-                    <ul className="flex gap-5">
-                      <li>
-                        <Link href="" className="bg-white text-burgundy px-5 py-2 text-base md:text-lg">Apply Now</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                )
+                }
               </div>
-            </div>
-        </div>
+          </div>
+        )
+        }
         {
           admission_categories && admission_categories.length > 0 && (
           <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">

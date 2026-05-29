@@ -1,5 +1,5 @@
 import { getMetaData, getBanner } from "@/lib/common";
-import { getIntroduction, getAdmissionsPrograms, getAdmissionsProcessIntroduction, getAdmissionsProcessInformation, getAdmissionsScholarshipIntroduction, getAdmissionsScholarshipTable, getAdmissionsTuitionIntroduction, getAdmissionsTuitionTable, getAdmissionsFinanceIntroduction, getFinancialAssistancePartners, getAdmissionsFAQsIntroduction, getAdmissionsFAQs, getAdmissionsBrochureIntroduction } from "@/lib/admission";
+import { getIntroduction, getAdmissionsPrograms, getAdmissionsHelpIntroduction, getAdmissionsHelpOptions, getAdmissionsProcessIntroduction, getAdmissionsProcessInformation, getAdmissionsScholarshipIntroduction, getAdmissionsScholarshipTable, getAdmissionsTuitionIntroduction, getAdmissionsTuitionTable, getAdmissionsFinanceIntroduction, getFinancialAssistancePartners, getAdmissionsFAQsIntroduction, getAdmissionsFAQs, getAdmissionsBrochureIntroduction } from "@/lib/admission";
 
 import type { Metadata } from "next";
 import AdmissionComponent from "@/components/pages/AdmissionComponent";
@@ -9,6 +9,8 @@ const [
   banner,
   introduction,
   admission_programs,
+  admission_help_introduction,
+  admission_help_options,
   admissions_process_introduction,
   admission_process,
   admissions_scholarship_introduction,
@@ -25,6 +27,8 @@ const [
   getBanner("Admissions"),
   getIntroduction(),
   getAdmissionsPrograms(),
+  getAdmissionsHelpIntroduction(),
+  getAdmissionsHelpOptions(),
   getAdmissionsProcessIntroduction(),
   getAdmissionsProcessInformation(),
   getAdmissionsScholarshipIntroduction(),
@@ -86,6 +90,8 @@ export default async function Page() {
     banner={banner}
     introduction={introduction}
     admission_programs={admission_programs}
+    admission_help_introduction={admission_help_introduction}
+    admission_help_options={admission_help_options}
     admissions_process_introduction={admissions_process_introduction}
     admission_process={admission_process}
     admissions_scholarship_introduction={admissions_scholarship_introduction}

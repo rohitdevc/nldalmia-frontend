@@ -5,6 +5,7 @@ import { buildHeaders } from "./common";
 import {
     IntroProps,
     AdmissionPrograms,
+    AdmissionHelpOptions,
     AdmissionProcessInformation,
     FinancialPartner,
     FAQs
@@ -17,6 +18,16 @@ export const getIntroduction = async () => apiFetch<IntroProps>(`admissions/intr
 });
 
 export const getAdmissionsPrograms = async () => apiFetch<AdmissionPrograms[]>(`admissions/programs`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getAdmissionsHelpIntroduction = async () => apiFetch<IntroProps>(`admissions/help/introduction`, {
+    method: "GET",
+    headers: await buildHeaders()
+});
+
+export const getAdmissionsHelpOptions = async () => apiFetch<AdmissionHelpOptions[]>(`admissions/help/options`, {
     method: "GET",
     headers: await buildHeaders()
 });

@@ -344,11 +344,22 @@ export interface AdmissionPrograms {
     program_link: string;
 }
 
+export interface AdmissionHelpOptions {
+    help_option_caption: string;
+    help_option_description: string;
+    help_option_button_one_caption: string;
+    help_option_button_one_url: string;
+    help_option_button_two_caption: string;
+    help_option_button_two_url: string;
+}
+
 export interface AdmissionProcessInformation {
     information_category_title: string;
     information_caption: string;
     information_description: string;
 }
+
+
 
 export interface FinancialPartner {
     partner_name: string;
