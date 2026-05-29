@@ -153,7 +153,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <RiMenu3Fill size={25} className={`cursor-pointer lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
                     <RiCloseLargeFill size={25} className={`cursor-pointer transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
                 </div>
-                <div onMouseLeave={() => updateHoverProgram(false)} className={`absolute top-17 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverProgram ? 'scale-y-100' : 'scale-y-0'}`}>
+                <div onMouseLeave={() => updateHoverProgram(false)} className={`absolute top-16 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverProgram ? 'scale-y-100' : 'scale-y-0'}`}>
                     <div className="flex h-full">
                         <ul className="bg-[#800000] w-[20%] flex flex-col text-white text-md pl-10 py-10">
                             {
@@ -175,7 +175,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                 </div>
-                <div onMouseLeave={() => updateHoverExecutiveEducation(false)} className={`absolute top-17 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverExecutiveEducation ? 'scale-y-100' : 'scale-y-0'}`}>
+                <div onMouseLeave={() => updateHoverExecutiveEducation(false)} className={`absolute top-16 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverExecutiveEducation ? 'scale-y-100' : 'scale-y-0'}`}>
                     <div className="flex h-full">
                         <ul className="bg-[#800000] w-[20%] flex flex-col text-white text-md pl-10 py-10">
                             {

@@ -76,7 +76,7 @@ export default async function Blog({ params }: PageProps) {
   const blog_featured = await getBlogCategoryFeatured(blog_category_url_slug);
   const blogs = await getBlogsByCategory(blog_category_url_slug);
 
-  if(blogs.length === 0) redirect(process.env.NEXT_PUBLIC_PATH + "blog");
+  if(!blogs.length) redirect(process.env.NEXT_PUBLIC_PATH + "blogs");
 
   return (
     <BlogComponent

@@ -1,6 +1,6 @@
 import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
 
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
 
@@ -22,12 +22,25 @@ export const revalidate = 0;
 
 const basePath = process.env.NEXT_PUBLIC_PATH;
 
+let blogCache = new Map();
+
+export async function loadBlog(slug: string) {
+  if (blogCache.has(slug)) return blogCache.get(slug);
+  
+  const blog = await getBlog(slug);
+  blogCache.set(slug, blog);
+
+  return blog;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { "blog-category-url-slug": blog_category_url_slug, "blog-url-slug": blog_url_slug } = await params;
+  const { "blog-url-slug": blog_url_slug } = await params;
 
-  const blog = await getBlog(blog_category_url_slug, blog_url_slug);
+  const blog = await loadBlog(blog_url_slug);
 
-  if(!blog) redirect(process.env.NEXT_PUBLIC_PATH + 'blog');
+  if (!blog) {
+    notFound()
+  }
 
   const canonical_tag = basePath + blog.canonical_tag;
 
@@ -62,10 +75,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function Page({ params }: PageProps) {
-  const { "blog-category-url-slug": blog_category_url_slug, "blog-url-slug": blog_url_slug } = await params;
+  const { "blog-url-slug": blog_url_slug } = await params;
   
-  const blog = await getBlog(blog_category_url_slug, blog_url_slug);
-  const related_blog = await getBlogsRelatedByCategory(blog_category_url_slug, blog_url_slug);
+  const blog = await loadBlog(blog_url_slug);
+
+  if (!blog) {
+    notFound()
+  }
+  const related_blog = await getBlogsRelatedByCategory(blog.blog_category_url_slug, blog_url_slug);
 
   return (
     <BlogDetailsComponent

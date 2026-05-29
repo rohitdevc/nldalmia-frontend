@@ -100,7 +100,7 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
                       <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
                     </li>
                   </ul>
-                  <p className="text-[#4E4E4E] text-base">{parser(nl2br(blog.blog_preview))}</p>
+                  <div className="text-[#4E4E4E] text-base">{parser(nl2br(blog.blog_preview))}</div>
                   <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-base">Learn More <MdArrowOutward size={15} /></Link>
                 </div>
               </div>

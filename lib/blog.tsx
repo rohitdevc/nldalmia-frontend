@@ -14,7 +14,7 @@ export const getIntroduction = async () => apiFetch<IntroProps>(`blog/introducti
     headers: await buildHeaders()
 });
 
-export const getBlog = async (blog_category_url_slug: string, blog_url_slug: string) => apiFetch<Blog>(`blog/${blog_category_url_slug}/${blog_url_slug}`, {
+export const getBlog = async (blog_url_slug: string) => apiFetch<Blog>(`blog/${blog_url_slug}`, {
     method: "GET",
     headers: await buildHeaders()
 });

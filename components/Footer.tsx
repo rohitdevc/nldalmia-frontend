@@ -37,7 +37,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                         <Link href="">Grievance Redressal</Link>
                     </li>
                     <li>
-                        <Link href="">Media & Blogs</Link>
+                        <Link href={`${basePath}blogs`}>Media & Blogs</Link>
                     </li>
                     <li>
                         <Link href="">NAAC</Link>
