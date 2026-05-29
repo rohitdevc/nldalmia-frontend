@@ -63,7 +63,9 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
                   <div className="w-full md:w-175">
                     {
                       blog.blog_thumbnail && (
-                      <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover" />
+                      <div className="relative w-75 h-50">
+                        <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} fill className="object-cover object-center" />
+                      </div>
                       )
                     }
                   </div>
@@ -83,12 +85,14 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
             }
             </div>
             {
-              related_blog.slice(2, 1).map((blog, key) => (
+              related_blog.slice(2).map((blog, key) => (
               <div className="flex flex-col md:flex-row lg:flex-col gap-7.5 w-full lg:w-[45%]" key={key}>
                 <div className="w-full md:w-175 lg:w-full">
                   {
                     blog.blog_thumbnail && (
-                    <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover" />
+                    <div className="w-full">
+                      <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover" />
+                    </div>
                     )
                   }
                 </div>
