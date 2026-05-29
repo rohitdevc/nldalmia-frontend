@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 
 import Multiselect from 'multiselect-react-dropdown';
@@ -23,6 +23,7 @@ import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import { MdArrowOutward } from "react-icons/md";
 import { FaPlayCircle } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { FiPlayCircle } from "react-icons/fi";
 
@@ -218,18 +219,15 @@ export default function HomeComponent({banner, introduction, career_finder, care
           </div>
           <div className="w-full md:w-[60%] flex flex-col gap-5">
             <p className="text-[#4E4E4E] text-base leading-loose">{parser(nl2br(introduction.intro_description))}</p>
-            <ul className="flex flex-wrap md:flex-row justify-between text-base text-burgundy mt-2">
+            <ul className="flex flex-wrap md:flex-row md:gap-10 text-base text-burgundy mt-2">
               <li className="w-1/2 lg:w-auto">
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
               </li>
               <li className="w-1/2 lg:w-auto">
-                <Link href={`${basePath}about-us`} className="flex gap-1 items-center">Leadership <MdArrowOutward size={15} /></Link>
+                <Link href={`${basePath}programs`} className="flex gap-1 items-center">Programs <MdArrowOutward size={15} /></Link>
               </li>
               <li className="w-1/2 lg:w-auto">
-                <Link href={`${basePath}about-us#InternationalTieUps`} className="flex gap-1 items-center">International Tie-Ups <MdArrowOutward size={15} /></Link>
-              </li>
-              <li className="w-1/2 lg:w-auto">
-                <Link href={`${basePath}about-us`} className="flex gap-1 items-center">Program Outcomes <MdArrowOutward size={15} /></Link>
+                <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdArrowOutward size={15} /></Link>
               </li>
             </ul>
           </div>
@@ -241,7 +239,11 @@ export default function HomeComponent({banner, introduction, career_finder, care
           <h2 className="text-xl md:text-2xl">{career_finder.career_finder_title}</h2>
           <div className="flex flex-col md:flex-row gap-3">
             <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
-            <Multiselect className="career-paths text-base text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
+            <div className="relative w-[290px]">
+              <Multiselect className="career-paths text-base text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
+              <span className="w-full absolute -bottom-1 h-[0.5px] bg-white"></span>
+              <IoIosArrowDown className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" size={18} />
+            </div>
           </div>
           <div className="flex gap-5">
             <input type="submit" value="Search Careers" className="bg-[#800000] py-2 w-35 text-base cursor-pointer" />
@@ -251,14 +253,14 @@ export default function HomeComponent({banner, introduction, career_finder, care
       </div>
       {
         programs && programs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 py-10">
             <Intro
             introTitle={program_introduction.intro_title}
             introCaption={program_introduction.intro_caption}
             introDescription={program_introduction.intro_description}
             />
             <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
-              <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-fit gap-5 text-burgundy">
+              <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-xs gap-5 text-burgundy">
                 {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
                     <li className={`cursor-pointer transition-all duration-300 ${activeProgramCategory === key ? 'text-xl font-medium' : ''}`} key={key} onClick={() => updateActiveProgramCategoryFunc(key)}>
@@ -272,7 +274,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
               </ul>
               {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => activeProgramCategory === key && (
-                  <div className={`max-w-full lg:max-w-5xl flex flex-wrap gap-5 text-white transition-opacity`} key={key} ref={programsList}>
+                  <div className={`w-full flex flex-wrap gap-5 text-white transition-opacity`} key={key} ref={programsList}>
                     {
                       programs.map((program, key) => program.program_type === program_category && (
                       <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
@@ -349,7 +351,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                 </span>
               </div>
               
-              <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation]} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+              <Swiper className="w-full" slidesPerView={2} spaceBetween={50} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
                 {
                   placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
                     <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
@@ -379,7 +381,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation]} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
+          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
             {
               testimonials.map((testimonial, key) => (
                 <SwiperSlide className="group relative w-full min-h-85 md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
@@ -449,7 +451,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                           <BsArrowRightShort size={20} />
                         </span>
                       </div>
-                      <Swiper slidesPerView={1} spaceBetween={10} modules={[Navigation]} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} className={`max-w-full text-white transition-opacity`} key={key}>
+                      <Swiper slidesPerView={1} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} className={`max-w-full text-white transition-opacity`} key={key}>
                         {
                           chunkedEvents.map((groupEvents, slideIndex) => (
                             <SwiperSlide key={slideIndex}>
@@ -519,7 +521,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={40} loop={true} modules={[Navigation]} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 awards.map((award, key) => (
                   <SwiperSlide className="!w-35 sm:!w-50" title={award.award_name} key={key}>
@@ -553,7 +555,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation]} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
           {
             media.map((media_row, key) => (
               <SwiperSlide key={key}>
@@ -617,7 +619,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation]} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
           {
             blogs.map((blog, key) => (
               <SwiperSlide key={key}>

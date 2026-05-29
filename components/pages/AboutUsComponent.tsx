@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Controller } from "swiper/modules";
+import { Navigation, Autoplay, Pagination, Controller } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 
 import { IoIosArrowDown } from "react-icons/io";
@@ -200,20 +200,21 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <BsArrowRightShort size={20} />
                 </span>
             </div>
-            <Swiper modules={[Navigation]} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.management_quote_slider_prev', nextEl: '.management_quote_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.management_quote_slider_prev', nextEl: '.management_quote_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
               {
                 management_quotes.map((management_quote, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col w-full" key={key}>
                     <div className="flex flex-col gap-2 items-center p-5 text-center">
-                      <div className="w-30">
+                      <div className="w-40 h-40">
                         {
                           management_quote.management_thumbnail && (
                             <Image src={management_quote.management_thumbnail} alt={management_quote.management_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
                           )
                         }
                       </div>
-                      <h2 className="text-xl font-georgia">{management_quote.management_caption}</h2>
-                      <p className="text-burgundy leading-loose lg:h-50 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{management_quote.management_quote}</p>
+                      <h2 className="text-xl font-georgia">{management_quote.management_name}</h2>
+                      <h2 className="text-lg font-georgia">{management_quote.management_caption}</h2>
+                      <p className="text-burgundy leading-loose lg:h-30 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{management_quote.management_quote}</p>
                     </div>
                     {
                       management_quote.management_profile_link && (
@@ -230,7 +231,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         managing_council && managing_council.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 lg:py-5">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 lg:py-10">
           <Intro
           introTitle={managing_council_introduction.intro_title}
           introCaption={managing_council_introduction.intro_caption}
@@ -244,12 +245,12 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <BsArrowRightShort size={20} />
                 </span>
               </div>
-            <Swiper modules={[Navigation]} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 managing_council.map((managing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
                     <div className="flex flex-col gap-5 items-center p-5 text-center">
-                      <div className="w-30">
+                      <div className="w-40 h-40">
                         {
                           managing_council_row.managing_council_thumbnail && (
                             <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
@@ -289,12 +290,12 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <BsArrowRightShort size={20} />
                 </span>
               </div>
-            <Swiper modules={[Navigation]} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 governing_council.map((governing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
                     <div className="flex flex-col gap-5 items-center p-5 text-center">
-                      <div className="w-30">
+                      <div className="w-40 h-40">
                         {
                           governing_council_row.governing_council_thumbnail && (
                             <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />

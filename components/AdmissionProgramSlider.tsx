@@ -18,7 +18,7 @@ export function AdmissionProgramSlider({program}: ProgramProp) {
     const countdown = useServerCountdown(new Date(endDate));
     
     return (
-    <div className="flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-white text-burgundy hover:bg-[#800000] hover:!text-white">
+    <div className="flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-white text-burgundy hover:bg-[#800000] hover:!text-white min-h-75">
         <h2 className="text-xl">{program.program_name}</h2>
         <p className="leading-loose">{parser(nl2br(program.program_description))}</p>
         {endDate && nowValid && countdown && (
@@ -29,7 +29,7 @@ export function AdmissionProgramSlider({program}: ProgramProp) {
                 {countdown.seconds}s
             </span>
         )}
-        <ul className="flex gap-5">
+        <ul className="flex gap-5 mt-auto">
             {
                 program.program_application_link && (
                     <li>

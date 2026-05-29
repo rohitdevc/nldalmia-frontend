@@ -9,7 +9,7 @@ import parser from 'html-react-parser';
 import { FiPlayCircle } from "react-icons/fi";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import { IoIosArrowDown, IoMdMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 
@@ -178,7 +178,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation]} navigation={{prevEl: '.intro_slider_prev', nextEl: '.intro_slider_next'}} >
+          <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.intro_slider_prev', nextEl: '.intro_slider_next'}} >
             {
               sliders.map((slider, key) => (
               <SwiperSlide key={key} title={slider.slider_image_alt}>
@@ -244,7 +244,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                       <BsArrowRightShort size={20} />
                     </span>
                   </div>
-                  <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} spaceBetween={0} loop={true} modules={[Navigation]} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}, 1024: {slidesPerView: 4}}} >
+                  <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} spaceBetween={0} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}, 1024: {slidesPerView: 4}}} >
                     {
                       placement_content_data[placement_tab].map((placement_content, sub_key) => (
                       <SwiperSlide key={sub_key}>
@@ -283,7 +283,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation]} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 recruiters.map((recruiter, key) => recruiter.recruiter_logo && (
                   <SwiperSlide title={recruiter.recruiter_caption} key={key}>
@@ -399,7 +399,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation]} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
+          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
             {
               testimonials.map((testimonial, key) => (
                 <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>

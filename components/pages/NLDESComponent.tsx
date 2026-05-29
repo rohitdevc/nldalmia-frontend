@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 
 import { MdArrowOutward } from "react-icons/md";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
@@ -237,7 +237,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                     <BsArrowRightShort size={20} />
                   </span>
                 </div>
-                <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation]} navigation={{prevEl: `.management_team_${key}slider_prev`, nextEl: `.management_team_${key}slider_next`}} breakpoints={{768: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}, 1280: {slidesPerView: 4, spaceBetween: 30}}} >
+                <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.management_team_${key}slider_prev`, nextEl: `.management_team_${key}slider_next`}} breakpoints={{768: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}, 1280: {slidesPerView: 4, spaceBetween: 30}}} >
                   {
                     management_data[management_category].map((management_row, sub_key) => (
                     <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col w-full" key={sub_key}>
@@ -285,7 +285,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation]} navigation={{prevEl: `.social_responsibility_slider_prev`, nextEl: `.social_responsibility_slider_next`}} >
+            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.social_responsibility_slider_prev`, nextEl: `.social_responsibility_slider_next`}} >
               {
                 social_responsibilities.map((social_responsibility, key) => (
                 <SwiperSlide key={key}>

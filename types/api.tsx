@@ -303,6 +303,7 @@ export interface FounderQuote {
 }
 
 export interface ManagementQuote {
+    management_name: string;
     management_caption: string;
     management_quote: string;
     management_thumbnail: string;

@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
 				source: '/faculty/research-papers-published',
 				destination: '/faculty/research-papers-published/journal-publications',
 				permanent: true
+			},
+			{
+				source: '/blog',
+				destination: '/blogs',
+				permanent: true
 			}
 		]
 	 }

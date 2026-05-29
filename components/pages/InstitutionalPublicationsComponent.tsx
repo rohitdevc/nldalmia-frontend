@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 
 import Banner from "@/components/Banner";
 
@@ -73,7 +73,7 @@ export default function InstitutionalPublicationsComponent({ banner, institution
         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 lg:right-10 institutional_publications_categories_slider_next z-2">
           <BsArrowRightShort size={20} />
         </span>
-        <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={0} navigation={{prevEl: '.institutional_publications_categories_slider_prev', nextEl: '.institutional_publications_categories_slider_next'}} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 6}, 1280: {slidesPerView: 8}}}>
+        <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={3} spaceBetween={0} navigation={{prevEl: '.institutional_publications_categories_slider_prev', nextEl: '.institutional_publications_categories_slider_next'}} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 6}, 1280: {slidesPerView: 8}}}>
           {
           institutional_publications_categories.map((institutional_publication_category, key) => (
             <SwiperSlide key={key} className="text-center lg:!w-40">
