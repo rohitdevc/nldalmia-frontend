@@ -41,7 +41,7 @@ export default function FinancialAssistance({ banner, introduction, financial_as
                 <div className="border-[0.5px] border-[#D2A6A6] flex flex-col items-center justify-center gap-5 px-5 py-5" key={key}>
                   {
                     financial_partner.partner_logo && (
-                      <Image src={financial_partner.partner_logo} alt={financial_partner.partner_name} width={100} height={60} className="w-30" />
+                      <Image src={financial_partner.partner_logo} alt={financial_partner.partner_logo_alt} width={100} height={60} className="w-30" />
                     )
                   }
                   <h2 className="font-georgia text-lg">{financial_partner.partner_name}</h2>

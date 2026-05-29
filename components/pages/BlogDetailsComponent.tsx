@@ -63,7 +63,7 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
                   <div className="w-full md:w-175">
                     {
                       blog.blog_thumbnail && (
-                      <Image src={blog.blog_thumbnail} alt={blog.blog_title} width={600} height={600} className="object-cover" />
+                      <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover" />
                       )
                     }
                   </div>
@@ -88,7 +88,7 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
                 <div className="w-full md:w-175 lg:w-full">
                   {
                     blog.blog_thumbnail && (
-                    <Image src={blog.blog_thumbnail} alt={blog.blog_title} width={600} height={600} className="object-cover" />
+                    <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover" />
                     )
                   }
                 </div>

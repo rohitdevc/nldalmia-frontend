@@ -213,7 +213,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
           }
           {
             program_blocks && program_blocks.length > 0 && (
-            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program_blocks[0].program_block_image})`}}>
+            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program_blocks[0].program_block_image})`}} title={program_blocks[0].program_block_image_alt}>
                 <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
                 <div className="flex flex-col relative w-full h-full justify-center xl:items-end">
                   <div className="flex flex-col gap-8 program_block">
@@ -239,7 +239,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
           }
           {
             program_blocks && program_blocks.length > 1 && (
-            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program_blocks[1].program_block_image})`}}>
+            <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program_blocks[1].program_block_image})`}} title={program_blocks[1].program_block_image_alt}>
                 <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
                 <div className="flex flex-col relative w-full h-full justify-center">
                   <div className="flex flex-col gap-5">
@@ -274,7 +274,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
               <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer">
                 {
                   scholarship_introduction.intro_image && (
-                    <Image src={scholarship_introduction.intro_image} width={800} height={750} alt={scholarship_introduction.intro_title} className="object-cover w-full h-full" />
+                    <Image src={scholarship_introduction.intro_image} width={800} height={750} alt={scholarship_introduction.intro_image_alt} className="object-cover w-full h-full" />
                   )
                 }
               </div>

@@ -181,7 +181,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation]} navigation={{prevEl: '.intro_slider_prev', nextEl: '.intro_slider_next'}} >
             {
               sliders.map((slider, key) => (
-              <SwiperSlide key={key}>
+              <SwiperSlide key={key} title={slider.slider_image_alt}>
                 <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10" title={slider.slider_caption} style={{backgroundImage: `url(${slider.slider_image})`}}></div>
               </SwiperSlide>
             ))
@@ -288,7 +288,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                 recruiters.map((recruiter, key) => recruiter.recruiter_logo && (
                   <SwiperSlide title={recruiter.recruiter_caption} key={key}>
                     <div className="rounded-full overflow-hidden border border-[#800000] w-50 h-50 flex items-center p-1">
-                      <Image src={recruiter.recruiter_logo} alt={recruiter.recruiter_caption} width={300} height={300} className="object-cover w-full" />
+                      <Image src={recruiter.recruiter_logo} alt={recruiter.recruiter_logo_alt} width={300} height={300} className="object-cover w-full" />
                     </div>
                   </SwiperSlide>
                 ))
@@ -333,7 +333,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                               </div>
                               <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFeature === feature_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
                                 <div className="w-full text-[#4E4E4E]">
-                                  <Image src={placement_feature.feature_image} alt={placement_feature.feature_caption} width="900" height={900} className="object-cover w-full h-full" />
+                                  <Image src={placement_feature.feature_image} alt={placement_feature.feature_image_alt} width="900" height={900} className="object-cover w-full h-full" />
                                 </div>
                               </div>
                             </div>
@@ -407,7 +407,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                     <div className="rounded-full w-30 h-30">
                       {
                         testimonial.testimonial_thumbnail && (
-                          <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_name} width={200} height={200} className="object-cover w-full h-full" />
+                          <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="object-cover w-full h-full" />
                         )
                       }
                     </div>

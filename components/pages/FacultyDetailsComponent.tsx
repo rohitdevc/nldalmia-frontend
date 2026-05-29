@@ -71,7 +71,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
           <div className="w-60 h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
             {
               faculty.faculty_thumbnail && (
-                <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_name} width={300} height={300} className="w-full h-full object-cover" />
+                <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt} width={300} height={300} className="w-full h-full object-cover" />
               )
             }
           </div>

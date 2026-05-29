@@ -130,7 +130,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
           <div className="lg:w-[65%] sm:h-90">
             {
               why_choose_introduction.intro_image && (
-                <Image src={why_choose_introduction.intro_image} alt={why_choose_introduction.intro_title} width={600} height={350} className="object-cover w-full h-full" />
+                <Image src={why_choose_introduction.intro_image} alt={why_choose_introduction.intro_image_alt} width={600} height={350} className="object-cover w-full h-full" />
               )
             }
           </div>
@@ -250,7 +250,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
               testimonials.map((testimonial, key) => (
                 <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
-                    <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_name} width={200} height={200} className="rounded-full w-30 h-30" />
+                    <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="rounded-full w-30 h-30" />
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
                       <span className="text-base md:text-lg">{testimonial.testimonial_designation}</span>

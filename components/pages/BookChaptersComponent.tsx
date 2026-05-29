@@ -98,7 +98,7 @@ export default function BookChaptersComponent({ banner, book_publications}: Page
                 return (
                   <div className="flex flex-col sm:flex-row gap-5 bg-white text-burgundy border-[0.5px] border-[#800000] py-5 px-10 group transition-all duration-300 hover:bg-[#800000] hover:!text-white" title={book.book_chapter_title} key={key}>
                     <div className="w-30">
-                      <Image src={book.book_chapter_thumbnail} alt={book.book_chapter_title} width={300} height={300} className="object-cover w-full h-full" />
+                      <Image src={book.book_chapter_thumbnail} alt={book.book_chapter_thumbnail_alt} width={300} height={300} className="object-cover w-full h-full" />
                     </div>
                     <div className="flex flex-col gap-5">
                       <h2 className="font-georgia text-xl">{book.book_chapter_title}</h2>

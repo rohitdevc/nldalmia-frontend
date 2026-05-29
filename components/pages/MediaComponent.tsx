@@ -49,7 +49,7 @@ export default function MediaComponent({ banner, media_category_url_slug, media,
                     <div className="w-100">
                       {
                         media_row.media_thumbnail && (
-                          <Image src={media_row.media_thumbnail} alt={media_row.media_title} width={300} height={300} className="object-cover w-full h-full" />
+                          <Image src={media_row.media_thumbnail} alt={media_row.media_thumbnail_alt} width={300} height={300} className="object-cover w-full h-full" />
                         )
                       }
                     </div>

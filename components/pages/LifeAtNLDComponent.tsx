@@ -195,7 +195,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-5 md:gap-10 lg:gap-5">
                       {
                         event_timeline.events.map((event, sub_key) => (
-                          <div className="group w-full h-75 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(sub_key)} key={sub_key} title={event.event_name}>
+                          <div className="group w-full h-75 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(sub_key)} key={sub_key} title={event.event_thumbnail_alt}>
                             <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                             
                             <div className="relative h-full w-full flex flex-col">
@@ -262,7 +262,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
             {
               achievements.map((achievement, key) => (
               <SwiperSlide key={key}>
-                <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-20 py-10" style={{backgroundImage: `url(${achievement.achievement_image})`}}>
+                <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-20 py-10" style={{backgroundImage: `url(${achievement.achievement_image})`}} title={achievement.achievement_image_alt}>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent"></div>
                   <div className="flex flex-col gap-5 relative mt-auto">
                     <h2 className="font-georgia text-2xl">{achievement.achievement_caption}</h2>
@@ -303,7 +303,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                   <div className="md:w-sm">
                     {
                       student_club.student_club_image && (
-                        <Image src={`${student_club.student_club_image}`} alt={student_club.student_club_title} width={300} height={300} className="object-cover w-full h-full" />
+                        <Image src={`${student_club.student_club_image}`} alt={student_club.student_club_image_alt} width={300} height={300} className="object-cover w-full h-full" />
                       )
                     }
                   </div>
@@ -343,19 +343,19 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           {
             gallery[0].gallery_image && (
             <div className="w-full h-100 lg:h-125">
-              <Image src={gallery[0].gallery_image} width={900} height={900} alt={gallery[0].gallery_caption} className="object-cover w-full h-full" />  
+              <Image src={gallery[0].gallery_image} width={900} height={900} alt={gallery[0].gallery_image_alt} className="object-cover w-full h-full" />  
             </div>
             )}
             {
               gallery[1].gallery_image && (
               <div className="w-full h-100">
-                <Image src={gallery[1].gallery_image} width={900} height={550} alt={gallery[1].gallery_caption} className="object-cover w-full h-full" />
+                <Image src={gallery[1].gallery_image} width={900} height={550} alt={gallery[1].gallery_image_alt} className="object-cover w-full h-full" />
               </div>
             )}
             {
               gallery[2].gallery_image && (
               <div className="w-full h-100">
-                <Image src={gallery[2].gallery_image} width={900} height={550} alt={gallery[2].gallery_caption} className="object-cover w-full h-full" />
+                <Image src={gallery[2].gallery_image} width={900} height={550} alt={gallery[2].gallery_image_alt} className="object-cover w-full h-full" />
             </div>
             )}
           </div>
@@ -363,14 +363,14 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           {
             gallery[3].gallery_image && (
               <div className="w-full h-100">
-                <Image src={gallery[3].gallery_image} width={900} height={550} alt={gallery[3].gallery_caption} className="object-cover w-full h-full" />
+                <Image src={gallery[3].gallery_image} width={900} height={550} alt={gallery[3].gallery_image_alt} className="object-cover w-full h-full" />
               </div>
             )
           }
           {
             gallery[4].gallery_image && (
             <div className="w-full h-100">
-              <Image src={gallery[4].gallery_image} width={900} height={550} alt={gallery[4].gallery_caption} className="object-cover w-full h-full" />
+              <Image src={gallery[4].gallery_image} width={900} height={550} alt={gallery[4].gallery_image_alt} className="object-cover w-full h-full" />
             </div>
             )
           }
@@ -443,7 +443,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                         <div className="w-full lg:w-1/2 lg:order-2">
                           {
                             inside_nld_row.inside_nld_image && (
-                              <Image src={inside_nld_row.inside_nld_image} alt={inside_nld_row.inside_nld_caption} width={500} height={300} className="object-cover w-full h-full" />
+                              <Image src={inside_nld_row.inside_nld_image} alt={inside_nld_row.inside_nld_image_alt} width={500} height={300} className="object-cover w-full h-full" />
                             )
                           }
                         </div>
@@ -491,7 +491,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                 <SwiperSlide key={key} title={magazine.institutional_publication_title} >
                   <div className="w-full flex flex-col lg:flex-row">
                     <Link className="w-full" href={magazine.institutional_publication_pdf} target="_blank">
-                      <Image src={magazine.institutional_publication_thumbnail} alt={magazine.institutional_publication_title} width={500} height={300} className="object-cover w-full h-full" />
+                      <Image src={magazine.institutional_publication_thumbnail} alt={magazine.institutional_publication_thumbnail_alt} width={500} height={300} className="object-cover w-full h-full" />
                     </Link>
                   </div>
                 </SwiperSlide>

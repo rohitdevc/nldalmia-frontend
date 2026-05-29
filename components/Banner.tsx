@@ -58,7 +58,7 @@ export default function Banner({banner_image, banner_caption, banner_description
                     )
                 }
                 {
-                    banner_url && (
+                    banner_url && banner_button_caption && (
                         <Link href={banner_url} className="px-3 py-1 bg-[#800000] text-white">
                             <span>{banner_button_caption}</span>
                         </Link>

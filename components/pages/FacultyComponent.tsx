@@ -95,7 +95,7 @@ export default function Faculty({ banner, faculties}: PageProps) {
                     <div className="h-75">
                       {
                         faculty.faculty_thumbnail && (
-                          <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_name} width={500} height={500} className="object-contain w-full h-full" />
+                          <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
                         )
                       }
                     </div>

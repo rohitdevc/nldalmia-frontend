@@ -29,6 +29,7 @@ export interface IntroProps {
     intro_caption: string;
     intro_description: string;
     intro_image: string;
+    intro_image_alt: string;
     intro_pdf: string;
     intro_video_id: string;
     intro_link: string;
@@ -38,6 +39,7 @@ export interface CareerFinderProps {
     career_finder_title: string;
     career_finder_caption: string;
     career_finder_image: string;
+    career_finder_image_alt: string;
 }
 
 export interface CareerPathProps {
@@ -50,6 +52,7 @@ export interface ProgramsProps {
     program_link: string;
     program_description: string;
     program_thumbnail: string;
+    program_thumbnail_alt: string;
     program_application_link: string;
 }
 
@@ -57,11 +60,13 @@ export interface VideoSection {
     video_title: string;
     video_id: string;
     video_background_image: string;
+    video_background_image_alt: string;
 }
 
 export interface PlacementPartners {
     placement_partner_name: string;
     placement_partner_logo: string;
+    placement_partner_logo_alt: string;
 }
 
 export interface HomeTestimonials {
@@ -70,6 +75,7 @@ export interface HomeTestimonials {
     testimonial_description: string;
     testimonial_youtube_id: string;
     testimonial_thumbnail: string;
+    testimonial_thumbnail_alt: string;
 }
 
 export interface HomeEvents {
@@ -78,6 +84,7 @@ export interface HomeEvents {
     event_start_date: string;
     event_url_slug: string;
     event_thumbnail: string;
+    event_thumbnail_alt: string;
     event_description: string;
 }
 
@@ -85,6 +92,7 @@ export interface HomeAwards {
     award_name: string;
     award_year: string;
     award_thumbnail: string;
+    award_thumbnail_alt: string;
 }
 
 export interface MediaCategoryListing {
@@ -99,6 +107,7 @@ export interface Media {
     media_link: string;
     media_youtube_id: string;
     media_thumbnail: string;
+    media_thumbnail_alt: string;
     media_attachment: string;
 }
 
@@ -107,6 +116,7 @@ export interface HomeBlog {
     blog_preview: string;
     blog_published_date: string;
     blog_thumbnail: string;
+    blog_thumbnail_alt: string;
     blog_url_slug: string;
     blog_author_name: string;
 }
@@ -248,6 +258,7 @@ type FacultyAccordian = {
 export interface Faculty {
     faculty_name: string;
     faculty_thumbnail: string;
+    faculty_thumbnail_alt: string;
     faculty_designation: string;
     faculty_areas_of_expertise: string;
     faculty_courses: string;
@@ -265,6 +276,7 @@ export interface Faculties {
     faculty_department: string;
     faculty_designation: string;
     faculty_thumbnail: string;
+    faculty_thumbnail_alt: string;
 }
 
 export interface Objectives {
@@ -277,6 +289,7 @@ export interface Timeline {
     timeline_caption: string;
     timeline_description: string;
     timeline_image: string;
+    timeline_image_alt: string;
 }
 
 export interface FounderQuote {
@@ -285,12 +298,14 @@ export interface FounderQuote {
     founder_bio: string;
     founder_name: string;
     founder_image: string;
+    founder_image_alt: string;
 }
 
 export interface ManagementQuote {
     management_caption: string;
     management_quote: string;
     management_thumbnail: string;
+    management_thumbnail_alt: string;
     management_profile_link: string;
 }
 
@@ -298,6 +313,7 @@ export interface ManagingCouncil {
     managing_council_name: string;
     managing_council_designation: string;
     managing_council_thumbnail: string;
+    managing_council_thumbnail_alt: string;
     managing_council_profile_link: string;
 }
 
@@ -305,6 +321,7 @@ export interface GoverningCouncil {
     governing_council_name: string;
     governing_council_designation: string;
     governing_council_thumbnail: string;
+    governing_council_thumbnail_alt: string;
     governing_council_profile_link: string;
 }
 
@@ -314,6 +331,7 @@ export interface InternationalUniversities {
     international_university_caption: string;
     international_university_description: string;
     international_university_logo: string;
+    international_university_logo_alt: string;
 }
 
 export interface AdmissionPrograms {
@@ -334,6 +352,7 @@ export interface FinancialPartner {
     partner_name: string;
     partner_pdf: string;
     partner_logo: string;
+    partner_logo_alt: string;
 }
 
 export interface FAQs {
@@ -346,6 +365,7 @@ export interface WallOfFame {
     wall_of_fame_name: string;
     wall_of_fame_description: string;
     wall_of_fame_thumbnail: string;
+    wall_of_fame_thumbnail_alt: string;
     wall_of_fame_batch_year: string;
     wall_of_fame_company_name: string;
     wall_of_fame_designation: string;
@@ -353,6 +373,7 @@ export interface WallOfFame {
 
 export interface Slider {
     slider_image: string;
+    slider_image_alt: string;
     slider_caption: string;
     slider_description: string;
 }
@@ -370,6 +391,7 @@ export interface AlumniQuotes {
     quote_date: string;
     quote_link: string;
     quote_thumbnail: string;
+    quote_thumbnail_alt: string;
     quote_pdf: string;
 }
 
@@ -377,6 +399,7 @@ export interface AlumniConnect {
     connect_name: string;
     connect_description: string;
     connect_thumbnail: string;
+    connect_thumbnail_alt: string;
     connect_designation: string;
     connect_degree_year: string;
     connect_areas_of_expertise: string;
@@ -392,6 +415,7 @@ export interface AlumniHallOfFame {
     hall_of_fame_name: string;
     hall_of_fame_description: string;
     hall_of_fame_thumbnail: string;
+    hall_of_fame_thumbnail_alt: string;
     hall_of_fame_designation: string;
     hall_of_fame_degree_year: string;
     hall_of_fame_areas_of_expertise: string;
@@ -409,6 +433,7 @@ export interface AlumniTestimonials {
     testimonial_bio: string;
     testimonial_designation: string;
     testimonial_thumbnail: string;
+    testimonial_thumbnail_alt: string;
 }
 
 export interface AlumniEvents {
@@ -417,6 +442,7 @@ export interface AlumniEvents {
     event_start_date: string;
     event_link: string;
     event_thumbnail: string;
+    event_thumbnail_alt: string;
     event_location: string;
 }
 
@@ -425,6 +451,7 @@ export interface Awards {
     award_description: string;
     award_year: number;
     award_thumbnail: string;
+    award_thumbnail_alt: string;
 }
 
 export interface BlogCategories {
@@ -439,12 +466,14 @@ export interface BlogListing {
     blog_category_url_slug: string;
     blog_published_date: string;
     blog_thumbnail: string;
+    blog_thumbnail_alt: string;
     blog_url_slug: string;
 }
 
 export interface CareersOurValues {
     our_value_title: string;
     our_value_icon: string;
+    our_value_icon_alt: string;
 }
 
 export interface CareerMilestones {
@@ -456,6 +485,7 @@ export interface CareersAchievements {
     achievement_title: string;
     achievement_caption: string;
     achievement_image: string;
+    achievement_image_alt: string;
 }
 
 export interface CareersVacancies {
@@ -479,6 +509,7 @@ export interface Events {
     event_url_slug: string;
     event_registration_link: string;
     event_thumbnail: string;
+    event_thumbnail_alt: string;
     event_description: string;
     event_report: string;
 }
@@ -489,6 +520,7 @@ export interface BookChapters {
     book_chapter_date: string;
     book_chapter_link: string;
     book_chapter_thumbnail: string;
+    book_chapter_thumbnail_alt: string;
 }
 
 export interface JournalPublications {
@@ -522,6 +554,7 @@ export interface FinancialAssistancePartners {
     partner_name: string;
     partner_pdf: string;
     partner_logo: string;
+    partner_logo_alt: string;
 }
 
 export interface InstitutionalPublicationCategories {
@@ -536,6 +569,7 @@ export interface InstitutionalPublications {
     institutional_publication_published_date: string;
     institutional_publication_pdf: string;
     institutional_publication_thumbnail: string;
+    institutional_publication_thumbnail_alt: string;
 }
 
 export type IQACCategories = string[]
@@ -554,6 +588,7 @@ export interface LifeAtNLDAchievements {
     achievement_caption: string;
     achievement_description: string;
     achievement_image: string;
+    achievement_image_alt: string;
 }
 
 export interface LifeAtNLDStudentClubs {
@@ -562,11 +597,13 @@ export interface LifeAtNLDStudentClubs {
     student_club_description: string;
     student_club_social_media: string;
     student_club_image: string;
+    student_club_image_alt: string;
 }
 
 export interface LifeAtNLDGallery {
     gallery_caption: string;
     gallery_image: string;
+    gallery_image_alt: string;
 }
 
 export interface LifeAtNLDInsideNLD {
@@ -574,6 +611,7 @@ export interface LifeAtNLDInsideNLD {
     inside_nld_caption: string;
     inside_nld_description: string;
     inside_nld_image: string;
+    inside_nld_image_alt: string;
 }
 
 export interface MDPPrograms {
@@ -598,6 +636,7 @@ export interface Testimonials {
     testimonial_description: string;
     testimonial_youtube_id: string;
     testimonial_thumbnail: string;
+    testimonial_thumbnail_alt: string;
     testimonial_youtube_video_id: string;
 }
 
@@ -616,12 +655,14 @@ export interface PlacementsTabs {
 export interface PlacementRecruiters {
     recruiter_caption: string;
     recruiter_logo: string;
+    recruiter_logo_alt: string;
 }
 
 export interface PlacementFeatures {
     feature_category_title: string;
     feature_caption: string;
     feature_image: string;
+    feature_image_alt: string;
 }
 
 export interface PlacementReports {
@@ -647,6 +688,7 @@ export interface ProgramsBlocks {
     program_block_caption: string;
     program_block_description: string;
     program_block_image: string;
+    program_block_image_alt: string;
     program_block_application_link: string;
 }
 
@@ -659,6 +701,7 @@ export interface ProgramListing {
     program_description: string;
     program_highlights: string[];
     program_thumbnail: string;
+    program_thumbnail_alt: string;
 }
 
 type ProgramSlider = {
@@ -755,6 +798,7 @@ export interface Institutes {
     institute_description: string;
     institute_link: string;
     institute_thumbnail: string;
+    institute_thumbnail_alt: string;
 }
 
 export interface NLDESManagement {
@@ -763,12 +807,14 @@ export interface NLDESManagement {
     management_designation: string;
     management_link: string;
     management_image: string;
+    management_image_alt: string;
 }
 
 export interface NLDESSocialResponsibility {
     social_responsibility_caption: string;
     social_responsibility_description: string;
     social_responsibility_image: string;
+    social_responsibility_image_alt: string;
 }
 
 export interface NLDESCareers {
@@ -776,6 +822,7 @@ export interface NLDESCareers {
     career_description: string;
     career_link: string;
     career_thumbnail: string;
+    career_thumbnail_alt: string;
 }
 
 export interface InstagramFeed {

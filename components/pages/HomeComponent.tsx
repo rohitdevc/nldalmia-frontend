@@ -212,7 +212,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
           <div className="w-full md:w-[40%] overflow-hidden">
             {
               introduction.intro_image &&  (
-                <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_title} className="object-cover w-full h-full" />
+                <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_image_alt} className="object-cover w-full h-full" />
               )
             }
           </div>
@@ -235,7 +235,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
           </div>
         </div>
       </div>
-      <div className={`w-full lg:h-100 relative bg-cover bg-center bg-no-repeat text-white`} style={{backgroundImage: `url(${career_finder.career_finder_image})`}}>
+      <div className={`w-full lg:h-100 relative bg-cover bg-center bg-no-repeat text-white`} style={{backgroundImage: `url(${career_finder.career_finder_image})`}} title={career_finder.career_finder_image_alt}>
         <div className="absolute top-0 inset-0 bg-black/30 z-0"></div>
         <form className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10 relative" onSubmit={handleCareerPathFormSubmit}>
           <h2 className="text-xl md:text-2xl">{career_finder.career_finder_title}</h2>
@@ -275,7 +275,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                   <div className={`max-w-full lg:max-w-5xl flex flex-wrap gap-5 text-white transition-opacity`} key={key} ref={programsList}>
                     {
                       programs.map((program, key) => program.program_type === program_category && (
-                      <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} onClick={handleProgramClick(key)} key={key}>
+                      <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
                         <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                         
                         <div className="relative h-full w-full flex flex-col">
@@ -319,7 +319,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
         </div>
       )
       }
-      <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${video.video_background_image})`}}>
+      <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${video.video_background_image})`}} title={video.video_background_image_alt}>
           <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
           <div className="flex flex-col gap-15 relative w-full h-full justify-center items-center">
             <p className="font-georgia leading-normal lg:leading-loose text-center text-2xl lg:text-4xl">{parser(nl2br(video.video_title))}</p>
@@ -354,7 +354,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                   placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
                     <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
                       <div className="rounded-full overflow-hidden border border-[#800000] w-50 h-50 flex items-center p-1">
-                        <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_name} width={300} height={300} className="object-cover w-full" />
+                        <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_logo_alt} width={300} height={300} className="object-cover w-full" />
                       </div>
                     </SwiperSlide>
                   ))
@@ -386,7 +386,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
                     {
                       testimonial.testimonial_thumbnail && (
-                      <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_name} width={200} height={200} className="rounded-full w-30 h-30" />
+                      <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="rounded-full w-30 h-30" />
                       )
                     }
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
@@ -456,7 +456,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                               <div className={`grid grid-cols-2 ${(groupEvents.length > 2) ? 'grid-rows-2': 'grid-rows-1'} gap-2 sm:gap-5 md:gap-10 h-full`}>
                                 {
                                   groupEvents && groupEvents.length > 0 && groupEvents.map((event, event_key) => (
-                                    <div className="group w-full h-50 md:!h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(event_key)} key={event_key} title={event.event_name}>
+                                    <div className="group w-full h-50 md:!h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(event_key)} key={event_key} title={event.event_thumbnail_alt}>
                                       <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                                       
                                       <div className="relative h-full w-full flex flex-col">
@@ -525,7 +525,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                   <SwiperSlide className="!w-35 sm:!w-50" title={award.award_name} key={key}>
                     {
                       award.award_thumbnail && (
-                      <Image src={award.award_thumbnail} alt={award.award_name} width={300} height={300} className="object-cover w-full" />
+                      <Image src={award.award_thumbnail} alt={award.award_thumbnail_alt} width={300} height={300} className="object-cover w-full" />
                       )
                     }
                     <div className="flex flex-col gap-1 justify-center items-center text-center mt-5">
@@ -557,7 +557,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
           {
             media.map((media_row, key) => (
               <SwiperSlide key={key}>
-                  <div className="group w-full !h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${media_row.media_thumbnail})`}} onClick={handleMediaClick(key)} key={key} title={media_row.media_title}>
+                  <div className="group w-full !h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${media_row.media_thumbnail})`}} onClick={handleMediaClick(key)} key={key} title={media_row.media_thumbnail_alt}>
                     <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                     
                     <div className="relative h-full w-full flex flex-col">
@@ -621,7 +621,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
           {
             blogs.map((blog, key) => (
               <SwiperSlide key={key}>
-                  <div className="group w-full h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${blog.blog_thumbnail})`}} onClick={handleBlogClick(key)} key={key} title={blog.blog_title}>
+                  <div className="group w-full h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${blog.blog_thumbnail})`}} onClick={handleBlogClick(key)} key={key} title={blog.blog_thumbnail_alt}>
                     <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                     
                     <div className="relative h-full w-full flex flex-col">

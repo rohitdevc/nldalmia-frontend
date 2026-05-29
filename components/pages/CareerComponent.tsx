@@ -122,7 +122,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
         {
           introduction.intro_image && (
           <div className="w-full">
-            <Image src={introduction.intro_image} alt={introduction.intro_title} width={1920} height={900} className="object-cover" />
+            <Image src={introduction.intro_image} alt={introduction.intro_image_alt} width={1920} height={900} className="object-cover" />
           </div>
         )
         }
@@ -137,7 +137,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
             {
               careers_our_values.map((value, key) => value.our_value_icon && (
                 <div className="flex flex-col gap-5 items-center w-35" key={key}>
-                  <Image src={value.our_value_icon} alt={value.our_value_title} width={110} height={110} className="w-20" />
+                  <Image src={value.our_value_icon} alt={value.our_value_icon_alt} width={110} height={110} className="w-20" />
                   <h2 className="font-georgia text-xl">{value.our_value_title}</h2>
                 </div>
               ))
@@ -191,7 +191,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
             {
               careers_achievements.map((careers_achievement, key) => (
               <SwiperSlide key={key}>
-                <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10" style={{backgroundImage: `url(${careers_achievement.achievement_image})`}}>
+                <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10" style={{backgroundImage: `url(${careers_achievement.achievement_image})`}} title={careers_achievement.achievement_image_alt}>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent"></div>
                   <div className="flex flex-col gap-5 relative mt-auto">
                     <h2 className="font-georgia text-2xl">{careers_achievement.achievement_title}</h2>
@@ -274,7 +274,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
       }
       {
         careers_program_application && (
-        <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20 mt-5" style={{backgroundImage: `url(${careers_program_application.intro_image})`}}>
+        <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20 mt-5" style={{backgroundImage: `url(${careers_program_application.intro_image})`}} title={careers_program_application.intro_image_alt}>
             <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
             <div className="flex flex-col gap-5 relative w-full h-full justify-center items-center">
               <h3 className="font-georgia leading-relaxed text-center text-2xl lg:text-4xl lg:w-3xl">{careers_program_application.intro_title}</h3>

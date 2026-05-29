@@ -110,7 +110,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
           <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer md:h-40 lg:h-100" onClick={() => videoPopupRef.current?.open(introduction.intro_video_id)}>
           {
             introduction.intro_image && (
-            <Image src={introduction.intro_image} width={800} height={400} alt={introduction.intro_title} className="object-cover w-full h-full" />
+            <Image src={introduction.intro_image} width={800} height={400} alt={introduction.intro_image_alt} className="object-cover w-full h-full" />
             )
           }
           {
@@ -140,7 +140,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       </div>
       {
         timeline && timeline.length > 0 && (
-          <div className="w-full h-screen bg-cover bg-center relative text-white flex flex-col" style={{backgroundImage: `url(${timeline[activeYear]?.timeline_image})`}}>
+          <div className="w-full h-screen bg-cover bg-center relative text-white flex flex-col" style={{backgroundImage: `url(${timeline[activeYear]?.timeline_image})`}} title={timeline[activeYear]?.timeline_image_alt}>
             <div className="absolute inset-0 bg-black/35"></div>
             <Swiper slidesPerView={5} centeredSlides slideToClickedSlide watchSlidesProgress initialSlide={0} modules={[Controller, Navigation]} onSwiper={setYearSwiper} className="w-full lg:w-1/2 relative z-10 timeline_pagination_slider">
               {
@@ -174,7 +174,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
             <div className="w-300">
               {
                 founder_quote.founder_image && (
-                  <Image src={founder_quote.founder_image} width={800} height={750} alt="NL Dalmia Intro" className="object-cover w-full h-full" />
+                  <Image src={founder_quote.founder_image} width={800} height={750} alt={founder_quote.founder_image_alt} className="object-cover w-full h-full" />
                 )
               }
             </div>
@@ -208,7 +208,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                       <div className="w-30">
                         {
                           management_quote.management_thumbnail && (
-                            <Image src={management_quote.management_thumbnail} alt={management_quote.management_caption} width={150} height={150} className="object-cover w-full h-full" />
+                            <Image src={management_quote.management_thumbnail} alt={management_quote.management_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
                           )
                         }
                       </div>
@@ -252,7 +252,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                       <div className="w-30">
                         {
                           managing_council_row.managing_council_thumbnail && (
-                            <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_name} width={150} height={150} className="object-cover w-full h-full" />
+                            <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
                           )
                         }
                       </div>
@@ -297,7 +297,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                       <div className="w-30">
                         {
                           governing_council_row.governing_council_thumbnail && (
-                            <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_name} width={150} height={150} className="object-cover w-full h-full" />
+                            <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
                           )
                         }
                       </div>
@@ -320,7 +320,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         video_section && (
-        <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${video_section.video_background_image})`}} id="InternationalTieUps">
+        <div className="w-full h-screen relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20" style={{backgroundImage: `url(${video_section.video_background_image})`}} title={video_section.video_background_image_alt} id="InternationalTieUps">
             <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
             <div className="flex flex-col gap-15 relative w-full h-full justify-center items-center">
               <p className="font-georgia leading-normal lg:leading-loose text-center text-2xl lg:text-4xl">{parser(nl2br(video_section.video_title))}</p>
@@ -368,7 +368,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                               <div className="flex gap-5 justify-center items-center">
                                 {
                                   international_university.international_university_logo && (
-                                    <Image src={international_university.international_university_logo} alt={international_university.international_university_name} width={100} height={100} className={`transition-all duration-300 ${openUniversity === university_key ? "" : "hidden"}`} />
+                                    <Image src={international_university.international_university_logo} alt={international_university.international_university_logo_alt} width={100} height={100} className={`transition-all duration-300 ${openUniversity === university_key ? "" : "hidden"}`} />
                                   )
                                 }
                                 <h2 className="font-georgia text-xl">{international_university.international_university_name}</h2>

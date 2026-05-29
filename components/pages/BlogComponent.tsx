@@ -85,7 +85,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
               <div className="w-full lg:w-[55%] flex gap-4 flex-col">
                 {
                   blog_featured[0].blog_thumbnail && (
-                    <Image src={blog_featured[0].blog_thumbnail} alt={blog_featured[0].blog_title} width={600} height={600} className="w-full lg:h-100" />
+                    <Image src={blog_featured[0].blog_thumbnail} alt={blog_featured[0].blog_thumbnail_alt} width={600} height={600} className="w-full lg:h-100" />
                   )
                 }
                 <h2 className="font-georgia text-xl">{blog_featured[0].blog_title}</h2>
@@ -104,7 +104,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
               <div className="w-full lg:w-[45%] flex gap-5 flex-col">
                 {
                   blog_featured[1].blog_thumbnail && (
-                    <Image src={blog_featured[1].blog_thumbnail} alt={blog_featured[1].blog_title} width={600} height={600} className="w-full lg:h-100" />
+                    <Image src={blog_featured[1].blog_thumbnail} alt={blog_featured[1].blog_thumbnail_alt} width={600} height={600} className="w-full lg:h-100" />
                   )
                 }
                 <h2 className="font-georgia text-xl">{blog_featured[1].blog_title}</h2>
@@ -160,7 +160,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                   <div className={`w-full lg:w-1/2 flex gap-4 flex-col order-${(key % 2) ? '2': '1'}`}>
                     {
                       blog_data[0].blog_thumbnail && (
-                        <Image src={blog_data[0].blog_thumbnail} alt={blog_data[0].blog_title} width={600} height={600} className="w-full lg:h-100" />
+                        <Image src={blog_data[0].blog_thumbnail} alt={blog_data[0].blog_thumbnail_alt} width={600} height={600} className="w-full lg:h-100" />
                       )
                     }
                     <h2 className="font-georgia text-xl">{blog_data[0].blog_title}</h2>
@@ -183,7 +183,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                         <div className="flex flex-col lg:flex-row gap-5" key={i}>
                           {
                           blog.blog_thumbnail && (
-                          <Image src={blog.blog_thumbnail} alt={blog.blog_title} width={600} height={600} className="w-full lg:w-50 lg:h-50" />
+                          <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="w-full lg:w-50 lg:h-50" />
                           )}
                           <div className="flex gap-2 flex-col">
                             <h2 className="font-georgia text-lg">{blog.blog_title}</h2>

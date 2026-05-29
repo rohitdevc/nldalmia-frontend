@@ -20,7 +20,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
       <div className={`w-full flex items-center justify-center md:items-start lg:w-[40%] overflow-hidden ${(index % 2) ? 'md:order-2' : 'order-1'}`}>
         {
           program.program_thumbnail && (
-            <Image src={program.program_thumbnail} width={800} height={750} alt={program.program_name} className="w-100" />
+            <Image src={program.program_thumbnail} width={800} height={750} alt={program.program_thumbnail_alt} className="w-100" />
           )
         }
       </div>

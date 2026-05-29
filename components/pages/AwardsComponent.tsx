@@ -40,7 +40,7 @@ export default function AwardsComponent({banner, introduction, awards, media_cat
                   <div className="border-[0.5px] border-[#800000]">
                     {
                       award.award_thumbnail && (
-                      <Image src={award.award_thumbnail} className="object-cover w-full h-full" width={300} height={300} alt={award.award_name} />
+                      <Image src={award.award_thumbnail} className="object-cover w-full h-full" width={300} height={300} alt={award.award_thumbnail_alt} />
                       )
                     }
                   </div>

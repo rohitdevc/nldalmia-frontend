@@ -441,7 +441,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                         <div className="border-[0.5px] border-[#800000] flex justify-center items-center h-50">
                           {
                             financial_assistance_partner.partner_logo && (
-                              <Image src={financial_assistance_partner.partner_logo} alt={financial_assistance_partner.partner_name} width={200} height={200} className="w-50" />
+                              <Image src={financial_assistance_partner.partner_logo} alt={financial_assistance_partner.partner_logo_alt} width={200} height={200} className="w-50" />
                             )
                           }
                         </div>
@@ -513,7 +513,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           admissions_brochure_introduction && (
-          <div className="w-full relative bg-cover bg-center bg-no-repeat text-white h-[75vh] flex justify-center items-center text-center" style={{backgroundImage: `url(${admissions_brochure_introduction.intro_image})`}} ref={BrochureFormRef}>
+          <div className="w-full relative bg-cover bg-center bg-no-repeat text-white h-[75vh] flex justify-center items-center text-center" title={admissions_brochure_introduction.intro_image_alt} style={{backgroundImage: `url(${admissions_brochure_introduction.intro_image})`}} ref={BrochureFormRef}>
               <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
               <form className="flex flex-col gap-5 py-20 relative px-5 w-full lg:w-xl justify-center items-center text-center" autoComplete="off" onSubmit={admissionDownloadBrochureSubmit}>
                 <h3 className="text-2xl lg:text-4xl font-georgia">{admissions_brochure_introduction.intro_title}</h3>

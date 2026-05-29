@@ -176,7 +176,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                     <div className="lg:w-75 mt-auto">
                       {
                         wall_of_fame_row.wall_of_fame_thumbnail && (
-                          <Image src={wall_of_fame_row.wall_of_fame_thumbnail} width={320} height={360} alt={wall_of_fame_row.wall_of_fame_name} className="object-cover" />
+                          <Image src={wall_of_fame_row.wall_of_fame_thumbnail} width={320} height={360} alt={wall_of_fame_row.wall_of_fame_thumbnail_alt} className="object-cover" />
                         )
                       }
                     </div>
@@ -281,7 +281,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                       <div className="w-50 lg:w-75 lg:mt-auto">
                         {
                           alumni_quote.quote_thumbnail && (
-                          <Image src={alumni_quote.quote_thumbnail} width={320} height={360} alt={alumni_quote.quote_name} className="object-cover" />
+                          <Image src={alumni_quote.quote_thumbnail} width={320} height={360} alt={alumni_quote.quote_thumbnail_alt} className="object-cover" />
                           )
                         }
                       </div>
@@ -327,7 +327,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                     <div className="flex flex-col gap-5 items-center p-5 text-center">
                       {
                         alumni_row.connect_thumbnail && (
-                        <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_name} width={150} height={150} className="w-30" />
+                        <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_thumbnail_alt} width={150} height={150} className="w-30" />
                         )
                       }
                       <h2 className="text-xl font-georgia">{alumni_row.connect_name}</h2>
@@ -347,7 +347,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
         <div className="w-full relative text-black" title={alumni_global.intro_title}>
           {
             alumni_global.intro_image && (
-            <Image src={alumni_global.intro_image} alt={alumni_global.intro_title} width={1920} height={1080} className="w-full" />
+            <Image src={alumni_global.intro_image} alt={alumni_global.intro_image_alt} width={1920} height={1080} className="w-full" />
             )
           }
           <div className="lg:absolute inset-0 flex justify-center text-center px-5 lg:py-15">
@@ -379,7 +379,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                     <div className="flex flex-col gap-5 items-center p-5 text-center">
                       {
                         alumni_row.hall_of_fame_thumbnail && (
-                        <Image src={alumni_row.hall_of_fame_thumbnail} alt={alumni_row.hall_of_fame_name} width={150} height={150} className="w-30" />
+                        <Image src={alumni_row.hall_of_fame_thumbnail} alt={alumni_row.hall_of_fame_thumbnail_alt} width={150} height={150} className="w-30" />
                         )
                       }
                       <h2 className="text-xl font-georgia lg:h-10">{alumni_row.hall_of_fame_name}</h2>
@@ -419,7 +419,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                     <div className="sm:w-75 sm:h-50 lg:h-60">
                       {
                         alumni_testimonial.testimonial_thumbnail && (
-                          <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_name} width={400} height={400} className="object-cover w-full h-full" />
+                          <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_thumbnail_alt} width={400} height={400} className="object-cover w-full h-full" />
                         )
                       }
                     </div>
@@ -466,7 +466,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                     return (
                     <SwiperSlide title={alumni_event.event_title} key={key} onClick={handleAlumniEventClick(key)}>
                       <div className="group border-[0.5px] border-[#800000] text-white relative overflow-hidden">
-                        <div className="flex py-7 px-5 transition-all duration-300 h-100 bg-cover bg-no-repeat bg-center relative" style={{backgroundImage: `url(${alumni_event.event_thumbnail})`}}>
+                        <div className="flex py-7 px-5 transition-all duration-300 h-100 bg-cover bg-no-repeat bg-center relative" style={{backgroundImage: `url(${alumni_event.event_thumbnail})`}} title={alumni_event.event_thumbnail_alt}>
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent"></div>
                           <h2 className="font-georgia text-lg mt-auto relative">{alumni_event.event_title}</h2>
                         </div>
@@ -509,7 +509,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_portal && (
-        <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20 mt-5" style={{backgroundImage: `url(${alumni_portal.intro_image})`}}>
+        <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 lg:px-20 mt-5" style={{backgroundImage: `url(${alumni_portal.intro_image})`}} title={alumni_portal.intro_image_alt}>
             <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
             <div className="flex flex-col gap-5 relative w-full h-full justify-center items-center text-center">
               <h3 className="font-georgia leading-relaxed text-center text-2xl lg:text-5xl lg:w-3xl">{alumni_portal.intro_title}</h3>
@@ -546,7 +546,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                               <div className="w-75 h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
                                   {
                                       alumni_row.connect_thumbnail && (
-                                          <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_name} width={500} height={500} className="w-full h-full object-cover" />
+                                          <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_thumbnail_alt} width={500} height={500} className="w-full h-full object-cover" />
                                       )
                                   }
                               </div>
@@ -655,7 +655,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                               <div className="w-sm h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
                                   {
                                       alumni_row.hall_of_fame_thumbnail && (
-                                          <Image src={alumni_row.hall_of_fame_thumbnail} alt={alumni_row.hall_of_fame_name} width={300} height={300} className="w-full h-full object-cover" />
+                                          <Image src={alumni_row.hall_of_fame_thumbnail} alt={alumni_row.hall_of_fame_thumbnail_alt} width={300} height={300} className="w-full h-full object-cover" />
                                       )
                                   }
                               </div>

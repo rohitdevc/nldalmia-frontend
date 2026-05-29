@@ -61,7 +61,7 @@ export default function Events({ banner, events}: PageProps) {
 
                 return (
                   <div className="group border-[0.5px] border-[#800000] text-white relative overflow-hidden" title={event.event_name} key={key} onClick={handleEventClick(key)}>
-                    <div className="flex py-7 px-5 transition-all duration-300 h-100 bg-cover bg-no-repeat bg-center relative" style={{backgroundImage: `url(${event.event_thumbnail})`}}>
+                    <div className="flex py-7 px-5 transition-all duration-300 h-100 bg-cover bg-no-repeat bg-center relative" style={{backgroundImage: `url(${event.event_thumbnail})`}} title={event.event_thumbnail_alt}>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent"></div>
                       <div className="font-georgia text-lg mt-auto relative flex flex-col gap-3">
                         <h2>{event.event_name}</h2>

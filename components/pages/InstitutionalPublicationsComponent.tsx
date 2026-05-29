@@ -104,7 +104,7 @@ export default function InstitutionalPublicationsComponent({ banner, institution
                   <div className="w-full h-100">
                   {
                     institutional_publication.institutional_publication_thumbnail && (
-                      <Image src={institutional_publication.institutional_publication_thumbnail} alt={institutional_publication.institutional_publication_title} width={500} height={300} className="object-cover w-full h-full" />
+                      <Image src={institutional_publication.institutional_publication_thumbnail} alt={institutional_publication.institutional_publication_thumbnail_alt} width={500} height={300} className="object-cover w-full h-full" />
                     )
                   }
                   </div>

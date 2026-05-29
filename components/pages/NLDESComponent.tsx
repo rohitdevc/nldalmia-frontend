@@ -187,7 +187,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center items-center">
             {
               institutes.map((institute, key) => (
-                <div className="bg-no-repeat bg-cover bg-center flex justify-center px-5 pb-5 h-100 lg:h-80 relative group text-white" style={{backgroundImage: `url(${institute.institute_thumbnail})`}} onClick={handleBlockClick(key)} key={key}>
+                <div className="bg-no-repeat bg-cover bg-center flex justify-center px-5 pb-5 h-100 lg:h-80 relative group text-white" style={{backgroundImage: `url(${institute.institute_thumbnail})`}} title={institute.institute_thumbnail_alt} onClick={handleBlockClick(key)} key={key}>
                   <div className="absolute inset-0 bg-black/30 left-0 top-0 z-0"></div>
                   <h2 className="mt-auto font-georgia text-2xl relative">{institute.institute_caption}</h2>
                   <div className={`absolute inset-0 top-0 left-0 flex flex-col gap-5 bg-[#800000] transition-all duration-300 scale-y-0 group-hover:scale-y-100 px-5 py-5 ${activeBlock === key ? 'scale-y-100': ''}`}>
@@ -245,7 +245,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                         <div className="w-30">
                           {
                             management_row.management_image && (
-                              <Image src={management_row.management_image} alt={management_row.management_name} width={150} height={150} className="object-cover w-full h-full" />
+                              <Image src={management_row.management_image} alt={management_row.management_image_alt} width={150} height={150} className="object-cover w-full h-full" />
                             )
                           }
                         </div>
@@ -293,7 +293,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
                     <div className="w-full lg:w-1/2 lg:order-2">
                       {
                         social_responsibility.social_responsibility_image && (
-                          <Image src={social_responsibility.social_responsibility_image} alt={social_responsibility.social_responsibility_caption} width={500} height={300} className="object-cover w-full h-full" />
+                          <Image src={social_responsibility.social_responsibility_image} alt={social_responsibility.social_responsibility_image_alt} width={500} height={300} className="object-cover w-full h-full" />
                         )
                       }
                     </div>
@@ -324,7 +324,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center items-center">
             {
               careers.map((career, key) => (
-                <div className="bg-no-repeat bg-cover bg-center flex justify-center px-5 pb-5 h-100 lg:h-80 relative group text-white" style={{backgroundImage: `url(${career.career_thumbnail})`}} onClick={handleBlockClick(key)} key={key}>
+                <div className="bg-no-repeat bg-cover bg-center flex justify-center px-5 pb-5 h-100 lg:h-80 relative group text-white" style={{backgroundImage: `url(${career.career_thumbnail})`}} title={career.career_thumbnail_alt} onClick={handleBlockClick(key)} key={key}>
                   <div className="absolute inset-0 bg-black/30 left-0 top-0 z-0"></div>
                   <h2 className="mt-auto font-georgia text-2xl relative">{career.career_caption}</h2>
                   <div className={`absolute inset-0 top-0 left-0 flex flex-col gap-5 bg-[#800000] transition-all duration-300 scale-y-0 group-hover:scale-y-100 px-5 py-5 ${activeBlock === key ? 'scale-y-100': ''}`}>
@@ -349,7 +349,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       }
       {
         footer && (
-        <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${footer.intro_image})`}}>
+        <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${footer.intro_image})`}} title={footer.intro_image_alt}>
             <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
             <div className="flex flex-col gap-5 relative w-full h-full justify-center items-center text-center">
               <h3 className="text-2xl lg:text-4xl font-georgia">{footer.intro_caption}</h3>
