@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/faculty/faculty-initiatives',
+				destination: '/faculty/faculty-development-programs',
+				permanent: true
+			},
+			{
 				source: '/blog',
 				destination: '/blogs',
 				permanent: true
@@ -55,6 +60,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/blogs/:year/:month/:day/:slug',
 				destination: '/:slug',
+				permanent: true,
+			},
+			{
+				source: '/blogs/:page',
+				destination: '/blogs',
 				permanent: true,
 			},
 			{
@@ -91,6 +101,121 @@ const nextConfig: NextConfig = {
 				source: '/2017/:month',
 				destination: '/blogs',
 				permanent: true,
+			},
+			{
+				source: '/awards',
+				destination: '/awards-and-achievements',
+				permanent: true,
+			},
+			{
+				source: '/awards/:path',
+				destination: '/awards-and-achievements',
+				permanent: true,
+			},
+			{
+				source: '/awards-achievement',
+				destination: '/awards-and-achievements',
+				permanent: true,
+			},
+			{
+				source: '/faculty-members/:path',
+				destination: '/faculty/:path',
+				permanent: true,
+			},
+			{
+				source: '/research-papers-presented',
+				destination: '/faculty/research-papers-published/journal-publications',
+				permanent: true
+			},
+			{
+				source: '/industrial-visit',
+				destination: '/life-at-nld',
+				permanent: true
+			},
+			{
+				source: '/resources',
+				destination: '/life-at-nld',
+				permanent: true
+			},
+			{
+				source: '/batch-profile',
+				destination: '/placements',
+				permanent: true
+			},
+			{
+				source: '/placement-partners',
+				destination: '/placements',
+				permanent: true
+			},
+			{
+				source: '/placement-brochure',
+				destination: '/placements',
+				permanent: true
+			},
+			{
+				source: '/placement-report',
+				destination: '/placements',
+				permanent: true
+			},
+			{
+				source: '/placement-contact-us',
+				destination: '/placements',
+				permanent: true
+			},
+			{
+				source: '/career-opportunities',
+				destination: '/careers',
+				permanent: true
+			},
+			{
+				source: '/media',
+				destination: '/media/press-release',
+				permanent: true
+			},
+			{
+				source: '/management-development-programmes',
+				destination: '/management-development-programs',
+				permanent: true
+			},
+			{
+				source: '/programs/bloomberg-research-analyst',
+				destination: '/programs',
+				permanent: true
+			},
+			{
+				source: '/bloomberg',
+				destination: '/programs',
+				permanent: true
+			},
+			{
+				source: '/corporate-connect',
+				destination: '/management-development-programs',
+				permanent: true
+			},
+			{
+				source: '/financial-aid',
+				destination: '/financial-assistance',
+				permanent: true
+			},
+			{
+				source: '/e-cell',
+				destination: '/',
+				permanent: true
+			},
+			{
+				source: '/aicte-approvals',
+				destination: '/about-us',
+				permanent: true
+			},
+			{
+				source: '/news-and-announcements',
+				destination: '/media/press-release',
+				permanent: true
+			},
+			{
+				source: '/international-yoga-day',
+				destination: '/international-yoga-day-2022',
+				permanent: true
 			},
 		]
 	 }

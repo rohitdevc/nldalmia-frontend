@@ -456,29 +456,29 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-10">
             {
               contacts.map((contact, key) => (
-                <>
-                <div className="flex flex-col gap-2" key={key}>
-                  <h2 className="font-georgia text-xl">{contact.contact_name}</h2>
-                  <h3>{contact.contact_designation}</h3>
-                  {
-                    contact.contact_phone_number && (
-                      <span className="flex gap-2 items-center">
-                        <FaPhone size={15} />
-                        <Link href={`tel:${contact.contact_phone_number.replace(/\s+/g, '')}`}>{contact.contact_phone_number}</Link>
-                      </span>
-                    )
-                  }
-                  {
-                    contact.contact_email_address && (
-                      <span className="flex gap-2 items-center">
-                        <IoMdMail size={15} />
-                        <Link href={`mailto:${contact.contact_email_address}`}>{contact.contact_email_address}</Link>
-                      </span>
-                    )
-                  }
+                <div key={key}>
+                  <div className="flex flex-col gap-2">
+                    <h2 className="font-georgia text-xl">{contact.contact_name}</h2>
+                    <h3>{contact.contact_designation}</h3>
+                    {
+                      contact.contact_phone_number && (
+                        <span className="flex gap-2 items-center">
+                          <FaPhone size={15} />
+                          <Link href={`tel:${contact.contact_phone_number.replace(/\s+/g, '')}`}>{contact.contact_phone_number}</Link>
+                        </span>
+                      )
+                    }
+                    {
+                      contact.contact_email_address && (
+                        <span className="flex gap-2 items-center">
+                          <IoMdMail size={15} />
+                          <Link href={`mailto:${contact.contact_email_address}`}>{contact.contact_email_address}</Link>
+                        </span>
+                      )
+                    }
+                  </div>
+                  <span className={`h-35 w-[0.5px] bg-[#800000] ${((key + 1) !== contacts.length) ? 'hidden lg:block' : 'hidden'}`}></span>
                 </div>
-                <span className={`h-35 w-[0.5px] bg-[#800000] ${((key + 1) !== contacts.length) ? 'hidden lg:block' : 'hidden'}`}></span>
-                </>
               ))
             }
           </div>

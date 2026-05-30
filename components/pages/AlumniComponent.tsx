@@ -180,7 +180,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         )
                       }
                     </div>
-                    <div className="flex flex-col gap-3 lg:gap-5 py-7 w-full text-sm
+                    <div className="flex flex-col gap-3 lg:gap-5 py-7 w-full">
                       <h2 className="font-georgia text-xl">{wall_of_fame_row.wall_of_fame_name}</h2>
                       <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
                         { wall_of_fame_row.wall_of_fame_company_name && (
@@ -193,7 +193,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         <li>Batch - {wall_of_fame_row.wall_of_fame_batch_year}</li>
                         )}
                       </ul>
-                      <p className="leading-relaxed sm:leading-loose">{parser(nl2br(wall_of_fame_row.wall_of_fame_description))}</p>
+                      <p className="leading-relaxed sm:leading-loose text-sm">{parser(nl2br(wall_of_fame_row.wall_of_fame_description))}</p>
                       <span className="w-30 text-center text-burgundy bg-white py-1 text-smursor-pointer hidden">View More</span>
                     </div>
                   </div>

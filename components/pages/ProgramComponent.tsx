@@ -82,7 +82,7 @@ export default function ProgramComponent({ program}: PageProps) {
     downloader_city_name: '',
     downloader_graduation_status: '',
     ip_address: ip,
-    referer_url: window.location.href
+    referer_url: ''
   });
 
   useEffect(() => {

@@ -152,20 +152,20 @@ export default function CareerComponent({banner, introduction, careers_our_value
           <div className="flex flex-col lg:flex-row gap-5 justify-between items-center bg-[#FFCC33] px-5 md:px-15 lg:px-30 py-10">
             {
               careers_milestones.map((milestone, key) => (
-                <>
-                <div className="flex flex-col gap-5 items-center text-center" key={key}>
-                  <h2 className="text-3xl">{milestone.milestone_title}</h2>
-                  <p className="text-[#4E4E4E] text-sm">{milestone.milestone_description}</p>
+                <div key={key}>
+                  <div className="flex flex-col gap-5 items-center text-center">
+                    <h2 className="text-3xl">{milestone.milestone_title}</h2>
+                    <p className="text-[#4E4E4E] text-sm">{milestone.milestone_description}</p>
+                  </div>
+                  {
+                    ((key + 1) !== careers_milestones.length) && (
+                      <>
+                      <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
+                      <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                      </>
+                    )
+                  }
                 </div>
-                {
-                  ((key + 1) !== careers_milestones.length) && (
-                    <>
-                    <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                    <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
-                    </>
-                  )
-                }
-                </>
               ))
             }
           </div>

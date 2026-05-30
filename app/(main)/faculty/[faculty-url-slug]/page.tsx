@@ -2,7 +2,7 @@ import { getFaculty } from "@/lib/faculty";
 
 import type { Metadata } from "next";
 import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
-import { permanentRedirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
@@ -38,7 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const faculty = await loadFaculty(faculty_url_slug);
 
-  if(!faculty) permanentRedirect(process.env.NEXT_PUBLIC_PATH + 'faculty');
+  if(!faculty) {
+    notFound()
+  };
 
   const canonical_tag = basePath + faculty.canonical_tag;
 
@@ -77,7 +79,9 @@ export default async function Page({ params }: PageProps) {
 
   const faculty = await loadFaculty(faculty_url_slug);
 
-  if(!faculty) permanentRedirect(process.env.NEXT_PUBLIC_PATH + 'faculty');
+  if(!faculty) {
+    notFound()
+  };
 
   return (
     <FacultyDetailsComponent

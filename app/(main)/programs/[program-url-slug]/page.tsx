@@ -2,7 +2,7 @@ import { getProgram } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramComponent from "@/components/pages/ProgramComponent";
-import { permanentRedirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
@@ -38,7 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const program = await loadProgram(program_url_slug);
 
-  if(!program) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "programs");
+  if(!program) {
+    notFound()
+  };
 
   const canonical_tag = basePath + program.canonical_tag;
 
@@ -79,7 +81,9 @@ export default async function Page({ params }: PageProps) {
 
   const program = await loadProgram(program_url_slug);
 
-  if(!program) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "programs");
+  if(!program) {
+    notFound()
+  };
 
   return (
     <ProgramComponent

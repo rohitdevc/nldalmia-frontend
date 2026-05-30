@@ -2,7 +2,7 @@ import { getEvent } from "@/lib/event";
 
 import type { Metadata } from "next";
 import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
-import { permanentRedirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
@@ -21,12 +21,25 @@ export const revalidate = 0;
 
 const basePath = process.env.NEXT_PUBLIC_PATH;
 
+let eventCache = new Map();
+
+export async function loadEvent(slug: string) {
+  if (eventCache.has(slug)) return eventCache.get(slug);
+  
+  const event = await getEvent(slug);
+  eventCache.set(slug, event);
+
+  return event;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "event-url-slug": event_url_slug } = await params;
 
-  const event = await getEvent(event_url_slug);
+  const event = await loadEvent(event_url_slug);
 
-  if(!event) permanentRedirect(process.env.NEXT_PUBLIC_PATH + 'events');
+  if(!event) {
+    notFound()
+  }
 
   const canonical_tag = basePath + event.canonical_tag;
 
@@ -63,7 +76,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { "event-url-slug": event_url_slug } = await params;
 
-  const event = await getEvent(event_url_slug);
+  const event = await loadEvent(event_url_slug);
+
+  if(!event) {
+    notFound()
+  }
 
   return (
     <EventDetailsComponent

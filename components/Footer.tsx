@@ -57,6 +57,9 @@ export default function Footer({program_categories, common_programs}: PageProps)
                     <li>
                         <Link href={`${basePath}careers`}>Work With Us</Link>
                     </li>
+                    <li>
+                        <Link href={`${basePath}privacy-policy`}>Privacy Policy</Link>
+                    </li>
                 </ul>
                     <ul className="flex flex-col gap-4">
                         <li className="font-bold underline">Programs</li>

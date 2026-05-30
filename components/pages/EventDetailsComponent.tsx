@@ -178,20 +178,20 @@ export default function EventDetails({ event }: PageProps) {
           <div className="flex flex-col lg:flex-row gap-5 justify-between items-center py-5">
             {
               event.event_milestones.map((milestone, key) => (
-                <>
-                <div className="flex flex-col gap-5 items-center text-center" key={key}>
-                  <h2 className="text-4xl text-burgundy">{milestone.event_milestone_caption}</h2>
-                  <p className="text-[#020202] w-50">{milestone.event_milestone_description}</p>
+                <div key={key}>
+                  <div className="flex flex-col gap-5 items-center text-center">
+                    <h2 className="text-4xl text-burgundy">{milestone.event_milestone_caption}</h2>
+                    <p className="text-[#020202] w-50">{milestone.event_milestone_description}</p>
+                  </div>
+                  {
+                    ((key + 1) !== event.event_milestones.length) && (
+                      <>
+                      <span className="h-15 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
+                      <span className="w-15 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                      </>
+                    )
+                  }
                 </div>
-                {
-                  ((key + 1) !== event.event_milestones.length) && (
-                    <>
-                    <span className="h-15 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                    <span className="w-15 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
-                    </>
-                  )
-                }
-                </>
               ))
             }
           </div>
@@ -330,27 +330,27 @@ export default function EventDetails({ event }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-10 justify-center items-center bg-[#FFCC33] py-10">
           {
             event.event_rewards.map((reward, key) => (
-              <>
-              <div className="flex flex-col gap-5 items-center text-center" key={key}>
-                <h2 className="text-4xl text-[#7F1518]">{reward.event_reward_caption}</h2>
-                <p className="text-[#020202] w-50">{reward.event_reward_description}</p>
+              <div key={key}>
+                <div className="flex flex-col gap-5 items-center text-center">
+                  <h2 className="text-4xl text-[#7F1518]">{reward.event_reward_caption}</h2>
+                  <p className="text-[#020202] w-50">{reward.event_reward_description}</p>
+                </div>
+                {
+                  ((key + 1) !== event.event_rewards.length) && (
+                    <>
+                    <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
+                    <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                    </>
+                  )
+                }
               </div>
-              {
-                ((key + 1) !== event.event_rewards.length) && (
-                  <>
-                  <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                  <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
-                  </>
-                )
-              }
-              </>
             ))
           }
         </div>
       </div>
       )}
       {
-      event.event_sponsers && event.event_sponsers.length && (
+      event.event_sponsers && event.event_sponsers.length > 0 && (
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
           <CenterIntro
           introCaption={event.event_sponser_caption}
