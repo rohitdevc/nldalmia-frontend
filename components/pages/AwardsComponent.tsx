@@ -45,7 +45,7 @@ export default function AwardsComponent({banner, introduction, awards, media_cat
                     }
                   </div>
                   <h2 className="font-georgia text-xl">{award.award_name}</h2>
-                  <p className="text-[#4E4E4E] text-base">{award.award_year}</p>
+                  <p className="text-[#4E4E4E] text-sm">{award.award_year}</p>
                 </div>
               ))
             }

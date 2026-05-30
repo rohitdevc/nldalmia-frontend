@@ -322,21 +322,21 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                           <h2 className="font-georgia text-xl lg:text-2xl">{admission_help_option.help_option_caption}</h2>
                           {
                             admission_help_option.help_option_description && (
-                            <p className="leading-snug text-base md:text-lg">{parser(nl2br(admission_help_option.help_option_description))}</p>
+                            <p className="leading-snug text-sm md:text-lg">{parser(nl2br(admission_help_option.help_option_description))}</p>
                             )
                           }
                           <ul className="flex gap-5">
                             {
                               admission_help_option.help_option_button_one_url && admission_help_option.help_option_button_one_caption && (
                               <li>
-                                <Link href={admission_help_option.help_option_button_one_url} className="bg-white text-burgundy px-5 py-2 text-base md:text-lg">{admission_help_option.help_option_button_one_caption}</Link>
+                                <Link href={admission_help_option.help_option_button_one_url} className="bg-white text-burgundy px-5 py-2 text-sm md:text-lg">{admission_help_option.help_option_button_one_caption}</Link>
                               </li>
                             )
                             }
                             {
                               admission_help_option.help_option_button_two_url && admission_help_option.help_option_button_two_caption && (
                             <li>
-                              <Link href={admission_help_option.help_option_button_two_url} className="border border-white text-white px-5 py-2 text-base md:text-lg">{admission_help_option.help_option_button_two_caption}</Link>
+                              <Link href={admission_help_option.help_option_button_two_url} className="border border-white text-white px-5 py-2 text-sm md:text-lg">{admission_help_option.help_option_button_two_caption}</Link>
                             </li>
                             )
                             }
@@ -512,7 +512,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                                 </div>
                                 <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFAQ === faq_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
                                   <div className="text-[#4E4E4E] university_description">
-                                    <p className="text-base">{faqs.faq_answer}</p>
+                                    <p className="text-sm">{faqs.faq_answer}</p>
                                   </div>
                                 </div>
                               </div>
@@ -534,7 +534,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
               <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
               <form className="flex flex-col gap-5 py-20 relative px-5 w-full lg:w-xl justify-center items-center text-center" autoComplete="off" onSubmit={admissionDownloadBrochureSubmit}>
                 <h3 className="text-2xl lg:text-4xl font-georgia">{admissions_brochure_introduction.intro_title}</h3>
-                <p className="text-base leading-loose">{parser(nl2br(admissions_brochure_introduction.intro_description))}</p>
+                <p className="text-sm leading-loose">{parser(nl2br(admissions_brochure_introduction.intro_description))}</p>
                 <input type="email" name="brochure_download_email_id" placeholder="Enter Your Email Address" className="w-xs lg:w-lg border-b py-2 border-white outline-none" onChange={handleAdmissionDownloadBrochureChange} value={admissionDownloadBrochureForm.brochure_download_email_id} ref={brochureDownloadEmailIDRef} />
                 <div className="text-white h-2">
                   <span className={`text-xs transition-all duration-200 ${errors.brochure_download_email_id ? "opacity-100" : "opacity-0"}`}>{errors.brochure_download_email_id}</span>

@@ -92,7 +92,7 @@ export default function InstitutionalPublicationsComponent({ banner, institution
         </Swiper>
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 pb-10">
-        <p className="text-[#4E4E4E] leading-loose text-base text-center">{institutional_publications_categories[activeInstitutionalPublicationCategoryKey]?.institutional_publication_description}</p>
+        <p className="text-[#4E4E4E] leading-loose text-sm text-center">{institutional_publications_categories[activeInstitutionalPublicationCategoryKey]?.institutional_publication_description}</p>
         {
           institutional_publications && institutional_publications.length > 0 && (
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-10 text-white">
@@ -113,12 +113,12 @@ export default function InstitutionalPublicationsComponent({ banner, institution
                       
                     {
                       institutional_publication.institutional_publication_caption && (
-                        <p className="text-base">{parser(nl2br(institutional_publication.institutional_publication_caption))}</p>
+                        <p className="text-sm">{parser(nl2br(institutional_publication.institutional_publication_caption))}</p>
                       )
                     }
                     {
                       institutional_publication.institutional_publication_pdf && (
-                        <Link href={institutional_publication.institutional_publication_pdf} target="_blank" className="text-burgundy bg-white text-base px-2 py-1">Download</Link>   
+                        <Link href={institutional_publication.institutional_publication_pdf} target="_blank" className="text-burgundy bg-white text-sm px-2 py-1">Download</Link>   
                       )
                     }
                   </div>

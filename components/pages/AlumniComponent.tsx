@@ -84,7 +84,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       paragraphs.forEach((p) => {
         p.classList.add(
           "text-[#4E4E4E]",
-          "text-base",
+          "text-sm",
           "leading-loose"
         );
       });
@@ -180,7 +180,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         )
                       }
                     </div>
-                    <div className="flex flex-col gap-3 lg:gap-5 py-7 w-full text-base">
+                    <div className="flex flex-col gap-3 lg:gap-5 py-7 w-full text-sm
                       <h2 className="font-georgia text-xl">{wall_of_fame_row.wall_of_fame_name}</h2>
                       <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
                         { wall_of_fame_row.wall_of_fame_company_name && (
@@ -194,7 +194,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         )}
                       </ul>
                       <p className="leading-relaxed sm:leading-loose">{parser(nl2br(wall_of_fame_row.wall_of_fame_description))}</p>
-                      <span className="w-30 text-center text-burgundy bg-white py-1 text-base cursor-pointer hidden">View More</span>
+                      <span className="w-30 text-center text-burgundy bg-white py-1 text-smursor-pointer hidden">View More</span>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -220,7 +220,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                     <div className="flex flex-col gap-5 py-7 w-full">
                       <h2 className="font-georgia text-xl">{slider_row.slider_caption}</h2>
                       <p className="leading-relaxed lg:leading-loose text-[#4E4E4E]">{parser(nl2br(slider_row.slider_description))}</p>
-                      <span className="w-30 text-center text-burgundy bg-white py-1 text-base cursor-pointer hidden">View More</span>
+                      <span className="w-30 text-center text-burgundy bg-white py-1 text-smursor-pointer hidden">View More</span>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -253,7 +253,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         <p className="leading-relaxed lg:leading-loose overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(alumni_meet_row.meet_description))}</p>
                         {
                           alumni_meet_row.meet_link && (
-                          <Link href={alumni_meet_row.meet_link} className="w-30 text-center text-burgundy bg-white py-1 text-base cursor-pointer">Register Now</Link>
+                          <Link href={alumni_meet_row.meet_link} className="w-30 text-center text-burgundy bg-white py-1 text-sm cursor-pointer">Register Now</Link>
                           )
                         }
                       </div>
@@ -291,7 +291,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         <h4>{alumni_quote.quote_name}</h4>
                         {
                           (alumni_quote.quote_link || alumni_quote.quote_pdf) && (
-                          <Link href={alumni_quote.quote_link || alumni_quote.quote_pdf} className="w-30 text-center text-white bg-[#800000] py-1 text-base mt-auto">View More</Link>
+                          <Link href={alumni_quote.quote_link || alumni_quote.quote_pdf} className="w-30 text-center text-white bg-[#800000] py-1 text-sm mt-auto">View More</Link>
                           )
                         }
                       </div>
@@ -491,7 +491,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                             {
                               alumni_event.event_link && (
                                 <li>
-                                  <Link href={alumni_event.event_link} target="_blank" className="py-2 px-2 text-base bg-white text-[#800000]">Apply Now</Link>
+                                  <Link href={alumni_event.event_link} target="_blank" className="py-2 px-2 text-sm bg-white text-[#800000]">Apply Now</Link>
                                 </li>
                               )
                             }
@@ -558,7 +558,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.connect_areas_of_expertise && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Areas Of Expertise</h3>
+                                              <h3 className="font-georgia text-sm">Areas Of Expertise</h3>
                                               <p className="text-[#4E4E4E]">{alumni_row.connect_areas_of_expertise}</p>
                                           </div>
                                           )
@@ -566,7 +566,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.connect_email_address && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Email</h3>
+                                              <h3 className="font-georgia text-sm">Email</h3>
                                               <p className="text-[#4E4E4E]"><Link href={`mailto:${alumni_row.connect_email_address}`}>{alumni_row.connect_email_address}</Link></p>
                                           </div>
                                           )
@@ -574,7 +574,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.connect_courses && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Courses</h3>
+                                              <h3 className="font-georgia text-sm">Courses</h3>
                                               <p className="text-[#4E4E4E]">{alumni_row.connect_courses}</p>
                                           </div>
                                           )
@@ -582,7 +582,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.connect_phone_number && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Phone</h3>
+                                              <h3 className="font-georgia text-sm">Phone</h3>
                                               <p className="text-[#4E4E4E]"><Link href={`tel:${alumni_row.connect_phone_number.replace(/\s+/g, '')}`}>{alumni_row.connect_phone_number}</Link></p>
                                           </div>
                                           )
@@ -667,7 +667,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.hall_of_fame_areas_of_expertise && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Areas Of Expertise</h3>
+                                              <h3 className="font-georgia text-sm">Areas Of Expertise</h3>
                                               <p className="text-[#4E4E4E]">{alumni_row.hall_of_fame_areas_of_expertise}</p>
                                           </div>
                                           )
@@ -675,7 +675,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.hall_of_fame_email_address && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Email</h3>
+                                              <h3 className="font-georgia text-sm">Email</h3>
                                               <p className="text-[#4E4E4E]"><Link href={`mailto:${alumni_row.hall_of_fame_email_address}`}>{alumni_row.hall_of_fame_email_address}</Link></p>
                                           </div>
                                           )
@@ -683,7 +683,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.hall_of_fame_courses && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Courses</h3>
+                                              <h3 className="font-georgia text-sm">Courses</h3>
                                               <p className="text-[#4E4E4E]">{alumni_row.hall_of_fame_courses}</p>
                                           </div>
                                           )
@@ -691,7 +691,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       {
                                           alumni_row.hall_of_fame_phone_number && (
                                           <div className="flex flex-col gap-2">
-                                              <h3 className="font-georgia text-base">Phone</h3>
+                                              <h3 className="font-georgia text-sm">Phone</h3>
                                               <p className="text-[#4E4E4E]"><Link href={`tel:${alumni_row.hall_of_fame_phone_number}`}>{alumni_row.hall_of_fame_phone_number}</Link></p>
                                           </div>
                                           )

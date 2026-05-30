@@ -104,7 +104,7 @@ export default function JournalPublicationsComponent({ banner, journal_publicati
                     <h3 className="font-georgia text-xl">{parser(nl2br(journal.journal_publication_authors))}</h3>
                     {
                       journal.journal_publication_description && (
-                        <p className="leading-loose text-base">{parser(nl2br(journal.journal_publication_description))}</p>
+                        <p className="leading-loose text-sm">{parser(nl2br(journal.journal_publication_description))}</p>
                       )
                     }
                     {

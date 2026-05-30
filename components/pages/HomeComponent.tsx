@@ -218,8 +218,8 @@ export default function HomeComponent({banner, introduction, career_finder, care
             }
           </div>
           <div className="w-full md:w-[60%] flex flex-col gap-5">
-            <p className="text-[#4E4E4E] text-base leading-loose">{parser(nl2br(introduction.intro_description))}</p>
-            <ul className="flex flex-wrap md:flex-row md:gap-10 text-base text-burgundy mt-2">
+            <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(introduction.intro_description))}</p>
+            <ul className="flex flex-wrap md:flex-row md:gap-10 text-sm text-burgundy mt-2">
               <li className="w-1/2 lg:w-auto">
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
               </li>
@@ -240,13 +240,13 @@ export default function HomeComponent({banner, introduction, career_finder, care
           <div className="flex flex-col md:flex-row gap-3">
             <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
             <div className="relative w-[290px]">
-              <Multiselect className="career-paths text-base text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
+              <Multiselect className="career-paths text-sm text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
               <span className="w-full absolute -bottom-1 h-[0.5px] bg-white"></span>
               <IoIosArrowDown className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" size={18} />
             </div>
           </div>
           <div className="flex gap-5">
-            <input type="submit" value="Search Careers" className="bg-[#800000] py-2 w-35 text-base cursor-pointer" />
+            <input type="submit" value="Search Careers" className="bg-[#800000] py-2 w-35 text-sm cursor-pointer" />
             <input type="button" value="Clear All" className="underline cursor-pointer" />
           </div>
         </form>
@@ -295,8 +295,8 @@ export default function HomeComponent({banner, introduction, career_finder, care
                           </div>
                           <div className="px-5 flex flex-col gap-2 h-full">
                             <h2 className="text-2xl font-georgia">{program.program_name}</h2>
-                            <p className="leading-relaxed text-base max-h-[180px] overflow-hidden overflow-y-auto pr-1 [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-full scrollbar-thin scrollbar-track-transparent">{parser(nl2br(program.program_description))}</p>
-                            <ul className="flex mt-auto pb-5 gap-10 text-base">
+                            <p className="leading-relaxed text-sm max-h-[180px] overflow-hidden overflow-y-auto pr-1 [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-full scrollbar-thin scrollbar-track-transparent">{parser(nl2br(program.program_description))}</p>
+                            <ul className="flex mt-auto pb-5 gap-10 text-sm">
                               {
                                 program.program_link && (
                                 <li><Link href={program.program_link} className="underline">Learn More</Link></li>
@@ -393,7 +393,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                     }
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-base md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
+                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
                     </div>
                   </div>
                   <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
@@ -401,14 +401,14 @@ export default function HomeComponent({banner, introduction, career_finder, care
                       testimonial.testimonial_youtube_id ? (
                         <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_id)}>
                           <FiPlayCircle size={20} />
-                          <span className="text-base">Play Video</span>
+                          <span className="text-sm">Play Video</span>
                         </div>
                       ) : (
                         <>
                         <p className="leading-loose">{testimonial.testimonial_description}</p>
                         <div className="mt-auto flex flex-col gap-3">
                           <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-base md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
+                          <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
                         </div>
                         </>
                       )
@@ -466,7 +466,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                                           <span className="bg-[#800000] text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(event.event_start_date)).format('MMMM YYYY')}</span>
                                         </div>
                                         <div className="mt-auto px-2 lg:px-5 pb-2 lg:pb-10">
-                                          <h2 className="text-base lg:text-2xl font-georgia">{event.event_name}</h2>
+                                          <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
                                         </div>
                                       </div>
 
@@ -475,11 +475,11 @@ export default function HomeComponent({banner, introduction, career_finder, care
                                           <span className="bg-white text-burgundy text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(event.event_start_date)).format('MMMM YYYY')}</span>
                                         </div>
                                         <div className="px-2 lg:px-5 pb-2 lg:pb-5 flex flex-col gap-2 h-full">
-                                          <h2 className="text-base lg:text-2xl font-georgia">{event.event_name}</h2>
+                                          <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
                                           <div className="w-full h-[105px] overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">
-                                            <p className="lg:leading-relaxed text-base">{parser(nl2br(event.event_description))}</p>
+                                            <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description))}</p>
                                           </div>
-                                          <ul className="flex mt-auto text-xs lg:text-base">
+                                          <ul className="flex mt-auto text-xs lg:text-sm">
                                             {
                                               event.event_url_slug && (
                                               <li><Link href={`${basePath}events/${event.event_url_slug}`} className="underline">Learn More</Link></li>
@@ -531,8 +531,8 @@ export default function HomeComponent({banner, introduction, career_finder, care
                       )
                     }
                     <div className="flex flex-col gap-1 justify-center items-center text-center mt-5">
-                      <h2 className="font-georgia text-base lg:text-lg">{award.award_name}</h2>
-                      <h3 className="text-[#4E4E4E] text-base lg:text-lg">{award.award_year}</h3>
+                      <h2 className="font-georgia text-sm lg:text-lg">{award.award_name}</h2>
+                      <h3 className="text-[#4E4E4E] text-sm lg:text-lg">{award.award_year}</h3>
                     </div>
                   </SwiperSlide>
                 ))
@@ -567,7 +567,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                         <span className="bg-[#800000] text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(media_row.media_published_date)).format('Do MMM, YYYY')}</span>
                       </div>
                       <div className="mt-auto px-5 lg:px-5 pb-5 lg:pb-10">
-                        <h2 className="text-base lg:text-2xl font-georgia">{media_row.media_title}</h2>
+                        <h2 className="text-sm lg:text-2xl font-georgia">{media_row.media_title}</h2>
                       </div>
                     </div>
 
@@ -576,11 +576,11 @@ export default function HomeComponent({banner, introduction, career_finder, care
                         <span className="bg-white text-burgundy text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(media_row.media_published_date)).format('Do MMM, YYYY')}</span>
                       </div>
                       <div className="px-5 pb-5 lg:pb-10 mt-1 flex flex-col gap-2 h-full">
-                        <h2 className="text-base lg:text-2xl font-georgia">{media_row.media_title}</h2>
-                        <p className="lg:leading-relaxed text-base">{parser(nl2br(media_row.media_preview))}</p>
+                        <h2 className="text-sm lg:text-2xl font-georgia">{media_row.media_title}</h2>
+                        <p className="lg:leading-relaxed text-sm">{parser(nl2br(media_row.media_preview))}</p>
                         {
                           (media_row.media_link || media_row.media_attachment || media_row.media_youtube_id) && (
-                            <ul className="flex mt-auto text-base">
+                            <ul className="flex mt-auto text-sm">
                               <li>
                                 {
                                   media_row.media_youtube_id ? (
@@ -631,7 +631,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
                         <span className="bg-[#800000] text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(blog.blog_published_date)).format('Do MMM, YYYY')}</span>
                       </div>
                       <div className="mt-auto px-5 pb-10">
-                        <h2 className="text-base lg:text-2xl font-georgia">{blog.blog_title}</h2>
+                        <h2 className="text-sm lg:text-2xl font-georgia">{blog.blog_title}</h2>
                       </div>
                     </div>
 
@@ -640,8 +640,8 @@ export default function HomeComponent({banner, introduction, career_finder, care
                         <span className="bg-white text-burgundy text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(blog.blog_published_date)).format('Do MMM, YYYY')}</span>
                       </div>
                       <div className="px-5 pb-5 flex flex-col gap-2 h-full mt-1">
-                        <h2 className="text-base lg:text-2xl font-georgia">{blog.blog_title}</h2>
-                        <div className="flex flex-col lg:flex-row flex-wrap gap-1 lg:gap-5 text-base">
+                        <h2 className="text-sm lg:text-2xl font-georgia">{blog.blog_title}</h2>
+                        <div className="flex flex-col lg:flex-row flex-wrap gap-1 lg:gap-5 text-sm">
                           <span>{dayjs.utc(new Date(blog.blog_published_date)).format('MMMM D, YYYY')}</span>
                           {
                             blog.blog_author_name && (
@@ -652,8 +652,8 @@ export default function HomeComponent({banner, introduction, career_finder, care
                             )
                           }
                         </div>
-                        <p className="lg:leading-loose text-base mt-auto flex">{parser(nl2br(blog.blog_preview))}</p>
-                        <ul className="flex mt-auto text-base">
+                        <p className="lg:leading-loose text-sm mt-auto flex">{parser(nl2br(blog.blog_preview))}</p>
+                        <ul className="flex mt-auto text-sm">
                           {
                             blog.blog_url_slug && (
                               <li><Link href={basePath + blog.blog_url_slug} className="underline">Learn More</Link></li>

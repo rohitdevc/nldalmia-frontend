@@ -102,7 +102,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
             activeIQACCategoryName === "POE" && iqac_poe && iqac_poe.length > 0 && iqac_poe.map((iqac_poe_row, key) => (
               <div className="w-full flex flex-col gap-5 py-5 border-b border-[#800000] last:border-b-0" key={key}>
                 <h2 className="font-georgia text-xl">PEO {(key + 1)}</h2>
-                <p className="text-base leading-loose">{iqac_poe_row.poe_title}</p>
+                <p className="text-sm leading-loose">{iqac_poe_row.poe_title}</p>
               </div>
             ))
           }

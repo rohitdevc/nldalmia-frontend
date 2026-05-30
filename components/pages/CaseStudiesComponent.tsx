@@ -104,7 +104,7 @@ export default function CaseStudiesComponent({ banner, case_studies}: PageProps)
                     <h3 className="font-georgia text-xl">{parser(nl2br(case_study.case_study_authors))}</h3>
                     {
                       case_study.case_study_description && (
-                        <p className="leading-loose text-base">{parser(nl2br(case_study.case_study_description))}</p>
+                        <p className="leading-loose text-sm">{parser(nl2br(case_study.case_study_description))}</p>
                       )
                     }
                     {

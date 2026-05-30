@@ -55,7 +55,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
             "flex",
             "flex-col",
             "gap-4",
-            "text-base",
+            "text-sm
             "list-disc",
             "text-[#4E4E4E]",
             "list-inside"
@@ -210,14 +210,14 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
                       {
                         program.program_pdf && (
                           <li>
-                            <Link href={program.program_pdf} target="_blank" className="bg-[#800000] text-white px-2 py-2 text-base group-hover:bg-white group-hover:!text-[#800000]">Know More</Link>
+                            <Link href={program.program_pdf} target="_blank" className="bg-[#800000] text-white px-2 py-2 text-smroup-hover:bg-white group-hover:!text-[#800000]">Know More</Link>
                           </li>
                         )
                       }
                       {
                         program.program_application_link && (
                           <li>
-                            <Link href={program.program_application_link} target="_blank" className="bg-white text-burgundy px-2 py-2 text-base group-hover:bg-[#800000] group-hover:!text-white border-[0.5px] border-burgundy group-hover:border-white">Apply Now</Link>
+                            <Link href={program.program_application_link} target="_blank" className="bg-white text-burgundy px-2 py-2 text-smroup-hover:bg-[#800000] group-hover:!text-white border-[0.5px] border-burgundy group-hover:border-white">Apply Now</Link>
                           </li>
                         )
                       }
@@ -253,8 +253,8 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
                     <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="rounded-full w-30 h-30" />
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-base md:text-lg">{testimonial.testimonial_designation}</span>
-                      <span className="text-base md:text-lg">{testimonial.testimonial_company_name}</span>
+                      <span className="text-smd:text-lg">{testimonial.testimonial_designation}</span>
+                      <span className="text-smd:text-lg">{testimonial.testimonial_company_name}</span>
                     </div>
                   </div>
                   <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
@@ -262,15 +262,15 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
                       testimonial.testimonial_youtube_video_id ? (
                         <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_video_id)}>
                           <FiPlayCircle size={20} />
-                          <span className="text-base">Play Video</span>
+                          <span className="text-smPlay Video</span>
                         </div>
                       ) : (
                         <>
                         <p className="leading-loose">{testimonial.testimonial_bio}</p>
                         <div className="mt-auto flex flex-col gap-3">
                           <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-base md:text-lg">{testimonial.testimonial_designation}</span>
-                          <span className="text-base md:text-lg">{testimonial.testimonial_company_name}</span>
+                          <span className="text-smd:text-lg">{testimonial.testimonial_designation}</span>
+                          <span className="text-smd:text-lg">{testimonial.testimonial_company_name}</span>
                         </div>
                         </>
                       )
@@ -320,7 +320,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
                                 <div className="text-[#4E4E4E] university_description">
                                   {
                                     faqs.faq_answer && (
-                                      <p className="text-base">{parser(nl2br(faqs.faq_answer))}</p>
+                                      <p className="text-sm{parser(nl2br(faqs.faq_answer))}</p>
                                     )
                                   }
                                 </div>
@@ -341,7 +341,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
         <h3 className="font-georgia text-3xl">{enquiry.intro_caption}</h3>
         {
           enquiry.intro_description && (
-            <p className="text-[#4E4E4E] text-base leading-loose">{parser(nl2br(enquiry.intro_description))}</p>
+            <p className="text-[#4E4E4E] text-smeading-loose">{parser(nl2br(enquiry.intro_description))}</p>
           )
         }
         {

@@ -47,7 +47,7 @@ export default function FinancialAssistance({ banner, introduction, financial_as
                   <h2 className="font-georgia text-lg">{financial_partner.partner_name}</h2>
                   {
                     financial_partner.partner_pdf && (
-                      <Link className="text-burgundy flex gap-2 items-center text-base" href={financial_partner.partner_pdf}>View Profile <MdArrowOutward size={15} /></Link>
+                      <Link className="text-burgundy flex gap-2 items-center text-sm" href={financial_partner.partner_pdf}>View Profile <MdArrowOutward size={15} /></Link>
                     )
                   }
                 </div>

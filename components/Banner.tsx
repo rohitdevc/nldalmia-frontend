@@ -46,7 +46,7 @@ export default function Banner({banner_image, banner_caption, banner_description
                 }
                 {
                     banner_description && (
-                        <p className="text-xs md:text-base md:w-3xl leading-loose">{parser(nl2br(banner_description))}</p>
+                        <p className="text-xs md:text-sm md:w-3xl leading-loose">{parser(nl2br(banner_description))}</p>
                     )
                 }
                 {

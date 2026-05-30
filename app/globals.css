@@ -112,7 +112,7 @@ form .error {
 }
 
 form .error span {
-  @apply text-base
+  @apply text-sm
 }
 
 .career-paths .searchBox::placeholder {

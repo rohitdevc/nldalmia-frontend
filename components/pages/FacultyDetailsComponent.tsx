@@ -46,7 +46,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
         paragraphs.forEach((p) => {
           p.classList.add(
             "text-[#4E4E4E]",
-            "text-base",
+            "text-sm",
             "leading-loose"
           );
         });
@@ -82,7 +82,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
                 {
                   faculty.faculty_areas_of_expertise && (
                     <div className="flex flex-col gap-2">
-                      <h3 className="font-georgia text-base">Areas Of Expertise</h3>
+                      <h3 className="font-georgia text-sm">Areas Of Expertise</h3>
                       <p className="text-[#4E4E4E]">{faculty.faculty_areas_of_expertise}</p>
                   </div>
                   )
@@ -90,7 +90,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
                 {
                   faculty.faculty_email_address && (
                     <div className="flex flex-col gap-2">
-                      <h3 className="font-georgia text-base">Email</h3>
+                      <h3 className="font-georgia text-sm">Email</h3>
                       <p className="text-[#4E4E4E]"><Link href={`mailto:${faculty.faculty_email_address}`}>{faculty.faculty_email_address}</Link></p>
                   </div>
                   )
@@ -98,7 +98,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
                 {
                   faculty.faculty_courses && (
                     <div className="flex flex-col gap-2">
-                      <h3 className="font-georgia text-base">Courses</h3>
+                      <h3 className="font-georgia text-sm">Courses</h3>
                       <p className="text-[#4E4E4E]">{faculty.faculty_courses}</p>
                     </div>
                   )
@@ -106,7 +106,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
                 {
                   faculty.faculty_linkedin_url && (
                     <div className="flex flex-col gap-2">
-                      <h3 className="font-georgia text-base">Linked In</h3>
+                      <h3 className="font-georgia text-sm">Linked In</h3>
                       <p className="text-[#4E4E4E]"><Link href={faculty.faculty_linkedin_url} target="_blank">{faculty.faculty_linkedin_url}</Link></p>
                     </div>
                   )

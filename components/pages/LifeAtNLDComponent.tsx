@@ -203,7 +203,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                                 <span className="bg-[#800000] text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(event.event_start_date).format('MMMM YYYY')}</span>
                               </div>
                               <div className="mt-auto px-2 lg:px-5 pb-2 lg:pb-10">
-                                <h2 className="text-base lg:text-2xl font-georgia">{event.event_name}</h2>
+                                <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
                               </div>
                             </div>
 
@@ -212,11 +212,11 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                                 <span className="bg-white text-burgundy text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(event.event_start_date).format('MMMM YYYY')}</span>
                               </div>
                               <div className="px-2 lg:px-5 pb-2 lg:pb-5 flex flex-col gap-2 h-full">
-                                <h2 className="text-base lg:text-2xl font-georgia">{event.event_name}</h2>
+                                <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
                                 <div className="w-full h-[105px] overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">
-                                  <p className="lg:leading-relaxed text-base">{parser(nl2br(event.event_description))}</p>
+                                  <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description))}</p>
                                 </div>
-                                <ul className="flex gap-5 mt-auto text-xs lg:text-base">
+                                <ul className="flex gap-5 mt-auto text-xs lg:text-sm">
                                   {
                                     event.event_registration_link && (
                                       <li><Link href={event.event_registration_link} className="underline" target="_blank">Learn More</Link></li>
@@ -268,7 +268,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                     <h2 className="font-georgia text-2xl">{achievement.achievement_caption}</h2>
                     {
                       achievement.achievement_description && (
-                        <p className="leading-loose text-base">{parser(nl2br(achievement.achievement_description))}</p>
+                        <p className="leading-loose text-sm">{parser(nl2br(achievement.achievement_description))}</p>
                       )
                     }
                   </div>
@@ -310,18 +310,18 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                   <div className="flex flex-col gap-5 p-5 md:p-10">
                     <div className="flex flex-col gap-3">
                       <h2 className="font-georgia text-xl">{student_club.student_club_title}</h2>
-                      <p className="text-base leading-loose text-[#4E4E4E]">{student_club.student_club_caption}</p>
+                      <p className="text-sm leading-loose text-[#4E4E4E]">{student_club.student_club_caption}</p>
                     </div>
                     {
                       student_club.student_club_description && (
-                      <div className="flex flex-col gap-3 text-base student_club">
+                      <div className="flex flex-col gap-3 text-sm student_club">
                         {parser(student_club.student_club_description)}
                       </div>
                     )
                     }
                     {
                       student_club.student_club_social_media && (
-                        <div className="flex flex-col gap-3 text-base">
+                        <div className="flex flex-col gap-3 text-sm">
                           <h3 className="font-georgia">Follow Us</h3>
                           <span>{student_club.student_club_social_media}</span>
                         </div>
@@ -384,12 +384,12 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                 }
                 {
                   founder_quote.founder_bio && (
-                    <p className="leading-relaxed lg:leading-loose text-base">{parser(nl2br(founder_quote.founder_bio))}</p>
+                    <p className="leading-relaxed lg:leading-loose text-sm">{parser(nl2br(founder_quote.founder_bio))}</p>
                   )
                 }
                 <div className="flex flex-col gap-3 mt-auto">
                   <h3 className="text-xl">{founder_quote.founder_quote}</h3>
-                  <p className="leading-loose text-base">{founder_quote.founder_name}</p>
+                  <p className="leading-loose text-sm">{founder_quote.founder_name}</p>
                 </div>
               </div>
               )
@@ -451,7 +451,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                           <h2 className="font-georgia text-lg">{inside_nld_row.inside_nld_caption}</h2>
                           {
                             inside_nld_row.inside_nld_description && (
-                              <p className="text-base leading-loose">{parser(nl2br(inside_nld_row.inside_nld_description))}</p>
+                              <p className="text-sm leading-loose">{parser(nl2br(inside_nld_row.inside_nld_description))}</p>
                             )
                           }
                         </div>

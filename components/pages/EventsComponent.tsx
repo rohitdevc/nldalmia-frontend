@@ -83,7 +83,7 @@ export default function Events({ banner, events}: PageProps) {
                       )}
                       <ul className="flex gap-5">
                           <li>
-                              <Link href={`${basePath}events/${event.event_url_slug}`} className="border py-2 px-2 text-base border-white bg-[#800000]">View Event Details</Link>
+                              <Link href={`${basePath}events/${event.event_url_slug}`} className="border py-2 px-2 text-sm border-white bg-[#800000]">View Event Details</Link>
                           </li>
                       </ul>
                     </div>

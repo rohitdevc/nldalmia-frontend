@@ -172,7 +172,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                         <Link href={basePath + blog_data[0].blog_category_url_slug}>{blog_data[0].blog_category_name}</Link>
                       </li>
                     </ul>
-                    <p className="text-[#4E4E4E] text-base">{parser(nl2br(blog_data[0].blog_preview.slice(0, 200) + '...'))}</p>
+                    <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog_data[0].blog_preview.slice(0, 200) + '...'))}</p>
                     <Link href={basePath + blog_data[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
                   </div>
                   )
@@ -197,7 +197,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                                 <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
                               </li>
                             </ul>
-                            <p className="text-[#4E4E4E] text-base">{parser(nl2br(blog.blog_preview.slice(0, 200) + '...'))}</p>
+                            <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview.slice(0, 200) + '...'))}</p>
                             <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
                           </div>
                         </div>

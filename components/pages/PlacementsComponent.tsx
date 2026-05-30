@@ -208,7 +208,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                   <h2 className="font-georgia text-burgundy text-xl">{corporate_engagement.corporate_engagement_caption}</h2>
                   {
                     corporate_engagement.corporate_engagement_description && (
-                      <p className="text-[#4E4E4E] text-base">{parser(nl2br(corporate_engagement.corporate_engagement_description))}</p>
+                      <p className="text-[#4E4E4E] text-sm">{parser(nl2br(corporate_engagement.corporate_engagement_description))}</p>
                     )
                   }
                 </div>
@@ -251,7 +251,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                         <div className="flex gap-5 justify-center items-center py-7 px-5 relative">
                           <div className="flex flex-col gap-5 items-center text-center">
                             <h2 className="text-3xl">{placement_content.tab_content_caption}</h2>
-                            <p className="text-[#4E4E4E] text-base min-h-10">{placement_content.tab_content_description}</p>
+                            <p className="text-[#4E4E4E] text-sm min-h-10">{placement_content.tab_content_description}</p>
                           </div>
                           <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden sm:block absolute right-0 top-1/2 -translate-y-1/2"></span>
                         </div>
@@ -413,8 +413,8 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                     </div>
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
                     <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-base md:text-lg">{testimonial.testimonial_designation}</span>
-                      <span className="text-base md:text-lg">{testimonial.testimonial_company_name}</span>
+                      <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
+                      <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
                     </div>
                   </div>
                   <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
@@ -422,7 +422,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                       testimonial.testimonial_youtube_video_id ? (
                         <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_video_id)}>
                           <FiPlayCircle size={20} />
-                          <span className="text-base">Play Video</span>
+                          <span className="text-sm">Play Video</span>
                         </div>
                       ) : (
                         <>
@@ -433,8 +433,8 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                         }
                         <div className="mt-auto flex flex-col gap-3">
                           <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-base md:text-lg">{testimonial.testimonial_designation}</span>
-                          <span className="text-base md:text-lg">{testimonial.testimonial_company_name}</span>
+                          <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
+                          <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
                         </div>
                         </>
                       )

@@ -97,7 +97,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
       paragraphs.forEach((p) => {
         p.classList.add(
           "text-[#4E4E4E]",
-          "text-base",
+          "text-sm",
           "leading-loose"
         );
       });
@@ -155,7 +155,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
                 <>
                 <div className="flex flex-col gap-5 items-center text-center" key={key}>
                   <h2 className="text-3xl">{milestone.milestone_title}</h2>
-                  <p className="text-[#4E4E4E] text-base">{milestone.milestone_description}</p>
+                  <p className="text-[#4E4E4E] text-sm">{milestone.milestone_description}</p>
                 </div>
                 {
                   ((key + 1) !== careers_milestones.length) && (
@@ -232,10 +232,10 @@ export default function CareerComponent({banner, introduction, careers_our_value
                   <h3 className="font-georgia text-lg">{careers_vacancy.vacancy_experience_required}</h3>
                   {
                     careers_vacancy.vacancy_preview && (
-                      <p className="leading-loose text-base">{parser(nl2br(careers_vacancy.vacancy_preview))}</p>
+                      <p className="leading-loose text-sm">{parser(nl2br(careers_vacancy.vacancy_preview))}</p>
                     )
                   }
-                  <ul className="flex gap-5 mt-5 text-base">
+                  <ul className="flex gap-5 mt-5 text-sm">
                     <li>
                       <Link href={`mailto:hr@nldalmia.edu.in?subject=${encodeURIComponent(`Application for vacancy of ${careers_vacancy.vacancy_title}`)}`} className="text-white bg-[#800000] px-2 py-1">Apply Now</Link>
                     </li>
@@ -295,7 +295,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
             <h3 className="font-georgia text-lg">{jobDepartment}</h3>
             <h3 className="font-georgia text-lg">{jobExperience}</h3>
             {parser(jobDescription)}
-            <Link href={`mailto:hr@nldalmia.edu.in?subject=${encodeURIComponent(`Application for vacancy of ${jobTitle}`)}`} className="text-white bg-[#800000] border-[0.5px] border-[#800000] w-25 text-center py-1 text-base">Apply Now</Link>
+            <Link href={`mailto:hr@nldalmia.edu.in?subject=${encodeURIComponent(`Application for vacancy of ${jobTitle}`)}`} className="text-white bg-[#800000] border-[0.5px] border-[#800000] w-25 text-center py-1 text-sm">Apply Now</Link>
           </div>
         </div>
       </div>
