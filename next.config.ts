@@ -46,7 +46,52 @@ const nextConfig: NextConfig = {
 				source: '/blog',
 				destination: '/blogs',
 				permanent: true
-			}
+			},
+			{
+				source: '/blog/:year/:month/:day/:slug',
+				destination: '/:slug',
+				permanent: true,
+			},
+			{
+				source: '/blogs/:year/:month/:day/:slug',
+				destination: '/:slug',
+				permanent: true,
+			},
+			{
+				source: '/2023/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/2022/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/2021/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/2020/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/2019/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/2018/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/2017/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
 		]
 	 }
 };

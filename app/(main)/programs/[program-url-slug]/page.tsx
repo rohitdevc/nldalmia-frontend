@@ -2,12 +2,12 @@ import { getProgram } from "@/lib/program";
 
 import type { Metadata } from "next";
 import ProgramComponent from "@/components/pages/ProgramComponent";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#2e4f84" },
-    { media: "(prefers-color-scheme: dark)", color: "#2e4f84" },
+    { program: "(prefers-color-scheme: light)", color: "#2e4f84" },
+    { program: "(prefers-color-scheme: dark)", color: "#2e4f84" },
   ],
 };
 
@@ -21,12 +21,24 @@ export const revalidate = 0;
 
 const basePath = process.env.NEXT_PUBLIC_PATH;
 
+let programCache = new Map();
+
+export async function loadProgram(slug: string) {
+  if (programCache.has(slug)) return programCache.get(slug);
+  
+  const program = await getProgram(slug);
+
+  programCache.set(slug, program);
+
+  return program;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "program-url-slug": program_url_slug } = await params;
 
-  const program = await getProgram(program_url_slug);
+  const program = await loadProgram(program_url_slug);
 
-  if(!program) redirect(process.env.NEXT_PUBLIC_PATH + "programs");
+  if(!program) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "programs");
 
   const canonical_tag = basePath + program.canonical_tag;
 
@@ -65,9 +77,9 @@ export default async function Page({ params }: PageProps) {
 
   if(!program_url_slug) { return false };
 
-  const program = await getProgram(program_url_slug);
+  const program = await loadProgram(program_url_slug);
 
-  if(!program) return false;
+  if(!program) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "programs");
 
   return (
     <ProgramComponent

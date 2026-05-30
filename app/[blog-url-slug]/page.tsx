@@ -1,6 +1,6 @@
 import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
 
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
 

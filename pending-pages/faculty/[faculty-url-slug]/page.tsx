@@ -2,7 +2,7 @@ import { getFaculty } from "@/lib/faculty";
 
 import type { Metadata } from "next";
 import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
@@ -21,12 +21,24 @@ export const revalidate = 0;
 
 const basePath = process.env.NEXT_PUBLIC_PATH;
 
+let facultyCache = new Map();
+
+export async function loadFaculty(slug: string) {
+  if (facultyCache.has(slug)) return facultyCache.get(slug);
+  
+  const faculty = await getFaculty(slug);
+
+  facultyCache.set(slug, faculty);
+
+  return faculty;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "faculty-url-slug": faculty_url_slug } = await params;
 
-  const faculty = await getFaculty(faculty_url_slug);
+  const faculty = await loadFaculty(faculty_url_slug);
 
-  if(!faculty) redirect(process.env.NEXT_PUBLIC_PATH + 'faculty');
+  if(!faculty) permanentRedirect(process.env.NEXT_PUBLIC_PATH + 'faculty');
 
   const canonical_tag = basePath + faculty.canonical_tag;
 
@@ -63,7 +75,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { "faculty-url-slug": faculty_url_slug } = await params;
 
-  const faculty = await getFaculty(faculty_url_slug);
+  const faculty = await loadFaculty(faculty_url_slug);
+
+  if(!faculty) permanentRedirect(process.env.NEXT_PUBLIC_PATH + 'faculty');
 
   return (
     <FacultyDetailsComponent

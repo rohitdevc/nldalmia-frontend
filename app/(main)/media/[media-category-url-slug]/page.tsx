@@ -2,7 +2,7 @@ import { getMediaCategory, getMedia, getMediaCategories } from "@/lib/media";
 
 import type { Metadata } from "next";
 import MediaComponent from "@/components/pages/MediaComponent";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
@@ -21,12 +21,24 @@ export const revalidate = 0;
 
 const basePath = process.env.NEXT_PUBLIC_PATH;
 
+let mediaCache = new Map();
+
+export async function loadMedia(slug: string) {
+  if (mediaCache.has(slug)) return mediaCache.get(slug);
+  
+  const media = await getMediaCategory(slug);
+
+  mediaCache.set(slug, media);
+
+  return media;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "media-category-url-slug": media_category_url_slug } = await params;
 
-  const media_category = await getMediaCategory(media_category_url_slug);
+  const media_category = await loadMedia(media_category_url_slug);
 
-  if(!media_category) redirect(process.env.NEXT_PUBLIC_PATH + "media");
+  if(!media_category) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "media");
 
   const canonical_tag = basePath + media_category.canonical_tag;
 
@@ -63,13 +75,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { "media-category-url-slug": media_category_url_slug } = await params;
 
-  const media_category = await getMediaCategory(media_category_url_slug);
+  const media_category = await loadMedia(media_category_url_slug);
 
   const media_categories = await getMediaCategories();
 
   const media = await getMedia(media_category_url_slug);
 
-  if(!media.length) redirect(process.env.NEXT_PUBLIC_PATH + "media");
+  if(!media.length) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "media");
   
   return (
     <MediaComponent

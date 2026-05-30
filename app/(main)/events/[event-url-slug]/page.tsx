@@ -2,7 +2,7 @@ import { getEvent } from "@/lib/event";
 
 import type { Metadata } from "next";
 import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const event = await getEvent(event_url_slug);
 
-  if(!event) redirect(process.env.NEXT_PUBLIC_PATH + 'events');
+  if(!event) permanentRedirect(process.env.NEXT_PUBLIC_PATH + 'events');
 
   const canonical_tag = basePath + event.canonical_tag;
 

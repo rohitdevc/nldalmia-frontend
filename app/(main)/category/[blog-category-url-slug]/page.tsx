@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getBlogCategories, getBlogCategoryFeatured, getBlogsByCategory } from "@/lib/blog";
@@ -76,7 +76,7 @@ export default async function Blog({ params }: PageProps) {
   const blog_featured = await getBlogCategoryFeatured(blog_category_url_slug);
   const blogs = await getBlogsByCategory(blog_category_url_slug);
 
-  if(!blogs.length) redirect(process.env.NEXT_PUBLIC_PATH + "blogs");
+  if(!blogs.length) permanentRedirect(process.env.NEXT_PUBLIC_PATH + "blogs");
 
   return (
     <BlogComponent
