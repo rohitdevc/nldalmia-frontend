@@ -171,13 +171,13 @@ export default function AboutUsComponent({banner, introduction, objectives, time
         <div className="w-full px-5 md:px-15 lg:px-20 py-10 bg-[#FFCC33] flex flex-col gap-5">
           <h2 className="text-2xl lg:text-4xl font-georgia">{founder_quote.founder_quote_title}</h2>
           <div className="flex flex-col lg:flex-row gap-5 justify-center items-center">
-            <div className="w-300">
-              {
-                founder_quote.founder_image && (
+            {
+              founder_quote.founder_image && (
+                <div className="w-full">
                   <Image src={founder_quote.founder_image} width={800} height={750} alt={founder_quote.founder_image_alt} className="object-cover w-full h-full" />
-                )
-              }
-            </div>
+                </div>
+              )
+            }
             <div className="flex flex-col mt-auto gap-5 lg:gap-10 relative">
               <p className="text-burgundy leading-loose">{parser(nl2br(founder_quote.founder_bio))}</p>
               <div className="flex flex-col gap-3">
@@ -231,7 +231,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         managing_council && managing_council.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 lg:py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 lg:py-10">
           <Intro
           introTitle={managing_council_introduction.intro_title}
           introCaption={managing_council_introduction.intro_caption}
@@ -276,7 +276,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         governing_council && governing_council.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 lg:py-5">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 lg:py-5">
           <Intro
           introTitle={governing_council_introduction.intro_title}
           introCaption={governing_council_introduction.intro_caption}
@@ -348,7 +348,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
             <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
               {
                 international_countries.map((country_name, key) => (
-                  <li className={`group cursor-pointer transition-all duration-300 ${activeCountry === (country_name) ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveCountryFunc(country_name)}>
+                  <li className={`group cursor-pointer transition-all duration-300 ${activeCountry === (country_name) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveCountryFunc(country_name)}>
                     <span className="relative">
                       {country_name}
                       <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeCountry === (country_name) ? 'scale-x-100' : ''}`}></span>
@@ -366,7 +366,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                         <div className={`w-full py-5 ${international_universities_data[country_name].length !== (university_key + 1) ? 'border-b' : '' } border-[#800000] `} key={university_key}>
                           <div className="flex flex-col gap-3 lg:px-10">
                             <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleUniversityAccordian(university_key)}>
-                              <div className="flex gap-5 justify-center items-center">
+                              <div className="flex flex-col lg:flex-row gap-5 justify-center items-center">
                                 {
                                   international_university.international_university_logo && (
                                     <Image src={international_university.international_university_logo} alt={international_university.international_university_logo_alt} width={100} height={100} className={`transition-all duration-300 ${openUniversity === university_key ? "" : "hidden"}`} />

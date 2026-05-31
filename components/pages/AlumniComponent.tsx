@@ -168,7 +168,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
             <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 wall_of_fame_slider_next z-2">
               <BsArrowRightShort size={20} />
             </span>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}} className="text-white">
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}} className="text-white">
               {
               wall_of_fame.map((wall_of_fame_row, key) => (
                 <SwiperSlide key={key}>
@@ -239,7 +239,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 alumni_meet_slider_next z-2">
                 <BsArrowRightShort size={20} />
               </span>
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} navigation={{prevEl: '.alumni_meet_slider_prev', nextEl: '.alumni_meet_slider_next'}} className="text-white">
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.alumni_meet_slider_prev', nextEl: '.alumni_meet_slider_next'}} className="text-white">
                 {
                 alumni_meet.map((alumni_meet_row, key) => (
                   <SwiperSlide key={key}>
@@ -248,7 +248,11 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         <h2 className="font-georgia text-xl">Alumni Chapter Meet</h2>
                         <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
                           <li>{alumni_meet_row.meet_caption}</li>
-                          <li>{dayjs.utc(new Date(alumni_meet_row.meet_date)).format('Do MMMM, YYYY')}</li>
+                          {
+                            alumni_meet_row.meet_date && (
+                              <li>{dayjs.utc(new Date(alumni_meet_row.meet_date)).format('Do MMMM, YYYY')}</li>
+                            )
+                          }
                         </ul>
                         <p className="leading-relaxed lg:leading-loose overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(alumni_meet_row.meet_description))}</p>
                         {
@@ -273,7 +277,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 right-4 testimonial_slider_next z-2">
                 <BsArrowRightShort size={20} />
               </span>
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
                 {
                 alumni_quotes.map((alumni_quote, key) => (
                   <SwiperSlide key={key}>
@@ -287,7 +291,11 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                       </div>
                       <div className="flex flex-col gap-5 py-7 w-full">
                         <p className="font-georgia text-xl">{alumni_quote.quote_text}</p>
-                        <h3>{dayjs.utc(new Date(alumni_quote.quote_date)).format('Do MMMM, YYYY')}</h3>
+                        {
+                          alumni_quote.quote_date && (
+                            <h3>{dayjs.utc(new Date(alumni_quote.quote_date)).format('Do MMMM, YYYY')}</h3>
+                          )
+                        }                        
                         <h4>{alumni_quote.quote_name}</h4>
                         {
                           (alumni_quote.quote_link || alumni_quote.quote_pdf) && (
@@ -324,7 +332,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               {
                 alumni_connect.map((alumni_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
-                    <div className="flex flex-col gap-5 items-center p-5 text-center">
+                    <div className="flex flex-col gap-5 items-center p-5 min-h-80 text-center">
                       {
                         alumni_row.connect_thumbnail && (
                         <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_thumbnail_alt} width={150} height={150} className="w-30" />
@@ -473,7 +481,11 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
 
                         <div className={`absolute top-0 left-0 inset-0 flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeAlumniEvent === key ? "scale-y-100" : "scale-y-0"}`}>
                           <h2 className="text-xl">{alumni_event.event_title}</h2>
-                          <h3>{dayjs(startDate).format('Do MMMM, YYYY')}</h3>
+                          {
+                            alumni_event.event_start_date && (
+                              <h3>{dayjs(startDate).format('Do MMMM, YYYY')}</h3>
+                            )
+                          }
                           {
                             alumni_event.event_description && (
                             <p className="leading-loose">{parser(nl2br(truncate(alumni_event.event_description, 225)))}</p>

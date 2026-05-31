@@ -487,7 +487,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                 <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                   {
                     faq_categories.map((faq_category, key) => (
-                      <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === faq_category ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(faq_category)}>
+                      <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === faq_category ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(faq_category)}>
                         <span className="relative">
                           {faq_category}
                           <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeFAQCategory === (faq_category) ? 'scale-x-100' : ''}`}></span>

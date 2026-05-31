@@ -219,14 +219,14 @@ export default function HomeComponent({banner, introduction, career_finder, care
           </div>
           <div className="w-full md:w-[60%] flex flex-col gap-5">
             <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(introduction.intro_description))}</p>
-            <ul className="flex flex-wrap md:flex-row md:gap-10 text-sm text-burgundy mt-2">
-              <li className="w-1/2 lg:w-auto">
+            <ul className="flex flex-wrap md:flex-row gap-5 md:gap-10 text-sm text-burgundy mt-2">
+              <li>
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
               </li>
-              <li className="w-1/2 lg:w-auto">
+              <li>
                 <Link href={`${basePath}programs`} className="flex gap-1 items-center">Programs <MdArrowOutward size={15} /></Link>
               </li>
-              <li className="w-1/2 lg:w-auto">
+              <li>
                 <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdArrowOutward size={15} /></Link>
               </li>
             </ul>
@@ -351,11 +351,11 @@ export default function HomeComponent({banner, introduction, career_finder, care
                 </span>
               </div>
               
-              <Swiper className="w-full" slidesPerView={2} spaceBetween={50} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+              <Swiper className="w-full" slidesPerView={2} spaceBetween={20} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
                 {
                   placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
                     <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
-                      <div className="rounded-full overflow-hidden border border-[#800000] w-50 h-50 flex items-center p-1">
+                      <div className="rounded-full overflow-hidden border border-[#800000] w-40 h-40 lg:w-50 lg:h-50 flex items-center p-1">
                         <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_logo_alt} width={300} height={300} className="object-cover w-full" />
                       </div>
                     </SwiperSlide>
