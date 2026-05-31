@@ -726,62 +726,7 @@ const nextConfig: NextConfig = {
 				source: '/wp-content/uploads/2025/08/Utkarsh-2023-24.pdf',
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/utkarsh-2023-2024-report.pdf',
 				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
-			{
-				source: '',
-				destination: '',
-				permanent: true
-			},
+			}
 		]
 	 }
 };
