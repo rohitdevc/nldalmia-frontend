@@ -495,6 +495,13 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                 </li>
                               )
                             }
+                            {
+                              alumni_event.event_url_slug && (
+                                <li>
+                                  <Link href={basePath + alumni_event.event_url_slug} className="py-2 px-2 text-sm bg-white text-[#800000]">View Event</Link>
+                                </li>
+                              )
+                            }
                           </ul>
                         </div>
                       </div>

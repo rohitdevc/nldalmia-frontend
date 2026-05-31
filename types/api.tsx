@@ -456,7 +456,7 @@ export interface AlumniEvents {
     event_link: string;
     event_thumbnail: string;
     event_thumbnail_alt: string;
-    event_location: string;
+    event_url_slug: string;
 }
 
 export interface Awards {
