@@ -123,6 +123,16 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/dr-joyeeta-chatterjee',
+				destination: '/faculty/prof-dr-joyeeta-chatterjee',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-jyoti-nair',
+				destination: '/faculty/prof-dr-jyoti-nair',
+				permanent: true,
+			},
+			{
 				source: '/research-papers-presented',
 				destination: '/faculty/research-papers-published/journal-publications',
 				permanent: true
@@ -213,8 +223,8 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
-				source: '/international-yoga-day',
-				destination: '/international-yoga-day-2022',
+				source: '/events/international-yoga-day',
+				destination: '/events/international-yoga-day-2022',
 				permanent: true
 			},
 		]
