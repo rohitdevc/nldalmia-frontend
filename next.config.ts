@@ -667,6 +667,121 @@ const nextConfig: NextConfig = {
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udaan-volume-1.pdf',
 				permanent: true
 			},
+			{
+				source: '/wp-content/uploads/2025/10/DecodeX-2025-Report.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/decodex-2025.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/03/DecodeX-2024.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/decodex-2024-report.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/08/Mulyankan-2023.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/mulyankan-2023-report.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/08/Mulyankan-2022-Schedule-.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/mulyankan-2022-report.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/08/Concept-Note-2022.pdf',
+				destination: '/events/mulyankan-2022',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/04/Nivesh-Bazaar-Summary-2024.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/nivesh-bazaar-2024.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/03/Comquest-2024-Summary.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/comquest-2024.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/08/MAADHYAM-2025-REPORT.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/maadhyam-2025-marketing-event-report.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/08/Maadhyam-2023-24-Report.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/maadhyam-2024.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/08/Maadhyam-2023.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/maadhyam-2023-marketing-event-report.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/08/Maadhyam-2022.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/maadhyam-2022-marketing-event-report.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/08/Utkarsh-2023-24.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/utkarsh-2023-2024-report.pdf',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
+			{
+				source: '',
+				destination: '',
+				permanent: true
+			},
 		]
 	 }
 };
