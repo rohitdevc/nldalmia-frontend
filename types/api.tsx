@@ -579,7 +579,6 @@ export interface InstitutionalPublications {
     institutional_publication_category_title: string;
     institutional_publication_title: string;
     institutional_publication_caption: string;
-    institutional_publication_published_date: string;
     institutional_publication_pdf: string;
     institutional_publication_thumbnail: string;
     institutional_publication_thumbnail_alt: string;
