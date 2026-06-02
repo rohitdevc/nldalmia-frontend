@@ -240,7 +240,7 @@ export default function HomeComponent({banner, introduction, career_finder, care
           <div className="flex flex-col md:flex-row gap-3">
             <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
             <div className="relative w-[290px]">
-              <Multiselect className="career-paths text-sm text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Paths" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
+              <Multiselect className="career-paths text-sm text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Path" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
               <span className="w-full absolute -bottom-1 h-[0.5px] bg-white"></span>
               <IoIosArrowDown className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" size={18} />
             </div>
