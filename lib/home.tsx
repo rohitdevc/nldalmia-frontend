@@ -16,7 +16,7 @@ import {
     HomeBlog
 } from "@/types/api";
 
-export const getAnnouncements = async () => apiFetch<Announcements>(`home/announcements`, {
+export const getAnnouncements = async () => apiFetch<Announcements[]>(`home/announcements`, {
     method: "GET",
     headers: await buildHeaders()
 })
