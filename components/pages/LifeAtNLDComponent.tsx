@@ -128,12 +128,20 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
           introDescription={introduction.intro_description} />
-          <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
-              <div className="w-full flex flex-col gap-5 text-white">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 md:gap-10 lg:gap-5">
-                  {
-                    events.map((event, sub_key) => (
-                      <div className="group w-full h-75 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(sub_key)} key={sub_key} title={event.event_thumbnail_alt}>
+          <div className="w-full flex flex-col gap-5">
+              <div className="flex gap-3">
+                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_prev">
+                  <BsArrowLeftShort size={20} />
+                </span>
+                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_next">
+                  <BsArrowRightShort size={20} />
+                </span>
+              </div>
+              <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 50 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }} >
+                {
+                  events.map((event, key) => (
+                    <SwiperSlide key={key}>
+                      <div className="group w-full h-75 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(key)} title={event.event_thumbnail_alt}>
                         <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                         
                         <div className="relative h-full w-full flex flex-col">
@@ -149,7 +157,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                           </div>
                         </div>
 
-                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === sub_key ? "scale-y-100" : "scale-y-0"}`}>
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === key ? "scale-y-100" : "scale-y-0"}`}>
                           <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
                             {
                               event.event_start_date && (
@@ -177,11 +185,14 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                           </div>
                         </div>
                       </div>
-                    ))
-                  }
-                </div>
-              </div>
-          </div>
+                    </SwiperSlide>
+                  ))
+                }
+              </Swiper>
+            </div>
+            <div className="flex justify-center">
+              <Link href={basePath + "events"} className="bg-[#800000] text-white px-3 py-2">View More Events</Link>
+            </div>
         </div>
         )
       }
