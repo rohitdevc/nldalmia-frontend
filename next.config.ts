@@ -189,17 +189,17 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/programs/bloomberg-research-analyst',
-				destination: '/programs',
+				destination: '/',
 				permanent: true
 			},
 			{
 				source: '/bloomberg',
-				destination: '/programs',
+				destination: '/life-at-nld',
 				permanent: true
 			},
 			{
 				source: '/corporate-connect',
-				destination: '/management-development-programs',
+				destination: '/placements',
 				permanent: true
 			},
 			{
@@ -209,12 +209,12 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/e-cell',
-				destination: '/',
+				destination: '/life-at-nld',
 				permanent: true
 			},
 			{
 				source: '/aicte-approvals',
-				destination: '/about-us',
+				destination: '/iqac',
 				permanent: true
 			},
 			{
@@ -939,17 +939,17 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/wp-content/uploads/2025/08/PO_PGDM.pdf',
-				destination: '/programs/pgdm',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/pgdm.pdf',
 				permanent: true
 			},
 			{
 				source: '/wp-content/uploads/2025/01/PO-PGDM-Finance.pdf',
-				destination: '/programs/finance',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/pgdm-finance.pdf',
 				permanent: true
 			},
 			{
 				source: '/wp-content/uploads/2025/08/PO_PGDM-Business-Analytics.pdf',
-				destination: '/programs/pgdm-in-business-analytics',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/pgdm-business-analytics.pdf',
 				permanent: true
 			},
 			{
@@ -1139,7 +1139,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/wp-content/uploads/2025/06/About-Us_2025-as-on-03.06.25.pdf',
-				destination: '/about-us',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/admissions/about-us-2025-27.pdf',
 				permanent: true
 			},
 			{
@@ -1332,6 +1332,286 @@ const nextConfig: NextConfig = {
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2019.pdf',
 				permanent: true
 			},
+			{
+				source: '/wp-content/uploads/2024/11/IQAC-SOP.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-sop.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2024-25-3.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-april-2025.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2024-25-2.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-14th-december-2024.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2024-25-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-june-2024.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2023-24-3.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-12-th-april-2024.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2023-24-2.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-22nd-december-2023.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2023-24-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-12-th-june-2023.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2024/07/Feb-2023.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-16th-february-2023.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2024/07/Nov-2022.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-28th-november-2022.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2024/07/July-2022.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-july-2022.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2024/07/May-2023.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-9th-may-2023.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/4.-13-May-2021.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-may-2021.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/3.-16-February-2021.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-10th-feb-2021.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/2.-13th-October-2020.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-1st-oct-2020.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/1.-10-July-2020.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-july-2020.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/2.-8-November-2019.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-1st-nov-2019.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/1.-6-July-2019.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-28th-june-2019.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/4.-13-May-2020.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-7th-may-2020.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/3.-2-February-2020.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-24th-jan-2020.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/4.-10-May-2019-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-may-2019.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/3.-8-February-2019-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-1st-feb-2019.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/2.-26-October-2018-2.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-19th-oct-2018.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/1.-7-July-2018-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-2nd-july-2018.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/4.-10-May-2017.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-may-2017.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/3.-6-February-2018.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-27th-jan-2018.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/2.-3-October-2017.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-26th-sept-2017.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/1.-13-July-2017.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-7th-july-2017.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/4.-10-May-2017-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-may-2017.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/3.-9-February-2017.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-feb-2017.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/2.-10-October-2016.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-20th-oct-2016.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/1.-19-July-2016-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-9th-july-2016.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/2023-24-ATR.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2023-24.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/ATR.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2022-23.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/IQAC-Action-Taken-Report-2021-22.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2021-22.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Action-Taken-Report-2020-21.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2020-21.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Action-Taken-Report-2019-20.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2019-20.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Action-Taken-Report-2018-19.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2018-19.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Action-Taken-Report-2017-18.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2017-18.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Action-Taken-Report-2016-17.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2016-17.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/10/Academic-Calendar_AY-2025-26-1.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2025-26.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/01/Academic-Calendar-AY-2024-25.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2024-25.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2024/07/Academic-Calendar-AY-2023-24.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2023-24.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Master-Academic-Calendar-A.Y.-2022-23.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2022-23.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Master-Academic-Calendar-A.Y.-2021-22.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2021-22.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Academic-Year-2020-21.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2020-21.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Academic-Year-2019-20.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2019-20.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Academic-Year-2018-19.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2018-19.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Academic-Year-2017-18.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2017-18.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2023/09/Academic-Year-2016-17.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2016-17.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2024/08/About-Us-.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/admissions/about-us-2025-27.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/11/Mandatory-2025.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/mandatory-disclosures.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/02/Grievance-Redressal.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/grievance-redressal.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/02/Study-In-India-SII.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/study-in-india-(sii).pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/11/NLD-Statutory-Committee-REVSD-List-AY-2025-26.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/nl-dalmia-statutory-committee-2025-26.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/11/List-of-PGDM-Students-Placed-during-A.Y.2021-22-2022-23-2023-24.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/pgdm-students-placements-2021-22.2022-23.2023-24.pdf',
+				permanent: true
+			},
+			{
+				source: '/wp-content/uploads/2025/11/List-of-PGDM-Finance-Students-placed-during-A.Y.-2021-22-2022-23-2023-24.pdf',
+				destination: 'https://www.nldalmia.in/staging/assets/pdfs/pgdm-finance-students-placements-2021-22.2022-23.2023-24.pdf',
+				permanent: true
+			}
 		]
 	 }
 };

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 import Banner from "@/components/Banner";
 
@@ -62,7 +62,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 lg:right-10 iqac_categories_slider_next z-2">
           <BsArrowRightShort size={20} />
         </span>
-        <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={3} spaceBetween={10} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 6}, 1280: {slidesPerView: 8}}}>
+        <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={20} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 6}, 1280: {slidesPerView: 8}}}>
           {
           iqac_categories.map((iqac_category, key) => (
             <SwiperSlide key={key} className="text-center lg:!w-fit">

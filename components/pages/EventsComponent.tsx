@@ -82,7 +82,7 @@ export default function Events({ banner, events}: PageProps) {
                       }
                       {
                         event.event_description && (
-                          <p className="leading-loose">{parser(nl2br(event.event_description.slice(0, 300) + '...'))}</p>
+                          <p className="leading-loose">{parser(nl2br(event.event_description.slice(0, 250) + '...'))}</p>
                         )
                       }
                       {startDate && nowValid && countdown && (
