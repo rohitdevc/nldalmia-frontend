@@ -33,11 +33,12 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeedComp from "@/components/InstagramFeedComp";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed } from "@/types/api";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed, Announcements } from "@/types/api";
 
 type PageProps = {
   banner: BannerProps;
-  introduction: IntroProps;
+  announcements: Announcements[]
+  introduction: IntroProps
   career_finder: CareerFinderProps
   career_paths: CareerPathProps
   program_introduction: IntroProps
@@ -63,7 +64,7 @@ type CareerPath = {
   career_path_title: string;
 };
 
-export default function HomeComponent({banner, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
+export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const router = useRouter();
@@ -205,6 +206,26 @@ export default function HomeComponent({banner, introduction, career_finder, care
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-15">
+        {
+          announcements && announcements.length > 0 && (
+          <div className="flex">
+            <span className="px-5 py-2 bg-[#800000] text-white font-georgia">Announcements</span>
+            <div className="group bg-[#FFCC33] text-burgundy w-full overflow-hidden">
+              <div className="flex w-max animate-[ticker_30s_linear_infinite] group-hover:[animation-play-state:paused]">
+                {
+                  [...announcements, ...announcements].map((announcement, key) => (
+                    announcement.announcement_link || announcement.announcement_pdf ? (
+                      <Link href={announcement.announcement_link || announcement.announcement_pdf} target="_blank" key={key} className="border-r px-5 py-2 whitespace-nowrap shrink-0">{announcement.announcement_title}</Link>
+                    ) : (
+                      <span key={key} className="border-r px-5 py-2 whitespace-nowrap shrink-0">{announcement.announcement_title}</span>
+                    )
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        )
+        }
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}

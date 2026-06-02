@@ -1,5 +1,5 @@
 import { getMetaData, getBanner, getInstagramFeed, getCommonPrograms } from "@/lib/common";
-import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeEvents, getHomeAwardsIntroduction, getHomeAwards, getMediaIntroduction, getMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction } from "@/lib/home";
+import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeEvents, getHomeAwardsIntroduction, getHomeAwards, getMediaIntroduction, getMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction, getAnnouncements } from "@/lib/home";
 
 import type { Metadata } from "next";
 import HomeComponent from "@/components/pages/HomeComponent";
@@ -7,6 +7,7 @@ import HomeComponent from "@/components/pages/HomeComponent";
 const [
   meta,
   banner,
+  announcements,
   introduction,
   career_finder,
   career_paths,
@@ -30,6 +31,7 @@ const [
 ] = await Promise.all([
   getMetaData("Home"),
   getBanner("Home"),
+  getAnnouncements(),
   getIntroduction(),
   getHomeCareerFinder(),
   getHomeCareerPaths(),
@@ -98,6 +100,7 @@ export default async function Page() {
   return (
     <HomeComponent
     banner={banner}
+    announcements={announcements}
     introduction={introduction}
     career_finder={career_finder}
     career_paths={career_paths}

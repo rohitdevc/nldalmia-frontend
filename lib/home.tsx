@@ -3,6 +3,7 @@
 import { apiFetch } from "./api";
 import { buildHeaders } from "./common";
 import {
+    Announcements,
     IntroProps,
     CareerFinderProps,
     CareerPathProps,
@@ -14,6 +15,11 @@ import {
     Media,
     HomeBlog
 } from "@/types/api";
+
+export const getAnnouncements = async () => apiFetch<Announcements>(`home/announcements`, {
+    method: "GET",
+    headers: await buildHeaders()
+})
 
 export const getIntroduction = async () => apiFetch<IntroProps>(`home/introduction`, {
     method: "GET",

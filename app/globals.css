@@ -130,3 +130,8 @@ form .error span {
 .career-paths .optionContainer li {
   width: 100% !important;
 }
+
+@keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}

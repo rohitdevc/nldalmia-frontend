@@ -35,6 +35,12 @@ export interface IntroProps {
     intro_link: string;
 }
 
+export interface Announcements {
+    announcement_title: string
+    announcement_link: string
+    announcement_pdf: string
+}
+
 export interface CareerFinderProps {
     career_finder_title: string;
     career_finder_caption: string;
