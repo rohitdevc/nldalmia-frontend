@@ -778,7 +778,7 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
-				source: 'https://www.nldalmia.in/wp-content/uploads/2025/08/Maadhyam-2023-24-Report.pdf',
+				source: '/wp-content/uploads/2025/08/Maadhyam-2023-24-Report.pdf',
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/events/maadhyam-2023.pdf',
 				permanent: true
 			},
