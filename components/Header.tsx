@@ -41,14 +41,20 @@ export default function Header({ program_categories, common_programs, ticker_api
 
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
-    const ticker_end_date = useMemo(
-        () => new Date(ticker_api.ticker_end_time),
-        []
-    )
+    let ticker_end_date;
+    let nowValid = false;
+    let countdown;
 
-    const nowValid = !!ticker_end_date && ticker_end_date.getTime() > Date.now();
-    
-    const countdown = useServerCountdown(ticker_end_date);
+    if(ticker_api) {
+        ticker_end_date = useMemo(
+            () => new Date(ticker_api.ticker_end_time),
+            []
+        )
+
+        nowValid = !!ticker_end_date && ticker_end_date.getTime() > Date.now();
+        
+        countdown = useServerCountdown(ticker_end_date);
+    }
 
     const [activeProgramCategory, updateActiveProgramCategory] = useState(program_categories[0].length > 0 ? program_categories[0] : '')
 
@@ -66,7 +72,7 @@ export default function Header({ program_categories, common_programs, ticker_api
         <header className="w-full fixed z-10">
             <div className="bg-white">
                 {
-                    ticker_api.ticker_caption && (
+                    ticker_api && ticker_api.ticker_caption && (
                         <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
                             <li className="text-sm">{ticker_api.ticker_caption} </li>
                             {

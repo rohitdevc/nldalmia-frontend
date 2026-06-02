@@ -48,54 +48,7 @@ type PageProps = {
 
 export default function LifeAtNLD({ banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
-
-  const eventsList = useRef<HTMLDivElement>(null);
-
-  type EventTimeline = {
-    event_timeline_title: string;
-    events?: Events[]
-  }
-
-  let event_timelines: EventTimeline[] = [
-    {
-      event_timeline_title: 'Upcoming Events',
-      events: []
-    },
-    {
-      event_timeline_title: 'Past Events',
-      events: []
-    }
-  ]
-
-  events.forEach((event) => {
-    if(new Date(event.event_end_date) >= new Date()) {
-      event_timelines[0].events?.push(event);
-    } else {
-      event_timelines[1].events?.push(event);
-    }
-  })
-
-  event_timelines = event_timelines.filter(
-    (timeline) => timeline.events && timeline.events.length > 0
-  );
-
-  const [activeEventTimeline, updateActiveEventTimeline] = useState(0);
   const [activeEvent, updateActiveEvent] = useState(-1);
-
-  const updateActiveEventTimelineFunc = (event_timeline_id: number): void => {
-    updateActiveEventTimeline(event_timeline_id);
-    updateActiveEvent(-1);
-
-    if(eventsList.current) {
-      const offset = 200;
-      const elementTop = eventsList.current.getBoundingClientRect().top + window.pageYOffset;
-
-      window.scrollTo({
-        top: elementTop - offset,
-        behavior: 'smooth'
-      })
-    }
-  }
 
   const handleEventClick = (event_id: number): React.MouseEventHandler<HTMLDivElement> => {
     return () => {
@@ -169,76 +122,66 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       {
-        event_timelines && event_timelines.length > 0 && (
+        events && events.length > 0 && (
         <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
           <CenterIntro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
           introDescription={introduction.intro_description} />
           <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
-            <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-5 text-burgundy">
-              {
-                event_timelines.map((event_timeline, key) => (
-                  <li className={`cursor-pointer transition-all duration-300 ${activeEventTimeline === key ? 'text-xl font-medium' : ''}`} key={key} onClick={() => updateActiveEventTimelineFunc(key)}>
-                    <span className="relative">
-                      {event_timeline.event_timeline_title}
-                      <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 ${activeEventTimeline === key ? 'scale-x-100' : 'scale-x-0'}`}></span>
-                    </span>
-                  </li>
-                ))
-              }
-            </ul>
-            {
-              event_timelines && event_timelines.length > 0 && event_timelines.map((event_timeline, key) => 
-                  activeEventTimeline === key && event_timeline.events && event_timeline.events.length > 0 && (
-                  <div className="w-full lg:w-[75%] flex flex-col gap-5 text-white" ref={eventsList} key={key}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-5 md:gap-10 lg:gap-5">
-                      {
-                        event_timeline.events.map((event, sub_key) => (
-                          <div className="group w-full h-75 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(sub_key)} key={sub_key} title={event.event_thumbnail_alt}>
-                            <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
-                            
-                            <div className="relative h-full w-full flex flex-col">
-                              <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
-                                <span className="bg-[#800000] text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(event.event_start_date).format('MMMM YYYY')}</span>
-                              </div>
-                              <div className="mt-auto px-2 lg:px-5 pb-2 lg:pb-10">
-                                <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
-                              </div>
-                            </div>
-
-                            <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === sub_key ? "scale-y-100" : "scale-y-0"}`}>
-                              <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
-                                <span className="bg-white text-burgundy text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(event.event_start_date).format('MMMM YYYY')}</span>
-                              </div>
-                              <div className="px-2 lg:px-5 pb-2 lg:pb-5 flex flex-col gap-2 h-full">
-                                <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
-                                <div className="w-full h-[105px] overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">
-                                  <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description))}</p>
-                                </div>
-                                <ul className="flex gap-5 mt-auto text-xs lg:text-sm">
-                                  {
-                                    event.event_registration_link && (
-                                      <li><Link href={event.event_registration_link} className="underline" target="_blank">Learn More</Link></li>
-                                    )
-                                  }
-                                  {
-                                    event.event_report && (
-                                      <li><Link href={event.event_report} className="underline" target="_blank">View Report</Link></li>
-                                    )
-                                  }
-                                </ul>
-                              </div>
-                            </div>
+              <div className="w-full flex flex-col gap-5 text-white">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 md:gap-10 lg:gap-5">
+                  {
+                    events.map((event, sub_key) => (
+                      <div className="group w-full h-75 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${event.event_thumbnail})`}} onClick={handleEventClick(sub_key)} key={sub_key} title={event.event_thumbnail_alt}>
+                        <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
+                        
+                        <div className="relative h-full w-full flex flex-col">
+                          <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
+                            {
+                              event.event_start_date && (
+                              <span className="bg-[#800000] text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(event.event_start_date).format('MMMM YYYY')}</span>
+                              )
+                            }
                           </div>
-                        ))
-                      }
-                    </div>
-                  </div>
-                  )
-              )
-            }
-            </div>
+                          <div className="mt-auto px-2 lg:px-5 pb-2 lg:pb-10">
+                            <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
+                          </div>
+                        </div>
+
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === sub_key ? "scale-y-100" : "scale-y-0"}`}>
+                          <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
+                            {
+                              event.event_start_date && (
+                                <span className="bg-white text-burgundy text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(event.event_start_date).format('MMMM YYYY')}</span>
+                              )
+                            }
+                          </div>
+                          <div className="px-2 lg:px-5 pb-2 lg:pb-5 flex flex-col gap-2 h-full">
+                            <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
+                            <div className="w-full h-[105px]">
+                              <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description))}</p>
+                            </div>
+                            <ul className="flex gap-5 mt-auto text-xs lg:text-sm">
+                              {
+                                event.event_registration_link && (
+                                  <li><Link href={event.event_registration_link} className="underline" target="_blank">Learn More</Link></li>
+                                )
+                              }
+                              {
+                                event.event_report && (
+                                  <li><Link href={event.event_report} className="underline" target="_blank">View Report</Link></li>
+                                )
+                              }
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+          </div>
         </div>
         )
       }
