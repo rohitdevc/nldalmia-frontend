@@ -192,7 +192,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         corporate_engagements && corporate_engagements.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="corporate-engagement">
           <CenterIntro introCaption="Corporate Engagement"></CenterIntro>
           <div className="flex flex-wrap gap-5 lg:gap-10 justify-center items-center">
             {
@@ -220,7 +220,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_tabs && placement_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="highlights">
           <ul className="flex flex-col sm:flex-row gap-7 py-5 text-burgundy justify-center items-center">
             {
               placement_tabs.map((placement_tab, key) => (
@@ -244,7 +244,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                       <BsArrowRightShort size={20} />
                     </span>
                   </div>
-                  <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} spaceBetween={0} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}, 1024: {slidesPerView: 4}}} >
+                  <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} centeredSlides={true} spaceBetween={0} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}, 1024: {slidesPerView: 4}}} >
                     {
                       placement_content_data[placement_tab].map((placement_content, sub_key) => (
                       <SwiperSlide key={sub_key}>
@@ -268,7 +268,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       )}
       {
         recruiters && recruiters.length > 0 && (
-          <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+          <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
             <Intro
             introTitle={recruiters_introduction.intro_title}
             introCaption={recruiters_introduction.intro_caption}
@@ -299,7 +299,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_features_tabs && placement_features_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="batch-profile">
           <Intro
           introTitle={features_introduction.intro_title}
           introCaption={features_introduction.intro_caption}
@@ -351,7 +351,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_reports_tabs && placement_reports_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="reports">
           <Intro
           introTitle={reports_introduction.intro_title}
           introCaption={reports_introduction.intro_caption}
@@ -448,36 +448,33 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       )}
       {
         contacts && contacts.length > 0 && (
-        <div className="w-full bg-[#FFCC33] flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full bg-[#FFCC33] flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10" id="connect">
           <div className="flex flex-col gap-5">
             <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{contacts_introduction.intro_caption}</p>
             <p className="leading-loose">{contacts_introduction.intro_description}</p>
           </div>
-          <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-10">
+          <div className="w-full flex flex-wrap justify-center xl:justify-between gap-5">
             {
               contacts.map((contact, key) => (
-                <div key={key}>
-                  <div className="flex flex-col gap-2">
-                    <h2 className="font-georgia text-xl">{contact.contact_name}</h2>
-                    <h3>{contact.contact_designation}</h3>
-                    {
-                      contact.contact_phone_number && (
-                        <span className="flex gap-2 items-center">
-                          <FaPhone size={15} />
-                          <Link href={`tel:${contact.contact_phone_number.replace(/\s+/g, '')}`}>{contact.contact_phone_number}</Link>
-                        </span>
-                      )
-                    }
-                    {
-                      contact.contact_email_address && (
-                        <span className="flex gap-2 items-center">
-                          <IoMdMail size={15} />
-                          <Link href={`mailto:${contact.contact_email_address}`}>{contact.contact_email_address}</Link>
-                        </span>
-                      )
-                    }
-                  </div>
-                  <span className={`h-35 w-[0.5px] bg-[#800000] ${((key + 1) !== contacts.length) ? 'hidden lg:block' : 'hidden'}`}></span>
+                <div className="flex flex-col gap-2 relative" key={key}>
+                  <h2 className="font-georgia text-xl">{contact.contact_name}</h2>
+                  <h3>{contact.contact_designation}</h3>
+                  {
+                    contact.contact_phone_number && (
+                      <span className="flex gap-2 items-center">
+                        <FaPhone size={15} />
+                        <Link href={`tel:${contact.contact_phone_number.replace(/\s+/g, '')}`}>{contact.contact_phone_number}</Link>
+                      </span>
+                    )
+                  }
+                  {
+                    contact.contact_email_address && (
+                      <span className="flex gap-2 items-center">
+                        <IoMdMail size={15} />
+                        <Link href={`mailto:${contact.contact_email_address}`}>{contact.contact_email_address}</Link>
+                      </span>
+                    )
+                  }
                 </div>
               ))
             }

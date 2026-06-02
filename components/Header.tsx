@@ -56,11 +56,9 @@ export default function Header({ program_categories, common_programs, ticker_api
         countdown = useServerCountdown(ticker_end_date);
     }
 
-    const [activeProgramCategory, updateActiveProgramCategory] = useState(program_categories[0].length > 0 ? program_categories[0] : '')
+    const [activeProgramCategory, updateActiveProgramCategory] = useState('');
 
-    const [hoverProgram, updateHoverProgram] = useState(false);
-
-    const [hoverExecutiveEducation, updateHoverExecutiveEducation] = useState(false);
+    const [hoverPGDM, updateHoverPGDM] = useState(false);
 
     const [openMobileMenu, updateMobileMenu] = useState(false);
 
@@ -119,35 +117,153 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}scholarships`}>Scholarships</Link>
                     </li>
                 </ul>
-                <div className="w-full flex justify-between items-center py-2 pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] pr-2 xl:pr-[2%] text-sm bg-white relative h-16 z-1">
+                <div className="w-full flex justify-between items-center pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] xl:pr-[2%] text-sm bg-white relative h-16 z-1">
                     <Link href={`${basePath}`}>
                         <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                     </Link>
-                    <ul className="gap-5 xl:gap-7 items-center hidden lg:flex">
-                        <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
-                            <Link href={`${basePath}about-us`}>About Us </Link>
+                    <ul className="gap-5 xl:gap-7 items-center hidden lg:flex h-full">
+                        <li className="group relative">
+                            <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
+                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                                <li>
+                                    <Link href={`${basePath}about-us#who-we-are`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Who we are</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}about-us#legacy`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Legacy</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}about-us#managing-council`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Managing Council</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}about-us#international-tie-ups`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">International Tie-ups</Link>
+                                </li>
+                            </ul>
                         </li>
-                        <li onMouseOver={() => { updateHoverProgram(true); updateHoverExecutiveEducation(false) }}>
-                            <Link href={`${basePath}programs`} className="flex gap-1 items-center">Programs <MdKeyboardArrowDown size={25} /></Link>
+                        <li className="group/item relative h-full justify-center flex">
+                            <Link href={`${basePath}programs`} className="flex gap-1 items-center" onMouseOut={() => updateActiveProgramCategory('')}>Programs <MdKeyboardArrowDown size={25} /></Link>
+                            <div className="absolute top-full -left-10 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible flex">
+                                <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy shadow-lg whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                                {
+                                    program_categories.map((program_category, key) => (
+                                        <li key={key} className="cursor-pointer relative w-50 group/submenu hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)} onMouseEnter={() => updateActiveProgramCategory(program_category)}>
+                                            <span className="block px-4 py-2">{program_category}</span> <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" />
+                                        </li>
+                                    ))
+                                }
+                                </ul>
+                                {
+                                    activeProgramCategory && (
+                                    <ul className="bg-white border-r border-b border-[#800000] text-burgundy shadow-lg whitespace-nowrap px-5 py-5 flex flex-col gap-5 min-w-[250px]">
+                                        {
+                                            activeProgramCategory === "Programs" && (
+                                                <>
+                                                <li className="cursor-pointer hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(true)}>
+                                                    <span className="block px-4 py-2 relative">PGDM <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" /></span>
+                                                </li>
+                                                <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                                    <Link href="/programs/global-mba-program-university-of-wisconsin-parkside" className="block px-4 py-2">Global MBA</Link>
+                                                </li>
+                                                <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                                    <Link href="/programs/doctoral-programs" className="block px-4 py-2">Ph.D</Link>
+                                                </li>
+                                                </>
+                                            )
+                                        }
+                                        {
+                                            common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && program.program_link).map((program, sub_key) => (
+                                                <li key={sub_key} className="hover:bg-[#800000] hover:text-white">
+                                                    <Link href={program.program_link} className="block px-4 py-2">{program.program_name}</Link>
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                )}
+                                {
+                                    hoverPGDM && (
+                                    <ul className="bg-white border-r border-b border-[#800000] text-burgundy shadow-lg whitespace-nowrap px-5 py-5 flex flex-col gap-5 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
+                                        <li className="hover:bg-[#800000] hover:text-white">
+                                            <Link href="/programs/pgdm" className="block px-4 py-2">PGDM</Link>
+                                        </li>
+                                        <li className="hover:bg-[#800000] hover:text-white">
+                                            <Link href="/programs/finance" className="block px-4 py-2">PGDM Finance</Link>
+                                        </li>
+                                        <li className="hover:bg-[#800000] hover:text-white">
+                                            <Link href="/programs/pgdm-in-business-analytics" className="block px-4 py-2">PGDM in Business Analytics</Link>
+                                        </li>
+                                    </ul>
+                                    )
+                                }
+                            </div>
                         </li>
-                        <li onMouseOver={() => { updateHoverExecutiveEducation(true); updateHoverProgram(false) }}>
+                        <li className="group relative">
                             <span className="flex gap-1 items-center cursor-pointer">Executive Education <MdKeyboardArrowDown size={25} /></span>
+                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                            {
+                                common_programs.filter((program) => program.program_type === "Executive Education" && program.program_link).map((program, sub_key) => (
+                                    <li key={sub_key}>
+                                        <Link href={program.program_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">{program.program_name}</Link>
+                                    </li>
+                                ))
+                            }
+                            </ul>
                         </li>
-                        <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
-                            <Link href={`${basePath}faculty`}>Faculty</Link>
+                        <li className="group relative">
+                            <Link href={`${basePath}faculty`} className="flex gap-1 items-center">Faculty <MdKeyboardArrowDown size={25} /></Link>
+                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                                <li>
+                                    <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Research</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}faculty/faculty-development-programs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Faculty Development Programs</Link>
+                                </li>
+                            </ul>
                         </li>
-                        <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
-                            <Link href={`${basePath}placements`}>Placements</Link>
+                        <li className="group relative">
+                            <Link href={`${basePath}placements`} className="flex gap-1 items-center">Placements <MdKeyboardArrowDown size={25} /></Link>
+                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                                <li>
+                                    <Link href={`${basePath}placements#corporate-engagement`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Corporate Engagement</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}placements#highlights`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Placement Highlights</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}placements#recruiters`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Recruiters</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}placements#batch-profile`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Batch Profile</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}placements#reports`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Placement Reports</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}placements#connect`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Connect With Our Team</Link>
+                                </li>
+                            </ul>
                         </li>
-                        <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
-                            <Link href={`${basePath}life-at-nld`}>Life@NLD</Link>
+                        <li className="group relative">
+                            <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdKeyboardArrowDown size={25} /></Link>
+                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                                <li>
+                                    <Link href={`${basePath}life-at-nld#events`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Events</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}life-at-nld#student-clubs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Student Clubs</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}life-at-nld#infrastructure`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Infrastructure</Link>
+                                </li>
+                                <li>
+                                    <Link href={`${basePath}life-at-nld#institutional-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Institutional Publications</Link>
+                                </li>
+                            </ul>
                         </li>
-                        <li onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
+                        <li>
                             <Link href={`${basePath}admissions`}>Admissions</Link>
                         </li>
                     </ul>
-                    <div className="flex items-center gap-1" onMouseOver={() => { updateHoverProgram(false); updateHoverExecutiveEducation(false) }}>
-                        <form>
+                    <div className="flex items-center gap-1 relative">
+                        <form className="hidden">
                             <div className="relative">
                                 <input type="search" placeholder="Search" className="peer text-right pr-3 py-2 focus:outline-none w-full lg:w-25 xl:w-full" />
                                 <CiSearch className="absolute right-18 top-1/2 -translate-y-1/2 text-gray-500 peer-not-placeholder-shown:hidden" size={18} />
@@ -157,52 +273,8 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
                         </Link>
-                        <RiMenu3Fill size={25} className={`cursor-pointer lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
-                        <RiCloseLargeFill size={25} className={`cursor-pointer transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
-                    </div>
-                    <div onMouseLeave={() => updateHoverProgram(false)} className={`absolute top-16 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverProgram ? 'scale-y-100' : 'scale-y-0'}`}>
-                        <div className="flex h-full">
-                            <ul className="bg-[#800000] w-[20%] flex flex-col text-white text-md pl-10 py-10">
-                                {
-                                    program_categories.map((program_category, key) => (
-                                        <li key={key} onMouseEnter={() => updateActiveProgramCategory(program_category)} className={`duration-300 transition-all flex items-center px-5 h-10 cursor-pointer ${activeProgramCategory === program_category ? 'bg-white text-burgundy' : ''}`}>{program_category}</li>
-                                    ))
-                                }
-                            </ul>
-                            <ul className="bg-white w-[80%] flex py-10">
-                                {
-                                    program_categories.map((program_category, key) => program_category === activeProgramCategory && (
-                                        common_programs.map((program, sub_key) => program.program_type === activeProgramCategory && program.program_link && (
-                                            <li key={sub_key} className="w-75 h-5 flex items-center text-center justify-center border-r last:border-r-0 border-[#800000]">
-                                                <Link href={program.program_link}>{program.program_name}</Link>
-                                            </li>
-                                        ))
-                                    )
-                                )}
-                            </ul>
-                        </div>
-                    </div>
-                    <div onMouseLeave={() => updateHoverExecutiveEducation(false)} className={`absolute top-16 left-0 w-full h-50 bg-white transition-all duration-100 scale-y-0 origin-top ${hoverExecutiveEducation ? 'scale-y-100' : 'scale-y-0'}`}>
-                        <div className="flex h-full">
-                            <ul className="bg-[#800000] w-[20%] flex flex-col text-white text-md pl-10 py-10">
-                                {
-                                    program_categories.map((program_category, key) => program_category === "Executive Education" && (
-                                        <li key={key} className={`duration-300 transition-all flex items-center px-5 h-10 cursor-pointer bg-white text-burgundy`}>{program_category}</li>
-                                    ))
-                                }
-                            </ul>
-                            <ul className="bg-white w-[80%] flex py-10">
-                                {
-                                    program_categories.map((program_category, key) => program_category === "Executive Education" && (
-                                        common_programs.map((program, sub_key) => program.program_type === "Executive Education" && program.program_link && (
-                                            <li key={sub_key} className="w-75 h-5 flex items-center text-center justify-center border-r last:border-r-0 border-[#800000]">
-                                                <Link href={program.program_link}>{program.program_name}</Link>
-                                            </li>
-                                        ))
-                                    )
-                                )}
-                            </ul>
-                        </div>
+                        <RiMenu3Fill size={25} className={`cursor-pointer absolute right-5 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
+                        <RiCloseLargeFill size={25} className={`cursor-pointer absolute right-5 transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
                     </div>
                 </div>
             </div>
@@ -210,8 +282,8 @@ export default function Header({ program_categories, common_programs, ticker_api
                 <div className="flex transition-transform duration-300 ease-in-out w-full h-full" style={{ transform: `translateX(-${step * 100}%)` }}>
                     <div className={`w-full shrink-0`}>
                         <ul>
-                            <li>
-                                <Link href={`${basePath}about-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us </Link>
+                            <li onClick={() => { setStep(5);}}>
+                                <Link href={`${basePath}about-us`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us <MdKeyboardArrowRight size={25} /></Link>
                             </li>
                             <li onClick={() => { setStep(1); }}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
@@ -219,14 +291,14 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => { setStep(3) }}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
                             </li>
-                            <li>
-                                <Link href={`${basePath}faculty`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty</Link>
+                            <li onClick={() => { setStep(6);}}>
+                                <Link href={`${basePath}faculty`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty <MdKeyboardArrowRight size={25} /></Link>
                             </li>
-                            <li>
-                                <Link href={`${basePath}placements`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements</Link>
+                            <li onClick={() => { setStep(7);}}>
+                                <Link href={`${basePath}placements`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements <MdKeyboardArrowRight size={25} /></Link>
                             </li>
-                            <li>
-                                <Link href={`${basePath}life-at-nld`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD</Link>
+                            <li onClick={() => { setStep(8);}}>
+                                <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD <MdKeyboardArrowRight size={25} /></Link>
                             </li>
                             <li>
                                 <Link href={`${basePath}admissions`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Admissions</Link>
@@ -244,7 +316,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => { setStep(2) }}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
                             </li>
-                            <li onClick={() => { setStep(3) }}>
+                            <li onClick={() => { setStep(4) }}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
                             </li>
                         </ul>
@@ -254,8 +326,40 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => { setStep(1); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
+                            <li onClick={() => {setStep(3);}}>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM <MdKeyboardArrowRight size={20} /></span>
+                            </li>
+                            <li>
+                                <Link href="/programs/global-mba-program-university-of-wisconsin-parkside" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
+                            </li>
+                            <li>
+                                <Link href="/programs/doctoral-programs" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(2); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            <li>
+                                <Link href="/programs/pgdm" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM</Link>
+                            </li>
+                            <li>
+                                <Link href="/programs/finance" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
+                            </li>
+                            <li>
+                                <Link href="/programs/pgdm-in-business-analytics" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM in Business Analytics</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(1); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
                             {
-                                common_programs.map((program, key) => program.program_type === "Programs" && program.program_link && (
+                                common_programs.filter((program) => program.program_type === "Executive Education" && program.program_link).map((program, key) => (
                                     <li key={key}>
                                         <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
                                     </li>
@@ -265,16 +369,78 @@ export default function Header({ program_categories, common_programs, ticker_api
                     </div>
                     <div className={`w-full shrink-0`}>
                         <ul>
-                            <li onClick={() => { setStep(1); }}>
+                            <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
-                            {
-                                common_programs.map((program, key) => program.program_type === "Executive Education" && program.program_link && (
-                                    <li key={key}>
-                                        <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
-                                    </li>
-                                ))
-                            }
+                            <li>
+                                <Link href={`${basePath}about-us#who-we-are`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Who we are</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}about-us#legacy`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Legacy</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}about-us#managing-council`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Managing Council</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}about-us#international-tie-ups`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">International Tie-ups</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(0); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Research</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}faculty/faculty-development-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty Development Programs</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(0); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#corporate-engagement`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Corporate Engagement</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#highlights`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Highlights</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#recruiters`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Recruiters</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#batch-profile`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Batch Profile</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#reports`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Reports</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#connect`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Connect With Our Team</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={`w-full shrink-0`}>
+                        <ul>
+                            <li onClick={() => { setStep(0); }}>
+                                <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#events`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Events</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#student-clubs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Student Clubs</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#infrastructure`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Infrastructure</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#institutional-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Institutional Publications</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

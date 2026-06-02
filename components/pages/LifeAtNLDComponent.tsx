@@ -123,7 +123,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       banner_url={banner.button_link} />
       {
         events && events.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="events">
           <CenterIntro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -236,7 +236,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       }
       {
         student_clubs && student_clubs.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="student-clubs">
           <CenterIntro
           introTitle={student_club_introduction.intro_title}
           introCaption={student_club_introduction.intro_caption}
@@ -362,7 +362,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       </div>
       {
         inside_nld && inside_nld.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="infrastructure">
           <CenterIntro
           introTitle={inside_nld_introduction.intro_title}
           introCaption={inside_nld_introduction.intro_caption}
@@ -422,7 +422,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       }
       {
         magazines && magazines.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="institutional-publications">
           <CenterIntro
           introTitle={magazines_introduction.intro_title}
           introCaption={magazines_introduction.intro_caption}

@@ -6,8 +6,8 @@ import { notFound, permanentRedirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
-    { program: "(prefers-color-scheme: light)", color: "#2e4f84" },
-    { program: "(prefers-color-scheme: dark)", color: "#2e4f84" },
+    { program: "(prefers-color-scheme: light)", color: process.env.DEFAULT_THEME_COLOUR },
+    { program: "(prefers-color-scheme: dark)", color: process.env.DEFAULT_THEME_COLOUR },
   ],
 };
 

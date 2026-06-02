@@ -18,8 +18,8 @@ const [
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#2e4f84" },
-    { media: "(prefers-color-scheme: dark)", color: "#2e4f84" },
+    { media: "(prefers-color-scheme: light)", color: process.env.DEFAULT_THEME_COLOUR },
+    { media: "(prefers-color-scheme: dark)", color: process.env.DEFAULT_THEME_COLOUR },
   ],
 };
 

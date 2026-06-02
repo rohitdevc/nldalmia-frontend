@@ -101,7 +101,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15" id="who-we-are">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -140,7 +140,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       </div>
       {
         timeline && timeline.length > 0 && (
-          <div className="w-full h-screen bg-cover bg-center relative text-white flex flex-col" style={{backgroundImage: `url(${timeline[activeYear]?.timeline_image})`}} title={timeline[activeYear]?.timeline_image_alt}>
+          <div className="w-full h-screen bg-cover bg-center relative text-white flex flex-col" id="legacy" style={{backgroundImage: `url(${timeline[activeYear]?.timeline_image})`}} title={timeline[activeYear]?.timeline_image_alt}>
             <div className="absolute inset-0 bg-black/35"></div>
             <Swiper slidesPerView={5} centeredSlides slideToClickedSlide watchSlidesProgress initialSlide={0} modules={[Controller, Navigation]} onSwiper={setYearSwiper} className="w-full lg:w-1/2 relative z-10 timeline_pagination_slider">
               {
@@ -231,7 +231,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         managing_council && managing_council.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 lg:py-10">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 lg:py-10" id="managing-council">
           <Intro
           introTitle={managing_council_introduction.intro_title}
           introCaption={managing_council_introduction.intro_caption}
@@ -339,7 +339,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         international_countries && international_countries.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 lg:py-15">
+        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 lg:py-15" id="international-tie-ups">
           <Intro
           introTitle={international_universities_introduction.intro_title}
           introCaption={international_universities_introduction.intro_caption}

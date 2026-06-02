@@ -208,8 +208,8 @@ export default function HomeComponent({banner, announcements, introduction, care
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-15">
         {
           announcements && announcements.length > 0 && (
-          <div className="flex">
-            <span className="px-5 py-2 bg-[#800000] text-white font-georgia">Announcements</span>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+            <span className="px-5 py-2 bg-[#800000] text-white font-georgia w-42">Announcements</span>
             <div className="group bg-[#FFCC33] text-burgundy w-full overflow-hidden">
               <div className="flex w-max animate-[ticker_30s_linear_infinite] group-hover:[animation-play-state:paused]">
                 {
@@ -295,10 +295,10 @@ export default function HomeComponent({banner, announcements, introduction, care
               </ul>
               {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => activeProgramCategory === key && (
-                  <div className={`w-full flex flex-wrap gap-5 text-white transition-opacity`} key={key} ref={programsList}>
+                  <div className={`w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 text-white transition-opacity`} key={key} ref={programsList}>
                     {
                       programs.map((program, key) => program.program_type === program_category && (
-                      <div className="group w-xs h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
+                      <div className="group w-full h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
                         <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                         
                         <div className="relative h-full w-full flex flex-col">
@@ -402,10 +402,10 @@ export default function HomeComponent({banner, announcements, introduction, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
+          <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 25 }, 1024: { slidesPerView: 3, spaceBetween: 50 } }} >
             {
               testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full min-h-85 md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
+                <SwiperSlide className="group relative w-full min-h-90 md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
                     {
                       testimonial.testimonial_thumbnail && (
