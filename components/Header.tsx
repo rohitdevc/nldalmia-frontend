@@ -117,10 +117,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}scholarships`}>Scholarships</Link>
                     </li>
                     <li className="xl:hidden">
-                        <Link href={`${basePath}contact-us`}>Contact Us</Link>
+                        <Link href={`${basePath}contact-us`} className="flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
+                            <IoMdMail size={20} />
+                            <span>Contact Us</span>
+                        </Link>
                     </li>
                 </ul>
-                <div className="w-full flex justify-between items-center pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] xl:pr-[2%] text-sm bg-white relative h-16 z-1">
+                <div className="w-full flex justify-between items-center pl-5 md:pl-20 lg:px-3 xl:pl-[5%] xl:pr-[2%] text-sm bg-white relative h-16 z-1">
                     <Link href={`${basePath}`}>
                         <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                     </Link>
@@ -275,7 +278,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <CiSearch className="absolute right-18 top-1/2 -translate-y-1/2 text-gray-500 peer-not-placeholder-shown:hidden" size={18} />
                             </div>
                         </form>
-                        <Link href={`${basePath}contact-us`} className="hidden lg:flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
+                        <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
                         </Link>
