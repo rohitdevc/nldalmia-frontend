@@ -9,16 +9,13 @@ import {
 } from "@/types/api";
 
 export const getMediaCategory = async (slug: string) => apiFetch<MediaCategory>(`media/${slug}`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getMediaCategories = async () => apiFetch<MediaCategoryListing[]>(`media/categories`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getMedia = async (slug: string) => apiFetch<Media[]>(`media/listing/${slug}`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });

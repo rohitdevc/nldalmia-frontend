@@ -9,16 +9,13 @@ import {
 } from "@/types/api";
 
 export const getIQACCategories = async () => apiFetch<IQACCategories>(`iqac/categories`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getIQAC = async () => apiFetch<IQAC[]>(`iqac`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getIQACPOE = async () => apiFetch<IQACPOE[]>(`iqac/poe`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });

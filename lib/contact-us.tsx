@@ -8,13 +8,11 @@ import {
 } from "@/types/api";
 
 export const getIntroduction = async () => apiFetch<IntroProps>(`contact-us/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getEnquiryReasons = async () => apiFetch<string[]>(`contact-us/reasons`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 })
 
 export const submitEnquiry = async (formData: EnquiryForm) => apiFetch<EnquiryForm>(`contact-us/enquiry`, {

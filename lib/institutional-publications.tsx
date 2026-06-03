@@ -8,11 +8,9 @@ import {
 } from "@/types/api";
 
 export const getInstitutionalPublicationCategories = async () => apiFetch<InstitutionalPublicationCategories[]>(`institutional-publications/categories`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getInstitutionalPublications = async () => apiFetch<InstitutionalPublications[]>(`institutional-publications`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });

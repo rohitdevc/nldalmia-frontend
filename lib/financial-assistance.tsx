@@ -8,11 +8,9 @@ import {
 } from "@/types/api";
 
 export const getIntroduction = async () => apiFetch<IntroProps>(`financial-assistance/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getFinancialAssistancePartners = async () => apiFetch<FinancialAssistancePartners[]>(`financial-assistance/partners`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });

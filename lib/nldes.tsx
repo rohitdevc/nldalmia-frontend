@@ -12,61 +12,49 @@ import {
 } from "@/types/api";
 
 export const getIntroduction = async () => apiFetch<IntroProps>(`nldes/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESObjectivesIntroduction = async () => apiFetch<IntroProps>(`nldes/objectives/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESObjectives = async () => apiFetch<NLDESObjectives[]>(`nldes/objectives`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESInstitutesIntroduction = async () => apiFetch<IntroProps>(`nldes/institutes/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESInstitutes = async () => apiFetch<Institutes[]>(`nldes/institutes`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESManagementIntroduction = async () => apiFetch<IntroProps>(`nldes/management/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESManagement = async () => apiFetch<NLDESManagement[]>(`nldes/management`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESSocialResponsibilityIntroduction = async () => apiFetch<IntroProps>(`nldes/social-responsibility/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESSocialResponsibility = async () => apiFetch<NLDESSocialResponsibility[]>(`nldes/social-responsibility`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESCareersIntroduction = async () => apiFetch<IntroProps>(`nldes/careers/introduction`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESCareers = async () => apiFetch<NLDESCareers[]>(`nldes/careers`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getNLDESFooter = async () => apiFetch<IntroProps>(`nldes/footer`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });

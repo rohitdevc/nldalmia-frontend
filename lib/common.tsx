@@ -19,28 +19,23 @@ export const buildHeaders = async () => {
 }
 
 export const getMetaData = async (page_name: string) => apiFetch<MetaData>("meta-data", {
-    method: "POST",
-    headers: await buildHeaders(),
+    method: "GET",
     body: JSON.stringify({ page_name })
 });
 
 export const getBanner = async (page_name: string) => apiFetch<Banner>("banner", {
-    method: "POST",
-    headers: await buildHeaders(),
+    method: "GET",
     body: JSON.stringify({ page_name })
 });
 
 export const getTicker = async () => apiFetch<Ticker>("ticker", {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getInstagramFeed = async () => apiFetch<InstagramFeed[]>("nldalmia/instagram/feed", {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
 
 export const getCommonPrograms = async () => apiFetch<ProgramsProps[]>(`home/programs`, {
-    method: "GET",
-    headers: await buildHeaders()
+    method: "GET"
 });
