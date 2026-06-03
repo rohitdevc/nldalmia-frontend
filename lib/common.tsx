@@ -18,14 +18,12 @@ export const buildHeaders = async () => {
     };
 }
 
-export const getMetaData = async (page_name: string) => apiFetch<MetaData>("meta-data", {
-    method: "GET",
-    body: JSON.stringify({ page_name })
+export const getMetaData = async (page_name: string) => apiFetch<MetaData>(`meta-data?page_name=${page_name}`, {
+    method: "GET"
 });
 
-export const getBanner = async (page_name: string) => apiFetch<Banner>("banner", {
-    method: "GET",
-    body: JSON.stringify({ page_name })
+export const getBanner = async (page_name: string) => apiFetch<Banner>(`banner?page_name=${page_name}`, {
+    method: "GET"
 });
 
 export const getTicker = async () => apiFetch<Ticker>("ticker", {
