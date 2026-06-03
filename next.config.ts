@@ -38,6 +38,121 @@ const nextConfig: NextConfig = {
 	 async redirects()  {
 		return [
 			{
+				source: '/reasons-why-you-should-consider-taking-a-course-on-big-data-analytics',
+				destination: '/big-data-course-all-you-need-to-know-before-enrolling-to-one',
+				permanent: true
+			},
+			{
+				source: '/Course-MMS-Masters-In-Management-Studies-Marketing',
+				destination: '/programs/pgdm',
+				permanent: true
+			},
+			{
+				source: '/Course-Master-Degree-in-Marketing-Management',
+				destination: '/programs/pgdm',
+				permanent: true
+			},
+			{
+				source: '/Course-Post-Graduate-Program-in-Marketing',
+				destination: '/programs/pgdm',
+				permanent: true
+			},
+			{
+				source: '/about-us/vision-mission',
+				destination: '/about-us',
+				permanent: true
+			},
+			{
+				source: '/campus/gym',
+				destination: '/life-at-nld',
+				permanent: true
+			},
+			{
+				source: '/faculty/ms-minati-sahoo',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/prof-seema-saini',
+				destination: '/faculty/prof-dr-seema-saini',
+				permanent: true
+			},
+			{
+				source: '/faculty-members/dr-seema-saini',
+				destination: '/faculty/prof-dr-seema-saini',
+				permanent: true
+			},
+			{
+				source: '/research-and-development',
+				destination: '/faculty/research-papers-published/journal-publications',
+				permanent: true
+			},
+			{
+				source: '/publications/innovision-journal',
+				destination: '/institutional-publications',
+				permanent: true
+			},
+			{
+				source: '/best-green-campus',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/most-effective-learning-management-system-4',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/times-top-institute-of-west-india-2020',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/most-effective-learning-management-system-3',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/interesting-career-prospects-after-completing-pdgm-or-mba-in-hr-2',
+				destination: '/interesting-career-prospects-after-completing-pdgm-or-mba-in-hr',
+				permanent: true
+			},
+			{
+				source: '/most-effective-learning-management-system-2',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/times-education-icon',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/most-effective-learning-management-system',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/awards/the-national-education-excellence-awards-2020',
+				destination: '/awards',
+				permanent: true
+			},
+			{
+				source: '/5-must-read-books-for-a-business-analyst-2',
+				destination: '/5-must-read-books-for-a-business-analyst',
+				permanent: true
+			},
+			{
+				source: '/5-tips-to-translate-mba-learnings-into-corporate-success-2',
+				destination: '/5-tips-to-translate-mba-learnings-into-corporate-success',
+				permanent: true
+			},
+			{
+				source: '/blog/2018/10/05/how-to-select-a-college-for-mba',
+				destination: '/how-to-select-a-college-for-mba',
+				permanent: true
+			},
+			{
 				source: '/faculty/research-papers-published',
 				destination: '/faculty/research-papers-published/journal-publications',
 				permanent: true
@@ -51,6 +166,16 @@ const nextConfig: NextConfig = {
 				source: '/blog',
 				destination: '/blogs',
 				permanent: true
+			},
+			{
+				source: '/:year/:month',
+				destination: '/blogs',
+				permanent: true,
+			},
+			{
+				source: '/blog/:year/:month/:day',
+				destination: '/blogs',
+				permanent: true,
 			},
 			{
 				source: '/blog/:year/:month/:day/:slug',
@@ -115,6 +240,21 @@ const nextConfig: NextConfig = {
 			{
 				source: '/awards-achievement',
 				destination: '/awards-and-achievements',
+				permanent: true,
+			},
+			{
+				source: '/faculty_members',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/Course-Global-MBA-Program-University-of-Wisconsin-Parkside',
+				destination: '/programs/global-mba-program-university-of-wisconsin-parkside',
+				permanent: true,
+			},
+			{
+				source: '/Course-MMS-Masters-In-Management-Studies-Finance',
+				destination: '/programs/finance',
 				permanent: true,
 			},
 			{
@@ -1610,6 +1750,26 @@ const nextConfig: NextConfig = {
 			{
 				source: '/wp-content/uploads/2025/11/List-of-PGDM-Finance-Students-placed-during-A.Y.-2021-22-2022-23-2023-24.pdf',
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/pgdm-finance-students-placements-2021-22.2022-23.2023-24.pdf',
+				permanent: true
+			},
+			{
+				source: '/alumni-spotlight/8212',
+				destination: '/events/virtual-alumni-meet-series-2',
+				permanent: true
+			},
+			{
+				source: '/alumni-spotlight/mr-bhoopesh-jain-2',
+				destination: '/alumni',
+				permanent: true
+			},
+			{
+				source: '/alumni-spotlight/mr-gaurav-jain-2',
+				destination: '/alumni',
+				permanent: true
+			},
+			{
+				source: '/alumni-spotlight/ms-munmun-desai-2',
+				destination: '/alumni',
 				permanent: true
 			}
 		]
