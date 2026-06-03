@@ -155,6 +155,7 @@ export default function EventDetails({ event }: PageProps) {
       banner_description={event.banner_image_description}
       />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <h1 className="hidden">{event.event_name}</h1>
           <Intro
           introTitle={event.event_name}
           introCaption={event.event_introduction_caption}
