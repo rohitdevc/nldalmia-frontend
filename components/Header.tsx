@@ -116,6 +116,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <li>
                         <Link href={`${basePath}scholarships`}>Scholarships</Link>
                     </li>
+                    <li className="xl:hidden">
+                        <Link href={`${basePath}contact-us`}>Contact Us</Link>
+                    </li>
                 </ul>
                 <div className="w-full flex justify-between items-center pl-5 md:pl-20 lg:pl-5 xl:pl-[5%] xl:pr-[2%] text-sm bg-white relative h-16 z-1">
                     <Link href={`${basePath}`}>

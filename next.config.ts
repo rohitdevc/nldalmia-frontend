@@ -168,11 +168,6 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
-				source: '/:year/:month',
-				destination: '/blogs',
-				permanent: true,
-			},
-			{
 				source: '/blog/:year/:month/:day',
 				destination: '/blogs',
 				permanent: true,
