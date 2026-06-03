@@ -270,9 +270,6 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <li>
                             <Link href={`${basePath}admissions`}>Admissions</Link>
                         </li>
-                        <li>
-                            <Link href={`${basePath}contact-us`}>Contact Us</Link>
-                        </li>
                     </ul>
                     <div className="flex items-center gap-1 relative">
                         <form className="hidden">
@@ -314,6 +311,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                             </li>
                             <li>
                                 <Link href={`${basePath}admissions`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Admissions</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}contact-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Contact Us</Link>
                             </li>
                         </ul>
                     </div>
