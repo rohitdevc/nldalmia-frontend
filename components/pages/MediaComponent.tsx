@@ -45,17 +45,17 @@ export default function MediaComponent({ banner, media_category_url_slug, media,
             <div className="flex flex-col gap-25">
               {
                 media.map((media_row, key) => (
-                  <div className="w-full flex gap-10" key={key}>
-                    <div className="w-100">
+                  <div className="w-full flex flex-col md:flex-row gap-5 md:gap-10" key={key}>
+                    <div className="w-full md:w-[25%]">
+                        <Image src={media_row.media_thumbnail || `${basePath}logo.svg`} alt={media_row.media_thumbnail_alt || `N L Dalmia Logo`} width={300} height={300} className="w-full" />
+                    </div>
+                    <div className="flex flex-col gap-5 w-full md:w-[75%]">
+                      <h2 className="font-georgia text-xl">{media_row.media_title}</h2>
                       {
-                        media_row.media_thumbnail && (
-                          <Image src={media_row.media_thumbnail} alt={media_row.media_thumbnail_alt} width={300} height={300} className="object-cover w-full h-full" />
+                        media_row.media_published_date && (
+                          <span>{dayjs(media_row.media_published_date).format('MMMM DD, YYYY')}</span>
                         )
                       }
-                    </div>
-                    <div className="flex flex-col gap-5">
-                      <h2 className="font-georgia text-xl">{media_row.media_title}</h2>
-                      <span>{dayjs(media_row.media_published_date).format('MMMM DD, YYYY')}</span>
                       {
                         media_row.media_preview && (
                         <p>{parser(nl2br(media_row.media_preview))}</p>

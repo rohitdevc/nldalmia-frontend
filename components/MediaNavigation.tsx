@@ -27,6 +27,12 @@ export default function MediaNavigation({activePage, media_categories}: mediaNav
                     </li>
                 ))
             }
+            <li className="group">
+                <Link href={`${basePath}blogs`} className="relative">
+                    <span>Blog</span>
+                    <span className={`absolute w-full -bottom-1 left-0 h-[0.5px] bg-[#800000] origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activePage === "blogs" ? 'scale-x-100' : ''}`}></span>
+                </Link>
+            </li>
         </ul>
     )
 }

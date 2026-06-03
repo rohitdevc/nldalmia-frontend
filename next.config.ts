@@ -314,7 +314,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/media',
-				destination: '/media/press-release',
+				destination: '/media/announcements',
 				permanent: true
 			},
 			{
@@ -354,7 +354,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/news-and-announcements',
-				destination: '/media/press-release',
+				destination: '/media/announcements',
 				permanent: true
 			},
 			{

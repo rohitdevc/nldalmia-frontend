@@ -205,10 +205,10 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                 management_quotes.map((management_quote, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col w-full" key={key}>
                     <div className="flex flex-col gap-2 items-center p-5 text-center">
-                      <div className="w-40 h-40">
+                      <div className="h-75">
                         {
                           management_quote.management_thumbnail && (
-                            <Image src={management_quote.management_thumbnail} alt={management_quote.management_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
+                            <Image src={management_quote.management_thumbnail} alt={management_quote.management_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
                           )
                         }
                       </div>
@@ -250,10 +250,10 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                 managing_council.map((managing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
                     <div className="flex flex-col gap-5 items-center p-5 text-center">
-                      <div className="w-40 h-40">
+                      <div className="h-75">
                         {
                           managing_council_row.managing_council_thumbnail && (
-                            <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
+                            <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
                           )
                         }
                       </div>
@@ -295,15 +295,15 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                 governing_council.map((governing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
                     <div className="flex flex-col gap-5 items-center p-5 text-center">
-                      <div className="w-40 h-40">
+                      <div className="h-75">
                         {
                           governing_council_row.governing_council_thumbnail && (
-                            <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={150} height={150} className="object-cover w-full h-full" />
+                            <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
                           )
                         }
                       </div>
                       <h2 className="text-xl font-georgia lg:h-10">{governing_council_row.governing_council_name}</h2>
-                      <p className="text-burgundy leading-loose lg:h-20 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
+                      <p className="text-burgundy leading-loose">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
                     </div>
                     {
                       governing_council_row.governing_council_profile_link && (
