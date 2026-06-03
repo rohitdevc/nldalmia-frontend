@@ -116,7 +116,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <li>
                         <Link href={`${basePath}scholarships`}>Scholarships</Link>
                     </li>
-                    <li className="xl:hidden">
+                    <li className="hidden lg:block xl:hidden">
                         <Link href={`${basePath}contact-us`} className="flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
@@ -269,6 +269,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                         <li>
                             <Link href={`${basePath}admissions`}>Admissions</Link>
+                        </li>
+                        <li>
+                            <Link href={`${basePath}contact-us`}>Contact Us</Link>
                         </li>
                     </ul>
                     <div className="flex items-center gap-1 relative">
