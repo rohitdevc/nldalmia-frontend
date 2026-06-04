@@ -204,9 +204,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                                             )
                                         }
                                         {
-                                            common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && program.program_link).map((program, sub_key) => (
+                                            common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && (program.program_link || program.program_application_link)).map((program, sub_key) => (
                                                 <li key={sub_key} className="hover:bg-[#800000] hover:text-white">
-                                                    <Link href={program.program_link} className="block px-4 py-2">{program.program_name}</Link>
+                                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2">{program.program_name}</Link>
                                                 </li>
                                             ))
                                         }
@@ -233,9 +233,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <span className="flex gap-1 items-center cursor-pointer">Executive Education <MdKeyboardArrowDown size={25} /></span>
                             <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
                             {
-                                common_programs.filter((program) => program.program_type === "Executive Education" && program.program_link).map((program, sub_key) => (
+                                common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, sub_key) => (
                                     <li key={sub_key}>
-                                        <Link href={program.program_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">{program.program_name}</Link>
+                                        <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">{program.program_name}</Link>
                                     </li>
                                 ))
                             }
@@ -411,9 +411,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             {
-                                common_programs.filter((program) => program.program_type === "Executive Education" && program.program_link).map((program, key) => (
+                                common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, key) => (
                                     <li key={key}>
-                                        <Link href={program.program_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
+                                        <Link href={program.program_link || program.program_application_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
                                     </li>
                                 ))
                             }

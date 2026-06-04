@@ -6,6 +6,7 @@ import fs from "fs/promises";
 import path from "path";
 
 import { getBlogs } from "@/lib/blog";
+import { getBlogCategories } from "@/lib/blog";
 import { getEvents } from "@/lib/event";
 import { getAwards } from "@/lib/awards";
 import { getFaculties } from "@/lib/faculty";
@@ -14,10 +15,12 @@ import { getIQAC } from "@/lib/iqac";
 import { getPrograms } from "@/lib/program";
 import { getStaticPages } from "@/lib/common";
 import { getMediaCategories } from "@/lib/media";
+import { getPlacementsReports } from "@/lib/placements";
 
 async function generateSearchIndex() {
     const static_pages = await getStaticPages();
     const blogs = await getBlogs();
+    const blog_categories = await getBlogCategories();
     const events = await getEvents();
     const awards = await getAwards();
     const faculties = await getFaculties();
@@ -25,6 +28,7 @@ async function generateSearchIndex() {
     const iqac = await getIQAC();
     const programs = await getPrograms();
     const media_categories = await getMediaCategories();
+    const placement_reports = await getPlacementsReports();
 
     const pages = [
         ...static_pages.map(static_page => ({
@@ -33,10 +37,22 @@ async function generateSearchIndex() {
             type: 'Static'
         })),
 
+        ...placement_reports.map(placement_report => ({
+            title: placement_report.report_caption,
+            path: `${placement_report.report_pdf}`,
+            type: 'Placements'
+        })),
+
         ...media_categories.map(media_category => ({
             title: media_category.media_category_title,
             path: `/media/${media_category.media_category_url_slug}`,
             type: 'Media'
+        })),
+
+        ...blog_categories.map(blog_category => ({
+            title: blog_category.blog_category_title,
+            path: `/category/${blog_category.blog_category_url_slug}`,
+            type: 'Blog'
         })),
 
         ...blogs.map(blog => ({

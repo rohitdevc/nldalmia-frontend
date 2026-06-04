@@ -30,6 +30,8 @@ import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { Program } from "@/types/api";
 import { ProgramDownloadBrochureFormErrors, ProgramDownloadBrochure } from "@/types/forms";
 
+import { useSanitizeTable } from "@/hooks/useSanitizeTable";
+
 type PageProps = {
   program: Program
 }
@@ -262,33 +264,7 @@ export default function ProgramComponent({ program}: PageProps) {
         }
   }
   
-  useEffect(() => {
-      const wrappers = document.querySelectorAll(".responsive-table");
-      if (!wrappers.length) return;
-
-      wrappers.forEach((wrapper) => {
-        const table = wrapper.querySelector("table");
-        if (!table) return;
-
-        table.classList.add(
-          "w-full",
-          "table-fixed",
-          "text-[#4E4E4E]",
-          "text-center",
-          "my-5"
-        );
-        
-        const headers = Array.from(table.querySelectorAll("thead th")).map((th) => th.textContent.trim());
-        
-        table.querySelectorAll("tbody tr").forEach((tr) => {
-          Array.from(tr.children).forEach((td, index) => {
-            if (headers[index]) {
-              td.setAttribute("data-label", headers[index]);
-            }
-          });
-        });
-      })
-  }, []);
+  useSanitizeTable();
 
   const program_admission_tabs: string[] = [];
 

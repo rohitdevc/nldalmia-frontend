@@ -294,8 +294,8 @@ export default function AboutUsComponent({banner, introduction, objectives, time
               {
                 governing_council.map((governing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
-                    <div className="flex flex-col gap-5 items-center p-5 text-center">
-                      <div className="h-75">
+                    <div className="flex flex-col gap-5 items-center p-5 text-center min-h-50">
+                      <div className="h-75 hidden">
                         {
                           governing_council_row.governing_council_thumbnail && (
                             <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
@@ -303,7 +303,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                         }
                       </div>
                       <h2 className="text-xl font-georgia lg:h-10">{governing_council_row.governing_council_name}</h2>
-                      <p className="text-burgundy leading-loose">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
+                      <p className="text-burgundy leading-normal">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
                     </div>
                     {
                       governing_council_row.governing_council_profile_link && (

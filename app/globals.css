@@ -64,6 +64,12 @@ body {
   @apply list-disc list-inside flex flex-wrap gap-3 lg:gap-5
 }
 
+.responsive-table table {
+  all: revert;
+  width: 100%;
+  table-layout: fixed;
+}
+
 .responsive-table thead tr {
   @apply bg-[#FFCC33] h-10
 }

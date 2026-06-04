@@ -14,6 +14,7 @@ import nl2br from "nl2br";
 
 import { MdArrowOutward } from "react-icons/md";
 import { Banner as BannerProps, IntroProps, Reports } from "@/types/api";
+import { useSanitizeTable } from "@/hooks/useSanitizeTable";
 
 type PageProps = {
   banner: BannerProps
@@ -28,33 +29,7 @@ type PageProps = {
 export default function ScholarshipComponent({ banner, introduction, scholarship_merit, scholarship_inclusivity, scholarship_second_year, reports_introduction, reports}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
   
-  useEffect(() => {
-    const wrappers = document.querySelectorAll(".responsive-table");
-    if (!wrappers.length) return;
-
-    wrappers.forEach((wrapper) => {
-      const table = wrapper.querySelector("table");
-      if (!table) return;
-
-      table.classList.add(
-        "w-full",
-        "table-fixed",
-        "text-[#4E4E4E]",
-        "text-center",
-        "my-5"
-      );
-      
-      const headers = Array.from(table.querySelectorAll("thead th")).map((th) => th.textContent.trim());
-      
-      table.querySelectorAll("tbody tr").forEach((tr) => {
-        Array.from(tr.children).forEach((td, index) => {
-          if (headers[index]) {
-            td.setAttribute("data-label", headers[index]);
-          }
-        });
-      });
-    })
-  }, []);
+  useSanitizeTable();
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>

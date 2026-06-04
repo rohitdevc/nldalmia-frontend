@@ -234,7 +234,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           <div className="w-full md:w-[40%] overflow-hidden">
             {
               introduction.intro_image &&  (
-                <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_image_alt} className="object-cover w-full h-full" />
+                <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_image_alt || `N L Dalmia`} className="object-cover w-full h-full" />
               )
             }
           </div>
@@ -377,7 +377,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                   placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
                     <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
                       <div className="rounded-full overflow-hidden border border-[#800000] w-40 h-40 lg:w-50 lg:h-50 flex items-center p-1">
-                        <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_logo_alt} width={300} height={300} className="object-cover w-full" />
+                        <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_logo_alt || `N L Dalmia`} width={300} height={300} className="object-cover w-full" />
                       </div>
                     </SwiperSlide>
                   ))
@@ -409,7 +409,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
                     {
                       testimonial.testimonial_thumbnail && (
-                      <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="rounded-full w-30 h-30" />
+                      <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt || `N L Dalmia`} width={200} height={200} className="rounded-full w-30 h-30" />
                       )
                     }
                     <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
@@ -497,8 +497,8 @@ export default function HomeComponent({banner, announcements, introduction, care
                                         </div>
                                         <div className="px-2 lg:px-5 pb-2 lg:pb-5 flex flex-col gap-2 h-full">
                                           <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
-                                          <div className="w-full h-[105px] overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">
-                                            <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description))}</p>
+                                          <div className="w-full">
+                                            <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description.slice(0, 300) + '...'))}</p>
                                           </div>
                                           <ul className="flex mt-auto text-xs lg:text-sm">
                                             {
@@ -542,13 +542,13 @@ export default function HomeComponent({banner, announcements, introduction, care
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 awards.map((award, key) => (
                   <SwiperSlide className="!w-35 sm:!w-50" title={award.award_name} key={key}>
                     {
                       award.award_thumbnail && (
-                      <Image src={award.award_thumbnail} alt={award.award_thumbnail_alt} width={300} height={300} className="object-cover w-full" />
+                      <Image src={award.award_thumbnail} alt={award.award_thumbnail_alt || `N L Dalmia`} width={300} height={300} className="object-cover w-full" />
                       )
                     }
                     <div className="flex flex-col gap-1 justify-center items-center text-center mt-5">
@@ -576,7 +576,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
           {
             media.map((media_row, key) => (
               <SwiperSlide key={key}>
@@ -640,7 +640,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
           {
             blogs.map((blog, key) => (
               <SwiperSlide key={key}>
@@ -673,7 +673,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                             )
                           }
                         </div>
-                        <p className="lg:leading-loose text-sm mt-auto flex">{parser(nl2br(blog.blog_preview))}</p>
+                        <p className="lg:leading-loose text-sm mt-auto flex">{parser(nl2br(blog.blog_preview.slice(0, 200) + '...'))}</p>
                         <ul className="flex mt-auto text-sm">
                           {
                             blog.blog_url_slug && (

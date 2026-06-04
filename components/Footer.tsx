@@ -24,60 +24,75 @@ export default function Footer({program_categories, common_programs}: PageProps)
             <div className="w-full bg-[#FFCC33] text-sm grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 bg-[#FFCC33] px-5 md:px-20 py-5 md:py-20">
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Quick Links</li>
-                    <li>
-                        <Link href="">Mandatory Disclosures</Link>
-                    </li>
+                    <li className="font-bold">Accreditation & Compliance </li>
                     <li>
                         <Link href="">AICTE Approvals</Link>
                     </li>
                     <li>
-                        <Link href="">All Reports - MHRD NIRF</Link>
+                        <Link href="">Mandatory Disclosures</Link>
+                    </li>
+                    <li>
+                        <Link href="">NIRF</Link>
+                    </li>
+                    <li>
+                        <Link href="">Accreditations & Rankings</Link>
+                    </li>
+                    <li>
+                        <Link href="">Statutory Committees</Link>
                     </li>
                     <li>
                         <Link href="">Grievance Redressal</Link>
                     </li>
                     <li>
-                        <Link href={`${basePath}blogs`}>Media & Blogs</Link>
+                        <Link href="">Institute Policies</Link>
                     </li>
                     <li>
-                        <Link href="">NAAC</Link>
+                        <Link href="">Study in India</Link>
+                    </li>
+                    <li className="font-bold">Resources & Updates</li>
+                    <li>
+                        <Link href={`${basePath}media`}>Media</Link>
+                    </li>
+                    <li>
+                        <Link href={`${basePath}events`}>Events</Link>
+                    </li>
+                    <li>
+                        <Link href={`${basePath}blogs`}>Blogs</Link>
+                    </li>
+                    <li>
+                        <Link href="">Campus Tour</Link>
+                    </li>
+                    <li className="font-bold">Institutional Information</li>
+                    <li>
+                        <Link href={`${basePath}careers`}>Careers@NLDIMSR  </Link>
                     </li>
                     <li>
                         <Link href={`${basePath}contact-us`}>Contact Us</Link>
                     </li>
                     <li>
-                        <Link href="">Committee</Link>
+                        <Link href={``}>Sitemap</Link>
                     </li>
-                    <li>
-                        <Link href="">List of Faculty Members</Link>
-                    </li>
-                    <li>
-                        <Link href="">List Of Non-Teaching Staff</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}careers`}>Work With Us</Link>
-                    </li>
+                    <li className="font-bold">Policies & Privacy</li>
                     <li>
                         <Link href={`${basePath}privacy-policy`}>Privacy Policy</Link>
                     </li>
                 </ul>
-                    <ul className="flex flex-col gap-4">
-                        <li className="font-bold underline">Programs</li>
-                        {
-                            program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
-                                <React.Fragment key={key}>
-                                <li className="font-bold underline">{program_category}</li>
-                                {
-                                    common_programs.length > 0 && common_programs.map((program, sub_key) => program.program_type === program_category && program.program_link && (
-                                    <li key={sub_key}>
-                                        <Link href={program.program_link} target="_blank">{program.program_name}</Link>
-                                    </li>
-                                    ))
-                                }
-                            </React.Fragment>
-                        )
-                        )}
-                    </ul>
+                <ul className="flex flex-col gap-4">
+                    {
+                        program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
+                            <React.Fragment key={key}>
+                            <li className="font-bold underline">{program_category}</li>
+                            {
+                                common_programs.length > 0 && common_programs.map((program, sub_key) => program.program_type === program_category && program.program_link && (
+                                <li key={sub_key}>
+                                    <Link href={program.program_link} target="_blank">{program.program_name}</Link>
+                                </li>
+                                ))
+                            }
+                        </React.Fragment>
+                    )
+                    )}
+                </ul>
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Placements</li>
                     <li>

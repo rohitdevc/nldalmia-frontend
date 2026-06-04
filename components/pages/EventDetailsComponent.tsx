@@ -178,17 +178,17 @@ export default function EventDetails({ event }: PageProps) {
           <div className="flex flex-col lg:flex-row gap-5 justify-between items-center py-5">
             {
               event.event_milestones.map((milestone, key) => (
-                <div key={key}>
-                  <div className="flex flex-col gap-5 items-center text-center">
+                <div className="flex items-center w-full" key={key}>
+                  <div className="flex-1 flex flex-col gap-5 items-center text-center">
                     <h2 className="text-4xl text-burgundy">{milestone.event_milestone_caption}</h2>
                     <p className="text-[#020202] w-50">{milestone.event_milestone_description}</p>
                   </div>
                   {
                     ((key + 1) !== event.event_milestones.length) && (
-                      <>
-                      <span className="h-15 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                      <span className="w-15 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
-                      </>
+                      <div className="flex items-center justify-center px-4">
+                        <span className="h-15 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
+                        <span className="w-15 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                      </div>
                     )
                   }
                 </div>
@@ -330,17 +330,17 @@ export default function EventDetails({ event }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-10 justify-center items-center bg-[#FFCC33] py-10">
           {
             event.event_rewards.map((reward, key) => (
-              <div key={key}>
-                <div className="flex flex-col gap-5 items-center text-center">
+              <div className="flex items-center w-full" key={key}>
+                <div className="flex-1 flex flex-col gap-5 items-center text-center">
                   <h2 className="text-4xl text-[#7F1518]">{reward.event_reward_caption}</h2>
                   <p className="text-[#020202] w-50">{reward.event_reward_description}</p>
                 </div>
                 {
                   ((key + 1) !== event.event_rewards.length) && (
-                    <>
+                    <div className="flex items-center justify-center px-4">
                     <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
                     <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
-                    </>
+                    </div>
                   )
                 }
               </div>
@@ -482,7 +482,7 @@ export default function EventDetails({ event }: PageProps) {
                               </div>
                               <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFAQ === faq_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
                                 <div className="text-[#4E4E4E] university_description">
-                                  <p className="text-sm">{faq.event_faq_answer}</p>
+                                  <div className="text-sm">{parser(faq.event_faq_answer)}</div>
                                 </div>
                               </div>
                             </div>
