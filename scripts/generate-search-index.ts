@@ -13,6 +13,7 @@ import { getInstitutionalPublications } from "@/lib/institutional-publications";
 import { getIQAC } from "@/lib/iqac";
 import { getPrograms } from "@/lib/program";
 import { getStaticPages } from "@/lib/common";
+import { getMediaCategories } from "@/lib/media";
 
 async function generateSearchIndex() {
     const static_pages = await getStaticPages();
@@ -23,12 +24,19 @@ async function generateSearchIndex() {
     const institutional_publications = await getInstitutionalPublications();
     const iqac = await getIQAC();
     const programs = await getPrograms();
+    const media_categories = await getMediaCategories();
 
     const pages = [
         ...static_pages.map(static_page => ({
             title: static_page.page_name,
             path: `/${static_page.canonical_tag !== "/" ? static_page.canonical_tag : '' }`,
             type: 'Static'
+        })),
+
+        ...media_categories.map(media_category => ({
+            title: media_category.media_category_title,
+            path: `/media/${media_category.media_category_url_slug}`,
+            type: 'Media'
         })),
 
         ...blogs.map(blog => ({
