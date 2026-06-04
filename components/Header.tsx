@@ -300,15 +300,15 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                     </ul>
                     <div className="flex items-center gap-1 relative">
-                        <div className="mr-10 flex lg:mr-0 lg:hidden xl:flex w-full xl:w-[50%]">
+                        <div className="mx-5 flex lg:mx-0 lg:hidden xl:flex w-full xl:w-[50%]">
                             <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} />
                         </div>
                         <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 bg-[#800000] text-white px-3 w-[50%]">
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
                         </Link>
-                        <RiMenu3Fill size={25} className={`cursor-pointer absolute right-5 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
-                        <RiCloseLargeFill size={25} className={`cursor-pointer absolute right-5 transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
+                        <RiMenu3Fill size={25} className={`cursor-pointer absolute right-0 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
+                        <RiCloseLargeFill size={25} className={`cursor-pointer absolute right-0 transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
                     </div>
                 </div>
             </div>

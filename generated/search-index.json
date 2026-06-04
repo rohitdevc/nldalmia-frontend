@@ -125,6 +125,16 @@
     "type": "Static"
   },
   {
+    "title": "Announcements",
+    "path": "/media/announcements",
+    "type": "Media"
+  },
+  {
+    "title": "Rankings",
+    "path": "/media/rankings",
+    "type": "Media"
+  },
+  {
     "title": "How AI is Transforming PGDM Education & Business Schools in India",
     "path": "/how-ai-is-transforming-pgdm-education-business-schools-in-india",
     "type": "Blog"
