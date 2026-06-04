@@ -4,16 +4,18 @@ import Link from "next/link"
 import Image from "next/image";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { fuse } from '@/lib/fuse'
 
 import { useServerCountdown } from "@/hooks/useServerCountdown";
 
 import { IoMdMail } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import { RiMenu3Fill, RiCloseLargeFill } from "react-icons/ri";
 import { Ticker as TickerProps, ProgramsProps } from "@/types/api";
 
 import { useHeader } from '@/context/HeaderContext'
+import SearchBox from "./SearchBox";
 
 type HeaderProps = {
     program_categories: string[]
@@ -63,6 +65,29 @@ export default function Header({ program_categories, common_programs, ticker_api
     const [openMobileMenu, updateMobileMenu] = useState(false);
 
     const [step, setStep] = useState(0);
+
+    const [searchValue, setSearchValue] = useState("");
+
+    const [showSearchResults, updateShowSearchResults] = useState(false);
+
+    const search_results = useMemo(() => {
+        if(!searchValue.trim()) return [];
+
+        return fuse.search(searchValue).map(r => r.item)
+    }, [searchValue])
+
+    const router = useRouter();
+    
+    const handleSearchClick = (path: string) => {
+        updateShowSearchResults(false);
+
+        if (path.endsWith(".pdf")) {
+            window.open(path, "_blank", "noopener,noreferrer");
+            return;
+        }
+        
+        router.push(path);
+    };
 
     return (
         <>
@@ -117,17 +142,20 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}scholarships`}>Scholarships</Link>
                     </li>
                     <li className="hidden lg:block xl:hidden">
+                        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} />
+                    </li>
+                    <li className="hidden lg:block xl:hidden">
                         <Link href={`${basePath}contact-us`} className="flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
                         </Link>
                     </li>
                 </ul>
-                <div className="w-full flex justify-between items-center pl-5 md:pl-20 lg:px-3 xl:pl-[5%] xl:pr-[2%] text-sm bg-white relative h-16 z-1">
+                <div className="w-full flex gap-2 justify-between items-center px-5 text-sm bg-white relative h-16 z-1">
                     <Link href={`${basePath}`}>
                         <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                     </Link>
-                    <ul className="gap-5 xl:gap-7 items-center hidden lg:flex h-full">
+                    <ul className="gap-5 lg:gap-4 xl:gap-2 items-center hidden lg:flex h-full">
                         <li className="group relative">
                             <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
                             <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
@@ -272,13 +300,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                     </ul>
                     <div className="flex items-center gap-1 relative">
-                        <form className="hidden">
-                            <div className="relative">
-                                <input type="search" placeholder="Search" className="peer text-right pr-3 py-2 focus:outline-none w-full lg:w-25 xl:w-full" />
-                                <CiSearch className="absolute right-18 top-1/2 -translate-y-1/2 text-gray-500 peer-not-placeholder-shown:hidden" size={18} />
-                            </div>
-                        </form>
-                        <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
+                        <div className="mr-10 flex lg:mr-0 lg:hidden xl:flex w-full xl:w-[50%]">
+                            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} />
+                        </div>
+                        <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 bg-[#800000] text-white px-3 w-[50%]">
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
                         </Link>
@@ -287,12 +312,27 @@ export default function Header({ program_categories, common_programs, ticker_api
                     </div>
                 </div>
             </div>
+            <div className={`relative ${showSearchResults ? 'max-h-screen' : 'max-h-0'}`}>
+                {
+                    showSearchResults && (
+                        <div className="w-full md:w-xs xl:w-sm bg-white absolute right-0 flex transition-transform duration-300 ease-in-out">
+                            <ul className="w-full max-h-screen overflow-y-auto">
+                                {
+                                    search_results.map((result, key) => (
+                                        <li key={key} className="w-full block cursor-pointer py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all" onClick={() => handleSearchClick(result.path)}>{result.title}</li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                )
+                }
+            </div>
             <div className={`overflow-hidden w-full transition-all duration-300 bg-white ${openMobileMenu ? 'max-h-screen': 'max-h-0'}`}>
                 <div className="flex transition-transform duration-300 ease-in-out w-full h-full" style={{ transform: `translateX(-${step * 100}%)` }}>
                     <div className={`w-full shrink-0`}>
                         <ul>
                             <li onClick={() => { setStep(5);}}>
-                                <Link href={`${basePath}about-us`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us <MdKeyboardArrowRight size={25} /></Link>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(1); }}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
@@ -304,15 +344,15 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(7);}}>
-                                <Link href={`${basePath}placements`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements <MdKeyboardArrowRight size={25} /></Link>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(8);}}>
-                                <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD <MdKeyboardArrowRight size={25} /></Link>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD <MdKeyboardArrowRight size={25} /></span>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href={`${basePath}admissions`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Admissions</Link>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href={`${basePath}contact-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Contact Us</Link>
                             </li>
                         </ul>
@@ -385,16 +425,19 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#who-we-are`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Who we are</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#legacy`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Legacy</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#who-we-are`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Who we are</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#managing-council`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Managing Council</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#legacy`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Legacy</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#international-tie-ups`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">International Tie-ups</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#managing-council`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Managing Council</Link>
+                            </li>
+                            <li>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#international-tie-ups`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">International Tie-ups</Link>
                             </li>
                         </ul>
                     </div>
@@ -404,13 +447,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link href={`${basePath}faculty`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Research</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty/research-papers-published/journal-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Research</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}faculty/faculty-development-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty Development Programs</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty/faculty-development-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty Development Programs</Link>
                             </li>
                         </ul>
                     </div>
@@ -420,22 +463,25 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#corporate-engagement`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Corporate Engagement</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#highlights`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Highlights</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#corporate-engagement`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Corporate Engagement</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#recruiters`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Recruiters</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#highlights`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Highlights</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#batch-profile`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Batch Profile</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#recruiters`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Recruiters</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#reports`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Reports</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#batch-profile`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Batch Profile</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#connect`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Connect With Our Team</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#reports`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Reports</Link>
+                            </li>
+                            <li>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#connect`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Connect With Our Team</Link>
                             </li>
                         </ul>
                     </div>
@@ -445,16 +491,19 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#events`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Events</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#student-clubs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Student Clubs</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#events`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Events</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#infrastructure`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Infrastructure</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#student-clubs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Student Clubs</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#institutional-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Institutional Publications</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#infrastructure`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Infrastructure</Link>
+                            </li>
+                            <li>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#institutional-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Institutional Publications</Link>
                             </li>
                         </ul>
                     </div>

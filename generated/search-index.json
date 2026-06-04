@@ -1,0 +1,2257 @@
+[
+  {
+    "title": "Home",
+    "path": "/",
+    "type": "Static"
+  },
+  {
+    "title": "About Us",
+    "path": "/about-us",
+    "type": "Static"
+  },
+  {
+    "title": "Programs",
+    "path": "/programs",
+    "type": "Static"
+  },
+  {
+    "title": "Admissions",
+    "path": "/admissions",
+    "type": "Static"
+  },
+  {
+    "title": "Contact Us",
+    "path": "/contact-us",
+    "type": "Static"
+  },
+  {
+    "title": "Awards",
+    "path": "/awards",
+    "type": "Static"
+  },
+  {
+    "title": "Blog",
+    "path": "/blogs",
+    "type": "Static"
+  },
+  {
+    "title": "Scholarship",
+    "path": "/scholarships",
+    "type": "Static"
+  },
+  {
+    "title": "Careers",
+    "path": "/careers",
+    "type": "Static"
+  },
+  {
+    "title": "Financial Assistance",
+    "path": "/financial-assistance",
+    "type": "Static"
+  },
+  {
+    "title": "Alumni",
+    "path": "/alumni",
+    "type": "Static"
+  },
+  {
+    "title": "Life@NLD",
+    "path": "/life-at-nld",
+    "type": "Static"
+  },
+  {
+    "title": "Events",
+    "path": "/events",
+    "type": "Static"
+  },
+  {
+    "title": "Faculty",
+    "path": "/faculty",
+    "type": "Static"
+  },
+  {
+    "title": "Placements",
+    "path": "/placements",
+    "type": "Static"
+  },
+  {
+    "title": "MDP",
+    "path": "/management-development-programs",
+    "type": "Static"
+  },
+  {
+    "title": "Institutional Publications",
+    "path": "/institutional-publications",
+    "type": "Static"
+  },
+  {
+    "title": "IQAC",
+    "path": "/iqac",
+    "type": "Static"
+  },
+  {
+    "title": "Journal Publications",
+    "path": "/faculty/research-papers-published/journal-publications",
+    "type": "Static"
+  },
+  {
+    "title": "Book Chapters",
+    "path": "/faculty/research-papers-published/book-chapters",
+    "type": "Static"
+  },
+  {
+    "title": "NLDES",
+    "path": "/nldes",
+    "type": "Static"
+  },
+  {
+    "title": "Case Studies",
+    "path": "/faculty/research-papers-published/case-studies",
+    "type": "Static"
+  },
+  {
+    "title": "Reports",
+    "path": "/faculty/research-papers-published/reports",
+    "type": "Static"
+  },
+  {
+    "title": "FDP",
+    "path": "/faculty/faculty-development-programs",
+    "type": "Static"
+  },
+  {
+    "title": "Privacy Policy",
+    "path": "/privacy-policy",
+    "type": "Static"
+  },
+  {
+    "title": "How AI is Transforming PGDM Education & Business Schools in India",
+    "path": "/how-ai-is-transforming-pgdm-education-business-schools-in-india",
+    "type": "Blog"
+  },
+  {
+    "title": "Top PGDM College in India: A Complete Guide to PGDM Programs, Admissions & Careers",
+    "path": "/top-pgdm-college-in-india-complete-guide-to-pgdm-programs-admissions-careers",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM in Finance: Eligibility, Career Opportunities & Placement Trends",
+    "path": "/pgdm-finance-eligibility-career-opportunities-placement-trends",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM in Business Analytics: Future-Ready Careers in Data-Driven Management",
+    "path": "/pgdm-business-analytics-future-ready-careers-in-data-driven-management",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM in Marketing Management: Careers in Digital & Brand Marketing",
+    "path": "/pgdm-marketing-management-careers-in-digital-brand-marketing",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM in Human Resource Management (HRM): Career Scope, Roles & Salary",
+    "path": "/pgdm-human-resource-management-hrm-career-scope-roles-salary",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM Placements in India: Salary Trends, Recruiters & Career Growth",
+    "path": "/pgdm-placements-india-salary-trends-recruiters-career-growth",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM Fees, Scholarships & ROI: Is PGDM Worth the Investment?",
+    "path": "/pgdm-fees-scholarships-roi-is-pgdm-worth-the-investment",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM Admission Process in India: Entrance Exams, Cut-offs & Selection Criteria",
+    "path": "/pgdm-admission-process-in-india-entrance-exams-cut-offs-selection-criteria",
+    "type": "Blog"
+  },
+  {
+    "title": "What is PGDM in India? Eligibility, Benefits & Career Scope",
+    "path": "/what-is-pgdm-in-india-eligibility-benefits-career-scope",
+    "type": "Blog"
+  },
+  {
+    "title": "A Student’s Guide to Choosing the Right MBA Specialisation in 2026",
+    "path": "/students-guide-to-choosing-the-right-mba-specialisation",
+    "type": "Blog"
+  },
+  {
+    "title": "Cross-Cultural Competence: Navigating Global Work Environments",
+    "path": "/cross-cultural-competence-navigating-global-work-environments",
+    "type": "Blog"
+  },
+  {
+    "title": "Creative Thinking for Problem-Solving: A Must-Have Skill for Aspiring Managers",
+    "path": "/creative-thinking-for-problem-solving-must-have-skill-for-aspiring-managers",
+    "type": "Blog"
+  },
+  {
+    "title": "Financial Literacy for Young Professionals: Making Smart Career Choices",
+    "path": "/financial-literacy-for-young-professionals-making-smart-career-choices",
+    "type": "Blog"
+  },
+  {
+    "title": "Navigating the Financial Landscape with Bloomberg Lab Insights",
+    "path": "/navigating-financial-landscape-with-bloomberg-lab",
+    "type": "Blog"
+  },
+  {
+    "title": "The Unique Benefits of Pursuing a PGDM at N. L. Dalmia Institute: How Is It Different?",
+    "path": "/unique-benefits-of-pursuing-pgdm-at-nl-dalmia",
+    "type": "Blog"
+  },
+  {
+    "title": "What Is the Difference Between MBA and PGDM? A Complete Guide for Aspiring Managers",
+    "path": "/difference-between-mba-and-pgdm-complete-guide",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM – Complete Guide to Admissions at NLDIMSR, Mumbai",
+    "path": "/pgdm-complete-guide-to-admissions-nldimsr-mumbai",
+    "type": "Blog"
+  },
+  {
+    "title": "What Happens After PGDM Admission: Curriculum, Campus Life and Placements at N. L. Dalmia",
+    "path": "/what-happens-after-pgdm-admission-curriculum-campus-life-placements",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM: Scholarships, Fees & Financial Aid at N. L. Dalmia Institute, Mumbai – What You Should Know",
+    "path": "/pgdm-scholarships-fees-financial-aid-nldimsr-mumbai-what-you-should-know",
+    "type": "Blog"
+  },
+  {
+    "title": "Step-by-Step NL Dalmia Admission Process (2026–28): Application, Documents and Deadlines",
+    "path": "/step-by-step-nldimsr-admission-process-application-documents-deadlines",
+    "type": "Blog"
+  },
+  {
+    "title": "How to Choose the Right PGDM Specialisation at NLD: Finance vs Marketing vs HR vs Business Analytics",
+    "path": "/pgdm-specialisations-at-nl-dalmia-which-one-to-choose",
+    "type": "Blog"
+  },
+  {
+    "title": "CAT Exam Preparation Tips 2025: Your Ultimate Guide",
+    "path": "/cat-exam-preparation-tips-2025-your-ultimate-guide",
+    "type": "Blog"
+  },
+  {
+    "title": "CAT Preparation Mistakes to Avoid in 2025",
+    "path": "/cat-preparation-mistakes-to-avoid-in-2025",
+    "type": "Blog"
+  },
+  {
+    "title": "One Day Before CAT 2025: The Ultimate Preparation Checklist",
+    "path": "/one-day-before-cat-exam-ultimate-preparation-checklist",
+    "type": "Blog"
+  },
+  {
+    "title": "From Data to Decisions: What Recruiters Expect from Next-Gen MBA Graduates",
+    "path": "/from-data-to-decisions-what-recruiters-expect-from-next-gen-mba-graduates",
+    "type": "Blog"
+  },
+  {
+    "title": "AI, Analytics & Decision Making: What PGDM in Business Analytics Prepares You For",
+    "path": "/ai-analytics-decision-making-what-pgdm-business-analytics-prepares-you-for",
+    "type": "Blog"
+  },
+  {
+    "title": "Top Skills Every MBA Graduate Needs in 2025 and Beyond",
+    "path": "/top-skills-every-mba-graduate-needs-now-and-beyond",
+    "type": "Blog"
+  },
+  {
+    "title": "NLDIMSR PGDM Admission Process: Step-by-Step Guide for Aspirants",
+    "path": "/nldimsr-pgdm-admission-process-step-by-step-guide",
+    "type": "Blog"
+  },
+  {
+    "title": "Global Market Trends: Insights for Aspiring Business Leaders",
+    "path": "/global-market-trends-for-aspiring-business-leaders-blog",
+    "type": "Blog"
+  },
+  {
+    "title": "Leveraging Your Global MBA Program for Professional Growth",
+    "path": "/global-mba-path-to-professional-growth",
+    "type": "Blog"
+  },
+  {
+    "title": "MBA or PGDM: Which is More Industry-Oriented?",
+    "path": "/mba-vs-pgdm-industry-relevance-guide",
+    "type": "Blog"
+  },
+  {
+    "title": "PGDM vs MBA: Which Offers Better ROI and Salary Prospects?",
+    "path": "/pgdm-vs-mba-which-offers-better-roi-salary-prospects",
+    "type": "Blog"
+  },
+  {
+    "title": "Driving Business Success through Creativity at N. L. Dalmia Institute",
+    "path": "/driving-business-success-through-creativity-at-nldimsr",
+    "type": "Blog"
+  },
+  {
+    "title": "The Future of Work: Adapting to New Business Models in Finance Education",
+    "path": "/future-of-work-adapting-to-new-business-models-in-finance-education",
+    "type": "Blog"
+  },
+  {
+    "title": "Digital Transformation: Preparing for a Competitive Business World",
+    "path": "/digital-transformation-preparing-for-competitive-business-world",
+    "type": "Blog"
+  },
+  {
+    "title": "Experience Innovative Learning with N. L. Dalmia’s Bloomberg Lab Course",
+    "path": "/experience-innovative-learning-with-nldimsr-bloomberg-lab-course",
+    "type": "Blog"
+  },
+  {
+    "title": "Developing Business Skills for Leadership Engagement With N. L. Dalmia",
+    "path": "/developing-business-skills-for-leadership-engagement-with-nldimsr",
+    "type": "Blog"
+  },
+  {
+    "title": "Fostering Innovation and Creativity Through Bloomberg Lab in N. L. Dalmia",
+    "path": "/fostering-innovation-creativity-through-bloomberg-lab-in-nldimsr",
+    "type": "Blog"
+  },
+  {
+    "title": "The Role of Business Analytics in Strategic Decision Making for Business",
+    "path": "/role-of-business-analytics-in-strategic-decision-making-for-business",
+    "type": "Blog"
+  },
+  {
+    "title": "The Role of Pursuing PGDM from N. L. Dalmia Institute",
+    "path": "/role-of-pursuing-pgdm-from-nldimsr-institute",
+    "type": "Blog"
+  },
+  {
+    "title": "Marketing Mastery: Strategies for the Digital Era",
+    "path": "/marketing-mastery-strategies-for-digital-era",
+    "type": "Blog"
+  },
+  {
+    "title": "Leadership in the Digital Age: Insights from N. L. Dalmia’s Curriculum",
+    "path": "/leadership-in-digital-age-insights-from-curriculum",
+    "type": "Blog"
+  },
+  {
+    "title": "The Art of Business: Skills Every Business Leader Needs",
+    "path": "/art-of-business-skills-every-business-leader-needs",
+    "type": "Blog"
+  },
+  {
+    "title": "Various Career Opportunities in PGDM Courses in India",
+    "path": "/various-career-opportunities-in-pgdm-courses-in-india",
+    "type": "Blog"
+  },
+  {
+    "title": "Exploring Strategic Marketing With PGDM In Business Analytics For Current Business Landscapes",
+    "path": "/strategic-marketing-with-pgdm-business-analytics-for-current-business-landscapes",
+    "type": "Blog"
+  },
+  {
+    "title": "What is the Scope of PGDM in Business Analytics?",
+    "path": "/scope-pgdm-business-analytics",
+    "type": "Blog"
+  },
+  {
+    "title": "The Evolving Landscape of Indian Management Education",
+    "path": "/evolving-landscape-indian-management-education",
+    "type": "Blog"
+  },
+  {
+    "title": "The Global Demand for Finance Professionals",
+    "path": "/blog-global-demand-for-finance-professionals",
+    "type": "Blog"
+  },
+  {
+    "title": "Understanding PGDM and Its Impact on Career Growth",
+    "path": "/understanding-pgdm-and-its-impact-on-career",
+    "type": "Blog"
+  },
+  {
+    "title": "Decoding Market Movements with Advanced Bloomberg Lab Tools",
+    "path": "/mastering-market-analysis-with-bloomberg-tools-2",
+    "type": "Blog"
+  },
+  {
+    "title": "Mastering the Market with the Right Degree in Marketing",
+    "path": "/choose-the-right-marketing-degree",
+    "type": "Blog"
+  },
+  {
+    "title": "The Architecture of Global Leadership: Curriculum Insights of a Global MBA",
+    "path": "/curriculum-insights-from-global-mba",
+    "type": "Blog"
+  },
+  {
+    "title": "Democratisation of Data: Empowering Decision-Makers across Levels",
+    "path": "/democratisation-of-data-empowering-decision-makers-across-levels",
+    "type": "Blog"
+  },
+  {
+    "title": "The Evergreen Field of Finance: Is Pursuing a PGDM in Finance a Wise Career Choice?",
+    "path": "/pursuing-pgdm-in-finance-wise-career-choice",
+    "type": "Blog"
+  },
+  {
+    "title": "The Integral Role of AI and Machine Learning in Business Analytics",
+    "path": "/ai-machine-learning-in-business-analytics",
+    "type": "Blog"
+  },
+  {
+    "title": "Navigating the Data-Driven Economy with Business Analytics",
+    "path": "/business-analytics-in-data-driven-economy",
+    "type": "Blog"
+  },
+  {
+    "title": "Harnessing Data for Business Success",
+    "path": "/harnessing-data-for-business-success",
+    "type": "Blog"
+  },
+  {
+    "title": "Exploring the Real World of Finance: Insights from a PGDM Journey",
+    "path": "/finance-insights-from-pgdm-program",
+    "type": "Blog"
+  },
+  {
+    "title": "The Strategic Edge of Specialising in HRM",
+    "path": "/benefits-of-hrm-specialization",
+    "type": "Blog"
+  },
+  {
+    "title": "What Are Career Opportunities in Finance?",
+    "path": "/what-are-career-opportunities-in-finance",
+    "type": "Blog"
+  },
+  {
+    "title": "The Role of Technology in Global Business Through Perspectives from a Global MBA Program",
+    "path": "/role-of-technology-in-global-business-through-global-mba-perspective",
+    "type": "Blog"
+  },
+  {
+    "title": "Demystifying Financial Management and Understanding the Role of PGDM in Finance",
+    "path": "/demystifying-financial-management-understanding-role-of-finance-pgdm",
+    "type": "Blog"
+  },
+  {
+    "title": "Specialised Skills: What’s the key to Unlocking India’s Economic Potential?",
+    "path": "/specialized-skills-key-to-unlocking-indias-economic-potential",
+    "type": "Blog"
+  },
+  {
+    "title": "From Data to Decisions- Understanding the Career Path in Business Analytics",
+    "path": "/from-data-to-decisions-understanding-the-career-path-in-business-analytics",
+    "type": "Blog"
+  },
+  {
+    "title": "Bridging the Gap: Management Education for the Modern Business World",
+    "path": "/management-education-for-modern-business-world",
+    "type": "Blog"
+  },
+  {
+    "title": "5 Trends and Opportunities Defining the Future of Business Analytics",
+    "path": "/5-trends-and-opportunities-defining-the-future-of-business-analytics",
+    "type": "Blog"
+  },
+  {
+    "title": "5 Reasons You Need to Pursue a Global MBA",
+    "path": "/5-reasons-you-need-to-pursue-a-global-mba",
+    "type": "Blog"
+  },
+  {
+    "title": "How to Unlock New Horizons in a Globalized Economy through a Global MBA",
+    "path": "/how-to-unlock-new-horizons-in-a-globalized-economy-through-a-global-mba",
+    "type": "Blog"
+  },
+  {
+    "title": "Unleashing the Power of Business Analytics: 5 Ways to Successfully Utilize Data-Driven Insights",
+    "path": "/unleashing-the-power-of-business-analytics-5-ways-to-successfully-utilize-data-driven-insights",
+    "type": "Blog"
+  },
+  {
+    "title": "A guide to help you get Admission to a PGDM Program",
+    "path": "/a-guide-to-help-you-get-admission-to-a-pgdm-program",
+    "type": "Blog"
+  },
+  {
+    "title": "Interesting Career Prospects after completing PDGM or MBA in HR",
+    "path": "/interesting-career-prospects-after-completing-pdgm-or-mba-in-hr-2",
+    "type": "Blog"
+  },
+  {
+    "title": "Exciting Careers in Business Analytics: How Top Companies Use Data to Drive Success",
+    "path": "/exciting-careers-in-business-analytics-how-top-companies-use-data-to-drive-success-2",
+    "type": "Blog"
+  },
+  {
+    "title": "Want to be a successful marketer? You must understand Consumer Behavior very well",
+    "path": "/want-to-be-a-successful-marketer-you-must-understand-consumer-behavior-very-well",
+    "type": "Blog"
+  },
+  {
+    "title": "5 Tips for Effective Social Media Marketing. Are you following these?",
+    "path": "/5-tips-for-effective-social-media-marketing-are-you-following-these",
+    "type": "Blog"
+  },
+  {
+    "title": "How PGDM in Marketing helps you to Upskill and Stay Relevant",
+    "path": "/how-pgdm-in-marketing-helps-you-to-upskill-and-stay-relevant",
+    "type": "Blog"
+  },
+  {
+    "title": "Can an MBA college enable you to transform a lightbulb moment into a business idea?",
+    "path": "/can-an-mba-college-enable-you-to-transform-a-lightbulb-moment-into-a-business-idea",
+    "type": "Blog"
+  },
+  {
+    "title": "Global MBA v/s regular MBA – Which one to choose?",
+    "path": "/global-mba-v-s-regular-mba-which-one-to-choose",
+    "type": "Blog"
+  },
+  {
+    "title": "5 Must-Read Books for a Business Analyst",
+    "path": "/5-must-read-books-for-a-business-analyst",
+    "type": "Blog"
+  },
+  {
+    "title": "Interesting Career Prospects after completing PDGM or MBA in HR",
+    "path": "/interesting-career-prospects-after-completing-pdgm-or-mba-in-hr",
+    "type": "Blog"
+  },
+  {
+    "title": "NLD Synapse 2026",
+    "path": "/events/nld-synapse-2026",
+    "type": "Event"
+  },
+  {
+    "title": "Bangalore Alumni Meet 2025",
+    "path": "/events/bangalore-alumni-meet-2025",
+    "type": "Event"
+  },
+  {
+    "title": "Inaugural Pune Alumni Chapter Meet 2025",
+    "path": "/events/inaugural-pune-alumni-chapter-meet-2025",
+    "type": "Event"
+  },
+  {
+    "title": "USA Alumni Chapter Meet 2025",
+    "path": "/events/usa-alumni-chapter-meet-2025",
+    "type": "Event"
+  },
+  {
+    "title": "Canada Alumni Meet 2025",
+    "path": "/events/canada-alumni-meet-2025",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2025 Marketing Event",
+    "path": "/events/maadhyam-2025-marketing-event",
+    "type": "Event"
+  },
+  {
+    "title": "Decodex 2025",
+    "path": "/events/decodex-2025",
+    "type": "Event"
+  },
+  {
+    "title": "Europe Alumni Chapter Meet 2025",
+    "path": "/events/europe-alumni-chapter-meet-2025",
+    "type": "Event"
+  },
+  {
+    "title": "Nivesh Bazaar 2024",
+    "path": "/events/nivesh-bazaar-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Manusandhan 2024",
+    "path": "/events/manusandhan-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Snapfluence",
+    "path": "/events/snapfluence",
+    "type": "Event"
+  },
+  {
+    "title": "UAE Alumni Chapter Meet 2024",
+    "path": "/events/uae-alumni-chapter-meet-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2024",
+    "path": "/events/shikhar-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Jugaadu – Entrepreneurship Pitch competition NLDIMSR",
+    "path": "/events/jugaadu",
+    "type": "Event"
+  },
+  {
+    "title": "Alumni Meet 2024",
+    "path": "/events/alumni-meet-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2024-25",
+    "path": "/events/aakarshan-2024-25",
+    "type": "Event"
+  },
+  {
+    "title": "Decodex 2024",
+    "path": "/events/decodex-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Comquest 2024",
+    "path": "/events/comquest-2024",
+    "type": "Event"
+  },
+  {
+    "title": "E – Summit at N. L. Dalmia Institute, Mumbai",
+    "path": "/events/e-summit",
+    "type": "Event"
+  },
+  {
+    "title": "South Asia Pacific International Conference",
+    "path": "/events/south-asia-pacific-international-conference",
+    "type": "Event"
+  },
+  {
+    "title": "India Finance Conference",
+    "path": "/events/india-finance-conference",
+    "type": "Event"
+  },
+  {
+    "title": "PGDM Batch Convocation Ceremony 2021-2023",
+    "path": "/events/pgdm-batch-convocation-ceremony-2021-2023",
+    "type": "Event"
+  },
+  {
+    "title": "PGDM Batch Convocation Ceremony 2020 & 2021",
+    "path": "/events/pgdm-batch-convocation-ceremony-2020-2021",
+    "type": "Event"
+  },
+  {
+    "title": "Sports League Event 2023",
+    "path": "/events/sports-league-event-2023",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2024",
+    "path": "/events/mulyankan-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Utkarsh 2023-2024",
+    "path": "/events/utkarsh-2023-2024",
+    "type": "Event"
+  },
+  {
+    "title": "Think Tank – N. L. Dalmia Institute, Mumbai",
+    "path": "/events/think-tank",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2023-24",
+    "path": "/events/aakarshan-2023-24",
+    "type": "Event"
+  },
+  {
+    "title": "N L Dalmia Institute's Yearly Alumni Meet",
+    "path": "/events/n-l-dalmia-institutes-yearly-alumni-meet",
+    "type": "Event"
+  },
+  {
+    "title": "International Yoga Day 2023",
+    "path": "/events/international-yoga-day-2023",
+    "type": "Event"
+  },
+  {
+    "title": "PGDM Batch Convocation Ceremony 2020-2022",
+    "path": "/events/pgdm-batch-convocation-ceremony-2020-2022",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2023",
+    "path": "/events/mulyankan-2023",
+    "type": "Event"
+  },
+  {
+    "title": "Entrepreneurship And Business Growth – NLDIMSR",
+    "path": "/events/entrepreneurship-and-business-growth-nldimsr",
+    "type": "Event"
+  },
+  {
+    "title": "Evinco – Annual Inter-College Festival of NLDIMSR, Mumbai",
+    "path": "/events/evinco",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2023 Marketing Event",
+    "path": "/events/maadhyam-2023-marketing-event",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2023",
+    "path": "/events/maadhyam-2023",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2022",
+    "path": "/events/shikhar-2022",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2022",
+    "path": "/events/aakarshan-2022",
+    "type": "Event"
+  },
+  {
+    "title": "International Yoga Day 2022",
+    "path": "/events/international-yoga-day-2022",
+    "type": "Event"
+  },
+  {
+    "title": "Rethinking Business Strategies To Drive Innovations And Business Values",
+    "path": "/events/rethinking-business-strategies-to-drive-innovations-and-business-values",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2022",
+    "path": "/events/mulyankan-2022",
+    "type": "Event"
+  },
+  {
+    "title": "Utkarsh 2022",
+    "path": "/events/utkarsh-2022",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2022 Marketing Event",
+    "path": "/events/maadhyam-2022-marketing-event",
+    "type": "Event"
+  },
+  {
+    "title": "Virtual Alumni Meet Series - 3",
+    "path": "/events/virtual-alumni-meet-series-3",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2021",
+    "path": "/events/shikhar-2021",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2021",
+    "path": "/events/aakarshan-2021",
+    "type": "Event"
+  },
+  {
+    "title": "Virtual Alumni Meet Series - 2",
+    "path": "/events/virtual-alumni-meet-series-2",
+    "type": "Event"
+  },
+  {
+    "title": "Virtual Alumni Meet Series - 1",
+    "path": "/events/virtual-alumni-meet-series-1",
+    "type": "Event"
+  },
+  {
+    "title": "Virtual Alumni Meet – 1",
+    "path": "/events/virtual-alumni-meet-1",
+    "type": "Event"
+  },
+  {
+    "title": "Virtual Alumni Meet Series",
+    "path": "/events/virtual-alumni-meet-series",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2021 Marketing Event",
+    "path": "/events/maadhyam-2021-marketing-event",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2020",
+    "path": "/events/mulyankan-2020",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2020",
+    "path": "/events/shikhar-2020",
+    "type": "Event"
+  },
+  {
+    "title": "The International Marketing Conclave 2020",
+    "path": "/events/the-international-marketing-conclave-2020",
+    "type": "Event"
+  },
+  {
+    "title": "Howzatt 2020",
+    "path": "/events/howzatt-2020",
+    "type": "Event"
+  },
+  {
+    "title": "Memorial Lecture Event",
+    "path": "/events/memorial-lecture-event",
+    "type": "Event"
+  },
+  {
+    "title": "PGDM Batch Convocation Ceremony 2019",
+    "path": "/events/pgdm-batch-convocation-ceremony-2019",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2019",
+    "path": "/events/mulyankan-2019",
+    "type": "Event"
+  },
+  {
+    "title": "International HR Conclave 2019 Event",
+    "path": "/events/international-hr-conclave-2019-event",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2019",
+    "path": "/events/shikhar-2019",
+    "type": "Event"
+  },
+  {
+    "title": "The International Marketing Conclave 2019",
+    "path": "/events/the-international-marketing-conclave-2019",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2019 Marketing Event",
+    "path": "/events/maadhyam-2019-marketing-event",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2019",
+    "path": "/events/aakarshan-2019",
+    "type": "Event"
+  },
+  {
+    "title": "Howzatt 2019",
+    "path": "/events/howzatt-2019",
+    "type": "Event"
+  },
+  {
+    "title": "PGDM Batch Convocation Ceremony 2018",
+    "path": "/events/pgdm-batch-convocation-ceremony-2018",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2018",
+    "path": "/events/mulyankan-2018",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2018",
+    "path": "/events/shikhar-2018",
+    "type": "Event"
+  },
+  {
+    "title": "International HR Conclave 2018 Event",
+    "path": "/events/international-hr-conclave-2018-event",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2018",
+    "path": "/events/aakarshan-2018",
+    "type": "Event"
+  },
+  {
+    "title": "The International Marketing Conclave 2018",
+    "path": "/events/the-international-marketing-conclave-2018",
+    "type": "Event"
+  },
+  {
+    "title": "Howzatt 2018",
+    "path": "/events/howzatt-2018",
+    "type": "Event"
+  },
+  {
+    "title": "Maadhyam 2018 Marketing Event",
+    "path": "/events/maadhyam-2018-marketing-event",
+    "type": "Event"
+  },
+  {
+    "title": "NLD TALK – N. L. Dalmia Institute, Mumbai",
+    "path": "/events/nld-talk",
+    "type": "Event"
+  },
+  {
+    "title": "Shikhar 2017",
+    "path": "/events/shikhar-2017",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2017",
+    "path": "/events/mulyankan-2017",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2017",
+    "path": "/events/aakarshan-2017",
+    "type": "Event"
+  },
+  {
+    "title": "Howzatt 2017",
+    "path": "/events/howzatt-2017",
+    "type": "Event"
+  },
+  {
+    "title": "Mulyankan 2016",
+    "path": "/events/mulyankan-2016",
+    "type": "Event"
+  },
+  {
+    "title": "Aakarshan 2016",
+    "path": "/events/aakarshan-2016",
+    "type": "Event"
+  },
+  {
+    "title": "Mid-day International Education Icons 2025",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Career 360 AAA+",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Sustainable Institutions of India green Rankings 2025",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "IDP Education India",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Education World – India Higher Education Rankings 2024-25",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "ESER 2024 Employability and Startup Ecosystem Rankings 2024",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Research Excellence Ranking 2024",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "OMG Books of Records 2024",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Sustainable Institutions of India Green Ranking 2024",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "India Book Of Records 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "IIRF Education Impact Award 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "World Book of Records London 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Asia Books of Records 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Mid-day Education Icons 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Times Education Icon Award – Top Private Management Institute (PGDM)",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "CP HR Excellence Awards 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Outlook- ICare Rankings India",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Times Education Icon",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Outlook- ICare Rankings India 2021",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Exemplary Contribution in Education",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Excellence in Infrastructure – Mumbai",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Private Business Schools In Maharashtra",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Excellence in B-School Education – Western Mumbai - 2017",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Excellence in Infrastructure - Mumbai",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "India’s Best Management Institute, West India Region",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Excellence for Business Education",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Excellence in B-School Education – Western Mumbai",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Excellence in Infrastructure – Mumbai",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Best Management Institute Award Research Excellence and Academic Award 2018",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Asia’s Greatest Leaders 2017",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Pride of Maharashtra 2019",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Times Education Icon Award",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Social Welfare and Growth (SWAG) Award",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Private Business Schools 2019-2020",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Best Education Brand 2018-2019",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Mid – Day Excellence Award 2018-19",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Pride of Maharashtra Award 2019",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Social Welfare and Growth (SWAG) Award",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Times Education Icon Award – 2019",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Times Top Institute of West India 2020",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "National Education Excellence Awards, 2020",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Education Excellence Awards - Conference 2020",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "13th Rashtriya Shiksha Gaurav Puraskar Ceremony 2020",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Best Private Management Institute in Maharashtra 2021",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Education Icon of the Year 2020",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "International Education Icons 2021",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Visionary Leadership in Education Sector",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "The Week-Hansa Research",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Most Effective Learning Management System",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Times Education Icons Mumbai 2022",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Govt. of Maharashtra - Directorate of Technical Education",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Education Today",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Best Green Campus",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Best Education Brands 2023",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Education World - India Higher Education Rankings 2022-23",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Maharashtra Industry Development Association",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Seamless Conduct of Management Phase Award by INS Hamla",
+    "path": "/awards-and-achievements",
+    "type": "Awards"
+  },
+  {
+    "title": "Prof. Dr. Seema Saini",
+    "path": "/faculty/prof-dr-seema-saini",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Dr. Joyeeta Chatterjee",
+    "path": "/faculty/prof-dr-joyeeta-chatterjee",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Kalyani Mulchandani",
+    "path": "/faculty/dr-kalyani-mulchandani",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dhwanik shah",
+    "path": "/faculty/dhwanik-shah",
+    "type": "Faculty"
+  },
+  {
+    "title": "Chetana Asbe",
+    "path": "/faculty/chetana-asbe",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Sweta Kumari",
+    "path": "/faculty/dr-sweta-kumari",
+    "type": "Faculty"
+  },
+  {
+    "title": "Kinjal Manani",
+    "path": "/faculty/kinjal-manani",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Mangesh Prasad Kasbekar",
+    "path": "/faculty/dr-mangesh-prasad-kasbekar",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Baisakhi Mitra Mustaphi",
+    "path": "/faculty/dr-baisakhi-mitra-mustaphi",
+    "type": "Faculty"
+  },
+  {
+    "title": "Mr. Mudit Dalmia",
+    "path": "/faculty/mr-mudit-dalmia",
+    "type": "Faculty"
+  },
+  {
+    "title": "Mr. Jestin Johny",
+    "path": "/faculty/mr-jestin-johny",
+    "type": "Faculty"
+  },
+  {
+    "title": "Ms. Malini Jain",
+    "path": "/faculty/ms-malini-jain",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Dr. Sarika Jain",
+    "path": "/faculty/dr-sarika-jain",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Caral D'Cunha",
+    "path": "/faculty/dr-caral-dcunha",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr Swetarupa Chatterjee",
+    "path": "/faculty/dr-swetarupa-chatterjee-2",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Imran Siddiqui",
+    "path": "/faculty/prof-imran-siddiqui",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Dr. A.A. Attarwala",
+    "path": "/faculty/dr-a-a-attarwala",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Pallawi Sangode",
+    "path": "/faculty/dr-pallawi-baldeo-sangode",
+    "type": "Faculty"
+  },
+  {
+    "title": "Mr. Shailesh Dalmia",
+    "path": "/faculty/shri-shailesh-dalmia",
+    "type": "Faculty"
+  },
+  {
+    "title": "Shri Shivkumar Dalmia",
+    "path": "/faculty/shri-shivkumar-dalmia",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Amul Desai",
+    "path": "/faculty/amul-desai",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Sunita Jatav",
+    "path": "/faculty/dr-sunita-jatav",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Dr. Jyoti Nair",
+    "path": "/faculty/prof-dr-jyoti-nair",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Priti Aggarwal (On Lien)",
+    "path": "/faculty/dr-priti-aggarwal",
+    "type": "Faculty"
+  },
+  {
+    "title": "Mr. Shailesh Kumar",
+    "path": "/faculty/mr-shailesh-kumar",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Sachin Kumar Mittal",
+    "path": "/faculty/dr-sachin-kumar-mittal",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Neeraj Gupta",
+    "path": "/faculty/dr-neeraj-gupta",
+    "type": "Faculty"
+  },
+  {
+    "title": "CMA Dr. Shilpa Peswani",
+    "path": "/faculty/cma-dr-shilpa-peswani",
+    "type": "Faculty"
+  },
+  {
+    "title": "CA. (Dr.) Jai Kotecha",
+    "path": "/faculty/prof-jai-kotecha",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Prakash Rathod",
+    "path": "/faculty/prof-prakash-rathod",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Vimalkumar Mistry",
+    "path": "/faculty/dr-vimalkumar-mistry",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Vaishali Ojha",
+    "path": "/faculty/dr-vaishali-ojha",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Nazia Ansari",
+    "path": "/faculty/dr-nazia-ansari",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Anand Dhutraj",
+    "path": "/faculty/prof-anand-dhutraj",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Suresh Pujari",
+    "path": "/faculty/dr-suresh-pujari",
+    "type": "Faculty"
+  },
+  {
+    "title": "Minu Agarwal",
+    "path": "/faculty/minu-agarwal",
+    "type": "Faculty"
+  },
+  {
+    "title": "Prof. Prachi Chaturvedi",
+    "path": "/faculty/prof-prachi-chaturvedi",
+    "type": "Faculty"
+  },
+  {
+    "title": "Dr. Debapriya Samal",
+    "path": "/faculty/dr-debapriya-samal",
+    "type": "Faculty"
+  },
+  {
+    "title": "Goonj August 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-august-2025.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj November 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-november-2025.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj January 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-january-2025.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj November 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-november-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj August 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-august-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj March 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-march-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj January 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-january-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj November 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-november-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj August 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-august-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj March 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-march-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj January 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-january-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj November 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-november-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj August 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-august-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj January 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-january-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj November 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-november-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj August 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-august-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj December 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-december-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj June 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-june-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj December 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-december-2019.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj June 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-june-2019.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj December 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-december-2018.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Goonj January 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-january-2017.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta November 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-november-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta July 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-july-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta November 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-november-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta March 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-march-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta November 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-november-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta November 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-november-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta January 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-january-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta October 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-october-2018.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2018.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2017.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Delta February 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/delta-february-2019.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx May 2026",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-may-2026.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx March 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-march-2025.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx November 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-november-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx March 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-march-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx November 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-november-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx March 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-march-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx November 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-november-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx March 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-march-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx November 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-november-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx September 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-september-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx March 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-march-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx September 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-september-2019.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx March 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-march-2019.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Markx January 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/markx-january-2018.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Shunya 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/shunya-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Shunya 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/shunya-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Shunya 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/shunya-2025.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme November 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-november-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme March 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-march-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme November 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-november-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme March 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-march-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme November 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-november-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme March 2022",
+    "path": "null",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme November 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-november-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme January 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-january-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme July 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-july-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme January 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-january-2020.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme November 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-november-2019.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Episteme January 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/episteme-january-2018.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 8",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-8.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 7",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-7.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 6",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-6.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 5",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-5.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 4",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-4.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 3",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-3.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 2",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-2.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Sparssh Volume 1",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/sparssh-volume-1.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udyamee 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udyamee-2024.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udyamee 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udyamee-2023.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udyamee 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udyamee-2022.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udyamee 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udyamee-2021.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "GeM Volume 5",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/gem-volume-5.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "GeM Volume 4",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/gem-volume-4.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "GeM Volume 3",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/gem-volume-3.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "GeM Newsletter",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/gem-newsletter.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "GeM Volume 2",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/gem-volume-2.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "GeM Volume 1",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/gem-volume-1.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udaan Volume 5",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udaan-volume-5.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udaan Volume 4",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udaan-volume-4.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udaan Volume 3",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udaan-volume-3.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udaan Volume 2",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udaan-volume-2.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "Udaan Volume 1",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/udaan-volume-1.pdf",
+    "type": "Institutional Publication"
+  },
+  {
+    "title": "IQAC NAAC Cycle 1",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/naac-cycle-1.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2026 -27",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2026-27.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2025 -26",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2025-26.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NAAC Cycle 2",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/naac-cycle-2.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2024-25",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2024-25.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NAAC SSR Cycle 1",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/naac-ssr-cycle-1.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2023-24",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2023-24.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NAAC SSR Cycle 2",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/naac-ssr-cycle-2.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EXTENDED EOA 2022-23 to 2024-25",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-extended-eoa-2022-23-to-2024-25.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2026",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2026.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2022-23",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2022-23.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2025.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2021-22",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2021-22.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2024.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2020-21",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2020-21.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2023.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2019-20",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2019-20.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2022.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2018-19",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2018-19.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2021.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2017-18",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2017-18.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2020.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 2016-17",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-2016-17.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC NIRF 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/nirf-2019.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC AICTE EOA Report 1995-2015",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/aicte-approvals/aicte-eoa-report-1995-2015.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC-SOP",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-sop.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 3rd April 2025",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-april-2025.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 14th December 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-14th-december-2024.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 6th June 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-june-2024.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 12th April 2024",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-12-th-april-2024.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 22nd December 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-22nd-december-2023.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 12th June 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-12-th-june-2023.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 16th February 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-16th-february-2023.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 28th November 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-28th-november-2022.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 6th July 2022",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-july-2022.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 9th May 2023",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-9th-may-2023.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 6th May 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-may-2021.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 10th Feb 2021",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-10th-feb-2021.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 1st Oct 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-1st-oct-2020.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 6th July 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-6th-july-2020.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 1st Nov 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-1st-nov-2019.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 28th June 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-28th-june-2019.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 7th May 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-7th-may-2020.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 24th Jan 2020",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-24th-jan-2020.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 3rd May 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-may-2019.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 1st Feb 2019",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-1st-feb-2019.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 19th Oct 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-19th-oct-2018.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 2nd July 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-2nd-july-2018.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 3rd May 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-may-2017.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 27th Jan 2018",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-27th-jan-2018.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 26th Sept 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-26th-sept-2017.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 7th July 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-7th-july-2017.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 3rd May 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-may-2017.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 3rd Feb 2017",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-3rd-feb-2017.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 20th Oct 2016",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-20th-oct-2016.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC IQAC Minutes - 9th July 2016",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/iqac-minutes-9th-july-2016.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2023-24",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2023-24.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2022-23",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2022-23.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2021-22",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2021-22.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2020-21",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2020-21.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2019-20",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2019-20.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2018-19",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2018-19.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2017-18",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2017-18.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Action Taken Report 2016-17",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/action-taken-report-2016-17.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2025-26",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2025-26.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2024-25",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2024-25.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2023-24",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2023-24.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2022-23",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2022-23.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2021-22",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2021-22.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2020-21",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2020-21.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2019-20",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2019-20.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2018-19",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2018-19.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2017-18",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2017-18.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC Academic Year 2016-17",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/academic-year-2016-17.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC PGDM",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/pgdm.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC PGDM – Finance",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/pgdm-finance.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "IQAC PGDM – Business Analytics",
+    "path": "https://www.nldalmia.in/staging/assets/pdfs/iqac/pgdm-business-analytics.pdf",
+    "type": "IQAC"
+  },
+  {
+    "title": "PGDM",
+    "path": "/programs/pgdm",
+    "type": "Program"
+  },
+  {
+    "title": "PGDM Finance",
+    "path": "/programs/finance",
+    "type": "Program"
+  },
+  {
+    "title": "PGDM in Business Analytics",
+    "path": "/programs/pgdm-in-business-analytics",
+    "type": "Program"
+  },
+  {
+    "title": "Ph. D. Program",
+    "path": "/programs/doctoral-programs",
+    "type": "Program"
+  },
+  {
+    "title": "Global MBA",
+    "path": "/programs/global-mba-program-university-of-wisconsin-parkside",
+    "type": "Program"
+  },
+  {
+    "title": "PGDM for Working Professionals",
+    "path": "/programs/executive-pgdm",
+    "type": "Program"
+  }
+]

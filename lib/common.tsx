@@ -3,6 +3,7 @@
 import { apiFetch } from "./api";
 import { getAuthToken } from './auth';
 import {
+    StaticPages,
     MetaData,
     Banner,
     Ticker,
@@ -17,6 +18,10 @@ export const buildHeaders = async () => {
         Authorization: `Bearer ${token}`
     };
 }
+
+export const getStaticPages = async () => apiFetch<StaticPages[]>(`static-pages`, {
+    method: "GET"
+});
 
 export const getMetaData = async (page_name: string) => apiFetch<MetaData>(`meta-data?page_name=${page_name}`, {
     method: "GET"

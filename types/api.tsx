@@ -1,3 +1,8 @@
+export interface StaticPages {
+    page_name: string;
+    canonical_tag: string;
+}
+
 export interface MetaData {
     meta_title: string;
     meta_description: string;
