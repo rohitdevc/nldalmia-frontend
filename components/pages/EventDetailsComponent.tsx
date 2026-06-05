@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
+import { FaPlayCircle } from "react-icons/fa";
 
 import { useHeader } from '@/context/HeaderContext'
 
@@ -160,9 +161,14 @@ export default function EventDetails({ event }: PageProps) {
           introCaption={event.event_introduction_caption}
           introDescription={event.event_introduction_description} />
           {
-            event.event_introduction_image && (
-            <div className="w-full lg:max-h-130">
-              <Image src={event.event_introduction_image} alt={event.event_name} width={1920} height={600} className="object-cover w-full h-full" />
+            event.event_introduction_image || (event.event_introduction_video && event.event_introduction_video.length === 11) && (
+            <div className="w-full relative cursor-pointer" onClick={() => videoPopupRef.current?.open(event.event_introduction_video)}>
+              <Image src={event.event_introduction_image || `https://img.youtube.com/vi_webp/${event.event_introduction_video}/maxresdefault.webp`} alt={event.event_name} width={1920} height={600} className="object-cover w-full h-full" />
+              {
+                event.event_introduction_video && (
+                  <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
+                )
+              }
             </div>
             )
           }
@@ -312,7 +318,13 @@ export default function EventDetails({ event }: PageProps) {
               {
                 event.event_sliders.map((event_slider, key) => (
                 <SwiperSlide key={key} title={event_slider.event_slider_caption}>
-                  <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10" style={{backgroundImage: `url(${event_slider.event_slider_image})`}}></div>
+                  <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10 cursor-pointer" style={{backgroundImage: `url(${event_slider.event_slider_image || `https://img.youtube.com/vi_webp/${event_slider.event_slider_video}/0.webp`})`}} onClick={() => videoPopupRef.current?.open(event_slider.event_slider_video)}>
+                    {
+                      event_slider.event_slider_video && (
+                        <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
+                      )
+                    }
+                  </div>
                 </SwiperSlide>
               ))
               }
@@ -400,7 +412,13 @@ export default function EventDetails({ event }: PageProps) {
               {
                 event.event_second_sliders.map((event_slider, key) => (
                 <SwiperSlide className="w-full" key={key} title={event_slider.event_slider_caption}>
-                  <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10" style={{backgroundImage: `url(${event_slider.event_slider_image})`}}></div>
+                  <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10 cursor-pointer" style={{backgroundImage: `url(${event_slider.event_slider_image || `https://img.youtube.com/vi_webp/${event_slider.event_slider_video}/0.webp`}})`}} onClick={() => videoPopupRef.current?.open(event_slider.event_slider_video)}>
+                    {
+                      event_slider.event_slider_video && (
+                        <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
+                      )
+                    }
+                  </div>
                 </SwiperSlide>
               ))
               }

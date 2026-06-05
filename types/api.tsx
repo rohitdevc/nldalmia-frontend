@@ -180,6 +180,7 @@ type EventCompetition = {
 type EventSliders = {
     event_slider_caption: string;
     event_slider_image: string;
+    event_slider_video: string;
 }
 
 type EventRewards = {
@@ -214,6 +215,7 @@ export interface Event {
     event_name: string;
     event_introduction_caption: string;
     event_introduction_description: string;
+    event_introduction_video: string;
     event_introduction_image: string;
     event_milestone_title: string;
     event_milestone_caption: string;
