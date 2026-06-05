@@ -19,6 +19,8 @@ import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import { useHeader } from "@/context/HeaderContext";
+
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
@@ -41,6 +43,12 @@ type PageProps = {
 
 export default function CareerComponent({banner, introduction, careers_our_values_introduction, careers_our_values, careers_milestones, careers_achievements_introduction, careers_achievements, careers_vacancies_introduction, careers_vacancies, careers_application_introduction, applications, careers_program_application}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+  
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const [showVacancyPopUp, updateVacancyPopUp] = useState(false);
   const [jobTitle, updateJobTitle] = useState('');

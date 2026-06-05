@@ -60,8 +60,14 @@ body {
   @apply text-3xl opacity-100;
 }
 
-.university_description ul {
-  @apply list-disc list-inside flex flex-wrap gap-3 lg:gap-5
+.university_description > ul {
+  @apply list-disc list-inside flex flex-col gap-3
+}
+
+.university_description ul ul {
+  list-style-type: circle;
+  margin-left: 1.5rem;
+  display: block;
 }
 
 .responsive-table table {

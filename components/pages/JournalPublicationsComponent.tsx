@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
@@ -20,8 +20,16 @@ type PageProps = {
   journal_publications: JournalPublications[]
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function JournalPublicationsComponent({ banner, journal_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const journal_published_years: number[] = [];
 

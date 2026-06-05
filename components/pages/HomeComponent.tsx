@@ -64,8 +64,16 @@ type CareerPath = {
   career_path_title: string;
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const router = useRouter();
 

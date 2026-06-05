@@ -38,8 +38,16 @@ type PageProps = {
   footer: IntroProps
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function NLDESComponent({ banner, introduction, objectives_introduction, objectives, institutes_introduction, institutes, management_introduction, management, social_responsibility_introduction, social_responsibilities, careers_introduction, careers, footer}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const [activeBlock, updateActiveBlock] = useState(-1);
 

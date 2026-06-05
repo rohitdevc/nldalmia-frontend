@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { MdArrowOutward } from "react-icons/md";
 
@@ -25,8 +25,16 @@ type PageProps = {
   iqac_poe: IQACPOE[]
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqac_poe}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const filtered_iqac_categories = iqac_categories.filter(
     (category) =>

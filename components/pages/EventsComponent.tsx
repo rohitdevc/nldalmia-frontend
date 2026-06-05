@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Banner from "@/components/Banner";
+
+import { useHeader } from "@/context/HeaderContext";
 
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
@@ -24,6 +26,12 @@ type PageProps = {
 
 export default function Events({ banner, events}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const [activeEvent, updateActiveEvent] = useState(-1);
 

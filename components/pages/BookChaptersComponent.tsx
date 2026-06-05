@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { useHeader } from "@/context/HeaderContext";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
@@ -19,6 +21,12 @@ type PageProps = {
 
 export default function BookChaptersComponent({ banner, book_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+  
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const book_published_years: number[] = [];
 

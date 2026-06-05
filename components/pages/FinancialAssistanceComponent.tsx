@@ -16,8 +16,17 @@ type PageProps = {
   financial_assistance_partners: FinancialAssistancePartners[]
 };
 
+import { useEffect } from "react";
+import { useHeader } from "@/context/HeaderContext";
+
 export default function FinancialAssistance({ banner, introduction, financial_assistance_partners}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>

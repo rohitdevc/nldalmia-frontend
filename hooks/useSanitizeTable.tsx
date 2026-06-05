@@ -6,6 +6,8 @@ const cleanElement = (el: Element) => {
     el.style.cssText = "";
 
     for (const attr of Array.from(el.attributes)) {
+        if (attr.name === "colspan" || attr.name === "rowspan") continue;
+        
         el.removeAttribute(attr.name);
     }
 };
@@ -16,35 +18,35 @@ export const useSanitizeTable = () => {
         if (!wrappers.length) return;
 
         wrappers.forEach((wrapper) => {
-        const table = wrapper.querySelector("table");
-        if (!table) return;
+            const table = wrapper.querySelector("table");
+            if (!table) return;
 
-        cleanElement(table);
+            cleanElement(table);
 
-        table.classList.add(
-            "w-full",
-            "table-fixed",
-            "text-[#4E4E4E]",
-            "text-center",
-            "my-5"
-        );
+            table.classList.add(
+                "w-full",
+                "table-fixed",
+                "text-[#4E4E4E]",
+                "text-center",
+                "my-5"
+            );
 
-        const headers = Array.from(table.querySelectorAll("thead th")).map(
-            (th) => th.textContent?.trim() || ""
-        );
+            const headers = Array.from(table.querySelectorAll("thead th")).map(
+                (th) => th.textContent?.trim() || ""
+            );
 
-        table.querySelectorAll("tr, td, th").forEach((el) => {
-            const tag = el.tagName.toLowerCase();
+            table.querySelectorAll("tr, td, th").forEach((el) => {
+                const tag = el.tagName.toLowerCase();
 
-            const index = Array.from(el.parentNode?.children || []).indexOf(el);
-            const header = headers[index];
+                const index = Array.from(el.parentNode?.children || []).indexOf(el);
+                const header = headers[index];
 
-            cleanElement(el);
+                cleanElement(el);
 
-            if (tag === "td" && header) {
-            el.setAttribute("data-label", header);
-            }
-        });
+                if (tag === "td" && header) {
+                    el.setAttribute("data-label", header);
+                }
+            });
         });
     }, []);
 };

@@ -1,10 +1,16 @@
 "use client"
 
-import Image from "next/image";
-import Link from "next/link";
+import { useHeader } from "@/context/HeaderContext";
+import { useEffect } from "react";
 
 export default function PrivacyPolicyComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   return (
     <main className="w-full pt-40" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>

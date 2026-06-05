@@ -33,6 +33,7 @@ import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 
 import { Banner as BannerProps, FounderQuote, GoverningCouncil, InternationalUniversities, IntroProps, ManagementQuote, ManagingCouncil, Objectives, Timeline, VideoSection } from "@/types/api";
+import { useHeader } from "@/context/HeaderContext";
 
 type PageProps = {
   banner: BannerProps
@@ -52,6 +53,12 @@ type PageProps = {
 
 export default function AboutUsComponent({banner, introduction, objectives, timeline, founder_quote, management_quotes, managing_council_introduction, managing_council, governing_council_introduction, governing_council, video_section, international_universities_introduction, international_universities}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader();
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
   

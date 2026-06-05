@@ -61,7 +61,15 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
 
   useEffect(() => {
     setHeaderProps({
+      admissionPage: false,
+      programPage: false,
       alumniPage: true,
+      placement_latest_brochure: {},
+      placementsPage: false,
+      eventRegistrationURL: "",
+      programApplicationLink: "",
+      programEligibilityFees: "",
+      programBrochureAvailable: "",
       alumniPortal: alumni_portal?.intro_link
     })
 

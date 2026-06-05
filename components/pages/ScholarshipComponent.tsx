@@ -26,8 +26,16 @@ type PageProps = {
   reports: Reports[]
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function ScholarshipComponent({ banner, introduction, scholarship_merit, scholarship_inclusivity, scholarship_second_year, reports_introduction, reports}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
   
   useSanitizeTable();
 

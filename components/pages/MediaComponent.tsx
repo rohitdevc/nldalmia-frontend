@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
@@ -26,8 +26,16 @@ type PageProps = {
   media: Media[]
 }
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function MediaComponent({ banner, media_category_url_slug, media, media_categories}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 

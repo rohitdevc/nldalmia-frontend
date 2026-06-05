@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
+import { useHeader } from '@/context/HeaderContext'
+import { useEffect } from "react";
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
@@ -22,6 +23,12 @@ type PageProps = {
 
 export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>

@@ -10,10 +10,10 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 import { MdArrowOutward } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
-
+import { useHeader } from '@/context/HeaderContext'
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import { Banner as BannerProps, BlogCategories, BlogListing, IntroProps } from "@/types/api";
@@ -29,6 +29,12 @@ type PageProps = {
 
 export default function BlogComponent({banner, blog_category_url_slug, introduction, blog_categories, blog_featured, blogs}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+  
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const blogs_data: Record<string, [BlogListing, BlogListing[]][]> = {};
   

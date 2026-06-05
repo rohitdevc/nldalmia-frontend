@@ -4,6 +4,8 @@ import Banner from "@/components/Banner";
 import CenterIntro from "@/components/CenterIntro";
 import MediaNavigation from "@/components/MediaNavigation";
 import Image from "next/image";
+import { useHeader } from '@/context/HeaderContext'
+import { useEffect } from "react";
 import { Awards, Banner as BannerProps, IntroProps, MediaCategoryListing } from "@/types/api";
 
 type PageProps = {
@@ -15,6 +17,12 @@ type PageProps = {
 
 export default function AwardsComponent({banner, introduction, awards, media_categories}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>

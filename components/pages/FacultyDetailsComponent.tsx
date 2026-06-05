@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowLeftSLine } from "react-icons/ri";
+import { useHeader } from "@/context/HeaderContext";
 
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
@@ -25,6 +26,12 @@ type PageProps = {
 
 export default function FacultyDetails({ faculty}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const [openAccordian, toggleAccordian] = useState(0);
 

@@ -40,8 +40,16 @@ type PageProps = {
   enquiry: IntroProps
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function FacultyDevelopmentProgramsComponent({ banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   useEffect(() => {
       const wrappers = document.querySelectorAll(".why_choose");

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
@@ -13,6 +13,8 @@ import ResearchPublicationTabs from "@/components/ResearchPublicationTabs";
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
+import { useHeader } from "@/context/HeaderContext";
+
 import { Banner as BannerProps, CaseStudies } from "@/types/api";
 
 type PageProps = {
@@ -22,6 +24,12 @@ type PageProps = {
 
 export default function CaseStudiesComponent({ banner, case_studies}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+  
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const case_study_years: number[] = [];
 

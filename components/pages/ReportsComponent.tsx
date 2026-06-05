@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
@@ -20,8 +20,16 @@ type PageProps = {
   reports: Reports[]
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function ReportsComponent({ banner, reports}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const report_years: number[] = [];
 

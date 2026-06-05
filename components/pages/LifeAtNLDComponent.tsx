@@ -46,8 +46,17 @@ type PageProps = {
   instagram_feed: InstagramFeed[]
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function LifeAtNLD({ banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
+
   const [activeEvent, updateActiveEvent] = useState(-1);
 
   const handleEventClick = (event_id: number): React.MouseEventHandler<HTMLDivElement> => {

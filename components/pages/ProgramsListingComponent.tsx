@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
@@ -13,10 +13,8 @@ import nl2br from "nl2br";
 
 import { useSearchParams } from "next/navigation";
 
-import { useEffect } from "react";
-
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
-import { Ticker, Banner as BannerProps, IntroProps, ProgramsBlocks, ProgramListing } from "@/types/api";
+import { Banner as BannerProps, IntroProps, ProgramsBlocks, ProgramListing } from "@/types/api";
 
 type PageProps = {
   banner: BannerProps
@@ -26,8 +24,16 @@ type PageProps = {
   programs: ProgramListing[]
 };
 
+import { useHeader } from "@/context/HeaderContext";
+
 export default function ProgramsListingComponent({ banner, introduction, program_blocks, scholarship_introduction, programs}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const options: HTMLReactParserOptions  = {
     replace: (domNode: any) => {

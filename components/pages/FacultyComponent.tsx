@@ -3,7 +3,8 @@
 
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useHeader } from "@/context/HeaderContext";
 
 import Banner from "@/components/Banner";
 
@@ -17,6 +18,12 @@ type PageProps = {
 
 export default function Faculty({ banner, faculties}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
+
+  const { setHeaderProps } = useHeader()
+
+  useEffect(() => {
+      setHeaderProps({})
+  }, [])
 
   const departments: string[] = [];
 

@@ -75,6 +75,15 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
 
       setHeaderProps({
         admissionPage: true,
+        programPage: false,
+        alumniPage: false,
+        alumniPortal: "",
+        placement_latest_brochure: {},
+        placementsPage: false,
+        eventRegistrationURL: "",
+        programApplicationLink: "",
+        programEligibilityFees: "",
+        programBrochureAvailable: "",
         onDownloadBrochureClick: handleDownloadBrochure
       })
 
