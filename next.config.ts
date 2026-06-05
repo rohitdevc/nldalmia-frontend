@@ -373,6 +373,26 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/think-tank',
+				destination: '/think-tank-nl-dalmia-institute-mumbai-2023',
+				permanent: true
+			},
+			{
+				source: '/jugaadu',
+				destination: '/jugaadu-2024',
+				permanent: true
+			},
+			{
+				source: '/e-summit',
+				destination: '/e-summit-2024',
+				permanent: true
+			},
+			{
+				source: '/rethinking-business-strategies-to-drive-innovations-and-business-values',
+				destination: '/rethinking-business-strategies-to-drive-innovations-and-business-values-2022',
+				permanent: true
+			},
+			{
 				source: '/wp-content/uploads/2026/04/Goonj-November-Edition.pdf',
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/institutional-publications/goonj-november-2025.pdf',
 				permanent: true
@@ -1750,6 +1770,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/wp-content/uploads/2025/11/List-of-PGDM-Finance-Students-placed-during-A.Y.-2021-22-2022-23-2023-24.pdf',
 				destination: 'https://www.nldalmia.in/staging/assets/pdfs/pgdm-finance-students-placements-2021-22.2022-23.2023-24.pdf',
+				permanent: true
+			},
+			{
+				source: '/south-asia-pacific-international-conference',
+				destination: '/south-asia-pacific-international-conference-2024',
 				permanent: true
 			},
 			{

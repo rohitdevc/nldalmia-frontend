@@ -158,7 +158,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <ul className="gap-5 lg:gap-4 xl:gap-2 items-center hidden lg:flex h-full">
                         <li className="group relative">
                             <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
-                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                            <ul className="bg-white box-shadow absolute mt-5 left-1/2 -translate-x-1/2 text-[#4E4E4E] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-5 w-50">
                                 <li>
                                     <Link href={`${basePath}about-us#who-we-are`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Who we are</Link>
                                 </li>
@@ -176,7 +176,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <li className="group/item relative h-full justify-center flex">
                             <Link href={`${basePath}programs`} className="flex gap-1 items-center" onMouseOut={() => updateActiveProgramCategory('')}>Programs <MdKeyboardArrowDown size={25} /></Link>
                             <div className="absolute top-full -left-10 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible flex">
-                                <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy shadow-lg whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                                <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-5">
                                 {
                                     program_categories.map((program_category, key) => (
                                         <li key={key} className="cursor-pointer relative w-50 group/submenu hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)} onMouseEnter={() => updateActiveProgramCategory(program_category)}>
@@ -187,7 +187,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 </ul>
                                 {
                                     activeProgramCategory && (
-                                    <ul className="bg-white border-r border-b border-[#800000] text-burgundy shadow-lg whitespace-nowrap px-5 py-5 flex flex-col gap-5 min-w-[250px]">
+                                    <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-5 min-w-[250px]">
                                         {
                                             activeProgramCategory === "Programs" && (
                                                 <>
@@ -214,7 +214,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 )}
                                 {
                                     hoverPGDM && (
-                                    <ul className="bg-white border-r border-b border-[#800000] text-burgundy shadow-lg whitespace-nowrap px-5 py-5 flex flex-col gap-5 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
+                                    <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-5 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
                                         <li className="hover:bg-[#800000] hover:text-white">
                                             <Link href="/programs/pgdm" className="block px-4 py-2">PGDM</Link>
                                         </li>
@@ -231,7 +231,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                         <li className="group relative">
                             <span className="flex gap-1 items-center cursor-pointer">Executive Education <MdKeyboardArrowDown size={25} /></span>
-                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-5">
                             {
                                 common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, sub_key) => (
                                     <li key={sub_key}>
@@ -243,7 +243,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                         <li className="group relative">
                             <span className="flex gap-1 items-center cursor-pointer">Faculty <MdKeyboardArrowDown size={25} /></span>
-                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-5">
                                 <li>
                                     <Link href={`${basePath}faculty`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Faculty</Link>
                                 </li>
@@ -257,7 +257,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                         <li className="group relative">
                             <Link href={`${basePath}placements`} className="flex gap-1 items-center">Placements <MdKeyboardArrowDown size={25} /></Link>
-                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-5">
                                 <li>
                                     <Link href={`${basePath}placements#corporate-engagement`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Corporate Engagement</Link>
                                 </li>
@@ -280,7 +280,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </li>
                         <li className="group relative">
                             <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdKeyboardArrowDown size={25} /></Link>
-                            <ul className="bg-white border-b border-l border-r border-[#800000] text-burgundy absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap px-10 py-5 flex flex-col gap-5">
+                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-5">
                                 <li>
                                     <Link href={`${basePath}life-at-nld#events`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Events</Link>
                                 </li>

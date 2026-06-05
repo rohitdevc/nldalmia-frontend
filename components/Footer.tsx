@@ -23,8 +23,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
             </div>
             <div className="w-full bg-[#FFCC33] text-sm grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 bg-[#FFCC33] px-5 md:px-20 py-5 md:py-20">
                 <ul className="flex flex-col gap-4">
-                    <li className="font-bold underline">Quick Links</li>
-                    <li className="font-bold">Accreditation & Compliance </li>
+                    <li className="font-bold underline">Accreditation & Compliance </li>
                     <li>
                         <Link href="">AICTE Approvals</Link>
                     </li>
@@ -49,7 +48,9 @@ export default function Footer({program_categories, common_programs}: PageProps)
                     <li>
                         <Link href="">Study in India</Link>
                     </li>
-                    <li className="font-bold">Resources & Updates</li>
+                </ul>
+                <ul className="flex flex-col gap-4">
+                    <li className="font-bold underline">Resources & Updates</li>
                     <li>
                         <Link href={`${basePath}media`}>Media</Link>
                     </li>
@@ -62,113 +63,20 @@ export default function Footer({program_categories, common_programs}: PageProps)
                     <li>
                         <Link href="">Campus Tour</Link>
                     </li>
-                    <li className="font-bold">Institutional Information</li>
+                </ul>
+                <ul className="flex flex-col gap-4">
+                    <li className="font-bold underline">Institutional Information</li>
                     <li>
                         <Link href={`${basePath}careers`}>Careers@NLDIMSR  </Link>
                     </li>
                     <li>
                         <Link href={`${basePath}contact-us`}>Contact Us</Link>
                     </li>
-                    <li>
-                        <Link href={``}>Sitemap</Link>
-                    </li>
-                    <li className="font-bold">Policies & Privacy</li>
+                </ul>
+                <ul className="flex flex-col gap-4">
+                    <li className="font-bold underline">Policies & Privacy</li>
                     <li>
                         <Link href={`${basePath}privacy-policy`}>Privacy Policy</Link>
-                    </li>
-                </ul>
-                <ul className="flex flex-col gap-4">
-                    {
-                        program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => (
-                            <React.Fragment key={key}>
-                            <li className="font-bold underline">{program_category}</li>
-                            {
-                                common_programs.length > 0 && common_programs.map((program, sub_key) => program.program_type === program_category && program.program_link && (
-                                <li key={sub_key}>
-                                    <Link href={program.program_link} target="_blank">{program.program_name}</Link>
-                                </li>
-                                ))
-                            }
-                        </React.Fragment>
-                    )
-                    )}
-                </ul>
-                <ul className="flex flex-col gap-4">
-                    <li className="font-bold underline">Placements</li>
-                    <li>
-                        <Link href="">Batch Profile</Link>
-                    </li>
-                    <li>
-                        <Link href="">Placement Partners</Link>
-                    </li>
-                    <li>
-                        <Link href="">Placement Brochure</Link>
-                    </li>
-                    <li>
-                        <Link href="">Batchwise Placement Details</Link>
-                    </li>
-                    <li>
-                        <Link href="">Placement Report</Link>
-                    </li>
-                    <li>
-                        <Link href="">Placement Contact Us</Link>
-                    </li>
-                    <li>
-                        <Link href="">Placement Advisory Committee</Link>
-                    </li>
-                    <li className="font-bold underline">Corporate Connect</li>
-                    <li>
-                        <Link href="">Management Development Programs</Link>
-                    </li>
-                    <li>
-                        <Link href="">Guest Lectures</Link>
-                    </li>
-                    <li>
-                        <Link href="">Value Added Programs</Link>
-                    </li>
-                </ul>
-                <ul className="flex flex-col gap-4">
-                    <li className="font-bold underline">Faculty & Research</li>
-                    <li>
-                        <Link href={`${basePath}faculty`}>Faculty</Link>
-                    </li>
-                    <li>
-                        <Link href="">Faculty Participation</Link>
-                    </li>
-                    <li>
-                        <Link href="">Research Papers Pubished</Link>
-                    </li>
-                    <li>
-                        <Link href="">Faculty Initiatives</Link>
-                    </li>
-                    <li>
-                        <Link href="">Faculty Participation Outside Campus</Link>
-                    </li>
-                    <li>
-                        <Link href="">Faculty Development Programs</Link>
-                    </li>
-                    <li className="font-bold underline">Campus</li>
-                    <li className="font-bold underline">Life@NLD</li>
-                    <li>
-                        <Link href={`${basePath}events`}>Events</Link>
-                    </li>
-                    <li>
-                        <Link href="">Industrial Visit</Link>
-                    </li>
-                    <li>
-                        <Link href="">Resources</Link>
-                    </li>
-                </ul>
-                <ul className="flex flex-col gap-4">
-                    <li className="font-bold underline">Financial Assistance</li>
-                    <li>
-                        <Link href={`${basePath}financial-assistance`}>Financial Aid</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}scholarships`}>Scholarship</Link>
-                    </li>
-                    <li>
-                        <Link href="">Value Added Programs</Link>
                     </li>
                 </ul>
             </div>

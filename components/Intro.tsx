@@ -29,7 +29,7 @@ export default function Intro({h1_tag, introTitle, introCaption, introDescriptio
         }
         {
             introDescription && (
-                <p className="text-[#4E4E4E]  leading-loose w-full">{parser(nl2br(introDescription))}</p>
+                <p className="text-[#4E4E4E] leading-loose w-full">{parser(nl2br(introDescription))}</p>
             )
         }
         </div>
