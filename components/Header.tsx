@@ -32,6 +32,7 @@ export default function Header({ program_categories, common_programs, ticker_api
         admissionPage = false,
         alumniPage = false,
         alumniPortal = "",
+        alumniAssociation = "",
         placement_latest_brochure = {},
         placementsPage = false,
         eventRegistrationURL = "",
@@ -566,9 +567,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                             </li>
                             )
                         }
-                        <li>
-                            <Link href="" target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Association Banner</Link>
-                        </li>
+                        {
+                            alumniAssociation && (
+                            <li>
+                                <Link href={alumniAssociation} target="_blank" className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Alumni Association</Link>
+                            </li>
+                        )
+                        }
                     </ul>
                 </div>
                 )
