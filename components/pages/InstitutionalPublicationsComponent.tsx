@@ -91,12 +91,6 @@ export default function InstitutionalPublicationsComponent({ banner, institution
               </div>
             </SwiperSlide>
           ))}
-          <SwiperSlide className="text-center !w-40" key={institutional_publications_categories.length}>
-              <div className="relative group h-7.5">
-                <Link href="http://nldinnovision.com/index.php/nldimsr" target="_blank">Innovation Journal</Link>
-                <span className={`w-full h-[0.5px] bg-[#800000] absolute inset-0 left-0 top-7 origin-center duration-300 transition-transform scale-x-0 group-hover:scale-x-100`}></span>
-              </div>
-          </SwiperSlide>
         </Swiper>
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 pb-10">
