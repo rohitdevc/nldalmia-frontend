@@ -146,7 +146,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                   <BsArrowRightShort size={20} />
                 </span>
               </div>
-              <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 50 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }} >
+              <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 50 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }} >
                 {
                   events.map((event, key) => (
                     <SwiperSlide key={key}>
@@ -221,7 +221,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
             {
               achievements.map((achievement, key) => (
               <SwiperSlide key={key}>
@@ -258,7 +258,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
+          <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
             {
               student_clubs.map((student_club, key) => (
               <SwiperSlide key={key}>
@@ -398,7 +398,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                     <BsArrowRightShort size={20} />
                   </span>
                 </div>
-                <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.holistic_learning_${key}slider_prev`, nextEl: `.holistic_learning_${key}slider_next`}} >
+                <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.holistic_learning_${key}slider_prev`, nextEl: `.holistic_learning_${key}slider_next`}} >
                   {
                     inside_nld.map((inside_nld_row, sub_key) => (
                     <SwiperSlide key={sub_key}>
@@ -448,7 +448,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{768: {slidesPerView: 2.5, spaceBetween: 50}, 1024: {slidesPerView: 3, spaceBetween: 50}}} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{768: {slidesPerView: 2.5, spaceBetween: 50}, 1024: {slidesPerView: 3, spaceBetween: 50}}} >
               {
                 magazines.map((magazine, key) => magazine.institutional_publication_pdf && (
                 <SwiperSlide key={key} title={magazine.institutional_publication_title} >

@@ -207,7 +207,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <BsArrowRightShort size={20} />
                 </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.management_quote_slider_prev', nextEl: '.management_quote_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.management_quote_slider_prev', nextEl: '.management_quote_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
               {
                 management_quotes.map((management_quote, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col w-full" key={key}>
@@ -252,20 +252,22 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <BsArrowRightShort size={20} />
                 </span>
               </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 managing_council.map((managing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
-                    <div className="flex flex-col gap-5 items-center p-5 text-center">
-                      <div className="h-75">
+                    <div className="flex flex-col gap-5 items-center text-center">
+                      <div className="w-full h-75">
                         {
                           managing_council_row.managing_council_thumbnail && (
                             <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
                           )
                         }
                       </div>
-                      <h2 className="text-xl font-georgia lg:h-10">{managing_council_row.managing_council_name}</h2>
-                      <p className="text-burgundy leading-loose lg:h-20 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-white/40 hover:scrollbar-thumb-white/70">{parser(nl2br(managing_council_row.managing_council_designation))}</p>
+                      <div className="p-5">
+                        <h2 className="text-xl font-georgia lg:h-10">{managing_council_row.managing_council_name}</h2>
+                        <p className="text-burgundy leading-loose">{parser(nl2br(managing_council_row.managing_council_designation))}</p>
+                      </div>
                     </div>
                     {
                       managing_council_row.managing_council_profile_link && (
@@ -297,20 +299,22 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <BsArrowRightShort size={20} />
                 </span>
               </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 governing_council.map((governing_council_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
-                    <div className="flex flex-col gap-5 items-center p-5 text-center min-h-50">
-                      <div className="h-75 hidden">
+                    <div className="flex flex-col gap-5 items-center text-center min-h-45">
+                      <div className="w-full h-75 hidden">
                         {
                           governing_council_row.governing_council_thumbnail && (
                             <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
                           )
                         }
                       </div>
-                      <h2 className="text-xl font-georgia lg:h-10">{governing_council_row.governing_council_name}</h2>
-                      <p className="text-burgundy leading-normal">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
+                      <div className="p-5">
+                        <h2 className="text-xl font-georgia lg:h-10">{governing_council_row.governing_council_name}</h2>
+                        <p className="text-burgundy leading-normal">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
+                      </div>
                     </div>
                     {
                       governing_council_row.governing_council_profile_link && (

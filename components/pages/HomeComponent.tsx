@@ -238,15 +238,15 @@ export default function HomeComponent({banner, announcements, introduction, care
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         />
-        <div className="flex flex-col md:flex-row gap-10 md:mt-10 lg:mt-20">
-          <div className="w-full md:w-[40%] overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-10 md:mt-10 lg:mt-20">
+          <div className="w-full lg:w-[40%] overflow-hidden">
             {
               introduction.intro_image &&  (
                 <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_image_alt || `N L Dalmia`} className="object-cover w-full h-full" />
               )
             }
           </div>
-          <div className="w-full md:w-[60%] flex flex-col gap-5">
+          <div className="w-full lg:md:w-[60%] flex flex-col gap-5">
             <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(introduction.intro_description))}</p>
             <ul className="flex flex-wrap md:flex-row gap-5 md:gap-10 text-sm text-burgundy mt-2">
               <li>
@@ -268,7 +268,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           <h2 className="text-xl md:text-2xl">{career_finder.career_finder_title}</h2>
           <div className="flex flex-col md:flex-row gap-3">
             <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
-            <div className="relative w-[290px]">
+            <div className="relative lg:w-[290px]">
               <Multiselect className="career-paths text-sm text-burgundy" selectedValues={selectedCareerPaths} options={career_paths} displayValue="career_path_title" placeholder="Select your Career Path" showCheckbox={true} onSelect={(list) => setSelectedCareerPaths(list)} onRemove={(list) => setSelectedCareerPaths(list)} />
               <span className="w-full absolute -bottom-1 h-[0.5px] bg-white"></span>
               <IoIosArrowDown className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" size={18} />
@@ -356,17 +356,17 @@ export default function HomeComponent({banner, announcements, introduction, care
             <p className="font-georgia leading-normal lg:leading-loose text-center text-2xl lg:text-4xl">{parser(nl2br(video.video_title))}</p>
             {
               video.video_id && (
-            <div className="flex items-center gap-2 px-3 py-1 bg-[#800000] cursor-pointer" onClick={() => videoPopupRef.current?.open(video.video_id)}>
-                <FaPlayCircle />
-                <span>Play Video</span>
-            </div>
+              <div className="flex items-center gap-2 px-3 py-1 bg-[#800000] cursor-pointer" onClick={() => videoPopupRef.current?.open(video.video_id)}>
+                  <FaPlayCircle />
+                  <span>Play Video</span>
+              </div>
             )
             }
           </div>
       </div>
       {
           placement_partners && placement_partners.length > 0 && (
-            <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
+            <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-20 flex flex-col gap-5">
               <CenterIntro
               introTitle={placement_partners_introduction.intro_title}
               introCaption={placement_partners_introduction.intro_caption}
@@ -380,7 +380,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                 </span>
               </div>
               
-              <Swiper className="w-full" slidesPerView={2} spaceBetween={20} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+              <Swiper className="w-full" slidesPerView={2} spaceBetween={20} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{640: {slidesPerView: 3}, 768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 }, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
                 {
                   placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
                     <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
@@ -410,10 +410,10 @@ export default function HomeComponent({banner, announcements, introduction, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 25 }, 1024: { slidesPerView: 3, spaceBetween: 50 } }} >
+          <Swiper className="w-full" slidesPerView={1.5} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 10}, 768: { slidesPerView: 2, spaceBetween: 25 }, 1024: { slidesPerView: 2, spaceBetween: 90 }, 1280: {slidesPerView: 4, spaceBetween: 20} }} >
             {
               testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full min-h-90 md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
+                <SwiperSlide className="group relative w-full min-h-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
                   <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
                     <div className="rounded-full overflow-hidden w-30 h-30">
                     {
@@ -482,7 +482,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                           <BsArrowRightShort size={20} />
                         </span>
                       </div>
-                      <Swiper slidesPerView={1} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} className={`max-w-full text-white transition-opacity`} key={key}>
+                      <Swiper slidesPerView={1} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} className={`max-w-full text-white transition-opacity`} key={key}>
                         {
                           chunkedEvents.map((groupEvents, slideIndex) => (
                             <SwiperSlide key={slideIndex}>
@@ -552,7 +552,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 awards.map((award, key) => (
                   <SwiperSlide className="!w-35 sm:!w-50" title={award.award_name} key={key}>
@@ -586,7 +586,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
           {
             media.map((media_row, key) => (
               <SwiperSlide key={key}>
@@ -650,7 +650,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
           {
             blogs.map((blog, key) => (
               <SwiperSlide key={key}>

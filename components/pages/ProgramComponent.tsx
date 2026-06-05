@@ -316,7 +316,7 @@ export default function ProgramComponent({ program}: PageProps) {
                     <BsArrowRightShort size={20} />
                   </span>
               </div>
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full sm:h-[35vh] lg:h-[65vh] xl:h-[70vh]" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full sm:h-[35vh] lg:h-[65vh] xl:h-[70vh]" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}}>
                 {
                   program.program_sliders.map((slider, key) => (
                     <SwiperSlide className="w-full" title={slider.program_slider_caption} key={key}>
@@ -387,7 +387,7 @@ export default function ProgramComponent({ program}: PageProps) {
                   <BsArrowRightShort size={20} />
                 </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={25} navigation={{prevEl: '.international_partner_prev', nextEl: '.international_partner_next'}} breakpoints={{640: {slidesPerView: 1.5}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={25} navigation={{prevEl: '.international_partner_prev', nextEl: '.international_partner_next'}} breakpoints={{640: {slidesPerView: 1.5}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3}}}>
               {
                 program.program_international_partners.map((international_partner, key) => (
                   <SwiperSlide className="w-full border-[0.5px] border-[#800000] px-5 py-5 bg-white" title={international_partner.program_international_partner_name} key={key}>
@@ -428,7 +428,7 @@ export default function ProgramComponent({ program}: PageProps) {
                   <BsArrowRightShort size={20} />
                 </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2.5}, 1024: {slidesPerView: 3}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2.5}, 1024: {slidesPerView: 3}}}>
               {
                 program.program_outcomes.map((program_outcome, key) => (
                   <SwiperSlide className="w-full bg-[#FFCC33] py-5 px-4" title={program_outcome.program_outcome_caption} key={key}>
@@ -539,7 +539,7 @@ export default function ProgramComponent({ program}: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
           </div>
-          <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full sm:h-[35vh] lg:h-[65vh] xl:h-[70vh]" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}}>
+          <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full sm:h-[35vh] lg:h-[65vh] xl:h-[70vh]" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}}>
             {
               program.program_second_sliders.map((slider, key) => (
                 <SwiperSlide className="w-full" title={slider.program_slider_caption} key={key}>
@@ -566,7 +566,7 @@ export default function ProgramComponent({ program}: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
           </div>
-          <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
+          <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
             {
               program.program_testimonials.map((testimonial, key) => (
                 <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">

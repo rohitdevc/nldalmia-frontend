@@ -195,7 +195,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
             {
               careers_achievements.map((careers_achievement, key) => (
               <SwiperSlide key={key}>
@@ -229,7 +229,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.vacancies_slider_prev', nextEl: '.vacancies_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}}} >
+          <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.vacancies_slider_prev', nextEl: '.vacancies_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}}} >
             {
               careers_vacancies.map((careers_vacancy, key) => (
               <SwiperSlide key={key}>

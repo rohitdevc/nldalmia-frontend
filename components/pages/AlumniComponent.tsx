@@ -176,7 +176,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
             <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 wall_of_fame_slider_next z-2">
               <BsArrowRightShort size={20} />
             </span>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}} className="text-white">
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}} className="text-white">
               {
               wall_of_fame.map((wall_of_fame_row, key) => (
                 <SwiperSlide key={key}>
@@ -220,7 +220,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
             <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 right-4 events_slider_next z-2">
               <BsArrowRightShort size={20} />
             </span>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} navigation={{prevEl: '.events_slider_prev', nextEl: '.events_slider_next'}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} navigation={{prevEl: '.events_slider_prev', nextEl: '.events_slider_next'}}>
               {
               slider.map((slider_row, key) => (
                 <SwiperSlide key={key}>
@@ -247,7 +247,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 alumni_meet_slider_next z-2">
                 <BsArrowRightShort size={20} />
               </span>
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.alumni_meet_slider_prev', nextEl: '.alumni_meet_slider_next'}} className="text-white">
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.alumni_meet_slider_prev', nextEl: '.alumni_meet_slider_next'}} className="text-white">
                 {
                 alumni_meet.map((alumni_meet_row, key) => (
                   <SwiperSlide key={key}>
@@ -285,7 +285,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 right-4 testimonial_slider_next z-2">
                 <BsArrowRightShort size={20} />
               </span>
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
                 {
                 alumni_quotes.map((alumni_quote, key) => (
                   <SwiperSlide key={key}>
@@ -336,7 +336,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 alumni_connect.map((alumni_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
@@ -388,7 +388,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_hall_of_fame_slider_prev', nextEl: '.alumni_hall_of_fame_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_hall_of_fame_slider_prev', nextEl: '.alumni_hall_of_fame_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 alumni_hall_of_fame.map((alumni_row, key) => (
                   <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
@@ -427,7 +427,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.alumni_testimonial_slider_prev', nextEl: '.alumni_testimonial_slider_next'}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.alumni_testimonial_slider_prev', nextEl: '.alumni_testimonial_slider_next'}}>
               {
               alumni_testimonials.map((alumni_testimonial, key) => (
                 <SwiperSlide key={key}>
@@ -470,7 +470,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                 </span>
               </div>
               
-              <Swiper className="w-full mt-10" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.alumni_event_slider_prev', nextEl: '.alumni_event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
+              <Swiper className="w-full mt-10" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.alumni_event_slider_prev', nextEl: '.alumni_event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
                 {
                   alumni_events.map((alumni_event, key) => {
                     const startDate = new Date(alumni_event.event_start_date);
@@ -564,7 +564,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               </span>
             </div>
             <div className="py-5 lg:py-10">
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeConnectAlumniIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeConnectAlumniIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
                 {
                   alumni_connect.map((alumni_row, key) => (
                     <SwiperSlide key={key}>
@@ -673,7 +673,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               </span>
             </div>
             <div className="py-5 lg:py-10">
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeWallOfFameIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeWallOfFameIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
                 {
                   alumni_hall_of_fame.map((alumni_row, key) => (
                     <SwiperSlide key={key}>

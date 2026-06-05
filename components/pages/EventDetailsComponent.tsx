@@ -308,7 +308,7 @@ export default function EventDetails({ event }: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
+            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
               {
                 event.event_sliders.map((event_slider, key) => (
                 <SwiperSlide key={key} title={event_slider.event_slider_caption}>
@@ -365,7 +365,7 @@ export default function EventDetails({ event }: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.sponsored_slider_prev', nextEl: '.sponsored_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 768: {slidesPerView: 3, spaceBetween: 30}, 1024: {slidesPerView: 4, spaceBetween: 100}}}>
+            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.sponsored_slider_prev', nextEl: '.sponsored_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 768: {slidesPerView: 3, spaceBetween: 30}, 1024: {slidesPerView: 4, spaceBetween: 100}}}>
               {
                 event.event_sponsers.map((event_sponser, key) => event_sponser.event_sponser_logo && (
                   <SwiperSlide className="flex flex-col gap-5 justify-center items-center text-center" title={event_sponser.event_sponser_name} key={key}>
@@ -396,7 +396,7 @@ export default function EventDetails({ event }: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
+            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
               {
                 event.event_second_sliders.map((event_slider, key) => (
                 <SwiperSlide className="w-full" key={key} title={event_slider.event_slider_caption}>
@@ -422,7 +422,7 @@ export default function EventDetails({ event }: PageProps) {
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3.5, spaceBetween: 100 } }} >
+          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3.5, spaceBetween: 100 } }} >
             {
               event.event_testimonials.map((testimonial, key) => (
                 <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.event_testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
