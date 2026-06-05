@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
 	 async redirects()  {
 		return [
 			{
+				source: '/programs/executive-pgdm',
+				destination: '/programs/pgdm-for-working-professionals',
+				permanent: true
+			},
+			{
 				source: '/reasons-why-you-should-consider-taking-a-course-on-big-data-analytics',
 				destination: '/big-data-course-all-you-need-to-know-before-enrolling-to-one',
 				permanent: true
@@ -1269,7 +1274,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/wp-content/uploads/2025/04/FAQ-PGDM-Working-professional-Program-2025-2027-1.pdf',
-				destination: '/programs/executive-pgdm',
+				destination: '/programs/pgdm-for-working-professionals',
 				permanent: true
 			},
 			{
