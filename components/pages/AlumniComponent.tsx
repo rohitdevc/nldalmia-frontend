@@ -559,12 +559,12 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_prev">
                 <BsArrowLeftShort size={20} />
               </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_prev">
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_next">
                 <BsArrowRightShort size={20} />
               </span>
             </div>
             <div className="py-5 lg:py-10">
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeConnectAlumniIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_prev'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeConnectAlumniIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}}>
                 {
                   alumni_connect.map((alumni_row, key) => (
                     <SwiperSlide key={key}>
