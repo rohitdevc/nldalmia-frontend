@@ -22,7 +22,7 @@ export function FacultyCard({faculty, keyIndex}: FacultyProps) {
                 }
             </div>
             <h2 className="font-georgia text-xl">{faculty.faculty_name}</h2>
-            <span className="text-[#4E4E4E]">{faculty.faculty_designation}</span>
+            <span className="text-[#4E4E4E] min-h-15">{faculty.faculty_designation}</span>
             <Link className="w-full bg-[#800000] text-white py-1 flex justify-center items-center gap-2" href={`${basePath}faculty/${faculty.faculty_url_slug}`}>View Profile <MdArrowOutward size={20} /></Link>
         </div>
     )
