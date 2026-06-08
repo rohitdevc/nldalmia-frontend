@@ -139,18 +139,18 @@ export default function ProgramsListingComponent({ banner, introduction, program
   programsFilter.forEach((program) => {
     if(program.program_career_paths && Array.isArray(program.program_career_paths) && program.program_career_paths.length > 0) {
       program.program_career_paths.forEach((program_career_path) => {
-        if(!career_paths.includes(program_career_path)) {
+        if(program_career_path && !career_paths.includes(program_career_path)) {
           career_paths.push(program_career_path);
         }
       })
     }
 
-    if(program.program_duration) {
-      if(!preferred_durations.includes(program.program_duration)) {
-        preferred_durations.push(program.program_duration);
-      }
+    if(program.program_duration && !preferred_durations.includes(program.program_duration)) {
+      preferred_durations.push(program.program_duration);
     }
   })
+
+  career_paths.sort();
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>

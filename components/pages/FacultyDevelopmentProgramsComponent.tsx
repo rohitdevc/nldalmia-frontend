@@ -48,7 +48,9 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
   const { setHeaderProps } = useHeader()
 
   useEffect(() => {
-      setHeaderProps({})
+      setHeaderProps({
+        MDPPage: programs.length ? true : false
+      })
   }, [])
 
   useEffect(() => {
@@ -168,7 +170,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link}
-      scroll_ref={programsRef} />
+      />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}

@@ -428,15 +428,15 @@ export default function ProgramComponent({ program}: PageProps) {
                   <BsArrowRightShort size={20} />
                 </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2.5}, 1024: {slidesPerView: 3}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} autoHeight={false} loop={true} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2.5}, 1024: {slidesPerView: 3}}}>
               {
                 program.program_outcomes.map((program_outcome, key) => (
-                  <SwiperSlide className="w-full bg-[#FFCC33] py-5 px-4" title={program_outcome.program_outcome_caption} key={key}>
-                    <div className="flex flex-col gap-10 text-center">
-                      <h3 className="text-xl font-georgia h-8">{program_outcome.program_outcome_caption}</h3>
+                  <SwiperSlide className="!h-auto flex" title={program_outcome.program_outcome_caption} key={key}>
+                    <div className="w-full h-full bg-[#FFCC33] py-5 px-4 flex-1 flex flex-col gap-10 text-center">
+                      <h3 className="text-xl font-georgia">{program_outcome.program_outcome_caption}</h3>
                       {
                         program_outcome.program_outcome_description && (
-                          <p className="text-[#4E4E4E] h-25">{parser(nl2br(program_outcome.program_outcome_description))}</p>
+                          <p className="text-[#4E4E4E]">{parser(nl2br(program_outcome.program_outcome_description))}</p>
                         )
                       }
                     </div>
@@ -566,25 +566,25 @@ export default function ProgramComponent({ program}: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
           </div>
-          <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
+          <Swiper modules={[Navigation, Autoplay]} loop={true} autoHeight={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
             {
               program.program_testimonials.map((testimonial, key) => (
                 <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">
-                  <div className="flex flex-col md:flex-row gap-15">
-                    <div className="md:w-[30%] lg:w-[15%] flex justify-center">
+                  <div className="flex flex-col md:flex-row gap-5">
+                    <div className="md:w-[30%] lg:w-[25%] h-75 flex justify-center">
                       {
                         testimonial.program_testimonial_image && (
-                          <Image src={testimonial.program_testimonial_image} alt={testimonial.program_testimonial_name} width={200} height={300} className="object-cover w-full h-full" />
+                          <Image src={testimonial.program_testimonial_image} alt={testimonial.program_testimonial_name} width={200} height={300} className="object-contain w-full h-full" />
                         )
                       }
                     </div>
-                    <div className="md:w-[70%] lg:w-[85%] flex flex-col gap-10 mt-auto">
+                    <div className="md:w-[70%] lg:w-[75%] flex-1 flex flex-col gap-10">
                       {
                         testimonial.program_testimonial_about && (
                           <p className="text-[#4E4E4E] leading-loose text-smg:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
                         )
                       }
-                      <div className="flex flex-col gap-2 font-normal text-center md:text-left">
+                      <div className="flex flex-col gap-2 font-normal text-center md:text-left mt-auto">
                         {
                           testimonial.program_testimonial_content && (
                             <h3 className="text-lg lg:text-2xl">{parser(nl2br(testimonial.program_testimonial_content))}</h3>
