@@ -48,7 +48,9 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
   const { setHeaderProps } = useHeader()
 
   useEffect(() => {
-      setHeaderProps({})
+      setHeaderProps({
+        MDPPage: programs.length ? true : false
+      })
   }, [])
 
   useEffect(() => {
@@ -168,7 +170,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link}
-      scroll_ref={programsRef} />
+      />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
@@ -181,7 +183,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
               why_choose_introduction.intro_description && parser(why_choose_introduction.intro_description)
             }
           </div>
-          <div className="lg:w-[65%] sm:h-90">
+          <div className="w-full lg:w-[65%] sm:h-90">
             {
               why_choose_introduction.intro_image && (
                 <Image src={why_choose_introduction.intro_image} alt={why_choose_introduction.intro_image_alt} width={600} height={350} className="object-cover w-full h-full" />

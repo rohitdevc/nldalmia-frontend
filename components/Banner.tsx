@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { RefObject, useRef } from "react";
+import { useRef } from "react";
 
 import VimeoVideoPopUp, { VimeoVideoPopupHandle } from "@/components/VimeoVideo";
 
@@ -16,20 +16,12 @@ type BannerInterface = {
     banner_vimeo_video_id?: string;
     banner_url?: string;
     banner_button_caption?: string;
-    scroll_ref?: RefObject<HTMLDivElement | null>;
 }
 
-export default function Banner({banner_image, banner_caption, banner_description, banner_vimeo_video_id, banner_url, banner_button_caption, scroll_ref}: BannerInterface) {
+export default function Banner({banner_image, banner_caption, banner_description, banner_vimeo_video_id, banner_url, banner_button_caption}: BannerInterface) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const videoPopupRef = useRef<VimeoVideoPopupHandle>(null);
-
-    const handleScroll = () => {
-        scroll_ref?.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-    }
 
     return (
         <>
@@ -62,13 +54,6 @@ export default function Banner({banner_image, banner_caption, banner_description
                         <Link href={banner_url} className="px-3 py-1 bg-[#800000] text-white">
                             <span>{banner_button_caption}</span>
                         </Link>
-                    )
-                }
-                {
-                    scroll_ref && (
-                        <div className="px-3 py-1 bg-[#800000] text-white cursor-pointer" onClick={handleScroll}>
-                            <span>{banner_button_caption}</span>
-                        </div>
                     )
                 }
             </div>

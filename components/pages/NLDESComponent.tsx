@@ -218,65 +218,69 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
         </div>
       )
       }
-      <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
-        <CenterIntro
-        introTitle={management_introduction.intro_title}
-        introCaption={management_introduction.intro_caption}
-        introDescription={management_introduction.intro_description} />
-        <ul className="flex flex-col sm:flex-row gap-7 text-burgundy justify-center items-center">
+      {
+        management_categories && management_categories.length > 0 && (
+        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+          <CenterIntro
+          introTitle={management_introduction.intro_title}
+          introCaption={management_introduction.intro_caption}
+          introDescription={management_introduction.intro_description} />
+          <ul className="flex flex-col sm:flex-row gap-7 text-burgundy justify-center items-center">
+              {
+                management_categories.map((management_category, key) => (
+                  <li className={`group relative cursor-pointer transition-all duration-300 ${key === activeManagementTeamTab ? 'text-burgundy text-2xl font-normal': 'text-[#4E4E4E] text-lg'}`} key={key} onClick={() => updateActiveManagementTeamTabFunc(key)}>
+                    <span>{management_category}</span>
+                    <span className={`absolute left-0 -bottom-1 bg-[#800000] h-[0.5px] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${key === activeManagementTeamTab ? 'scale-x-100': ''} `}></span>
+                  </li>
+                ))
+              }
+            </ul>
+            <div className="w-full" ref={ManagementTeams}>
             {
-              management_categories.map((management_category, key) => (
-                <li className={`group relative cursor-pointer transition-all duration-300 ${key === activeManagementTeamTab ? 'text-burgundy text-2xl font-normal': 'text-[#4E4E4E] text-lg'}`} key={key} onClick={() => updateActiveManagementTeamTabFunc(key)}>
-                  <span>{management_category}</span>
-                  <span className={`absolute left-0 -bottom-1 bg-[#800000] h-[0.5px] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${key === activeManagementTeamTab ? 'scale-x-100': ''} `}></span>
-                </li>
-              ))
-            }
-          </ul>
-          <div className="w-full" ref={ManagementTeams}>
-          {
-              management_categories.map((management_category, key) => (
-              <div className={`w-full ${key === activeManagementTeamTab ? 'block' : 'hidden'}`} key={key}>
-                <div className="flex gap-3 mb-5">
-                  <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_team_${key}slider_prev`}>
-                    <BsArrowLeftShort size={20} />
-                  </span>
-                  <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_team_${key}slider_next`}>
-                    <BsArrowRightShort size={20} />
-                  </span>
-                </div>
-                <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.management_team_${key}slider_prev`, nextEl: `.management_team_${key}slider_next`}} breakpoints={{768: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}, 1280: {slidesPerView: 4, spaceBetween: 30}}} >
-                  {
-                    management_data[management_category].map((management_row, sub_key) => (
-                    <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col w-full" key={sub_key}>
-                      <div className="flex flex-col gap-2 items-center p-5 text-center">
-                        <div className="w-30">
+                management_categories.map((management_category, key) => (
+                <div className={`w-full ${key === activeManagementTeamTab ? 'block' : 'hidden'}`} key={key}>
+                  <div className="flex gap-3 mb-5">
+                    <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_team_${key}slider_prev`}>
+                      <BsArrowLeftShort size={20} />
+                    </span>
+                    <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_team_${key}slider_next`}>
+                      <BsArrowRightShort size={20} />
+                    </span>
+                  </div>
+                  <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.management_team_${key}slider_prev`, nextEl: `.management_team_${key}slider_next`}} breakpoints={{768: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}, 1280: {slidesPerView: 4, spaceBetween: 30}}} >
+                    {
+                      management_data[management_category].map((management_row, sub_key) => (
+                      <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col w-full" key={sub_key}>
+                        <div className="flex flex-col gap-2 items-center p-5 text-center">
+                          <div className="w-30">
+                            {
+                              management_row.management_image && (
+                                <Image src={management_row.management_image} alt={management_row.management_image_alt} width={150} height={150} className="object-cover w-full h-full" />
+                              )
+                            }
+                          </div>
+                          <h2 className="text-xl font-georgia">{management_row.management_name}</h2>
                           {
-                            management_row.management_image && (
-                              <Image src={management_row.management_image} alt={management_row.management_image_alt} width={150} height={150} className="object-cover w-full h-full" />
+                            management_row.management_designation && (
+                              <p className="text-burgundy leading-loose">{parser(nl2br(management_row.management_designation))}</p>
                             )
                           }
                         </div>
-                        <h2 className="text-xl font-georgia">{management_row.management_name}</h2>
                         {
-                          management_row.management_designation && (
-                            <p className="text-burgundy leading-loose">{parser(nl2br(management_row.management_designation))}</p>
+                          management_row.management_link && (
+                            <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={management_row.management_link}>View Profile <MdArrowOutward size={20} /></Link>
                           )
                         }
-                      </div>
-                      {
-                        management_row.management_link && (
-                          <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={management_row.management_link}>View Profile <MdArrowOutward size={20} /></Link>
-                        )
-                      }
-                    </SwiperSlide>
-                  ))
-                  }
-                </Swiper>
-              </div>
-          ))}
-          </div>
-      </div>
+                      </SwiperSlide>
+                    ))
+                    }
+                  </Swiper>
+                </div>
+            ))}
+            </div>
+        </div>
+        )
+      }
       {
         social_responsibilities && social_responsibilities.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">

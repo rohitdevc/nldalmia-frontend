@@ -39,7 +39,9 @@ export default function Header({ program_categories, common_programs, ticker_api
         programApplicationLink = "",
         programEligibilityFees = "",
         programBrochureAvailable = "",
-        onDownloadBrochureClick
+        onDownloadBrochureClick,
+        MDPPage = false,
+        MDPProgramsScrollref
     } = headerProps;
 
     const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -89,6 +91,13 @@ export default function Header({ program_categories, common_programs, ticker_api
         
         router.push(path);
     };
+
+    const handleMDPProgramsScroll = () => {
+        MDPProgramsScrollref?.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
 
     return (
         <>
@@ -576,6 +585,17 @@ export default function Header({ program_categories, common_programs, ticker_api
                         }
                     </ul>
                 </div>
+                )
+            }
+            {
+                MDPPage && (
+                    <div className="w-full bg-[#FFCC33] flex justify-end">
+                        <ul className="flex gap-3 text-white my-2 mx-1 sm:mx-8">
+                            <li>
+                                <button className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm cursor-pointer" onClick={handleMDPProgramsScroll}>Explore Programs</button>
+                            </li>
+                        </ul>
+                    </div>
                 )
             }
             {

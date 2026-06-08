@@ -104,12 +104,12 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
     }
   })
 
-  const [activeHolisticLearningTab, updateActiveHolisticLearningTab] = useState(0);
+  const [activeHolisticLearningTab, updateActiveHolisticLearningTab] = useState(holistic_learnings.length ? holistic_learnings[0] : '');
 
   const HolisticLearnings = useRef<HTMLDivElement>(null);
 
-  const updateActiveHolisticLearningTabFunc = (holistic_learning_tab_id: number): void => {
-    updateActiveHolisticLearningTab(holistic_learning_tab_id);
+  const updateActiveHolisticLearningTabFunc = (holistic_learning_tab: string): void => {
+    updateActiveHolisticLearningTab(holistic_learning_tab);
 
     if(HolisticLearnings.current) {
       const offset = 200;
@@ -279,19 +279,19 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           {
             gallery[0].gallery_image && (
             <div className="w-full h-100 lg:h-125">
-              <Image src={gallery[0].gallery_image} width={900} height={900} alt={gallery[0].gallery_image_alt} className="object-cover w-full h-full" />  
+              <Image src={gallery[0].gallery_image} width={900} height={900} alt={gallery[0].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />  
             </div>
             )}
             {
               gallery[1].gallery_image && (
               <div className="w-full h-100">
-                <Image src={gallery[1].gallery_image} width={900} height={550} alt={gallery[1].gallery_image_alt} className="object-cover w-full h-full" />
+                <Image src={gallery[1].gallery_image} width={900} height={550} alt={gallery[1].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
               </div>
             )}
             {
               gallery[2].gallery_image && (
               <div className="w-full h-100">
-                <Image src={gallery[2].gallery_image} width={900} height={550} alt={gallery[2].gallery_image_alt} className="object-cover w-full h-full" />
+                <Image src={gallery[2].gallery_image} width={900} height={550} alt={gallery[2].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
             </div>
             )}
           </div>
@@ -299,14 +299,14 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           {
             gallery[3].gallery_image && (
               <div className="w-full h-100">
-                <Image src={gallery[3].gallery_image} width={900} height={550} alt={gallery[3].gallery_image_alt} className="object-cover w-full h-full" />
+                <Image src={gallery[3].gallery_image} width={900} height={550} alt={gallery[3].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
               </div>
             )
           }
           {
             gallery[4].gallery_image && (
             <div className="w-full h-100">
-              <Image src={gallery[4].gallery_image} width={900} height={550} alt={gallery[4].gallery_image_alt} className="object-cover w-full h-full" />
+              <Image src={gallery[4].gallery_image} width={900} height={550} alt={gallery[4].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
             </div>
             )
           }
@@ -352,9 +352,9 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           <ul className="flex flex-col sm:flex-row gap-7 text-burgundy justify-center items-center">
             {
               holistic_learnings.map((holistic_learning_tab, key) => (
-                <li className={`group relative cursor-pointer transition-all duration-300 ${key === activeHolisticLearningTab ? 'text-burgundy text-2xl font-normal': 'text-[#4E4E4E] text-lg'}`} key={key} onClick={() => updateActiveHolisticLearningTabFunc(key)}>
+                <li className={`group relative cursor-pointer transition-all duration-300 ${holistic_learning_tab === activeHolisticLearningTab ? 'text-burgundy text-2xl font-normal': 'text-[#4E4E4E] text-lg'}`} key={key} onClick={() => updateActiveHolisticLearningTabFunc(holistic_learning_tab)}>
                   <span>{holistic_learning_tab}</span>
-                  <span className={`absolute left-0 -bottom-1 bg-[#800000] h-[0.5px] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${key === activeHolisticLearningTab ? 'scale-x-100': ''} `}></span>
+                  <span className={`absolute left-0 -bottom-1 bg-[#800000] h-[0.5px] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${holistic_learning_tab === activeHolisticLearningTab ? 'scale-x-100': ''} `}></span>
                 </li>
               ))
             }
@@ -362,7 +362,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           <div className="w-full" ref={HolisticLearnings}>
           {
               holistic_learnings.map((holistic_learning_tab, key) => (
-              <div className={`w-full ${key === activeHolisticLearningTab ? 'block' : 'hidden'}`} key={key}>
+              <div className={`w-full ${holistic_learning_tab === activeHolisticLearningTab ? 'block' : 'hidden'}`} key={key}>
                 <div className="flex gap-3 mb-5">
                   <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer holistic_learning_${key}slider_prev`}>
                     <BsArrowLeftShort size={20} />
@@ -371,23 +371,23 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                     <BsArrowRightShort size={20} />
                   </span>
                 </div>
-                <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.holistic_learning_${key}slider_prev`, nextEl: `.holistic_learning_${key}slider_next`}} >
+                <Swiper className="w-full infra_content" slidesPerView={1} spaceBetween={0} autoHeight={true} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.holistic_learning_${key}slider_prev`, nextEl: `.holistic_learning_${key}slider_next`}} >
                   {
-                    inside_nld.map((inside_nld_row, sub_key) => (
+                    inside_nld.map((inside_nld_row, sub_key) => inside_nld_row.inside_nld_tab_title === holistic_learning_tab && (
                     <SwiperSlide key={sub_key}>
                       <div className="w-full flex flex-col lg:flex-row">
-                        <div className="w-full lg:w-1/2 lg:order-2">
-                          {
-                            inside_nld_row.inside_nld_image && (
+                        {
+                          inside_nld_row.inside_nld_image && (
+                            <div className="w-full lg:order-2">
                               <Image src={inside_nld_row.inside_nld_image} alt={inside_nld_row.inside_nld_image_alt} width={500} height={300} className="object-cover w-full h-full" />
-                            )
-                          }
-                        </div>
-                        <div className={`flex flex-col gap-5 px-5 py-10 w-full lg:w-1/2 ${(sub_key % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
+                            </div>
+                          )
+                        }
+                        <div className={`flex flex-col gap-5 px-5 py-10 w-full ${(sub_key % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
                           <h2 className="font-georgia text-lg">{inside_nld_row.inside_nld_caption}</h2>
                           {
                             inside_nld_row.inside_nld_description && (
-                              <p className="text-sm leading-loose">{parser(nl2br(inside_nld_row.inside_nld_description))}</p>
+                              <div className="text-sm leading-loose">{parser(inside_nld_row.inside_nld_description.replace(/\s?sandbox="[^"]*"/g, ""))}</div>
                             )
                           }
                         </div>

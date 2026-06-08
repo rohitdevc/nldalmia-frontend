@@ -244,16 +244,18 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                       <BsArrowRightShort size={20} />
                     </span>
                   </div>
-                  <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} centeredSlides={true} spaceBetween={0} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}, 1024: {slidesPerView: 4}}} >
+                  <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}}} >
                     {
-                      placement_content_data[placement_tab].map((placement_content, sub_key) => (
+                      placement_content_data[placement_tab].map((placement_content, sub_key, arr) => (
                       <SwiperSlide key={sub_key}>
                         <div className="flex gap-5 justify-center items-center py-7 px-5 relative">
                           <div className="flex flex-col gap-5 items-center text-center">
                             <h2 className="text-3xl">{placement_content.tab_content_caption}</h2>
                             <p className="text-[#4E4E4E] text-sm min-h-10">{placement_content.tab_content_description}</p>
                           </div>
+                          {sub_key !== arr.length - 1 && (
                           <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden sm:block absolute right-0 top-1/2 -translate-y-1/2"></span>
+                          )}
                         </div>
                       </SwiperSlide>
                     ))

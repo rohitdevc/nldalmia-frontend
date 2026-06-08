@@ -60,11 +60,11 @@ body {
   @apply text-3xl opacity-100;
 }
 
-.student_club > ul, .university_description > ul {
+.infra_content > ul, .university_description > ul {
   @apply list-disc list-inside flex flex-col gap-3
 }
 
-.student_club ul ul, .university_description ul ul {
+.infra_content ul ul, .university_description ul ul {
   list-style-type: circle;
   margin-left: 1.5rem;
   display: block;

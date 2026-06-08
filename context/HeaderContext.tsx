@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, RefObject } from 'react'
 
 type HeaderProps = {
     onDownloadBrochureClick?: () => void;
@@ -15,6 +15,8 @@ type HeaderProps = {
     programApplicationLink?: string;
     programEligibilityFees?: string;
     programBrochureAvailable?: boolean;
+    MDPPage?: boolean;
+    MDPProgramsScrollref?: RefObject<HTMLDivElement | null>;
 }
 
 const HeaderContext = createContext<any>(null)
