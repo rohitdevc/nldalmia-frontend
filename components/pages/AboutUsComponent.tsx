@@ -302,26 +302,27 @@ export default function AboutUsComponent({banner, introduction, objectives, time
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 governing_council.map((governing_council_row, key) => (
-                  <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
-                    <div className="flex flex-col gap-5 items-center text-center min-h-45">
-                      <div className="w-full h-75 hidden">
-                        {
-                          governing_council_row.governing_council_thumbnail && (
-                            <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
-                          )
-                        }
+                  <SwiperSlide className="!h-auto flex" key={key}>
+                    <div className="border border-[#800000] flex flex-col w-full h-full">
+                      <div className="flex flex-col gap-5 items-center text-center flex-1">
+                        <div className="w-full h-75 hidden">
+                          {
+                            governing_council_row.governing_council_thumbnail && (
+                              <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
+                            )
+                          }
+                        </div>
+                        <div className="p-5 flex flex-col gap-5 flex-1">
+                          <h2 className="text-xl font-georgia">{governing_council_row.governing_council_name}</h2>
+                          <p className="text-burgundy leading-normal">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
+                        </div>
                       </div>
-                      <div className="p-5">
-                        <h2 className="text-xl font-georgia lg:h-10">{governing_council_row.governing_council_name}</h2>
-                        <p className="text-burgundy leading-normal">{parser(nl2br(governing_council_row.governing_council_designation))}</p>
-                      </div>
+                      {
+                        governing_council_row.governing_council_profile_link && (
+                          <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={governing_council_row.governing_council_profile_link}>View Profile <MdArrowOutward size={20} /></Link>
+                        )
+                      }
                     </div>
-                    {
-                      governing_council_row.governing_council_profile_link && (
-                        <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={governing_council_row.governing_council_profile_link}>View Profile <MdArrowOutward size={20} /></Link>
-                      )
-                    }
-                    
                   </SwiperSlide>
                 ))
               }

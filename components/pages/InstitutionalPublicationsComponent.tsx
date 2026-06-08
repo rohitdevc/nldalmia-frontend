@@ -103,10 +103,10 @@ export default function InstitutionalPublicationsComponent({ banner, institution
                 institutional_publication.institutional_publication_category_title === activeInstitutionalPublicationName
               ).map((institutional_publication, key) => (
                 <div className="group relative" key={key} title={institutional_publication.institutional_publication_title} onClick={handleMagazineClick(key)}>
-                  <div className="w-full h-100">
+                  <div className="w-full">
                   {
                     institutional_publication.institutional_publication_thumbnail && (
-                      <Image src={institutional_publication.institutional_publication_thumbnail} alt={institutional_publication.institutional_publication_thumbnail_alt} width={500} height={300} className="object-cover w-full h-full" />
+                      <Image src={institutional_publication.institutional_publication_thumbnail} alt={institutional_publication.institutional_publication_thumbnail_alt} width={500} height={300} className="w-full h-full" />
                     )
                   }
                   </div>

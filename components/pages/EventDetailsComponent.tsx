@@ -33,6 +33,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Event } from '@/types/api';
+import EventSlide from "../EventSlide";
 
 type PageProps = {
   event: Event
@@ -318,13 +319,7 @@ export default function EventDetails({ event }: PageProps) {
               {
                 event.event_sliders.map((event_slider, key) => (
                 <SwiperSlide key={key} title={event_slider.event_slider_caption}>
-                  <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10 cursor-pointer" style={{backgroundImage: `url(${event_slider.event_slider_image || `https://img.youtube.com/vi_webp/${event_slider.event_slider_video}/0.webp`})`}} onClick={() => videoPopupRef.current?.open(event_slider.event_slider_video)}>
-                    {
-                      event_slider.event_slider_video && (
-                        <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
-                      )
-                    }
-                  </div>
+                  <EventSlide event_slider={event_slider} />
                 </SwiperSlide>
               ))
               }
@@ -411,14 +406,8 @@ export default function EventDetails({ event }: PageProps) {
             <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
               {
                 event.event_second_sliders.map((event_slider, key) => (
-                <SwiperSlide className="w-full" key={key} title={event_slider.event_slider_caption}>
-                  <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-10 py-10 cursor-pointer" style={{backgroundImage: `url(${event_slider.event_slider_image || `https://img.youtube.com/vi_webp/${event_slider.event_slider_video}/0.webp`}})`}} onClick={() => videoPopupRef.current?.open(event_slider.event_slider_video)}>
-                    {
-                      event_slider.event_slider_video && (
-                        <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
-                      )
-                    }
-                  </div>
+                <SwiperSlide key={key} title={event_slider.event_slider_caption}>
+                  <EventSlide event_slider={event_slider} />
                 </SwiperSlide>
               ))
               }

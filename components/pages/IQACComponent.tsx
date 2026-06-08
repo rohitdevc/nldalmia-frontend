@@ -70,18 +70,18 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 lg:right-10 iqac_categories_slider_next z-2">
           <BsArrowRightShort size={20} />
         </span>
-        <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={20} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 6}, 1280: {slidesPerView: 8}}}>
+        <Swiper className="iqac_categories" modules={[Navigation]} slidesPerView="auto" spaceBetween={50} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}}>
           {
           iqac_categories.map((iqac_category, key) => (
-            <SwiperSlide key={key} className="text-center lg:!w-fit">
-              <div className="relative group h-7.5" onClick={() => updateActiveIQACCategoryKeyFunc(key)}>
+            <SwiperSlide key={key} className="!w-auto">
+              <div className="relative group h-7.5 whitespace-nowrap" onClick={() => updateActiveIQACCategoryKeyFunc(key)}>
                 <span className="cursor-pointer">{iqac_category}</span>
                 <span className={`w-full h-[0.5px] bg-[#800000] absolute inset-0 left-0 top-7 origin-center duration-300 transition-transform scale-x-0 group-hover:scale-x-100 ${activeIQACCategoryKey === key ? 'scale-x-100': ''}`}></span>
               </div>
             </SwiperSlide>
           ))}
-          <SwiperSlide className="text-center !w-fit" key={iqac_categories.length}>
-              <div className="relative group" onClick={() => updateActiveIQACCategoryKeyFunc(iqac_categories.length)}>
+          <SwiperSlide className="!w-auto">
+              <div className="relative group h-7.5 whitespace-nowrap" onClick={() => updateActiveIQACCategoryKeyFunc(iqac_categories.length)}>
                 <span className="cursor-pointer">Program Educational Objectives</span>
                 <span className={`w-full h-[0.5px] bg-[#800000] absolute inset-0 left-0 top-7 origin-center duration-300 transition-transform scale-x-0 group-hover:scale-x-100 ${activeIQACCategoryKey === iqac_categories.length ? 'scale-x-100': ''}`}></span>
               </div>

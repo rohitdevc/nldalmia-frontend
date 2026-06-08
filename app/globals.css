@@ -60,11 +60,11 @@ body {
   @apply text-3xl opacity-100;
 }
 
-.university_description > ul {
+.student_club > ul, .university_description > ul {
   @apply list-disc list-inside flex flex-col gap-3
 }
 
-.university_description ul ul {
+.student_club ul ul, .university_description ul ul {
   list-style-type: circle;
   margin-left: 1.5rem;
   display: block;
@@ -146,4 +146,8 @@ form .error span {
 @keyframes ticker {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+}
+
+.iqac_categories .swiper-wrapper {
+  align-items: center;
 }

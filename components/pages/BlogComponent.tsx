@@ -17,6 +17,9 @@ import { useHeader } from '@/context/HeaderContext'
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import { Banner as BannerProps, BlogCategories, BlogListing, IntroProps } from "@/types/api";
+import FeaturedBlogCard from "../FeaturedBlogCard";
+import DualBlog from "../DualBlog";
+import SingleBlog from "../SingleBlog";
 
 type PageProps = {
   banner: BannerProps
@@ -88,40 +91,12 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
           <div className="flex gap-5 flex-col lg:flex-row">
             {
               blog_featured.length > 0 && (
-              <div className="w-full lg:w-[55%] flex gap-4 flex-col">
-                {
-                  blog_featured[0].blog_thumbnail && (
-                    <Image src={blog_featured[0].blog_thumbnail} alt={blog_featured[0].blog_thumbnail_alt} width={600} height={600} className="w-full lg:h-100" />
-                  )
-                }
-                <h2 className="font-georgia text-xl">{blog_featured[0].blog_title}</h2>
-                <ul className="flex gap-10 text-[#4E4E4E]">
-                  <li>{dayjs.utc(blog_featured[0].blog_published_date).format('Do MMMM, YYYY')}</li>
-                  <li>
-                    <Link href={basePath + blog_featured[0].blog_category_url_slug}>{blog_featured[0].blog_category_name}</Link>
-                  </li>
-                </ul>
-                <Link href={basePath + blog_featured[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
-              </div>
+                <FeaturedBlogCard blog_featured={blog_featured[0]} blog_width="55" />
               )
             }
             {
               blog_featured.length > 1 && (
-              <div className="w-full lg:w-[45%] flex gap-5 flex-col">
-                {
-                  blog_featured[1].blog_thumbnail && (
-                    <Image src={blog_featured[1].blog_thumbnail} alt={blog_featured[1].blog_thumbnail_alt} width={600} height={600} className="w-full lg:h-100" />
-                  )
-                }
-                <h2 className="font-georgia text-xl">{blog_featured[1].blog_title}</h2>
-                <ul className="flex gap-10 text-[#4E4E4E]">
-                  <li>{dayjs.utc(blog_featured[1].blog_published_date).format('Do MMMM, YYYY')}</li>
-                  <li>
-                    <Link href={basePath + blog_featured[1].blog_category_url_slug}>{blog_featured[1].blog_category_name}</Link>
-                  </li>
-                </ul>
-                <Link href={basePath + blog_featured[1].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
-              </div>
+              <FeaturedBlogCard blog_featured={blog_featured[1]} blog_width="45" />
               )
             }
           </div>
@@ -131,7 +106,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
       {
         blog_featured.length > 0 && (
         <div className="w-full px-5 md:px-15 xl:px-30 py-10">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-25 lg:justify-between border-t border-b border-[#D3D3D3] py-10">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-25 lg:justify-between border-t transition-all duration-300 hover:border-b border-[#D3D3D3] py-10">
             <h3 className="font-georgia text-xl w-50">Featured Blog</h3>
             <Link href={basePath + blog_featured[0].blog_url_slug} className="font-georgia text-4xl">{blog_featured[0].blog_title}</Link>
           </div>
@@ -147,7 +122,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                 <li className="group" key={key}>
                     <span className="relative cursor-pointer" onClick={() => updateActiveBlogCategory(blog_category.blog_category_url_slug)}>
                         <span>{blog_category.blog_category_title}</span>
-                        <span className={`absolute w-full -bottom-1 left-0 h-[0.5px] bg-[#800000] origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeBlogCategory === blog_category.blog_category_url_slug ? 'scale-x-100' : ''}`}></span>
+                        <span className={`absolute w-full -bottom-1 left-0 h-[0.5px] bg-[#800000] origin-center scale-x-0 group-hover:scale-x-100 ${activeBlogCategory === blog_category.blog_category_url_slug ? 'scale-x-100' : ''}`}></span>
                     </span>
                 </li>
               ))
@@ -163,23 +138,8 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
               <div className="w-full flex gap-5 flex-col lg:flex-row" key={key}>
                 {
                   blog_data[0] && (
-                  <div className={`w-full lg:w-1/2 flex gap-4 flex-col order-${(key % 2) ? '2': '1'}`}>
-                    {
-                      blog_data[0].blog_thumbnail && (
-                        <div className="w-full">
-                          <Image src={blog_data[0].blog_thumbnail} alt={blog_data[0].blog_thumbnail_alt} width={600} height={600} className="object-cover object-center" />
-                        </div>
-                      )
-                    }
-                    <h2 className="font-georgia text-xl">{blog_data[0].blog_title}</h2>
-                    <ul className="flex gap-10 text-[#4E4E4E]">
-                      <li>{dayjs.utc(blog_data[0].blog_published_date).format('Do MMMM, YYYY')}</li>
-                      <li>
-                        <Link href={basePath + blog_data[0].blog_category_url_slug}>{blog_data[0].blog_category_name}</Link>
-                      </li>
-                    </ul>
-                    <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog_data[0].blog_preview.slice(0, 200) + '...'))}</p>
-                    <Link href={basePath + blog_data[0].blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
+                  <div className={`w-full lg:w-1/2 order-${(key % 2) ? '2': '1'}`}>
+                    <SingleBlog blog={blog_data[0]} />
                   </div>
                   )
                 }
@@ -188,25 +148,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
                   <div className={`w-full lg:w-1/2 flex gap-10 flex-col order-${(key % 2) ? '1': '2'}`}>
                     {
                       blog_data[1].map((blog, i) => (
-                        <div className="flex flex-col lg:flex-row gap-5" key={i}>
-                          {
-                          blog.blog_thumbnail && (
-                            <div className="relative w-300 h-50">
-                              <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} fill className="object-cover object-center" />
-                            </div>
-                          )}
-                          <div className="flex gap-2 flex-col">
-                            <h2 className="font-georgia text-lg">{blog.blog_title}</h2>
-                            <ul className="flex gap-10 text-[#4E4E4E]">
-                              <li>{dayjs.utc(blog.blog_published_date).format('Do MMMM, YYYY')}</li>
-                              <li>
-                                <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
-                              </li>
-                            </ul>
-                            <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview.slice(0, 200) + '...'))}</p>
-                            <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
-                          </div>
-                        </div>
+                        <DualBlog blog={blog} key={i} />
                       ))
                     }
                   </div>

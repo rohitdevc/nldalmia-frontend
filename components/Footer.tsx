@@ -25,28 +25,28 @@ export default function Footer({program_categories, common_programs}: PageProps)
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Accreditation & Compliance </li>
                     <li>
-                        <Link href="">AICTE Approvals</Link>
+                        <Link href={`${basePath}iqac`}>AICTE Approvals</Link>
                     </li>
                     <li>
-                        <Link href="">Mandatory Disclosures</Link>
+                        <Link href="https://www.nldalmia.in/assets/pdfs/mandatory-disclosures.pdf" target="_blank">Mandatory Disclosures</Link>
                     </li>
                     <li>
-                        <Link href="">NIRF</Link>
+                        <Link href={`${basePath}iqac`}>NIRF</Link>
                     </li>
                     <li>
                         <Link href="">Accreditations & Rankings</Link>
                     </li>
                     <li>
-                        <Link href="">Statutory Committees</Link>
+                        <Link href="https://www.nldalmia.in/assets/pdfs/nl-dalmia-statutory-committee-2025-26.pdf" target="_blank">Statutory Committees</Link>
                     </li>
                     <li>
-                        <Link href="">Grievance Redressal</Link>
+                        <Link href="https://www.nldalmia.in/assets/pdfs/grievance-redressal.pdf" target="_blank">Grievance Redressal</Link>
                     </li>
                     <li>
-                        <Link href="">Institute Policies</Link>
+                        <Link href="https://nldhrms.beehivehcm.com/" target="_blank">Institute Policies</Link>
                     </li>
                     <li>
-                        <Link href="">Study in India</Link>
+                        <Link href="https://www.nldalmia.in/assets/pdfs/study-in-india-(sii).pdf" target="_blank">Study in India</Link>
                     </li>
                 </ul>
                 <ul className="flex flex-col gap-4">

@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowLeftSLine } from "react-icons/ri";
 import { useHeader } from "@/context/HeaderContext";
+import { FaLinkedin  } from "react-icons/fa6";
 
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
@@ -75,7 +76,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
           <span>Back</span>
         </Link>
         <div className="flex flex-col lg:flex-row gap-10 items-center bg-[#FFCC33] py-5 lg:py-0 lg:pb-5">
-          <div className="w-60 h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
+          <div className="w-60 h-100 overflow-hidden rounded-full lg:-mb-15 z-5 bg-white">
             {
               faculty.faculty_thumbnail && (
                 <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt} width={300} height={300} className="w-full h-full object-cover" />
@@ -113,8 +114,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
                 {
                   faculty.faculty_linkedin_url && (
                     <div className="flex flex-col gap-2">
-                      <h3 className="font-georgia text-sm">Linked In</h3>
-                      <p className="text-[#4E4E4E]"><Link href={faculty.faculty_linkedin_url} target="_blank">{faculty.faculty_linkedin_url}</Link></p>
+                      <Link href={faculty.faculty_linkedin_url} target="_blank"><FaLinkedin size={30} /></Link>
                     </div>
                   )
                 }

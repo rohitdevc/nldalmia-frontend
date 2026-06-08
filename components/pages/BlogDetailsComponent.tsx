@@ -15,6 +15,8 @@ import { MdArrowOutward } from "react-icons/md";
 import { Blog, BlogListing } from "@/types/api";
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
+import DualBlog from "../DualBlog";
+import SingleBlog from "../SingleBlog";
 
 type PageProps = {
   blog: Blog
@@ -63,57 +65,17 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
         <div className="flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
           <h2 className="font-georgia text-3xl">Related Blogs</h2>
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-5">
-            <div className="flex flex-col gap-10 w-full lg:w-[55%]">
+            <div className="flex flex-col gap-10 w-full lg:w-1/2">
               {
               related_blog.slice(0, 2).map((blog, key) => (
-                <div className="flex flex-col md:flex-row gap-7.5" key={key}>
-                  <div className="w-full md:w-175">
-                    {
-                      blog.blog_thumbnail && (
-                      <div className="relative w-75 h-50">
-                        <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} fill className="object-cover object-center" />
-                      </div>
-                      )
-                    }
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <h2 className="font-georgia text-lg">{blog.blog_title}</h2>
-                    <ul className="flex gap-10 text-[#4E4E4E] text-sm">
-                      <li>{dayjs.utc(blog.blog_published_date).format('Do MMMM, YYYY')}</li>
-                      <li>
-                        <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
-                      </li>
-                    </ul>
-                    <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview))}</p>
-                    <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-sm">Learn More <MdArrowOutward size={15} /></Link>
-                  </div>
-                </div>
+                <DualBlog blog={blog} key={key} />
               ))
             }
             </div>
             {
               related_blog.slice(2).map((blog, key) => (
-              <div className="flex flex-col md:flex-row lg:flex-col gap-7.5 w-full lg:w-[45%]" key={key}>
-                <div className="w-full md:w-175 lg:w-full">
-                  {
-                    blog.blog_thumbnail && (
-                    <div className="w-full">
-                      <Image src={blog.blog_thumbnail} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover" />
-                    </div>
-                    )
-                  }
-                </div>
-                <div className="flex flex-col gap-3">
-                  <h2 className="font-georgia text-lg">{blog.blog_title}</h2>
-                  <ul className="flex gap-10 text-[#4E4E4E] text-sm">
-                    <li>{dayjs.utc(blog.blog_published_date).format('Do MMMM, YYYY')}</li>
-                    <li>
-                      <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
-                    </li>
-                  </ul>
-                  <div className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview))}</div>
-                  <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center border-b w-fit text-sm">Learn More <MdArrowOutward size={15} /></Link>
-                </div>
+              <div className="flex flex-col md:flex-row lg:flex-col gap-7.5 w-full lg:w-1/2" key={key}>
+                <SingleBlog blog={blog} />
               </div>
               ))
             }

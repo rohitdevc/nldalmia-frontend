@@ -113,6 +113,52 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
 
   const programsRef = useRef<HTMLDivElement | null>(null);
 
+  const program_durations: string[] = [];
+  const program_modes: string[] = [];
+
+  programs.forEach(program => {
+    if(program.program_duration && !program_durations.includes(program.program_duration)) {
+      program_durations.push(program.program_duration);
+    }
+
+    if(program.program_mode && !program_modes.includes(program.program_mode)) {
+      program_modes.push(program.program_mode);
+    }
+  })
+
+  const [filteredPrograms, setFilteredPrograms] = useState(programs);
+  const [filterProgram, updateFilterProgram] = useState('');
+  const [filterProgramDuration, updateFilterProgramDuration] = useState('');
+  const [filterProgramMode, updateFilterProgramMode] = useState('');
+
+  type ProgramFilterProps = {
+    program_name?: string;
+    program_duration?: string;
+    program_mode?: string;
+  }
+
+  const program_filters = ({program_name, program_duration, program_mode}: ProgramFilterProps) => {
+    let filtered = [...programs];
+
+    if(program_name) {
+      filtered = filtered.filter(x => x.program_name === program_name);
+      updateFilterProgramDuration('');
+      updateFilterProgramMode('');
+    }
+
+    if(program_duration) {
+      filtered = filtered.filter(x => x.program_duration === program_duration);
+      updateFilterProgram('');
+    }
+
+    if(program_mode) {
+      filtered = filtered.filter(x => x.program_mode === program_mode);
+      updateFilterProgram('');
+    }
+
+    setFilteredPrograms(filtered);
+  }
+
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
@@ -151,53 +197,50 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
           introTitle={programs_introduction.intro_title}
           introCaption={programs_introduction.intro_caption}
           introDescription={programs_introduction.intro_description} />
-          <form className="flex flex-col md:flex-row justify-center items-center lg:justify-between gap-10 md:gap-5 lg:gap-10">
+          <div className="flex flex-col md:flex-row justify-center items-center lg:justify-between gap-10 md:gap-5 lg:gap-10">
             <div className="relative w-sm">
-              <select name="mdp_filter_topic">
+              <select className="appearance-none outline-none w-full" value={filterProgram} onChange={(e) => { updateFilterProgram(e.target.value); program_filters({program_name: e.target.value})} }>
                 <option value="">Search By Topic</option>
-                <option value="0-3 Years">0-3 Years</option>
-                <option value="4-8 Years">4-8 Years</option>
-                <option value="9+ Years">9+ Years</option>
+                {
+                  programs && programs.length > 0 && programs.map((program, key) => (
+                    <option value={program.program_name} key={key}>{program.program_name}</option>
+                  ))
+                }
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
                 <IoIosArrowDown size={25} />
               </div>
               <span className="w-full absolute left-0 top-8 h-[0.5px] bg-[#800000]"></span>
-              <div className="error">
-                <span></span>
-              </div>
             </div>
             <div className="relative w-sm">
-              <select name="mdp_filter_duration">
+              <select className="appearance-none outline-none w-full" value={filterProgramDuration} onChange={(e) => {updateFilterProgramDuration(e.target.value); program_filters({program_duration: e.target.value})}}>
                 <option value="">Duration</option>
-                <option value="1 Day">1 Day</option>
-                <option value="2-3 Days">2-3 Days</option>
-                <option value="1 Week">1 Week</option>
+                {
+                  program_durations && program_durations.length > 0 && program_durations.map((program_duration, key) => (
+                    <option value={program_duration} key={key}>{program_duration}</option>
+                  ))
+                }
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
                 <IoIosArrowDown size={25} />
               </div>
               <span className="w-full absolute left-0 top-8 h-[0.5px] bg-[#800000]"></span>
-              <div className="error">
-                <span></span>
-              </div>
             </div>
             <div className="relative w-sm">
-              <select name="mdp_filter_mode">
+              <select className="appearance-none outline-none w-full" value={filterProgramMode} onChange={(e) => {updateFilterProgramMode(e.target.value); program_filters({program_mode: e.target.value})}}>
                 <option value="">Mode</option>
-                <option value="Online">Online</option>
-                <option value="In-person">In-person</option>
-                <option value="Hybrid">Hybrid</option>
+                {
+                  program_modes && program_modes.length > 0 && program_modes.map((program_mode, key) => (
+                    <option value={program_mode} key={key}>{program_mode}</option>
+                  ))
+                }
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
                 <IoIosArrowDown size={25} />
               </div>
               <span className="w-full absolute left-0 top-8 h-[0.5px] bg-[#800000]"></span>
-              <div className="error">
-                <span></span>
-              </div>
             </div>
-          </form>
+          </div>
           <div className="flex gap-3">
             <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_prev">
               <BsArrowLeftShort size={20} />
@@ -209,7 +252,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
           
           <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 10 }, 1024: { slidesPerView: 3, spaceBetween: 50 } }} >
             {
-              programs.map((program, key) => (
+              filteredPrograms.map((program, key) => (
                 <SwiperSlide key={key} className="group">
                   <div className="bg-white flex flex-col gap-5 justify-center items-center text-center transition-all duration-300 px-5 py-10 border-[0.5px] border-[#800000] group-hover:bg-[#800000]">
                     <h2 className="font-georgia text-xl group-hover:text-white">{program.program_name}</h2>

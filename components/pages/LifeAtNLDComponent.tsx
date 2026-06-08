@@ -47,6 +47,7 @@ type PageProps = {
 };
 
 import { useHeader } from "@/context/HeaderContext";
+import AchievementSlider from "../AchievementSlider";
 
 export default function LifeAtNLD({ banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -213,33 +214,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           introCaption={achievements_introduction.intro_caption}
           introDescription={achievements_introduction.intro_description}
           />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer achievement_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer achievement_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
-            {
-              achievements.map((achievement, key) => (
-              <SwiperSlide key={key}>
-                <div className="w-full h-[75vh] relative bg-cover bg-center bg-no-repeat flex px-5 lg:px-20 py-10" style={{backgroundImage: `url(${achievement.achievement_image})`}} title={achievement.achievement_image_alt}>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent"></div>
-                  <div className="flex flex-col gap-5 relative mt-auto">
-                    <h2 className="font-georgia text-2xl">{achievement.achievement_caption}</h2>
-                    {
-                      achievement.achievement_description && (
-                        <p className="leading-loose text-sm">{parser(nl2br(achievement.achievement_description))}</p>
-                      )
-                    }
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))
-            }
-          </Swiper>
+          <AchievementSlider achievements={achievements} />
         </div>
         )
       }
@@ -263,13 +238,13 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
               student_clubs.map((student_club, key) => (
               <SwiperSlide key={key}>
                 <div className="w-full flex flex-col md:flex-row">
-                  <div className="md:w-sm">
-                    {
-                      student_club.student_club_image && (
+                  {
+                    student_club.student_club_image && (
+                      <div className="md:w-sm">
                         <Image src={`${student_club.student_club_image}`} alt={student_club.student_club_image_alt} width={300} height={300} className="object-cover w-full h-full" />
-                      )
-                    }
-                  </div>
+                      </div>
+                    )
+                  }
                   <div className="flex flex-col gap-5 p-5 md:p-10">
                     <div className="flex flex-col gap-3">
                       <h2 className="font-georgia text-xl">{student_club.student_club_title}</h2>
@@ -277,16 +252,14 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                     </div>
                     {
                       student_club.student_club_description && (
-                      <div className="flex flex-col gap-3 text-sm student_club">
-                        {parser(student_club.student_club_description)}
-                      </div>
+                      <div className="flex flex-col gap-3 text-sm student_club">{parser(student_club.student_club_description)}</div>
                     )
                     }
                     {
                       student_club.student_club_social_media && (
                         <div className="flex flex-col gap-3 text-sm">
                           <h3 className="font-georgia">Follow Us</h3>
-                          <span>{student_club.student_club_social_media}</span>
+                          <Link href={`https://www.instagram.com/${student_club.student_club_social_media}`} target="_blank">@{student_club.student_club_social_media}</Link>
                         </div>
                       )
                     }

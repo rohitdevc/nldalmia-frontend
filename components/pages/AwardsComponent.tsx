@@ -41,14 +41,14 @@ export default function AwardsComponent({banner, introduction, awards, media_cat
         <MediaNavigation activePage="awards-and-achievements" media_categories={media_categories} />
         {
           awards && awards.length > 0 &&
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {
               awards.map((award, key) => (
-                <div className="flex flex-col gap-3 sm:w-50 text-center" key={key}>
-                  <div className="border-[0.5px] border-[#800000]">
+                <div className="flex flex-col gap-3 text-center items-center" title={award.award_description} key={key}>
+                  <div className="border-[0.5px] border-[#800000] w-75 h-75">
                     {
                       award.award_thumbnail && (
-                      <Image src={award.award_thumbnail} className="object-cover w-full h-full" width={300} height={300} alt={award.award_thumbnail_alt} />
+                      <Image src={award.award_thumbnail} className="object-contain w-full h-full" width={300} height={300} alt={award.award_thumbnail_alt} />
                       )
                     }
                   </div>

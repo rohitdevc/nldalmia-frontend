@@ -389,7 +389,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           admissions_scholarship_table && (
-          <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
               <Intro
               introTitle={admissions_scholarship_introduction.intro_title}
               introCaption={admissions_scholarship_introduction.intro_caption}

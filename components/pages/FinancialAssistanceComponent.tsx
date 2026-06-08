@@ -47,7 +47,7 @@ export default function FinancialAssistance({ banner, introduction, financial_as
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10 lg:gap-5 xl:gap-15">
             {
               financial_assistance_partners.map((financial_partner, key) => (
-                <div className="border-[0.5px] border-[#D2A6A6] flex flex-col items-center justify-center gap-5 px-5 py-5" key={key}>
+                <div className="border-[0.5px] border-[#D2A6A6] flex flex-col items-center justify-center text-center gap-5 px-5 py-5" key={key}>
                   {
                     financial_partner.partner_logo && (
                       <Image src={financial_partner.partner_logo} alt={financial_partner.partner_logo_alt} width={100} height={60} className="w-30" />
@@ -56,7 +56,7 @@ export default function FinancialAssistance({ banner, introduction, financial_as
                   <h2 className="font-georgia text-lg">{financial_partner.partner_name}</h2>
                   {
                     financial_partner.partner_pdf && (
-                      <Link className="text-burgundy flex gap-2 items-center text-sm" href={financial_partner.partner_pdf}>View Profile <MdArrowOutward size={15} /></Link>
+                      <Link className="text-burgundy flex gap-2 items-center text-sm mt-auto hover:border-b" href={financial_partner.partner_pdf} target="_blank">View Profile <MdArrowOutward size={15} /></Link>
                     )
                   }
                 </div>

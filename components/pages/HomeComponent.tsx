@@ -33,7 +33,7 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeedComp from "@/components/InstagramFeedComp";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, HomeEvents, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed, Announcements } from "@/types/api";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed, Announcements, LifeAtNLDAchievements, HomeEvents } from "@/types/api";
 
 type PageProps = {
   banner: BannerProps;
@@ -50,6 +50,7 @@ type PageProps = {
   testimonials: HomeTestimonials[]
   events_introduction: IntroProps
   events: HomeEvents[]
+  achievements: LifeAtNLDAchievements[]
   awards_introduction: IntroProps
   awards: HomeAwards[]
   media_introduction: IntroProps
@@ -65,8 +66,9 @@ type CareerPath = {
 };
 
 import { useHeader } from "@/context/HeaderContext";
+import AchievementSlider from "../AchievementSlider";
 
-export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
+export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, achievements, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const { setHeaderProps } = useHeader()
@@ -536,6 +538,9 @@ export default function HomeComponent({banner, announcements, introduction, care
         </div>
       )
       }
+      <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <AchievementSlider achievements={achievements} />
+      </div>
       {
         awards && awards.length > 0 && (
           <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">

@@ -128,7 +128,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}events`}>Events</Link>
                     </li>
                     <li>
-                        <Link href={`${basePath}management-development-programs`}>MSR</Link>
+                        <Link href={`${basePath}my-social-responsibilties`}>MSR</Link>
                     </li>
                     <li>
                         <Link href={`${basePath}iqac`}>IQAC</Link>

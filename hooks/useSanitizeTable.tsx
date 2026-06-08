@@ -43,6 +43,10 @@ export const useSanitizeTable = () => {
 
                 cleanElement(el);
 
+                if (tag === "td" || tag === "th") {
+                    el.classList.add("text-center");
+                }
+
                 if (tag === "td" && header) {
                     el.setAttribute("data-label", header);
                 }

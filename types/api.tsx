@@ -177,7 +177,7 @@ type EventCompetition = {
     event_competition_image: string;
 }
 
-type EventSliders = {
+export interface EventSliders {
     event_slider_caption: string;
     event_slider_image: string;
     event_slider_video: string;
@@ -644,6 +644,8 @@ export interface MDPPrograms {
     program_description: string;
     program_application_link: string;
     program_pdf: string;
+    program_duration: string;
+    program_mode: string;
 }
 
 export interface FDPPrograms {
@@ -651,6 +653,8 @@ export interface FDPPrograms {
     program_description: string;
     program_application_link: string;
     program_pdf: string;
+    program_duration: string;
+    program_mode: string;
 }
 
 export interface Testimonials {

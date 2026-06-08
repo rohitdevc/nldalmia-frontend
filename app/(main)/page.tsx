@@ -1,5 +1,7 @@
 import { getMetaData, getBanner, getInstagramFeed, getCommonPrograms } from "@/lib/common";
-import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeEvents, getHomeAwardsIntroduction, getHomeAwards, getMediaIntroduction, getMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction, getAnnouncements } from "@/lib/home";
+import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeAwardsIntroduction, getHomeAwards, getMediaIntroduction, getMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction, getAnnouncements, getHomeEvents } from "@/lib/home";
+
+import { getLifeAtNLDAchievements } from "@/lib/life-at-nld";
 
 import type { Metadata } from "next";
 import HomeComponent from "@/components/pages/HomeComponent";
@@ -20,6 +22,7 @@ const [
   testimonials,
   events_introduction,
   events,
+  achievements,
   awards_introduction,
   awards,
   media_introduction,
@@ -44,6 +47,7 @@ const [
   getHomeTestimonials(),
   getHomeEventsIntroduction(),
   getHomeEvents(),
+  getLifeAtNLDAchievements(),
   getHomeAwardsIntroduction(),
   getHomeAwards(),
   getMediaIntroduction(),
@@ -113,6 +117,7 @@ export default async function Page() {
     testimonials={testimonials}
     events_introduction={events_introduction}
     events={events}
+    achievements={achievements}
     awards_introduction={awards_introduction}
     awards={awards}
     media_introduction={media_introduction}
