@@ -41,6 +41,7 @@ type PageProps = {
 };
 
 import { useHeader } from "@/context/HeaderContext";
+import TestimonialSlider from "../TestimonialSlider";
 
 export default function FacultyDevelopmentProgramsComponent({ banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -290,49 +291,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
           introTitle={testimonial_introduction.intro_title}
           introCaption={testimonial_introduction.intro_caption}
           introDescription={testimonial_introduction.intro_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
-            {
-              testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
-                  <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
-                    <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="rounded-full w-30 h-30" />
-                    <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
-                    <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
-                      <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
-                    </div>
-                  </div>
-                  <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
-                    {
-                      testimonial.testimonial_youtube_video_id ? (
-                        <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_video_id)}>
-                          <FiPlayCircle size={20} />
-                          <span className="text-sm">Play Video</span>
-                        </div>
-                      ) : (
-                        <>
-                        <p className="leading-loose">{testimonial.testimonial_bio}</p>
-                        <div className="mt-auto flex flex-col gap-3">
-                          <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
-                          <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
-                        </div>
-                        </>
-                      )
-                    }
-                  </div>
-                </SwiperSlide>
-              ))
-            }
-          </Swiper>
+          <TestimonialSlider testimonials={testimonials} />
         </div>
       )}
       {

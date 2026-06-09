@@ -621,7 +621,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         )
                         }
                         <li>
-                            <Link href={`${basePath}contact-us`} className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Enquire Now</Link>
+                            <Link href={`${basePath}placements#connect`} className="bg-[#800000] px-1 lg:px-5 py-2 text-[10px] sm:text-sm">Enquire Now</Link>
                         </li>
                     </ul>
                 </div>

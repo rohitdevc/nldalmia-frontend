@@ -22,8 +22,8 @@ export default function DualBlog({blog}: Props) {
 
     return (
         <div className="flex flex-col lg:flex-row gap-5">
-            <div className="w-65 h-65">
-                <Image src={blog.blog_thumbnail || `${basePath}logo.svg`} alt={blog.blog_thumbnail_alt} width={600} height={600} className="w-full h-full" />
+            <div className="w-50 h-50">
+                <Image src={blog.blog_thumbnail || `${basePath}logo.svg`} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover object-left w-full h-full" />
             </div>
             <div className="flex gap-2 flex-col flex-1">
             <h2 className="font-georgia text-lg">{blog.blog_title}</h2>

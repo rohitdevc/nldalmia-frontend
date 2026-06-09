@@ -81,10 +81,10 @@ export default function InstitutionalPublicationsComponent({ banner, institution
         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 lg:right-10 institutional_publications_categories_slider_next z-2">
           <BsArrowRightShort size={20} />
         </span>
-        <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={0} navigation={{prevEl: '.institutional_publications_categories_slider_prev', nextEl: '.institutional_publications_categories_slider_next'}} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 6}, 1280: {slidesPerView: 8}}}>
+        <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={0} navigation={{prevEl: '.institutional_publications_categories_slider_prev', nextEl: '.institutional_publications_categories_slider_next'}} freeMode={true} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 'auto', freeMode: false}}} className="xl:!justify-between xl:[&_.swiper-wrapper]:!justify-between">
           {
           institutional_publications_categories.map((institutional_publication_category, key) => (
-            <SwiperSlide key={key} className="text-center lg:!w-40">
+            <SwiperSlide key={key} className="text-center lg:!w-fit">
               <div className="relative group h-7.5" onClick={() => updateActiveInstitutionalPublicationCategoryKeyFunc(key)}>
                 <span className="cursor-pointer">{institutional_publication_category.institutional_publication_category_title}</span>
                 <span className={`w-full h-[0.5px] bg-[#800000] absolute inset-0 left-0 top-7 origin-center duration-300 transition-transform scale-x-0 group-hover:scale-x-100 ${activeInstitutionalPublicationCategoryKey === key ? 'scale-x-100': ''}`}></span>

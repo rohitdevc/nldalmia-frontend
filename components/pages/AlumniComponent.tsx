@@ -557,20 +557,20 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               </span>
             </div>
             <div className="py-5">
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} initialSlide={activeConnectAlumniIndex} loop={true} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={true} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} initialSlide={activeConnectAlumniIndex} loop={true} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}}>
                 {
                   alumni_connect.map((alumni_row, key) => (
                     <SwiperSlide key={key}>
                       <div className="flex flex-col border-[0.5px] border-[#D6ACAC] flex-1">
                           <div className="flex flex-col lg:flex-row gap-10 items-center bg-[#FFCC33] px-5 py-5 lg:py-0 lg:px-20 lg:pt-10 lg:pb-5">
-                              <div className="w-65 h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
+                              <div className="w-50 h-90 overflow-hidden rounded-full lg:-mb-15 z-5">
                                   {
                                       alumni_row.connect_thumbnail && (
                                           <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_thumbnail_alt} width={500} height={500} className="w-full h-full object-cover" />
                                       )
                                   }
                               </div>
-                              <div className="flex flex-col gap-5 h-90">
+                              <div className="flex-1 flex flex-col gap-5 h-90">
                                   <h2 className="font-georgia text-xl">{alumni_row.connect_name}</h2>
                                   <h3 className="font-georgia text-xl">{alumni_row.connect_designation}</h3>
                                   <h3 className="font-georgia text-xl">{alumni_row.connect_degree_year}</h3>

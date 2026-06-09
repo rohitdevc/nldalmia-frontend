@@ -27,6 +27,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Banner as BannerProps, IntroProps, Slider, PlacementCorporateEngagement, PlacementsTabs, PlacementRecruiters, PlacementFeatures, Testimonials, Contacts, PlacementReports } from "@/types/api";
 import nl2br from "nl2br";
+import TestimonialSlider from "../TestimonialSlider";
 
 type PageProps = {
   banner: BannerProps
@@ -93,16 +94,6 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
   }
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
-
-  const [activeTestimonial, updateActiveTestimonial] = useState(0);
-
-  const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
-    return () => {
-      if (window.matchMedia("(hover: none)").matches) {
-        updateActiveTestimonial(testimonial_id);
-      }
-    }
-  }
 
   const placement_features_tabs: string[] = [];
   const placement_features_data: Record<string, PlacementFeatures[]> = {};
@@ -197,7 +188,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           <div className="flex flex-wrap gap-5 lg:gap-10 justify-center items-center">
             {
               corporate_engagements.map((corporate_engagement, key) => (
-                <div className="flex flex-col gap-5 items-center text-center w-75 lg:w-80" key={key}>
+                <div className="flex flex-col gap-5 items-center text-center w-75" key={key}>
                   <div className="w-20">
                     {
                       corporate_engagement.corporate_engagement_icon && (
@@ -310,7 +301,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               <ul className="lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
                 {
                   placement_features_tabs.map((feature_category, key) => (
-                    <li className={`group cursor-pointer transition-all duration-300 ${activeFeatureCategory === feature_category ? 'text-2xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveFeatureCategoryFunc(feature_category)}>
+                    <li className={`group cursor-pointer transition-all duration-300 ${activeFeatureCategory === feature_category ? 'text-xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveFeatureCategoryFunc(feature_category)}>
                       <span className="relative">
                         {feature_category}
                         <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeFeatureCategory === feature_category ? 'scale-x-100' : ''}`}></span>
@@ -362,7 +353,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
                 {
                   placement_reports_tabs.map((report_category, key) => (
-                    <li className={`group cursor-pointer transition-all duration-300 ${activeReportCategory === report_category ? 'text-2xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveReportCategoryFunc(report_category)}>
+                    <li className={`group cursor-pointer transition-all duration-300 ${activeReportCategory === report_category ? 'text-xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveReportCategoryFunc(report_category)}>
                       <span className="relative">
                         {report_category}
                         <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeReportCategory === report_category ? 'scale-x-100' : ''}`}></span>
@@ -392,60 +383,8 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         testimonials && testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3, spaceBetween: 100 } }} >
-            {
-              testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
-                  <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
-                    <div className="rounded-full w-30 h-30">
-                      {
-                        testimonial.testimonial_thumbnail && (
-                          <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt} width={200} height={200} className="object-cover w-full h-full" />
-                        )
-                      }
-                    </div>
-                    <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
-                    <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
-                      <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
-                    </div>
-                  </div>
-                  <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
-                    {
-                      testimonial.testimonial_youtube_video_id ? (
-                        <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_video_id)}>
-                          <FiPlayCircle size={20} />
-                          <span className="text-sm">Play Video</span>
-                        </div>
-                      ) : (
-                        <>
-                        {
-                          testimonial.testimonial_bio && (
-                            <p className="leading-loose">{parser(nl2br(testimonial.testimonial_bio))}</p>
-                          )
-                        }
-                        <div className="mt-auto flex flex-col gap-3">
-                          <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-sm md:text-lg">{testimonial.testimonial_designation}</span>
-                          <span className="text-sm md:text-lg">{testimonial.testimonial_company_name}</span>
-                        </div>
-                        </>
-                      )
-                    }
-                  </div>
-                </SwiperSlide>
-              ))
-            }
-          </Swiper>
+        <div className="w-full px-5 md:px-15 xl:px-30 py-10">
+          <TestimonialSlider testimonials={testimonials} />
         </div>
       )}
       {
@@ -455,7 +394,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
             <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{contacts_introduction.intro_caption}</p>
             <p className="leading-loose">{contacts_introduction.intro_description}</p>
           </div>
-          <div className="w-full flex flex-wrap justify-center lg:justify-between gap-10">
+          <div className="w-full flex flex-wrap justify-center lg:justify-between gap-5">
             {
               contacts.map((contact, key) => (
                 <div className="flex flex-col gap-2 relative" key={key}>

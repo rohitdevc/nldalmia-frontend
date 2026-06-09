@@ -34,6 +34,7 @@ import "swiper/css/navigation";
 
 import { Event } from '@/types/api';
 import EventSlide from "../EventSlide";
+import TestimonialSlider from "../TestimonialSlider";
 
 type PageProps = {
   event: Event
@@ -128,16 +129,6 @@ export default function EventDetails({ event }: PageProps) {
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
-  const [activeTestimonial, updateActiveTestimonial] = useState(-1);
-  
-  const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
-    return () => {
-      if (window.matchMedia("(hover: none)").matches) {
-        updateActiveTestimonial(testimonial_id);
-      }
-    }
-  }
-
   const [activeFAQCategory, updateActiveFAQCategory] = useState(event.event_faqs.length > 0 ? event.event_faqs[0].event_faq_tab_title : '');
   const [openFAQ, toggleFAQAccordian] = useState(0);
 
@@ -158,7 +149,7 @@ export default function EventDetails({ event }: PageProps) {
       />
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
           <Intro
-          h1_tag={event.event_name}
+          introTitle={event.event_name}
           introCaption={event.event_introduction_caption}
           introDescription={event.event_introduction_description} />
           {
@@ -216,7 +207,7 @@ export default function EventDetails({ event }: PageProps) {
             <ul className="lg:w-[25%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
               {
                 schedule_itineraries.map((schedule_itinerary, key) => (
-                  <li className={`group cursor-pointer transition-all duration-300 ${activeDate === (schedule_itinerary.schedule_itinerary_date.toString()) ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveDateFunc(schedule_itinerary.schedule_itinerary_date.toString())}>
+                  <li className={`group cursor-pointer transition-all duration-300 ${activeDate === (schedule_itinerary.schedule_itinerary_date.toString()) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveDateFunc(schedule_itinerary.schedule_itinerary_date.toString())}>
                     <span className="relative">
                       <span>Day {(key.toString().length) === 1 ? '0' : ''}{(key + 1)}: {dayjs(schedule_itinerary.schedule_itinerary_date).format('Do MMMM, YYYY')}</span>
                       <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeDate === (schedule_itinerary.schedule_itinerary_date.toString()) ? 'scale-x-100' : ''}`}></span>
@@ -421,36 +412,7 @@ export default function EventDetails({ event }: PageProps) {
           introTitle={event.event_testimonial_title}
           introCaption={event.event_testimonial_caption}
           introDescription={event.event_testimonial_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
-          <Swiper className="w-full" slidesPerView={1} spaceBetween={75} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 100 }, 1024: { slidesPerView: 3.5, spaceBetween: 100 } }} >
-            {
-              event.event_testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full md:!w-90 border border-[#800000] bg-white" title={testimonial.event_testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
-                  <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
-                    <Image src={testimonial.event_testimonial_image} alt={testimonial.event_testimonial_name} width={200} height={200} className="rounded-full w-30 h-30" />
-                    <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.event_testimonial_name}</h2>
-                    <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.event_testimonial_designation))}</span>
-                    </div>
-                  </div>
-                  <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
-                    <p className="leading-loose">{parser(nl2br(testimonial.event_testimonial_content))}</p>
-                    <div className="mt-auto flex flex-col gap-3">
-                      <span className="font-georgia text-xl lg:text-2xl">{testimonial.event_testimonial_name}</span>
-                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.event_testimonial_designation))}</span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))
-            }
-          </Swiper>
+          <TestimonialSlider testimonials={event.event_testimonials} />
         </div>
       )}
       {
@@ -464,7 +426,7 @@ export default function EventDetails({ event }: PageProps) {
               <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                 {
                   event.event_faqs.map((event_faq, key) => (
-                    <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === event_faq.event_faq_tab_title ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(event_faq.event_faq_tab_title)}>
+                    <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === event_faq.event_faq_tab_title ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(event_faq.event_faq_tab_title)}>
                       <span className="relative">
                         {event_faq.event_faq_tab_title}
                         <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeFAQCategory === event_faq.event_faq_tab_title ? 'scale-x-100' : ''}`}></span>

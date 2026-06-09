@@ -279,7 +279,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                 {
                   admission_programs.map((admission_program, key) => {
                     return (
-                    <SwiperSlide className="group border-[0.5px] border-[#800000]" title={admission_program.program_name} key={key}>
+                    <SwiperSlide className="group flex !h-auto" title={admission_program.program_name} key={key}>
                       <AdmissionProgramSlider program={admission_program} />
                     </SwiperSlide>
                   )
@@ -347,7 +347,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                 <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                   {
                     admission_categories.map((admission_category, key) => (
-                      <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === admission_category ? 'text-2xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(admission_category)}>
+                      <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === admission_category ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(admission_category)}>
                         <span className="relative">
                           {admission_category}
                           <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeAdmissionCategory === admission_category ? 'scale-x-100' : ''}`}></span>

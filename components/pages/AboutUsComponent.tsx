@@ -132,7 +132,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
         </div>
         {
           objectives && objectives.length > 0 && (
-          <div className="flex flex-wrap gap-10 justify-center w-full">
+          <div className="flex flex-col lg:flex-row gap-10 justify-between w-full">
             {
               objectives.map((objective, key) => (
                 <div className="flex flex-col w-sm md:w-75 lg:w-sm text-center border-[0.5px] border-[#800000]" key={key}>
@@ -255,26 +255,27 @@ export default function AboutUsComponent({banner, introduction, objectives, time
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 managing_council.map((managing_council_row, key) => (
-                  <SwiperSlide className="border-[0.5px] border-[#800000] flex flex-col" key={key}>
-                    <div className="flex flex-col gap-5 items-center text-center">
-                      <div className="w-full h-75">
-                        {
-                          managing_council_row.managing_council_thumbnail && (
-                            <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
-                          )
-                        }
+                  <SwiperSlide className="!h-auto flex" key={key}>
+                    <div className="border-[0.5px] border-[#800000] flex flex-col flex-1 h-full">
+                      <div className="flex flex-col gap-5 items-center text-center">
+                        <div className="w-full h-75">
+                          {
+                            managing_council_row.managing_council_thumbnail && (
+                              <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
+                            )
+                          }
+                        </div>
+                        <div className="p-5 mt-auto">
+                          <h2 className="text-xl font-georgia">{managing_council_row.managing_council_name}</h2>
+                          <p className="text-burgundy leading-loose">{parser(nl2br(managing_council_row.managing_council_designation))}</p>
+                        </div>
                       </div>
-                      <div className="p-5">
-                        <h2 className="text-xl font-georgia lg:h-10">{managing_council_row.managing_council_name}</h2>
-                        <p className="text-burgundy leading-loose">{parser(nl2br(managing_council_row.managing_council_designation))}</p>
-                      </div>
+                      {
+                        managing_council_row.managing_council_profile_link && (
+                          <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={managing_council_row.managing_council_profile_link}>View Profile <MdArrowOutward size={20} /></Link>
+                        )
+                      }
                     </div>
-                    {
-                      managing_council_row.managing_council_profile_link && (
-                        <Link className="w-full text-white bg-[#800000] py-1 block flex gap-2 justify-center items-center" href={managing_council_row.managing_council_profile_link}>View Profile <MdArrowOutward size={20} /></Link>
-                      )
-                    }
-                    
                   </SwiperSlide>
                 ))
               }

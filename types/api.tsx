@@ -193,14 +193,6 @@ type EventSponser = {
     event_sponser_logo: string;
 }
 
-type EventTestimonials = {
-    event_testimonial_name: string;
-    event_testimonial_designation: string;
-    event_testimonial_about: string;
-    event_testimonial_content: string;
-    event_testimonial_image: string;
-}
-
 type EventFAQTabs = {
     event_faq_question: string;
     event_faq_answer: string;
@@ -246,7 +238,7 @@ export interface Event {
     event_testimonial_title: string;
     event_testimonial_caption: string;
     event_testimonial_description: string;
-    event_testimonials: EventTestimonials[];
+    event_testimonials: Testimonials[];
     event_faq_title: string;
     event_faq_caption: string;
     event_faq_description: string;

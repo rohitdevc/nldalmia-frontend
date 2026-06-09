@@ -70,7 +70,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-      <div className="w-full px-5 lg:px-30 flex flex-col gap-5 pt-45 bg-[#FFCC33] text-black">
+      <div className="w-full px-5 lg:px-30 flex flex-col gap-5 pt-40 bg-[#FFCC33] text-black">
         <Link className="flex items-center gap-1 font-semibold" href={`${basePath}faculty`}>
           <RiArrowLeftSLine size={35} />
           <span>Back</span>
@@ -84,7 +84,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
             }
           </div>
           <div className="flex flex-col gap-5">
-              <h2 className="font-georgia text-xl">{faculty.faculty_name}</h2>
+              <h1 className="font-georgia text-xl">{faculty.faculty_name}</h1>
               <h3 className="font-georgia text-xl">{parser(nl2br(faculty.faculty_designation))}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                 {

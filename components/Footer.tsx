@@ -58,6 +58,9 @@ export default function Footer({program_categories, common_programs}: PageProps)
                         <Link href={`${basePath}events`}>Events</Link>
                     </li>
                     <li>
+                        <Link href={`${basePath}awards-and-achievements`}>Awards</Link>
+                    </li>
+                    <li>
                         <Link href={`${basePath}blogs`}>Blogs</Link>
                     </li>
                     <li>
@@ -66,6 +69,9 @@ export default function Footer({program_categories, common_programs}: PageProps)
                 </ul>
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Institutional Information</li>
+                    <li>
+                        <Link href={`${basePath}financial-assistance`}>Financial Assistance  </Link>
+                    </li>
                     <li>
                         <Link href={`${basePath}careers`}>Careers@NLDIMSR  </Link>
                     </li>

@@ -45,7 +45,7 @@ export default function AwardsComponent({banner, introduction, awards, media_cat
             {
               awards.map((award, key) => (
                 <div className="flex flex-col gap-3 text-center items-center" title={award.award_description} key={key}>
-                  <div className="border-[0.5px] border-[#800000] w-75 h-75">
+                  <div className="border-[0.5px] border-[#800000] w-65 h-65">
                     {
                       award.award_thumbnail && (
                       <Image src={award.award_thumbnail} className="object-contain w-full h-full" width={300} height={300} alt={award.award_thumbnail_alt} />

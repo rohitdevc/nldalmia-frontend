@@ -151,3 +151,9 @@ form .error span {
 .iqac_categories .swiper-wrapper {
   align-items: center;
 }
+
+@media (min-width: 1024px) {
+  .dynamic-width {
+    width: var(--lg-width);
+  }
+}

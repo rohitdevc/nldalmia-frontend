@@ -25,7 +25,6 @@ import { MdArrowOutward } from "react-icons/md";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { FiPlayCircle } from "react-icons/fi";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -33,7 +32,7 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeedComp from "@/components/InstagramFeedComp";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, Media, HomeTestimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed, Announcements, LifeAtNLDAchievements, HomeEvents } from "@/types/api";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, Media, Testimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed, Announcements, LifeAtNLDAchievements, HomeEvents } from "@/types/api";
 
 type PageProps = {
   banner: BannerProps;
@@ -47,7 +46,7 @@ type PageProps = {
   placement_partners_introduction: IntroProps
   placement_partners: PlacementPartners[]
   testimonials_introduction: IntroProps
-  testimonials: HomeTestimonials[]
+  testimonials: Testimonials[]
   events_introduction: IntroProps
   events: HomeEvents[]
   achievements: LifeAtNLDAchievements[]
@@ -67,6 +66,7 @@ type CareerPath = {
 
 import { useHeader } from "@/context/HeaderContext";
 import AchievementSlider from "../AchievementSlider";
+import TestimonialSlider from "../TestimonialSlider";
 
 export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, achievements, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -404,53 +404,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           introCaption={testimonials_introduction.intro_caption}
           introDescription={testimonials_introduction.intro_description}
           />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
-          <Swiper className="w-full" slidesPerView={1.5} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 10}, 768: { slidesPerView: 2, spaceBetween: 25 }, 1024: { slidesPerView: 2, spaceBetween: 90 }, 1280: {slidesPerView: 4, spaceBetween: 20} }} >
-            {
-              testimonials.map((testimonial, key) => (
-                <SwiperSlide className="group relative w-full min-h-90 border border-[#800000] bg-white" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>
-                  <div className="w-full h-full flex flex-col gap-10 px-5 py-5">
-                    <div className="rounded-full overflow-hidden w-30 h-30">
-                    {
-                      testimonial.testimonial_thumbnail && (
-                      <Image src={testimonial.testimonial_thumbnail} alt={testimonial.testimonial_thumbnail_alt || `N L Dalmia`} width={200} height={200} className="object-cover w-full h-full" />
-                      )
-                    }
-                    </div>
-                    <h2 className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</h2>
-                    <div className="mt-auto flex flex-col gap-3 text-burgundy">
-                      <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
-                    </div>
-                  </div>
-                  <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
-                    {
-                      testimonial.testimonial_youtube_id ? (
-                        <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_id)}>
-                          <FiPlayCircle size={20} />
-                          <span className="text-sm">Play Video</span>
-                        </div>
-                      ) : (
-                        <>
-                        <p className="leading-loose">{testimonial.testimonial_description}</p>
-                        <div className="mt-auto flex flex-col gap-3">
-                          <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
-                          <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>
-                        </div>
-                        </>
-                      )
-                    }
-                  </div>
-                </SwiperSlide>
-              ))
-            }
-          </Swiper>
+          <TestimonialSlider testimonials={testimonials} />
         </div>
       )}
       {

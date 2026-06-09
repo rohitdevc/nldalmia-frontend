@@ -19,11 +19,13 @@ export default function FeaturedBlogCard({blog_featured, blog_width}: Props) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
 
     return (
-        <div className={`w-full lg:w-[${blog_width}%] flex gap-4 flex-col`}>
+        <div className={`w-full flex gap-4 flex-col dynamic-width`} style={{
+            '--lg-width': `${blog_width}%`
+            }}>
             <div className="w-full lg:h-100">
             {
                 blog_featured.blog_thumbnail && (
-                <Image src={blog_featured.blog_thumbnail} alt={blog_featured.blog_thumbnail_alt} width={600} height={600} className="object-cover w-full h-full" />
+                <Image src={blog_featured.blog_thumbnail} alt={blog_featured.blog_thumbnail_alt} width={600} height={600} className="object-cover object-left w-full h-full" />
                 )
             }
             </div>
