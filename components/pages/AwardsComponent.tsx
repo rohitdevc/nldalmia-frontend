@@ -41,7 +41,7 @@ export default function AwardsComponent({banner, introduction, awards, media_cat
         <MediaNavigation activePage="awards-and-achievements" media_categories={media_categories} />
         {
           awards && awards.length > 0 &&
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
             {
               awards.map((award, key) => (
                 <div className="flex flex-col gap-3 text-center items-center" title={award.award_description} key={key}>

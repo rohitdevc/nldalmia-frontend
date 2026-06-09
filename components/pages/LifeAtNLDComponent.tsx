@@ -133,7 +133,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       banner_url={banner.button_link} />
       {
         events && events.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="events">
+        <div className="w-full px-5 lg:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="events">
           <CenterIntro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -208,7 +208,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       }
       {
         achievements && achievements.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5">
           <CenterIntro
           introTitle={achievements_introduction.intro_title}
           introCaption={achievements_introduction.intro_caption}
@@ -220,7 +220,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       }
       {
         student_clubs && student_clubs.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="student-clubs">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="student-clubs">
           <CenterIntro
           introTitle={student_club_introduction.intro_title}
           introCaption={student_club_introduction.intro_caption}
@@ -233,7 +233,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
+          <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
             {
               student_clubs.map((student_club, key) => (
               <SwiperSlide key={key}>
@@ -274,7 +274,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       }
       {
         gallery && gallery.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col lg:flex-row gap-5">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col lg:flex-row gap-5">
           <div className="flex flex-col gap-5 lg:w-1/2">
           {
             gallery[0].gallery_image && (
@@ -344,7 +344,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       </div>
       {
         inside_nld && inside_nld.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="infrastructure">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="infrastructure">
           <CenterIntro
           introTitle={inside_nld_introduction.intro_title}
           introCaption={inside_nld_introduction.intro_caption}
@@ -404,7 +404,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       }
       {
         magazines && magazines.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="institutional-publications">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="institutional-publications">
           <CenterIntro
           introTitle={magazines_introduction.intro_title}
           introCaption={magazines_introduction.intro_caption}
@@ -421,13 +421,13 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{768: {slidesPerView: 2.5, spaceBetween: 50}, 1024: {slidesPerView: 3, spaceBetween: 50}}} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{768: {slidesPerView: 2.5, spaceBetween: 50}, 1024: {slidesPerView: 2.5, spaceBetween: 50}, 1280: {slidesPerView: 3, spaceBetween: 20}}} >
               {
                 magazines.map((magazine, key) => magazine.institutional_publication_pdf && (
                 <SwiperSlide key={key} title={magazine.institutional_publication_title} >
-                  <div className="w-full flex flex-col lg:flex-row">
+                  <div className="w-full h-125 xl:h-auto">
                     <Link className="w-full" href={magazine.institutional_publication_pdf} target="_blank">
-                      <Image src={magazine.institutional_publication_thumbnail} alt={magazine.institutional_publication_thumbnail_alt} width={500} height={300} className="object-cover w-full h-full" />
+                      <Image src={magazine.institutional_publication_thumbnail} alt={magazine.institutional_publication_thumbnail_alt} width={500} height={300} className="object-contain w-full h-full" />
                     </Link>
                   </div>
                 </SwiperSlide>

@@ -359,7 +359,7 @@ export default function ProgramComponent({ program}: PageProps) {
       </div>
       {
         program.program_credit_content && (
-        <div className="w-full px-5 lg:px-30 flex flex-col gap-5 py-5">
+        <div className="w-full px-5 md:px-15 xl:px-30 flex flex-col gap-5 py-5">
           <CenterIntro
           introTitle={program.program_credit_title}
           introCaption={program.program_credit_caption}
@@ -374,7 +374,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_international_partners && program.program_international_partners.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 flex flex-col gap-5">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
           <CenterIntro
           introCaption={program.program_international_partner_caption}
           introDescription={program.program_international_partner_description}
@@ -418,7 +418,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_outcomes && program.program_outcomes.length > 0 && (
-        <div className="w-full px-5 lg:px-30 py-5 flex flex-col gap-5 py-10">
+        <div className="w-full px-5 md:px-15 xl:px-30 py-5 flex flex-col gap-5 py-10">
           <CenterIntro introCaption="Program Outcomes" />
             <div className="flex gap-3">
                 <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_outcome_prev">
@@ -475,13 +475,13 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
           program.program_admissions && program.program_admissions.length > 0 && (
-          <div className="w-full px-5 lg:px-30 py-15 flex flex-col gap-5">
+          <div className="w-full px-5 md:px-15 xl:px-30 py-15 flex flex-col gap-5">
             <CenterIntro
             introTitle={program.program_application_title}
             introCaption={program.program_application_caption}
             introDescription={program.program_application_description} />  
             <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
-              <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+              <ul className="md:w-[25%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                 {
                   program.program_admissions.map((program_admission, key) => (
                     <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === program_admission.program_admission_tab_title ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(program_admission.program_admission_tab_title)}>
@@ -570,7 +570,7 @@ export default function ProgramComponent({ program}: PageProps) {
             {
               program.program_testimonials.map((testimonial, key) => (
                 <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">
-                  <div className="flex flex-col md:flex-row gap-5">
+                  <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
                     <div className="md:w-[30%] lg:w-[25%] h-75 flex justify-center">
                       {
                         testimonial.program_testimonial_image && (
@@ -581,7 +581,7 @@ export default function ProgramComponent({ program}: PageProps) {
                     <div className="md:w-[70%] lg:w-[75%] flex-1 flex flex-col gap-10">
                       {
                         testimonial.program_testimonial_about && (
-                          <p className="text-[#4E4E4E] leading-loose text-smg:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
+                          <p className="text-[#4E4E4E] leading-loose text-sm lg:text-base xl:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
                         )
                       }
                       <div className="flex flex-col gap-2 font-normal text-center md:text-left mt-auto">

@@ -261,7 +261,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       )}
       {
         recruiters && recruiters.length > 0 && (
-          <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
+          <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
             <Intro
             introTitle={recruiters_introduction.intro_title}
             introCaption={recruiters_introduction.intro_caption}
@@ -276,7 +276,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: {slidesPerView: 4}, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 recruiters.map((recruiter, key) => recruiter.recruiter_logo && (
                   <SwiperSlide title={recruiter.recruiter_caption} key={key}>
@@ -297,8 +297,8 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           introTitle={features_introduction.intro_title}
           introCaption={features_introduction.intro_caption}
           introDescription={features_introduction.intro_description} />
-          <div className="flex flex-col lg:flex-row lg:gap-5 lg:gap-10">
-              <ul className="lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
+          <div className="flex flex-col lg:flex-row lg:gap-5 xl:gap-10">
+              <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
                 {
                   placement_features_tabs.map((feature_category, key) => (
                     <li className={`group cursor-pointer transition-all duration-300 ${activeFeatureCategory === feature_category ? 'text-xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveFeatureCategoryFunc(feature_category)}>
@@ -310,7 +310,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                   ))
                 }
               </ul>
-              <div className="lg:w-[80%] lg:border-l-[0.5px] border-[#DCBABA]" ref={Features}>
+              <div className="lg:w-[75%] lg:border-l-[0.5px] border-[#DCBABA]" ref={Features}>
                 {
                     placement_features_tabs.map((feature_category, key) => (
                     <div className={`w-full ${activeFeatureCategory === feature_category ? '' : 'hidden'}`} key={key}>
@@ -349,7 +349,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           introTitle={reports_introduction.intro_title}
           introCaption={reports_introduction.intro_caption}
           introDescription={reports_introduction.intro_description} />
-          <div className="flex flex-col lg:flex-row lg:gap-5 lg:gap-10">
+          <div className="flex flex-col lg:flex-row lg:gap-5 xl:gap-10">
               <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
                 {
                   placement_reports_tabs.map((report_category, key) => (

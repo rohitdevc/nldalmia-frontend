@@ -492,12 +492,12 @@ export default function HomeComponent({banner, announcements, introduction, care
         </div>
       )
       }
-      <div className="w-full px-5 lg:px-30 py-5 lg:py-10 flex flex-col gap-5">
+      <div className="w-full px-5 md:px-15 py-5 lg:py-10 flex flex-col gap-5">
         <AchievementSlider achievements={achievements} />
       </div>
       {
         awards && awards.length > 0 && (
-          <div className="w-full px-5 lg:px-30 py-5 lg:py-20 flex flex-col gap-5">
+          <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-20 flex flex-col gap-5">
             <CenterIntro
             introTitle={awards_introduction.intro_title}
             introCaption={awards_introduction.intro_caption}
@@ -613,7 +613,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           {
             blogs.map((blog, key) => (
               <SwiperSlide key={key}>
-                  <div className="group w-full h-75 xl:!h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${blog.blog_thumbnail})`}} onClick={handleBlogClick(key)} key={key} title={blog.blog_thumbnail_alt}>
+                  <div className="group w-full h-75 lg:h-85 xl:!h-100 bg-cover bg-left bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${blog.blog_thumbnail})`}} onClick={handleBlogClick(key)} key={key} title={blog.blog_thumbnail_alt}>
                     <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                     
                     <div className="relative h-full w-full flex flex-col">
@@ -630,7 +630,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                         <span className="bg-white text-burgundy text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(blog.blog_published_date)).format('Do MMM, YYYY')}</span>
                       </div>
                       <div className="px-5 pb-5 flex flex-col gap-2 h-full mt-1">
-                        <h2 className="text-sm lg:text-2xl font-georgia">{blog.blog_title}</h2>
+                        <h2 className="text-sm lg:text-xl xl:text-2xl font-georgia">{blog.blog_title}</h2>
                         <div className="flex flex-col lg:flex-row flex-wrap gap-1 lg:gap-5 text-sm">
                           <span>{dayjs.utc(new Date(blog.blog_published_date)).format('MMMM D, YYYY')}</span>
                           {

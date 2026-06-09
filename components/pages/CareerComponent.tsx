@@ -161,7 +161,7 @@ export default function CareerComponent({banner, introduction, careers_our_value
       {
         careers_milestones && careers_milestones.length > 0 && (
         <div className="w-full px-5 md:px-15 xl:px-30 py-10">
-          <div className="flex flex-col lg:flex-row gap-5 justify-between items-center bg-[#FFCC33] px-5 md:px-15 lg:px-30 py-10">
+          <div className="flex flex-col lg:flex-row gap-5 justify-between items-center bg-[#FFCC33] px-5 md:px-15 xl:px-30 py-10">
             {
               careers_milestones.map((milestone, key) => (
                 <div className="flex items-center w-full" key={key}>

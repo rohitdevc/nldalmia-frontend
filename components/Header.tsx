@@ -132,7 +132,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     )
                 }
-                <ul className="w-full flex gap-4 md:gap-10 py-3 md:pr-15 text-sm justify-center lg:justify-end items-center border-b border-[#70707054] bg-white">
+                <ul className="w-full flex gap-4 md:gap-10 py-3 md:pr-5 text-sm justify-center lg:justify-end items-center border-b border-[#70707054] bg-white">
                     <li>
                         <Link href={`${basePath}events`}>Events</Link>
                     </li>
@@ -165,7 +165,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <Link href={`${basePath}`}>
                         <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
                     </Link>
-                    <ul className="gap-5 lg:gap-4 xl:gap-2 items-center hidden lg:flex h-full">
+                    <ul className="gap-5 lg:gap-4 xl:gap-2 items-center hidden lg:flex h-full text-[13.5px] xl:text-sm">
                         <li className="group relative">
                             <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
                             <ul className="bg-white box-shadow absolute mt-5 left-1/2 -translate-x-1/2 text-[#4E4E4E] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-5 w-50">

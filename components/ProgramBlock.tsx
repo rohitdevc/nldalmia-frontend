@@ -42,7 +42,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
               <ul className="flex flex-col gap-3 text-base text-[#4E4E4E] list-disc list-inside">
                 {
                   program.program_highlights.map((program_highlight, key) => (
-                    <li key={key} className="leading-loose">{program_highlight}</li>
+                    <li key={key} className="leading-normal">{program_highlight}</li>
                   ))
                 }
               </ul>
@@ -53,7 +53,7 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
           program.program_career_paths && program.program_career_paths.length > 0 && (
             <div className="flex flex-col gap-2">
               <h4 className="font-georgia">Potential Career Path</h4>
-              <ul className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 text-base text-[#4E4E4E] list-disc list-inside">
+              <ul className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 xl:gap-5 text-base text-[#4E4E4E] list-disc list-inside">
                 {
                   program.program_career_paths.map((program_career_path, key) => (
                     <li key={key}>{program_career_path}</li>

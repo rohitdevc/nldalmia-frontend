@@ -204,7 +204,7 @@ export default function EventDetails({ event }: PageProps) {
           introDescription={event.event_schedule_description}
           />
           <div className="flex flex-col lg:flex-row md:gap-5">
-            <ul className="lg:w-[25%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
+            <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
               {
                 schedule_itineraries.map((schedule_itinerary, key) => (
                   <li className={`group cursor-pointer transition-all duration-300 ${activeDate === (schedule_itinerary.schedule_itinerary_date.toString()) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveDateFunc(schedule_itinerary.schedule_itinerary_date.toString())}>
@@ -268,20 +268,22 @@ export default function EventDetails({ event }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {
                 event.event_competitions.map((round, key) => (
-                  <div key={key}>
-                    {
-                      round.event_competition_image && (
-                        <Image src={round.event_competition_image} alt={round.event_competition_caption} width={600} height={450} className="w-full" />
-                      )
-                    }
-                    <div className="flex flex-col gap-5 bg-[#FFCC33] justify-center items-center text-center py-5 px-5 lg:px-10">
-                      <h2 className="font-georgia text-xl">{round.event_competition_caption}</h2>
-                      <div className="flex flex-wrap gap-3 justify-center lg:justify-between w-full text-[#4E4E4E]">
-                        {
-                        round.event_competition_description?.split('\n').filter(line => line.trim() !== '').map((line, index) => (
-                          <span key={index}>{line}</span>
-                        ))
-                        }
+                  <div className="!h-auto flex" key={key}>
+                    <div className="flex-1 flex-col w-full h-full">
+                      {
+                        round.event_competition_image && (
+                          <Image src={round.event_competition_image} alt={round.event_competition_caption} width={600} height={450} className="w-full" />
+                        )
+                      }
+                      <div className="flex flex-col gap-5 bg-[#FFCC33] justify-center items-center text-center py-5 px-5">
+                        <h2 className="font-georgia text-xl">{round.event_competition_caption}</h2>
+                        <div className="flex lg:justify-between w-full text-[#4E4E4E]">
+                          {
+                          round.event_competition_description?.split('\n').filter(line => line.trim() !== '').map((line, index) => (
+                            <span key={index} className="hover:border-b">{line}</span>
+                          ))
+                          }
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -336,8 +338,8 @@ export default function EventDetails({ event }: PageProps) {
                 {
                   ((key + 1) !== event.event_rewards.length) && (
                     <div className="flex items-center justify-center px-4">
-                    <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                    <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                      <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
+                      <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
                     </div>
                   )
                 }
@@ -363,7 +365,7 @@ export default function EventDetails({ event }: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.sponsored_slider_prev', nextEl: '.sponsored_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 768: {slidesPerView: 3, spaceBetween: 30}, 1024: {slidesPerView: 4, spaceBetween: 100}}}>
+            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.sponsored_slider_prev', nextEl: '.sponsored_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 768: {slidesPerView: 3, spaceBetween: 30}, 1024: {slidesPerView: 4, spaceBetween: 50}}}>
               {
                 event.event_sponsers.map((event_sponser, key) => event_sponser.event_sponser_logo && (
                   <SwiperSlide className="flex flex-col gap-5 justify-center items-center text-center" title={event_sponser.event_sponser_name} key={key}>
@@ -423,7 +425,7 @@ export default function EventDetails({ event }: PageProps) {
           introCaption={event.event_faq_caption}
           introDescription={event.event_faq_description} />
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
-              <ul className="md:w-[25%] lg:w-[20%] pr-5 flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+              <ul className="md:w-[25%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                 {
                   event.event_faqs.map((event_faq, key) => (
                     <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === event_faq.event_faq_tab_title ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(event_faq.event_faq_tab_title)}>
