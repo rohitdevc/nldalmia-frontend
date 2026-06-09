@@ -157,3 +157,7 @@ form .error span {
     width: var(--lg-width);
   }
 }
+
+.inside_nld_description iframe {
+  @apply h-100
+}

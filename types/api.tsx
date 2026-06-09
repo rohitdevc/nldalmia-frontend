@@ -629,6 +629,7 @@ export interface LifeAtNLDInsideNLD {
     inside_nld_description: string;
     inside_nld_image: string;
     inside_nld_image_alt: string;
+    inside_nld_pdf: string;
 }
 
 export interface MDPPrograms {

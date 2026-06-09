@@ -387,7 +387,12 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                           <h2 className="font-georgia text-lg">{inside_nld_row.inside_nld_caption}</h2>
                           {
                             inside_nld_row.inside_nld_description && (
-                              <div className="text-sm leading-loose">{parser(inside_nld_row.inside_nld_description.replace(/\s?sandbox="[^"]*"/g, ""))}</div>
+                              <div className="text-sm leading-loose inside_nld_description">{parser(inside_nld_row.inside_nld_description.replace(/\s?sandbox="[^"]*"/g, ""))}</div>
+                            )
+                          }
+                          {
+                            inside_nld_row.inside_nld_pdf && (
+                              <Link href={inside_nld_row.inside_nld_pdf} target="_blank">View Details</Link>
                             )
                           }
                         </div>
