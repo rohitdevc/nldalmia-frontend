@@ -21,7 +21,7 @@ export default function FeaturedBlogCard({blog_featured, blog_width}: Props) {
     return (
         <div className={`w-full flex gap-4 flex-col dynamic-width`} style={{
             '--lg-width': `${blog_width}%`
-            }}>
+            } as React.CSSProperties}>
             <div className="w-full lg:h-100">
             {
                 blog_featured.blog_thumbnail && (
