@@ -91,7 +91,7 @@ export default function Events({ banner, events}: PageProps) {
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <div className="relative lg:w-[45%] border-b border-[#800000] text-black">
             <select className="px-2 w-full outline-none appearance-none" title="Filter" value={timeline} onChange={handleFilter}>
               <option value="">All Events</option>
@@ -118,7 +118,7 @@ export default function Events({ banner, events}: PageProps) {
       </div>
       {
         filteredEvents && filteredEvents.length > 0 && (
-          <div className="w-full grid grid-cols-1 xl:grid-cols-3 gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
             {
               filteredEvents.map((event, key) => (
                 <EventCard key={key} event={event} activeEvent={activeEvent} keyIndex={key} handleEventClick={handleEventClick} />

@@ -83,7 +83,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
       banner_url={banner.button_link} />
       {
         blog_featured && blog_featured.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -105,7 +105,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
       }
       {
         blog_featured.length > 0 && (
-        <div className="w-full px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-25 lg:justify-between border-t transition-all duration-300 hover:border-b border-[#D3D3D3] py-10">
             <h3 className="font-georgia text-xl w-50">Featured Blog</h3>
             <Link href={basePath + blog_featured[0].blog_url_slug} className="font-georgia text-4xl">{blog_featured[0].blog_title}</Link>
@@ -113,7 +113,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
         </div>
         )
       }
-      <div className="w-full px-5 md:px-15 xl:px-30">
+      <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30">
         {
           blog_categories && blog_categories.length > 0 && !blog_category_url_slug && (
           <ul className="flex flex-col flex-wrap sm:flex-row gap-5 lg:gap-10 justify-center items-center py-5">

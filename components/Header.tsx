@@ -410,7 +410,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => updateMobileMenu(false)}>
                                 <Link href="/programs/finance" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href="/programs/pgdm-in-business-analytics" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM in Business Analytics</Link>
                             </li>
                         </ul>
@@ -422,7 +422,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             </li>
                             {
                                 common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, key) => (
-                                    <li key={key}>
+                                    <li key={key} onClick={() => updateMobileMenu(false)}>
                                         <Link href={program.program_link || program.program_application_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
                                     </li>
                                 ))

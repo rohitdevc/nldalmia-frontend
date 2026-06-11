@@ -93,7 +93,7 @@ export default function InstitutionalPublicationsComponent({ banner, institution
           ))}
         </Swiper>
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 pb-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 pb-10">
         <p className="text-[#4E4E4E] leading-loose text-sm text-center">{institutional_publications_categories[activeInstitutionalPublicationCategoryKey]?.institutional_publication_description}</p>
         {
           institutional_publications && institutional_publications.length > 0 && (

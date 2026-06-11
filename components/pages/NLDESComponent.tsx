@@ -142,7 +142,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       banner_url={banner.button_link} />
       {
         introduction && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <div className="flex flex-col lg:flex-row gap-5 w-full lg:items-center justify-between">
             <div className="lg:w-1/2 flex flex-col gap-5">
               <h2 className="font-georgia text-xl lg:text-3xl">{introduction.intro_title}</h2>
@@ -163,7 +163,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       }
       {
         objectives && objectives.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <CenterIntro
           introTitle={objectives_introduction.intro_title}
           introCaption={objectives_introduction.intro_caption}
@@ -187,7 +187,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       }
       {
         institutes && institutes.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15">
           <Intro
           introTitle={institutes_introduction.intro_title}
           introCaption={institutes_introduction.intro_caption}
@@ -220,7 +220,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       }
       {
         management_categories && management_categories.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <CenterIntro
           introTitle={management_introduction.intro_title}
           introCaption={management_introduction.intro_caption}
@@ -283,7 +283,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       }
       {
         social_responsibilities && social_responsibilities.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15">
           <Intro
           introTitle={social_responsibility_introduction.intro_title}
           introCaption={social_responsibility_introduction.intro_caption}
@@ -328,7 +328,7 @@ export default function NLDESComponent({ banner, introduction, objectives_introd
       }
       {
         careers && careers.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5">
           <Intro
           introTitle={careers_introduction.intro_title}
           introCaption={careers_introduction.intro_caption}

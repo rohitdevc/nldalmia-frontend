@@ -33,7 +33,7 @@ export default function AwardsComponent({banner, introduction, awards, media_cat
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <CenterIntro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}

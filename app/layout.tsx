@@ -17,11 +17,10 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-5PCPV98');
           `}
         </Script>
-        <Script id="chatbot-script" strategy="afterInteractive" src="https://chatbot.in5.nopaperforms.com/en-gb/backend/bots/niaachtbtscpt.js/560363a2a8bd8c8c0/390b5216609c46d1ab1ec9ed9fb317f1"
-        />
+        <Script id="chatbot-script" strategy="afterInteractive" src="https://chatbot.in5.nopaperforms.com/en-gb/backend/bots/niaachtbtscpt.js/560363a2a8bd8c8c0/390b5216609c46d1ab1ec9ed9fb317f1" />
       </head>
       <body>
-        <div className="npf_chatbots hidden" data-w="390b5216609c46d1ab1ec9ed9fb317f1"></div>
+        <div className="npf_chatbots !hidden" data-w="390b5216609c46d1ab1ec9ed9fb317f1"></div>
         {children}
       </body>
     </html>

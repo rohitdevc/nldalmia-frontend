@@ -82,6 +82,7 @@ body {
   @apply bg-[#FFF9E6];
 }
 
+/*
 @media (max-width: 640px) {
   .responsive-table table thead {
     @apply hidden;
@@ -103,7 +104,7 @@ body {
     content: attr(data-label);
     @apply absolute left-4 top-1/2 -translate-y-1/2 font-semibold w-[45%];
   }
-}
+} */
 
 form select, form input, form textarea {
   @apply outline-none

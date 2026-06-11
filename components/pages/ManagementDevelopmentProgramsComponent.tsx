@@ -172,7 +172,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link}
       />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -195,7 +195,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
       </div>
       {
         programs && programs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" ref={programsRef}>
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" ref={programsRef}>
           <CenterIntro
           introTitle={programs_introduction.intro_title}
           introCaption={programs_introduction.intro_caption}
@@ -286,7 +286,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
       }
       {
         testimonials && testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={testimonial_introduction.intro_title}
           introCaption={testimonial_introduction.intro_caption}
@@ -296,7 +296,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
       )}
       {
         faq_categories && faq_categories.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={faqs_introduction.intro_title}
           introCaption={faqs_introduction.intro_caption}
@@ -349,7 +349,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
         </div>
           )
       }
-      <div className="w-full bg-[#FFCC33] flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full bg-[#FFCC33] flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <h3 className="font-georgia text-3xl">{enquiry.intro_caption}</h3>
         {
           enquiry.intro_description && (

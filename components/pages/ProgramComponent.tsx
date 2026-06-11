@@ -300,7 +300,7 @@ export default function ProgramComponent({ program}: PageProps) {
       banner_caption={program.banner_image_caption}
       banner_description={program.banner_image_description}
       />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15">
         <Intro
         introTitle={program.program_name}
         introCaption={program.program_introduction_caption}
@@ -331,7 +331,7 @@ export default function ProgramComponent({ program}: PageProps) {
         {
           program.program_highlights && program.program_highlights.length > 0 && (
           <div className="flex flex-col lg:flex-row gap-10 md:mt-10 lg:items-center">
-            <div className="w-full lg:w-[60%] flex flex-col gap-5 md:order-1 lg:order-2">
+            <div className="w-full lg:w-[60%] flex flex-col gap-5 sm:order-1 lg:order-2">
               <h2 className="font-georgia text-2xl lg:text-4xl">Program Highlights</h2>
               <ul className="flex flex-col gap-5 text-[#4E4E4E] list-disc list-inside">
                 {
@@ -359,7 +359,7 @@ export default function ProgramComponent({ program}: PageProps) {
       </div>
       {
         program.program_credit_content && (
-        <div className="w-full px-5 md:px-15 xl:px-30 flex flex-col gap-5 py-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 flex flex-col gap-5 py-5">
           <CenterIntro
           introTitle={program.program_credit_title}
           introCaption={program.program_credit_caption}
@@ -374,7 +374,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_international_partners && program.program_international_partners.length > 0 && (
-        <div className="w-full px-5 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
           <CenterIntro
           introCaption={program.program_international_partner_caption}
           introDescription={program.program_international_partner_description}
@@ -418,7 +418,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_outcomes && program.program_outcomes.length > 0 && (
-        <div className="w-full px-5 md:px-15 xl:px-30 py-5 flex flex-col gap-5 py-10">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5 lg:py-10">
           <CenterIntro introCaption="Program Outcomes" />
             <div className="flex gap-3">
                 <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_outcome_prev">
@@ -449,7 +449,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_advantages && program.program_advantages.length > 0 && (
-        <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-15 lg:px-30" style={{backgroundImage: `url(${program.program_advantage_image})`}}>
+        <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 sm:px-10 md:px-15 lg:px-30" style={{backgroundImage: `url(${program.program_advantage_image})`}}>
           <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
           <div className="flex flex-col gap-15 lg:gap-25 py-20 relative w-full h-full">
             <h3 className="text-2xl lg:text-4xl font-georgia">Program Advantages & Benefits</h3>
@@ -475,7 +475,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
           program.program_admissions && program.program_admissions.length > 0 && (
-          <div className="w-full px-5 md:px-15 xl:px-30 py-15 flex flex-col gap-5">
+          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-15 flex flex-col gap-5">
             <CenterIntro
             introTitle={program.program_application_title}
             introCaption={program.program_application_caption}
@@ -527,7 +527,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_second_sliders && program.program_second_sliders.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5">
         <Intro
         introCaption={program.program_second_slider_caption}
         introDescription={program.program_second_slider_description} />
@@ -553,7 +553,7 @@ export default function ProgramComponent({ program}: PageProps) {
         }
       {
         program.program_testimonials && program.program_testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5">
           <Intro
           introTitle={program.program_testimonial_title}
           introCaption={program.program_testimonial_caption}
@@ -566,7 +566,7 @@ export default function ProgramComponent({ program}: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
           </div>
-          <Swiper modules={[Navigation, Autoplay]} loop={true} autoHeight={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
+          <Swiper modules={[Navigation]} loop={true} autoHeight={true} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
             {
               program.program_testimonials.map((testimonial, key) => (
                 <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">

@@ -46,7 +46,7 @@ export default function MediaComponent({ banner, media_category_url_slug, media,
       banner_caption={banner.banner_image_caption}
       banner_description={banner.banner_image_description}
       />
-      <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <MediaNavigation activePage={media_category_url_slug} media_categories={media_categories} />
         {
           media && media.length > 0 && (

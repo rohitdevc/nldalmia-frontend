@@ -70,7 +70,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-      <div className="w-full px-5 md:px-15 xl:px-30 flex flex-col gap-5 pt-40 bg-[#FFCC33] text-black">
+      <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 flex flex-col gap-5 pt-40 bg-[#FFCC33] text-black">
         <Link className="flex items-center gap-1 font-semibold" href={`${basePath}faculty`}>
           <RiArrowLeftSLine size={35} />
           <span>Back</span>
@@ -124,7 +124,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
       </div>
       {
         faculty.faculty_accordians && faculty.faculty_accordians.length > 0 && (
-          <div className="flex flex-col gap-4 px-5 md:px-10 lg:px-20 py-5 lg:py-15 z-1">
+          <div className="flex flex-col gap-4 px-5 sm:px-10 lg:px-20 py-5 lg:py-15 z-1">
             {
               faculty.faculty_accordians.map((faculty_accordian, key) => (
               <div className={`w-full py-5 ${(key + 1 != faculty.faculty_accordians.length) ? 'border-b' : '' } border-[#800000]`} key={key}>

@@ -90,7 +90,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
       </div>
       {
         iqac_pdfs && iqac_pdfs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 pb-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 pb-10">
           {
             iqac_pdfs.filter(iqac_pdf =>
               iqac_pdf.iqac_category_title === activeIQACCategoryName

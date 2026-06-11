@@ -108,7 +108,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15" id="who-we-are">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15" id="who-we-are">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -132,7 +132,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
         </div>
         {
           objectives && objectives.length > 0 && (
-          <div className="flex flex-col md:flex-wrap lg:flex-nowrap md:flex-row gap-10 md:justify-center justify-between w-full">
+          <div className="flex flex-col md:flex-wrap lg:flex-nowrap md:flex-row gap-10 justify-between sm:justify-center items-center w-full">
             {
               objectives.map((objective, key) => (
                 <div className="flex flex-col w-sm md:w-75 lg:w-sm text-center border-[0.5px] border-[#800000]" key={key}>
@@ -184,7 +184,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         founder_quote && (
-        <div className="w-full px-5 md:px-15 lg:px-20 py-10 bg-[#FFCC33] flex flex-col gap-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 lg:px-20 py-10 bg-[#FFCC33] flex flex-col gap-5">
           <h2 className="text-2xl lg:text-4xl font-georgia">{founder_quote.founder_quote_title}</h2>
           <div className="flex flex-col lg:flex-row gap-5 justify-center items-center">
             {
@@ -218,7 +218,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         management_quotes && management_quotes.length > 0 && (
-          <div className="w-full px-5 md:px-15 xl:px-20 py-10 flex flex-col gap-5 lg:gap-10">
+          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 py-10 flex flex-col gap-5 lg:gap-10">
             <div className="flex gap-3">
                 <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_quote_slider_prev">
                   <BsArrowLeftShort size={20} />
@@ -258,7 +258,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         managing_council && managing_council.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-5 py-10" id="managing-council">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 py-10" id="managing-council">
           <Intro
           introTitle={managing_council_introduction.intro_title}
           introCaption={managing_council_introduction.intro_caption}
@@ -306,7 +306,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         governing_council && governing_council.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-10">
           <Intro
           introTitle={governing_council_introduction.intro_title}
           introCaption={governing_council_introduction.intro_caption}
@@ -372,13 +372,13 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       }
       {
         international_countries && international_countries.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-10 lg:py-15" id="international-tie-ups">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-10 lg:py-15" id="international-tie-ups">
           <Intro
           introTitle={international_universities_introduction.intro_title}
           introCaption={international_universities_introduction.intro_caption}
           introDescription={international_universities_introduction.intro_description} />
           <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
-            <ul className="md:w-[30%] lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+            <ul className="md:w-[30%] lg:w-[25%] flex md:flex-col gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
               {
                 international_countries.map((country_name, key) => (
                   <li className={`group cursor-pointer transition-all duration-300 ${activeCountry === (country_name) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveCountryFunc(country_name)}>

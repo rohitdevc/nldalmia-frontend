@@ -77,16 +77,6 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
-  const [activeTestimonial, updateActiveTestimonial] = useState(0);
-  
-  const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
-    return () => {
-      if (window.matchMedia("(hover: none)").matches) {
-        updateActiveTestimonial(testimonial_id);
-      }
-    }
-  }
-
   const faq_categories: string[] = [];
 
   const faqs_data: Record<string, FAQs[]> = {};
@@ -172,7 +162,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link}
       />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -195,13 +185,13 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
       </div>
       {
         programs && programs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" ref={programsRef}>
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" ref={programsRef}>
           <CenterIntro
           introTitle={programs_introduction.intro_title}
           introCaption={programs_introduction.intro_caption}
           introDescription={programs_introduction.intro_description} />
           <div className="flex flex-col md:flex-row justify-center items-center lg:justify-between gap-10 md:gap-5 lg:gap-10">
-            <div className="relative w-sm">
+            <div className="relative w-full">
               <select className="appearance-none outline-none w-full" value={filterProgram} onChange={(e) => { updateFilterProgram(e.target.value); program_filters({program_name: e.target.value})} }>
                 <option value="">Search By Topic</option>
                 {
@@ -215,7 +205,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
               </div>
               <span className="w-full absolute left-0 top-8 h-[0.5px] bg-[#800000]"></span>
             </div>
-            <div className="relative w-sm">
+            <div className="relative w-full">
               <select className="appearance-none outline-none w-full" value={filterProgramDuration} onChange={(e) => {updateFilterProgramDuration(e.target.value); program_filters({program_duration: e.target.value})}}>
                 <option value="">Duration</option>
                 {
@@ -229,7 +219,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
               </div>
               <span className="w-full absolute left-0 top-8 h-[0.5px] bg-[#800000]"></span>
             </div>
-            <div className="relative w-sm">
+            <div className="relative w-full">
               <select className="appearance-none outline-none w-full" value={filterProgramMode} onChange={(e) => {updateFilterProgramMode(e.target.value); program_filters({program_mode: e.target.value})}}>
                 <option value="">Mode</option>
                 {
@@ -286,7 +276,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
       }
       {
         testimonials && testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={testimonial_introduction.intro_title}
           introCaption={testimonial_introduction.intro_caption}
@@ -296,7 +286,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
       )}
       {
         faq_categories && faq_categories.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={faqs_introduction.intro_title}
           introCaption={faqs_introduction.intro_caption}
@@ -349,7 +339,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
         </div>
           )
       }
-      <div className="w-full bg-[#FFCC33] flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full bg-[#FFCC33] flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <h3 className="font-georgia text-3xl">{enquiry.intro_caption}</h3>
         {
           enquiry.intro_description && (

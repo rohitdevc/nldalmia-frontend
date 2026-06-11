@@ -147,7 +147,7 @@ export default function EventDetails({ event }: PageProps) {
       banner_caption={event.banner_image_caption}
       banner_description={event.banner_image_description}
       />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={event.event_name}
           introCaption={event.event_introduction_caption}
@@ -167,7 +167,7 @@ export default function EventDetails({ event }: PageProps) {
       </div>
       {
         event.event_milestones && event.event_milestones.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <CenterIntro
           introTitle={event.event_milestone_title}
           introCaption={event.event_milestone_caption}
@@ -197,7 +197,7 @@ export default function EventDetails({ event }: PageProps) {
       }
       {
         schedule_itineraries && schedule_itineraries.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
           <CenterIntro
           introCaption={event.event_schedule_caption}
           introDescription={event.event_schedule_description}
@@ -258,7 +258,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
         event.event_competitions && event.event_competitions.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
             <Intro
             introTitle={event.event_competition_title}
             introCaption={event.event_competition_caption}
@@ -276,7 +276,7 @@ export default function EventDetails({ event }: PageProps) {
                       }
                       <div className="flex flex-col gap-5 bg-[#FFCC33] justify-center items-center text-center py-5 px-5">
                         <h2 className="font-georgia text-xl">{round.event_competition_caption}</h2>
-                        <div className="flex md:justify-between w-full text-[#4E4E4E]">
+                        <div className="flex justify-between w-full text-[#4E4E4E]">
                           {
                           round.event_competition_description?.split('\n').filter(line => line.trim() !== '').map((line, index) => (
                             <span key={index} className="hover:border-b">{line}</span>
@@ -293,7 +293,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
         event.event_sliders && event.event_sliders.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
             <Intro
             introTitle={event.event_slider_title}
             introCaption={event.event_slider_caption}
@@ -320,7 +320,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
       event.event_rewards && event.event_rewards.length > 0 && (
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <CenterIntro
         introTitle={event.event_reward_title}
         introCaption={event.event_reward_caption}
@@ -349,7 +349,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
       event.event_sponsers && event.event_sponsers.length > 0 && (
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <CenterIntro
           introCaption={event.event_sponser_caption}
           introDescription={event.event_sponser_description}
@@ -380,7 +380,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
         event.event_second_sliders && event.event_second_sliders.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
             <Intro
             introTitle={event.event_second_slider_title}
             introCaption={event.event_second_slider_caption}
@@ -407,7 +407,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
         event.event_testimonials && event.event_testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={event.event_testimonial_title}
           introCaption={event.event_testimonial_caption}
@@ -417,7 +417,7 @@ export default function EventDetails({ event }: PageProps) {
       )}
       {
         event.event_faqs && event.event_faqs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={event.event_faq_title}
           introCaption={event.event_faq_caption}

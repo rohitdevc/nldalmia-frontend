@@ -154,7 +154,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -317,7 +317,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       </div>
       {
         alumni_connect && alumni_connect.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={alumni_connect_introduction.intro_title}
           introCaption={alumni_connect_introduction.intro_caption}
@@ -371,7 +371,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={alumni_hall_of_fame_introduction.intro_title}
           introCaption={alumni_hall_of_fame_introduction.intro_caption}
@@ -409,7 +409,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_testimonials && alumni_testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-5">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
           <Intro
           introTitle={alumni_testimonials_introduction.intro_title}
           introCaption={alumni_testimonials_introduction.intro_caption}
@@ -452,7 +452,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_events && alumni_events.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={alumni_events_introduction.intro_title}
           introCaption={alumni_events_introduction.intro_caption}
@@ -550,7 +550,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_connect && alumni_connect.length > 0 && (
         <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
-          <div className="relative py-15 px-5 md:px-15 xl:px-30">
+          <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <div className="flex gap-3">
               <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_prev">
@@ -566,8 +566,8 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                   alumni_connect.map((alumni_row, key) => (
                     <SwiperSlide key={key}>
                       <div className="flex flex-col border-[0.5px] border-[#D6ACAC] flex-1">
-                          <div className="flex flex-col lg:flex-row gap-10 items-center bg-[#FFCC33] px-5 py-5 lg:py-0 lg:px-20 lg:pt-10 lg:pb-5">
-                              <div className="w-50 h-90 overflow-hidden rounded-full lg:-mb-15 z-5">
+                          <div className="flex flex-col lg:flex-row gap-10 lg:items-center bg-[#FFCC33] px-5 py-5 lg:py-0 lg:px-20 lg:pt-10 lg:pb-5">
+                              <div className="w-50 h-90 overflow-hidden rounded-full lg:-mb-15 z-5 mx-auto lg:mx-0">
                                   {
                                       alumni_row.connect_thumbnail && (
                                           <Image src={alumni_row.connect_thumbnail} alt={alumni_row.connect_thumbnail_alt} width={500} height={500} className="w-full h-full object-cover" />
@@ -659,7 +659,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
         <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
-          <div className="relative py-15 px-5 md:px-15 xl:px-30">
+          <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <div className="flex gap-3">
               <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_hall_of_fame_prev">
@@ -675,7 +675,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                   alumni_hall_of_fame.map((alumni_row, key) => (
                     <SwiperSlide key={key}>
                       <div className="flex flex-col">
-                          <div className="flex flex-col lg:flex-row gap-10 items-center bg-[#FFCC33] px-5 py-5 lg:py-0 lg:px-20 lg:pt-10 lg:pb-5">
+                          <div className="flex flex-col lg:flex-row gap-10 md:items-center bg-[#FFCC33] px-5 py-5 lg:py-0 lg:px-20 lg:pt-10 lg:pb-5">
                               <div className="w-sm h-100 overflow-hidden rounded-full lg:-mb-15 z-5">
                                   {
                                       alumni_row.hall_of_fame_thumbnail && (

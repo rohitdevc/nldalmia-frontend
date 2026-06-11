@@ -161,13 +161,13 @@ export default function ProgramsListingComponent({ banner, introduction, program
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         introDescription={introduction.intro_description} />
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20">
           <form className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="relative">
               <select className="px-2" title="Career Path" value={activeCareerPath} onChange={(e) => { updateActiveCareerPath(e.target.value); program_filters({career_path: e.target.value})} }>
@@ -272,7 +272,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
       </div>
       {
         scholarship_introduction && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20 py-15">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15">
           <Intro
           introTitle={scholarship_introduction.intro_title}
           introCaption={scholarship_introduction.intro_caption} />

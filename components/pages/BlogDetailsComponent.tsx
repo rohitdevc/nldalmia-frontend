@@ -34,7 +34,7 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-      <div className="pt-50 flex flex-col gap-10 justify-center text-center px-5 md:px-15 xl:px-30 py-5">
+      <div className="pt-50 flex flex-col gap-10 justify-center text-center px-5 sm:px-10 md:px-15 xl:px-30 py-5">
         <h1 className="font-georgia text-3xl lg:text-5xl">{blog.blog_title}</h1>
         {
           blog.banner_image && (
@@ -55,14 +55,14 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
       </div>
       {
         blog.blog_content && (
-        <div className="px-5 md:px-15 xl:px-30 py-5 leading-loose">
+        <div className="px-5 sm:px-10 md:px-15 xl:px-30 py-5 leading-loose">
           {parser(blog.blog_content)}
         </div>
         )
       }
       {
         related_blog && related_blog.length > 0 && (
-        <div className="flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <h2 className="font-georgia text-3xl">Related Blogs</h2>
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-5">
             <div className="flex flex-col gap-10 w-full lg:w-1/2">

@@ -258,7 +258,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         banner_vimeo_video_id={banner.banner_vimeo_video_id}
         banner_button_caption={banner.button_caption}
         banner_url={banner.button_link} />
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -338,13 +338,13 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           admission_categories && admission_categories.length > 0 && (
-          <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 md:py-10">
             <Intro
             introTitle={admissions_process_introduction.intro_title}
             introCaption={admissions_process_introduction.intro_caption}
             introDescription={admissions_process_introduction.intro_description} />
             <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
-                <ul className="md:w-[30%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+                <ul className="md:w-[30%] lg:w-[20%] flex md:flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                   {
                     admission_categories.map((admission_category, key) => (
                       <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === admission_category ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(admission_category)}>
@@ -389,7 +389,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           admissions_scholarship_table && (
-          <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5 md:py-10">
               <Intro
               introTitle={admissions_scholarship_introduction.intro_title}
               introCaption={admissions_scholarship_introduction.intro_caption}
@@ -406,7 +406,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           admissions_tuition_table && (
-          <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
               <Intro
               introTitle={admissions_tuition_introduction.intro_title}
               introCaption={admissions_tuition_introduction.intro_caption}
@@ -420,7 +420,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           financial_assistance_partners && financial_assistance_partners.length > 0 && (
-            <div className="w-full px-5 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
+            <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
               <CenterIntro
               introTitle={admissions_finance_introduction.intro_title}
               introCaption={admissions_finance_introduction.intro_caption}
@@ -462,7 +462,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           faq_categories && faq_categories.length > 0 && (
-          <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
             <Intro
             introTitle={admissions_faqs_introduction.intro_title}
             introCaption={admissions_faqs_introduction.intro_caption}

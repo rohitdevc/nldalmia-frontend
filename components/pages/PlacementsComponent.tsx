@@ -156,7 +156,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       banner_url={banner.button_link} />
       {
         sliders && sliders.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <Intro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -183,12 +183,12 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         corporate_engagements && corporate_engagements.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="corporate-engagement">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="corporate-engagement">
           <CenterIntro introCaption="Corporate Engagement"></CenterIntro>
-          <div className="flex flex-wrap gap-5 lg:gap-10 justify-center items-center">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-10 mx-auto">
             {
               corporate_engagements.map((corporate_engagement, key) => (
-                <div className="flex flex-col gap-5 items-center text-center w-75" key={key}>
+                <div className="flex flex-col gap-5 items-center text-center w-75 px-5" key={key}>
                   <div className="w-20">
                     {
                       corporate_engagement.corporate_engagement_icon && (
@@ -211,7 +211,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_tabs && placement_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="highlights">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="highlights">
           <ul className="flex flex-col sm:flex-row gap-7 py-5 text-burgundy justify-center items-center">
             {
               placement_tabs.map((placement_tab, key) => (
@@ -261,7 +261,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       )}
       {
         recruiters && recruiters.length > 0 && (
-          <div className="w-full px-5 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
+          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
             <Intro
             introTitle={recruiters_introduction.intro_title}
             introCaption={recruiters_introduction.intro_caption}
@@ -292,7 +292,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_features_tabs && placement_features_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="batch-profile">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="batch-profile">
           <Intro
           introTitle={features_introduction.intro_title}
           introCaption={features_introduction.intro_caption}
@@ -344,12 +344,12 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_reports_tabs && placement_reports_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10" id="reports">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="reports">
           <Intro
           introTitle={reports_introduction.intro_title}
           introCaption={reports_introduction.intro_caption}
           introDescription={reports_introduction.intro_description} />
-          <div className="flex flex-col lg:flex-row lg:gap-5 xl:gap-10">
+          <div className="flex flex-col lg:flex-row gap-5 xl:gap-10">
               <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
                 {
                   placement_reports_tabs.map((report_category, key) => (
@@ -365,7 +365,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               <div className="lg:w-[75%] lg:border-l-[0.5px] border-[#DCBABA]" ref={Reports}>
                 {
                     placement_reports_tabs.map((report_category, key) => (
-                    <ul className={`w-full px-5 ${activeReportCategory === report_category ? '' : 'hidden'}`} key={key}>
+                    <ul className={`w-full text-center md:text-left px-5 ${activeReportCategory === report_category ? '' : 'hidden'}`} key={key}>
                       {
                         placement_reports_data[report_category].map((placement_report, report_key) => placement_report.report_pdf && (
                           <li className="py-2" key={report_key}>
@@ -383,13 +383,13 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         testimonials && testimonials.length > 0 && (
-        <div className="w-full px-5 md:px-15 xl:px-30 py-10">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-10">
           <TestimonialSlider testimonials={testimonials} />
         </div>
       )}
       {
         contacts && contacts.length > 0 && (
-        <div className="w-full bg-[#FFCC33] flex flex-col gap-10 px-5 md:px-15 xl:px-30 py-10" id="connect">
+        <div className="w-full bg-[#FFCC33] flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="connect">
           <div className="flex flex-col gap-5">
             <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{contacts_introduction.intro_caption}</p>
             <p className="leading-loose">{contacts_introduction.intro_description}</p>

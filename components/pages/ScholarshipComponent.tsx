@@ -48,7 +48,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -61,7 +61,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
           )
         }
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
           <CenterIntro
           introCaption={scholarship_merit.intro_title}
           introDescription={scholarship_merit.intro_caption} />
@@ -73,7 +73,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
             )
           }
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
           <CenterIntro
           introCaption={scholarship_inclusivity.intro_title}
           introDescription={scholarship_inclusivity.intro_caption} />
@@ -85,7 +85,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
             )
           }
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-5">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
           <CenterIntro
           introCaption={scholarship_second_year.intro_title}/>
           {
@@ -96,7 +96,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
             )
           }
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <Intro
         introTitle={reports_introduction.intro_title}
         introCaption={reports_introduction.intro_caption}

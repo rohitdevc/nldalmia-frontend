@@ -18,15 +18,16 @@ export const useSanitizeTable = () => {
         if (!wrappers.length) return;
 
         wrappers.forEach((wrapper) => {
+            wrapper.classList.add("overflow-x-auto", "w-full");
+
             const table = wrapper.querySelector("table");
             if (!table) return;
 
             cleanElement(table);
 
             table.classList.add(
-                "w-full",
-                "h-full",
-                "table-fixed",
+                "w-max",
+                "min-w-full",
                 "text-[#4E4E4E]",
                 "text-center",
                 "my-5"
@@ -45,12 +46,13 @@ export const useSanitizeTable = () => {
                 cleanElement(el);
 
                 if (tag === "td" || tag === "th") {
-                    el.classList.add("text-center");
+                    el.classList.add("text-center", "py-2");
                 }
 
+                /*
                 if (tag === "td" && header) {
                     el.setAttribute("data-label", header);
-                }
+                } */
             });
         });
     }, []);

@@ -73,7 +73,7 @@ export default function Faculty({ banner, faculties}: PageProps) {
       banner_vimeo_video_id={banner.banner_vimeo_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 sm:px-10 md:px-15 xl:px-30 py-10">
         <div className="relative lg:w-[45%] border-b border-[#800000] text-black">
             <input type="search" placeholder="Search" className="peer py-2 focus:outline-none w-full placeholder-shown:pl-5 focus:pl-0 placeholder:text-black" value={search} onChange={handleSearch} />
             <CiSearch className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-500 peer-focus:hidden peer-not-placeholder-shown:hidden" size={18} />
@@ -94,7 +94,7 @@ export default function Faculty({ banner, faculties}: PageProps) {
       </div>
       {
         filteredFaculties && filteredFaculties.length > 0 && (
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-5 lg:px-5 xl:px-30 py-10">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
             {
               filteredFaculties.map((faculty, key) => {
                 return (
