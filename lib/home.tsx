@@ -9,7 +9,7 @@ import {
     CareerPathProps,
     VideoSection,
     PlacementPartners,
-    HomeTestimonials,
+    Testimonials,
     HomeEvents,
     HomeAwards,
     Media,
@@ -52,7 +52,7 @@ export const getHomeTestimonialsIntroduction = async () => apiFetch<IntroProps>(
     method: "GET"
 });
 
-export const getHomeTestimonials = async () => apiFetch<HomeTestimonials[]>(`home/testimonials`, {
+export const getHomeTestimonials = async () => apiFetch<Testimonials[]>(`home/testimonials`, {
     method: "GET"
 });
 
