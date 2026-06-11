@@ -168,7 +168,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
         introDescription={introduction.intro_description} />
       </div>
       <div className="w-full flex flex-col gap-5 px-5 md:px-15 xl:px-20">
-          <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <form className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="relative">
               <select className="px-2" title="Career Path" value={activeCareerPath} onChange={(e) => { updateActiveCareerPath(e.target.value); program_filters({career_path: e.target.value})} }>
                 <option value="">Select Your Career Path</option>

@@ -233,14 +233,14 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
               <BsArrowRightShort size={20} />
             </span>
           </div>
-          <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
+          <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} loop={true} autoHeight={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
             {
               student_clubs.map((student_club, key) => (
               <SwiperSlide key={key}>
-                <div className="w-full flex flex-col md:flex-row">
+                <div className="w-full flex flex-col lg:flex-row">
                   {
                     student_club.student_club_image && (
-                      <div className="md:w-sm">
+                      <div className="w-full lg:w-sm">
                         <Image src={`${student_club.student_club_image}`} alt={student_club.student_club_image_alt} width={300} height={300} className="object-cover w-full h-full" />
                       </div>
                     )
@@ -312,7 +312,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           }
           {
             founder_quote && (
-              <div className="w-full lg:min-h-125 bg-[#800000] text-white flex flex-col gap-5 p-4 lg:p-7">
+              <div className="w-full lg:min-h-125 bg-[#800000] text-white flex flex-col gap-5 p-7">
                 {
                   founder_quote.founder_quote_title && (
                     <h2 className="font-georgia text-2xl lg:text-3xl leading-relaxed">{parser(nl2br(founder_quote.founder_quote_title))}</h2>
@@ -426,7 +426,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{768: {slidesPerView: 2.5, spaceBetween: 50}, 1024: {slidesPerView: 2.5, spaceBetween: 50}, 1280: {slidesPerView: 3, spaceBetween: 20}}} >
+            <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{768: {slidesPerView: 2, spaceBetween: 50}, 1024: {slidesPerView: 2.5, spaceBetween: 50}, 1280: {slidesPerView: 3, spaceBetween: 20}}} >
               {
                 magazines.map((magazine, key) => magazine.institutional_publication_pdf && (
                 <SwiperSlide key={key} title={magazine.institutional_publication_title} >

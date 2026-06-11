@@ -344,7 +344,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
             introCaption={admissions_process_introduction.intro_caption}
             introDescription={admissions_process_introduction.intro_description} />
             <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
-                <ul className="md:w-[25%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+                <ul className="md:w-[30%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                   {
                     admission_categories.map((admission_category, key) => (
                       <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === admission_category ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(admission_category)}>
@@ -356,7 +356,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                     ))
                   }
                 </ul>
-                <div className="md:w-[75%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={ApplicationProcess}>
+                <div className="md:w-[70%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={ApplicationProcess}>
                   {
                       admission_categories.map((admission_category, key) => (
                       <div className={`w-full ${activeAdmissionCategory === admission_category ? '' : 'hidden'}`} key={key}>
@@ -467,8 +467,8 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
             introTitle={admissions_faqs_introduction.intro_title}
             introCaption={admissions_faqs_introduction.intro_caption}
             introDescription={admissions_faqs_introduction.intro_description} />
-            <div className="flex flex-col md:flex-row md:gap-5 xl:gap-10">
-                <ul className="md:w-[25%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+            <div className="flex flex-col lg:flex-row md:gap-5 xl:gap-10">
+                <ul className="lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
                   {
                     faq_categories.map((faq_category, key) => (
                       <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === faq_category ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(faq_category)}>
@@ -480,7 +480,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                     ))
                   }
                 </ul>
-                <div className="md:w-[75%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
+                <div className="lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
                   {
                       faq_categories.map((faq_category, key) => (
                       <div className={`w-full ${activeFAQCategory === faq_category ? '' : 'hidden'}`} key={key}>

@@ -173,8 +173,8 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               {
               wall_of_fame.map((wall_of_fame_row, key) => (
                 <SwiperSlide className="!h-auto flex" key={key}>
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-10 lg:gap-15 px-10 lg:px-15 bg-[#800000] items-center flex-1 w-full h-full">
-                    <div className="lg:w-75">
+                  <div className="flex flex-col lg:flex-row gap-2 md:gap-5 lg:gap-15 px-15 py-5 bg-[#800000] justify-center items-center flex-1 w-full h-full">
+                    <div className="w-75 h-75">
                       {
                         wall_of_fame_row.wall_of_fame_thumbnail && (
                           <Image src={wall_of_fame_row.wall_of_fame_thumbnail} width={320} height={360} alt={wall_of_fame_row.wall_of_fame_thumbnail_alt} className="object-cover w-full h-full" />
@@ -428,8 +428,8 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               {
               alumni_testimonials.map((alumni_testimonial, key) => (
                 <SwiperSlide className="!h-auto flex" key={key}>
-                  <div className="flex flex-col sm:flex-row gap-10 px-5 py-5 bg-white border flex-1 h-full items-center">
-                    <div className="sm:w-75 sm:h-50 lg:h-60">
+                  <div className="flex flex-col lg:flex-row gap-10 px-5 py-5 bg-white border flex-1 h-full items-center justify-center">
+                    <div className="sm:w-75 sm:h-50 md:w-60 md:h-60">
                       {
                         alumni_testimonial.testimonial_thumbnail && (
                           <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_thumbnail_alt} width={400} height={400} className="object-cover w-full h-full" />
@@ -467,7 +467,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                 </span>
               </div>
               
-              <Swiper className="w-full mt-10" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.alumni_event_slider_prev', nextEl: '.alumni_event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
+              <Swiper className="w-full mt-10" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.alumni_event_slider_prev', nextEl: '.alumni_event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
                 {
                   alumni_events.map((alumni_event, key) => {
                     const startDate = new Date(alumni_event.event_start_date);

@@ -41,7 +41,7 @@ export default function TestimonialSlider({testimonials}: Props) {
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} loop={true} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 10}, 768: { slidesPerView: 2, spaceBetween: 25 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: {slidesPerView: 3, spaceBetween: 20} }} >
+            <Swiper className="w-full" slidesPerView={1} loop={true} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 10}, 768: { slidesPerView: 1.85, spaceBetween: 25 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: {slidesPerView: 3, spaceBetween: 20} }} >
               {
                 testimonials.map((testimonial, key) => (
                   <SwiperSlide className="group relative !h-auto" title={testimonial.testimonial_name} key={key} onClick={handleTestimonialClick(key)}>

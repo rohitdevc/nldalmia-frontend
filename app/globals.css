@@ -70,12 +70,6 @@ body {
   display: block;
 }
 
-.responsive-table table {
-  all: revert;
-  width: 100%;
-  table-layout: fixed;
-}
-
 .responsive-table thead tr {
   @apply bg-[#FFCC33] h-10
 }
@@ -88,7 +82,7 @@ body {
   @apply bg-[#FFF9E6];
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .responsive-table table thead {
     @apply hidden;
   }

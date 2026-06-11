@@ -16,11 +16,11 @@ export default function ProgramBlock({program, index}: ProgramBlockProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   return (
-    <div className="flex flex-col md:flex-row gap-10 py-5 lg:py-10" key={index}>
-      <div className={`w-full flex items-center justify-center md:items-start lg:w-[40%] overflow-hidden ${(index % 2) ? 'md:order-2' : 'order-1'}`}>
+    <div className="flex flex-col lg:flex-row gap-10 py-5 lg:py-10" key={index}>
+      <div className={`w-full flex items-center justify-center md:items-start lg:w-[40%] overflow-hidden ${(index % 2) ? 'lg:order-2' : 'order-1'}`}>
         {
           program.program_thumbnail && (
-            <Image src={program.program_thumbnail} width={800} height={750} alt={program.program_thumbnail_alt} className="w-100" />
+            <Image src={program.program_thumbnail} width={800} height={750} alt={program.program_thumbnail_alt} className="object-cover w-full h-full" />
           )
         }
       </div>

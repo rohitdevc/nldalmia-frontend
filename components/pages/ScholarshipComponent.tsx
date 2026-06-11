@@ -105,7 +105,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
           {
             reports_introduction.intro_image && (
               <div className="w-full lg:w-400">
-                <Image src={reports_introduction.intro_image} alt={reports_introduction.intro_image_alt} width={500} height={300} className="object-cover" />
+                <Image src={reports_introduction.intro_image} alt={reports_introduction.intro_image_alt} width={500} height={300} className="object-cover w-full h-full" />
               </div>
             )
           }

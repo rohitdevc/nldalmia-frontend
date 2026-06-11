@@ -75,7 +75,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
           <RiArrowLeftSLine size={35} />
           <span>Back</span>
         </Link>
-        <div className="flex flex-col lg:flex-row gap-10 items-center bg-[#FFCC33] py-5 lg:py-0 lg:pb-5">
+        <div className="flex flex-col lg:flex-row gap-10 lg:items-center bg-[#FFCC33] py-10 lg:py-0 lg:pb-5">
           <div className="w-60 h-100 overflow-hidden rounded-full lg:-mb-15 z-5 bg-white">
             {
               faculty.faculty_thumbnail && (
@@ -124,7 +124,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
       </div>
       {
         faculty.faculty_accordians && faculty.faculty_accordians.length > 0 && (
-          <div className="flex flex-col gap-4 px-5 lg:px-20 py-5 lg:py-15 z-1">
+          <div className="flex flex-col gap-4 px-5 md:px-10 lg:px-20 py-5 lg:py-15 z-1">
             {
               faculty.faculty_accordians.map((faculty_accordian, key) => (
               <div className={`w-full py-5 ${(key + 1 != faculty.faculty_accordians.length) ? 'border-b' : '' } border-[#800000]`} key={key}>

@@ -394,7 +394,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
             <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{contacts_introduction.intro_caption}</p>
             <p className="leading-loose">{contacts_introduction.intro_description}</p>
           </div>
-          <div className="w-full flex flex-wrap justify-center lg:justify-between gap-5">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 lg:gap-5">
             {
               contacts.map((contact, key) => (
                 <div className="flex flex-col gap-2 relative" key={key}>

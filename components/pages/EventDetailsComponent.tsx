@@ -173,7 +173,7 @@ export default function EventDetails({ event }: PageProps) {
           introCaption={event.event_milestone_caption}
           introDescription={event.event_milestone_description}
           />
-          <div className="flex flex-col lg:flex-row gap-5 justify-between items-center py-5">
+          <div className="flex flex-col md:flex-row gap-5 justify-between items-center py-5">
             {
               event.event_milestones.map((milestone, key) => (
                 <div className="flex items-center w-full" key={key}>
@@ -183,9 +183,8 @@ export default function EventDetails({ event }: PageProps) {
                   </div>
                   {
                     ((key + 1) !== event.event_milestones.length) && (
-                      <div className="flex items-center justify-center px-4">
-                        <span className="h-15 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                        <span className="w-15 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                      <div className="lg:flex items-center justify-center hidden px-4">
+                        <span className="h-15 w-[0.5px] bg-[#4E4E4E]"></span>
                       </div>
                     )
                   }
@@ -265,7 +264,7 @@ export default function EventDetails({ event }: PageProps) {
             introCaption={event.event_competition_caption}
             introDescription={event.event_competition_description}
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               {
                 event.event_competitions.map((round, key) => (
                   <div className="!h-auto flex" key={key}>
@@ -277,7 +276,7 @@ export default function EventDetails({ event }: PageProps) {
                       }
                       <div className="flex flex-col gap-5 bg-[#FFCC33] justify-center items-center text-center py-5 px-5">
                         <h2 className="font-georgia text-xl">{round.event_competition_caption}</h2>
-                        <div className="flex lg:justify-between w-full text-[#4E4E4E]">
+                        <div className="flex md:justify-between w-full text-[#4E4E4E]">
                           {
                           round.event_competition_description?.split('\n').filter(line => line.trim() !== '').map((line, index) => (
                             <span key={index} className="hover:border-b">{line}</span>
@@ -308,7 +307,7 @@ export default function EventDetails({ event }: PageProps) {
                 <BsArrowRightShort size={20} />
               </span>
             </div>
-            <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
+            <Swiper className="w-full" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
               {
                 event.event_sliders.map((event_slider, key) => (
                 <SwiperSlide key={key} title={event_slider.event_slider_caption}>
@@ -327,7 +326,7 @@ export default function EventDetails({ event }: PageProps) {
         introCaption={event.event_reward_caption}
         introDescription={event.event_reward_description}
         />
-        <div className="flex flex-col lg:flex-row gap-5 lg:gap-10 justify-center items-center bg-[#FFCC33] py-10">
+        <div className="flex flex-col md:flex-row gap-5 lg:gap-10 justify-center items-center bg-[#FFCC33] py-10">
           {
             event.event_rewards.map((reward, key) => (
               <div className="flex items-center w-full" key={key}>
@@ -337,9 +336,8 @@ export default function EventDetails({ event }: PageProps) {
                 </div>
                 {
                   ((key + 1) !== event.event_rewards.length) && (
-                    <div className="flex items-center justify-center px-4">
-                      <span className="h-10 w-[0.5px] bg-[#4E4E4E] hidden lg:block"></span>
-                      <span className="w-10 h-[0.5px] bg-[#4E4E4E] lg:hidden"></span>
+                    <div className="lg:flex items-center justify-center px-4 hidden">
+                      <span className="h-10 w-[0.5px] bg-[#4E4E4E]"></span>
                     </div>
                   )
                 }
@@ -424,8 +422,8 @@ export default function EventDetails({ event }: PageProps) {
           introTitle={event.event_faq_title}
           introCaption={event.event_faq_caption}
           introDescription={event.event_faq_description} />
-          <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
-              <ul className="md:w-[25%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+          <div className="flex flex-col md:flex-row gap-5 md:gap-10">
+              <ul className="md:w-[30%] lg:w-[20%] flex flex-col gap-3 md:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                 {
                   event.event_faqs.map((event_faq, key) => (
                     <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === event_faq.event_faq_tab_title ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(event_faq.event_faq_tab_title)}>
@@ -437,7 +435,7 @@ export default function EventDetails({ event }: PageProps) {
                   ))
                 }
               </ul>
-              <div className="md:w-[75%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
+              <div className="md:w-[70%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
                 {
                     event.event_faqs.map((event_faq, key) => (
                     <div className={`w-full ${activeFAQCategory === event_faq.event_faq_tab_title ? '' : 'hidden'}`} key={key}>

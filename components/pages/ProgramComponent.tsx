@@ -330,8 +330,8 @@ export default function ProgramComponent({ program}: PageProps) {
         }
         {
           program.program_highlights && program.program_highlights.length > 0 && (
-          <div className="flex flex-col md:flex-row gap-10 md:mt-10 items-center">
-            <div className="w-full md:w-[60%] flex flex-col gap-5">
+          <div className="flex flex-col lg:flex-row gap-10 md:mt-10 lg:items-center">
+            <div className="w-full lg:w-[60%] flex flex-col gap-5 md:order-1 lg:order-2">
               <h2 className="font-georgia text-2xl lg:text-4xl">Program Highlights</h2>
               <ul className="flex flex-col gap-5 text-[#4E4E4E] list-disc list-inside">
                 {
@@ -343,7 +343,7 @@ export default function ProgramComponent({ program}: PageProps) {
             </div>
             {
               program.program_highlights_image && (
-              <div className={`w-full md:w-[40%] relative ${program.program_highlights_youtube_id ? 'cursor-pointer': ''} md:h-40 lg:h-95 aspect-[800/400]`} onClick={() => videoPopupRef.current?.open(program.program_highlights_youtube_id)}>
+              <div className={`w-full lg:w-[40%] relative ${program.program_highlights_youtube_id ? 'cursor-pointer': ''} lg:h-40 lg:h-95 aspect-[800/400]`} onClick={() => videoPopupRef.current?.open(program.program_highlights_youtube_id)}>
                 <Image src={program.program_highlights_image} width={800} height={400} alt={program.program_name} className="object-cover w-full h-full" />
                 {
                   program.program_highlights_youtube_id && (
@@ -428,7 +428,7 @@ export default function ProgramComponent({ program}: PageProps) {
                   <BsArrowRightShort size={20} />
                 </span>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} autoHeight={false} loop={true} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2.5}, 1024: {slidesPerView: 3}}}>
+            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} autoHeight={false} loop={true} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
               {
                 program.program_outcomes.map((program_outcome, key) => (
                   <SwiperSlide className="!h-auto flex" title={program_outcome.program_outcome_caption} key={key}>
@@ -449,7 +449,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_advantages && program.program_advantages.length > 0 && (
-        <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-20" style={{backgroundImage: `url(${program.program_advantage_image})`}}>
+        <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 md:px-15 lg:px-30" style={{backgroundImage: `url(${program.program_advantage_image})`}}>
           <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
           <div className="flex flex-col gap-15 lg:gap-25 py-20 relative w-full h-full">
             <h3 className="text-2xl lg:text-4xl font-georgia">Program Advantages & Benefits</h3>
@@ -481,7 +481,7 @@ export default function ProgramComponent({ program}: PageProps) {
             introCaption={program.program_application_caption}
             introDescription={program.program_application_description} />  
             <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
-              <ul className="md:w-[25%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+              <ul className="md:w-[30%] lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                 {
                   program.program_admissions.map((program_admission, key) => (
                     <li className={`group cursor-pointer transition-all duration-300 ${activeAdmissionCategory === program_admission.program_admission_tab_title ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveAdmissionCategoryFunc(program_admission.program_admission_tab_title)}>
@@ -493,7 +493,7 @@ export default function ProgramComponent({ program}: PageProps) {
                   ))
                 }
               </ul>
-              <div className="md:w-[75%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={ApplicationProcess}>
+              <div className="md:w-[70%] lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={ApplicationProcess}>
                 {
                     program.program_admissions.map((program_admission, key) => (
                     <div className={`w-full ${activeAdmissionCategory === program_admission.program_admission_tab_title ? '' : 'hidden'}`} key={key}>
@@ -570,15 +570,15 @@ export default function ProgramComponent({ program}: PageProps) {
             {
               program.program_testimonials.map((testimonial, key) => (
                 <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">
-                  <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
-                    <div className="md:w-[30%] lg:w-[25%] h-75 flex justify-center">
+                  <div className="flex flex-col lg:flex-row gap-5 lg:gap-10">
+                    <div className="w-full lg:w-[25%] h-75 flex justify-center">
                       {
                         testimonial.program_testimonial_image && (
                           <Image src={testimonial.program_testimonial_image} alt={testimonial.program_testimonial_name} width={200} height={300} className="object-contain w-full h-full" />
                         )
                       }
                     </div>
-                    <div className="md:w-[70%] lg:w-[75%] flex-1 flex flex-col gap-10">
+                    <div className="w-full lg:w-[75%] flex-1 flex flex-col gap-5 lg:gap-10">
                       {
                         testimonial.program_testimonial_about && (
                           <p className="text-[#4E4E4E] leading-loose text-sm lg:text-base xl:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>

@@ -22,7 +22,7 @@ export default function DualBlog({blog}: Props) {
 
     return (
         <div className="flex flex-col lg:flex-row gap-5">
-            <div className="w-50 h-50">
+            <div className="lg:w-50 lg:h-50">
                 <Image src={blog.blog_thumbnail || `${basePath}logo.svg`} alt={blog.blog_thumbnail_alt} width={600} height={600} className="object-cover object-left w-full h-full" />
             </div>
             <div className="flex gap-2 flex-col flex-1">

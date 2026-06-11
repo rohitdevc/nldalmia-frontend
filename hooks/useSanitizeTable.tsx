@@ -25,6 +25,7 @@ export const useSanitizeTable = () => {
 
             table.classList.add(
                 "w-full",
+                "h-full",
                 "table-fixed",
                 "text-[#4E4E4E]",
                 "text-center",

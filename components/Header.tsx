@@ -372,7 +372,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href={`${basePath}programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">All Programs </Link>
                             </li>
                             <li onClick={() => { setStep(2) }}>
@@ -391,10 +391,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => {setStep(3);}}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM <MdKeyboardArrowRight size={20} /></span>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href="/programs/global-mba-program-university-of-wisconsin-parkside" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href="/programs/doctoral-programs" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
                             </li>
                         </ul>
@@ -404,10 +404,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <li onClick={() => { setStep(2); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href="/programs/pgdm" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM</Link>
                             </li>
-                            <li>
+                            <li onClick={() => updateMobileMenu(false)}>
                                 <Link href="/programs/finance" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
                             </li>
                             <li>

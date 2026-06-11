@@ -118,7 +118,7 @@ export default function Events({ banner, events}: PageProps) {
       </div>
       {
         filteredEvents && filteredEvents.length > 0 && (
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 px-5 md:px-15 xl:px-30 py-10">
+          <div className="w-full grid grid-cols-1 xl:grid-cols-3 gap-5 px-5 md:px-15 xl:px-30 py-10">
             {
               filteredEvents.map((event, key) => (
                 <EventCard key={key} event={event} activeEvent={activeEvent} keyIndex={key} handleEventClick={handleEventClick} />
