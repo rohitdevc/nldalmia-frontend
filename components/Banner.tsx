@@ -11,6 +11,7 @@ import { FaPlayCircle } from "react-icons/fa";
 
 type BannerInterface = {
     banner_image: string;
+    banner_image_mobile: string;
     banner_caption?: string;
     banner_description?: string;
     banner_youtube_video_id?: string;
@@ -18,14 +19,17 @@ type BannerInterface = {
     banner_button_caption?: string;
 }
 
-export default function Banner({banner_image, banner_caption, banner_description, banner_youtube_video_id, banner_url, banner_button_caption}: BannerInterface) {
+export default function Banner({banner_image, banner_image_mobile, banner_caption, banner_description, banner_youtube_video_id, banner_url, banner_button_caption}: BannerInterface) {
     return (
         <div className="w-full h-screen relative text-white overflow-hidden">
             {
                 banner_youtube_video_id ? (
                     <iframe className="absolute inset-0 w-full h-full pointer-events-none" src={`https://www.youtube.com/embed/${banner_youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${banner_youtube_video_id}&controls=0&showinfo=0&rel=0&modestbranding=1`} title={banner_caption} allow="autoplay"/>
                 ) : banner_image && (
-                    <Image src={banner_image} fill alt="NL Dalmia" className="object-cover w-full h-full" />
+                    <>
+                    <Image src={banner_image} fill alt="NL Dalmia" className="object-cover w-full h-full hidden md:block" />
+                    <Image src={banner_image_mobile} fill alt="NL Dalmia" className="object-cover w-full h-full md:hidden" />
+                    </>
                 )
             }
             <div className="inset-0 bg-black/30 absolute top-0 z-1"></div>

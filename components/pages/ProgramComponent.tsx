@@ -297,6 +297,7 @@ export default function ProgramComponent({ program}: PageProps) {
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={program.banner_image}
+      banner_image_mobile={program.banner_image_mobile}
       banner_caption={program.banner_image_caption}
       banner_description={program.banner_image_description}
       />

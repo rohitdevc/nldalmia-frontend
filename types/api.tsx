@@ -11,6 +11,7 @@ export interface MetaData {
 
 export interface Banner {
     banner_image: string;
+    banner_image_mobile: string;
     banner_caption: string;
     banner_description: string;
     banner_youtube_video_id: string;
@@ -135,6 +136,7 @@ export interface HomeBlog {
 export interface MediaCategory {
     media_category_title: string;
     banner_image: string;
+    banner_image_mobile: string;
     banner_image_caption: string;
     banner_image_description: string;
     meta_title: string;
@@ -249,6 +251,7 @@ export interface Event {
     event_footer_section_image: string;
     og_image: string;
     banner_image: string;
+    banner_image_mobile: string;
     banner_image_caption: string;
     banner_image_description: string;
     meta_title: string;
@@ -803,6 +806,7 @@ export interface Program {
     program_eligibility_and_fees: string;
     og_image: string;
     banner_image: string;
+    banner_image_mobile: string;
     banner_image_caption: string;
     banner_image_description: string;
     meta_title: string;

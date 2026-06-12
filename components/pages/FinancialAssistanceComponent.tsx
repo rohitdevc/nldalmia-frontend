@@ -32,6 +32,7 @@ export default function FinancialAssistance({ banner, introduction, financial_as
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
+banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}

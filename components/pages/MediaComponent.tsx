@@ -43,6 +43,7 @@ export default function MediaComponent({ banner, media_category_url_slug, media,
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
+banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_image_caption}
       banner_description={banner.banner_image_description}
       />

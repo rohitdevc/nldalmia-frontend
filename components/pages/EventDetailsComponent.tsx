@@ -144,6 +144,7 @@ export default function EventDetails({ event }: PageProps) {
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={event.banner_image}
+      banner_image_mobile={event.banner_image_mobile}
       banner_caption={event.banner_image_caption}
       banner_description={event.banner_image_description}
       />
