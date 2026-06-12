@@ -76,7 +76,7 @@ export default function TestimonialSlider({testimonials}: Props) {
                             </div>
                           ) : (
                             <>
-                            <p className="leading-loose">{testimonial.testimonial_description}</p>
+                            <p className="leading-loose text-sm md:text-base">{testimonial.testimonial_description}</p>
                             <div className="mt-auto flex flex-col gap-3">
                               <span className="font-georgia text-xl lg:text-2xl">{testimonial.testimonial_name}</span>
                               <span className="text-sm md:text-lg">{parser(nl2br(testimonial.testimonial_designation))}</span>

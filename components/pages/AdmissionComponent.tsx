@@ -255,7 +255,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         banner_image={banner.banner_image}
         banner_caption={banner.banner_caption}
         banner_description={banner.banner_description}
-        banner_vimeo_video_id={banner.banner_vimeo_video_id}
+        banner_youtube_video_id={banner.banner_youtube_video_id}
         banner_button_caption={banner.button_caption}
         banner_url={banner.button_link} />
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
@@ -434,7 +434,7 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
                 </span>
               </div>
               
-              <Swiper className="w-full" slidesPerView={2} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.financial_assistance_partner_slider_prev', nextEl: '.financial_assistance_partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 20 } }} >
+              <Swiper className="w-full" slidesPerView={1} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.financial_assistance_partner_slider_prev', nextEl: '.financial_assistance_partner_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 20 } }} >
                 {
                   financial_assistance_partners.map((financial_assistance_partner, key) => (
                     <SwiperSlide title={financial_assistance_partner.partner_name} key={key}>
@@ -462,25 +462,25 @@ export default function AdmissionComponent({ banner, introduction, admission_pro
         }
         {
           faq_categories && faq_categories.length > 0 && (
-          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 sm:py-10">
             <Intro
             introTitle={admissions_faqs_introduction.intro_title}
             introCaption={admissions_faqs_introduction.intro_caption}
             introDescription={admissions_faqs_introduction.intro_description} />
             <div className="flex flex-col lg:flex-row md:gap-5 xl:gap-10">
-                <ul className="lg:w-[20%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
+                <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center text-center sm:text-left lg:justify-start lg:items-start">
                   {
                     faq_categories.map((faq_category, key) => (
                       <li className={`group cursor-pointer transition-all duration-300 ${activeFAQCategory === faq_category ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveFAQCategoryFunc(faq_category)}>
-                        <span className="relative">
+                        <span className={`relative underline-offset-4 decoration-[1px] transition-all duration-300 ${activeFAQCategory === (faq_category) ? 'underline sm:no-underline' : 'no-underline'}`}>
                           {faq_category}
-                          <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeFAQCategory === (faq_category) ? 'scale-x-100' : ''}`}></span>
+                          <span className={`hidden sm:inline sm:absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeFAQCategory === (faq_category) ? 'scale-x-100' : ''}`}></span>
                         </span>
                       </li>
                     ))
                   }
                 </ul>
-                <div className="lg:w-[80%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
+                <div className="lg:w-[75%] lg:border-l-[0.5px] border-[#800000]" ref={FAQs}>
                   {
                       faq_categories.map((faq_category, key) => (
                       <div className={`w-full ${activeFAQCategory === faq_category ? '' : 'hidden'}`} key={key}>

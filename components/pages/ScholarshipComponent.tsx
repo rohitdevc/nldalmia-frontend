@@ -45,7 +45,7 @@ export default function ScholarshipComponent({ banner, introduction, scholarship
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">

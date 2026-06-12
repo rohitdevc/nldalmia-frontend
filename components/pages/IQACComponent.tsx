@@ -60,7 +60,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full px-15 xl:px-30 py-10 relative">
@@ -70,7 +70,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
         <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 xl:right-10 iqac_categories_slider_next z-2">
           <BsArrowRightShort size={20} />
         </span>
-        <Swiper className="iqac_categories" modules={[Navigation]} slidesPerView="auto" spaceBetween={50} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}}>
+        <Swiper className="iqac_categories" modules={[Navigation]} slidesPerView="auto" spaceBetween={30} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}}>
           {
           iqac_categories.map((iqac_category, key) => (
             <SwiperSlide key={key} className="!w-auto">
@@ -95,7 +95,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
             iqac_pdfs.filter(iqac_pdf =>
               iqac_pdf.iqac_category_title === activeIQACCategoryName
             ).map((iqac_pdf, key) => iqac_pdf.iqac_pdf && (
-              <Link className="w-full flex justify-between items-center py-5 border-b border-[#800000] last:border-b-0" href={iqac_pdf.iqac_pdf} target="_blank" key={key} title={iqac_pdf.iqac_title}>
+              <Link className="w-full flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5 sm:gap-0 py-5 border-b border-[#800000] last:border-b-0" href={iqac_pdf.iqac_pdf} target="_blank" key={key} title={iqac_pdf.iqac_title}>
                 <span className="font-georgia text-xl">{iqac_pdf.iqac_title}</span>
                 <span className="text-burgundy flex gap-2 items-center font-semibold">
                   <span className="relative">

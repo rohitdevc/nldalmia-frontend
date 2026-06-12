@@ -156,3 +156,7 @@ form .error span {
 .inside_nld_description iframe {
   @apply h-100
 }
+
+.swiper-button-disabled {
+  @apply !opacity-30
+}

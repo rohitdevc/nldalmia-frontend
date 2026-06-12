@@ -41,7 +41,7 @@ export default function Header({ program_categories, common_programs, ticker_api
         programBrochureAvailable = "",
         onDownloadBrochureClick,
         MDPPage = false,
-        MDPProgramsScrollref
+        programsRef
     } = headerProps;
 
     const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -93,7 +93,7 @@ export default function Header({ program_categories, common_programs, ticker_api
     };
 
     const handleMDPProgramsScroll = () => {
-        MDPProgramsScrollref?.current?.scrollIntoView({
+        programsRef?.current?.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         })
@@ -152,7 +152,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}scholarships`}>Scholarships</Link>
                     </li>
                     <li className="hidden lg:block xl:hidden">
-                        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} />
+                        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} updateMobileMenu={updateMobileMenu} />
                     </li>
                     <li className="hidden lg:block xl:hidden">
                         <Link href={`${basePath}contact-us`} className="flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
@@ -205,10 +205,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                                                     <span className="block px-4 py-2 relative">PGDM <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" /></span>
                                                 </li>
                                                 <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
-                                                    <Link href="/programs/global-mba-program-university-of-wisconsin-parkside" className="block px-4 py-2">Global MBA</Link>
+                                                    <Link href={`${basePath}programs/global-mba-program-university-of-wisconsin-parkside`} className="block px-4 py-2">Global MBA</Link>
                                                 </li>
                                                 <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
-                                                    <Link href="/programs/doctoral-programs" className="block px-4 py-2">Ph.D</Link>
+                                                    <Link href={`${basePath}programs/doctoral-programs`} className="block px-4 py-2">Ph.D</Link>
                                                 </li>
                                                 </>
                                             )
@@ -226,13 +226,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                                     hoverPGDM && (
                                     <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-5 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
                                         <li className="hover:bg-[#800000] hover:text-white">
-                                            <Link href="/programs/pgdm" className="block px-4 py-2">PGDM</Link>
+                                            <Link href={`${basePath}programs/pgdm`} className="block px-4 py-2">PGDM</Link>
                                         </li>
                                         <li className="hover:bg-[#800000] hover:text-white">
-                                            <Link href="/programs/finance" className="block px-4 py-2">PGDM Finance</Link>
+                                            <Link href={`${basePath}programs/finance`} className="block px-4 py-2">PGDM Finance</Link>
                                         </li>
                                         <li className="hover:bg-[#800000] hover:text-white">
-                                            <Link href="/programs/pgdm-in-business-analytics" className="block px-4 py-2">PGDM in Business Analytics</Link>
+                                            <Link href={`${basePath}programs/pgdm-in-business-analytics`} className="block px-4 py-2">PGDM in Business Analytics</Link>
                                         </li>
                                     </ul>
                                     )
@@ -311,13 +311,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                     </ul>
                     <div className="flex items-center gap-1 relative">
                         <div className="mx-5 flex lg:mx-0 lg:hidden xl:flex w-full xl:w-[50%]">
-                            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} />
+                            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} updateMobileMenu={updateMobileMenu} />
                         </div>
                         <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 bg-[#800000] text-white px-3 w-[50%]">
                             <IoMdMail size={20} />
                             <span>Contact Us</span>
                         </Link>
-                        <RiMenu3Fill size={25} className={`cursor-pointer absolute right-0 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0)}} />
+                        <RiMenu3Fill size={25} className={`cursor-pointer absolute right-0 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0); setSearchValue('')}} />
                         <RiCloseLargeFill size={25} className={`cursor-pointer absolute right-0 transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
                     </div>
                 </div>
@@ -325,7 +325,7 @@ export default function Header({ program_categories, common_programs, ticker_api
             <div className={`relative ${showSearchResults ? 'max-h-screen' : 'max-h-0'}`}>
                 {
                     showSearchResults && (
-                        <div className="w-full md:w-xs xl:w-sm bg-white absolute right-0 flex transition-transform duration-300 ease-in-out">
+                        <div className="w-full border-r border-l border-b border-[#800000] md:w-xs xl:w-sm bg-white absolute right-0 flex transition-transform duration-300 ease-in-out">
                             <ul className="w-full max-h-screen overflow-y-auto">
                                 {
                                     search_results.map((result, key) => (
@@ -337,10 +337,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                 )
                 }
             </div>
-            <div className={`overflow-hidden w-full transition-all duration-300 bg-white ${openMobileMenu ? 'max-h-screen': 'max-h-0'}`}>
-                <div className="flex transition-transform duration-300 ease-in-out w-full h-full" style={{ transform: `translateX(-${step * 100}%)` }}>
+            <div className={`overflow-hidden w-full transition-all duration-300 ${openMobileMenu ? 'max-h-screen': 'max-h-0'}`}>
+                <div className="flex transition-transform duration-300 ease-in-out w-full h-full bg-white" style={{ transform: `translateX(-${step * 100}%)` }}>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(5);}}>
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us <MdKeyboardArrowRight size={25} /></span>
                             </li>
@@ -368,7 +368,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
@@ -384,7 +384,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(1); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
@@ -392,31 +392,31 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM <MdKeyboardArrowRight size={20} /></span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href="/programs/global-mba-program-university-of-wisconsin-parkside" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
+                                <Link href={`${basePath}programs/global-mba-program-university-of-wisconsin-parkside`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href="/programs/doctoral-programs" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
+                                <Link href={`${basePath}programs/doctoral-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
                             </li>
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(2); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href="/programs/pgdm" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM</Link>
+                                <Link href={`${basePath}programs/pgdm`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href="/programs/finance" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
+                                <Link href={`${basePath}programs/finance`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href="/programs/pgdm-in-business-analytics" className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM in Business Analytics</Link>
+                                <Link href={`${basePath}programs/pgdm-in-business-analytics`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM in Business Analytics</Link>
                             </li>
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(1); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
@@ -430,7 +430,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
@@ -452,7 +452,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
@@ -468,7 +468,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
@@ -496,7 +496,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         </ul>
                     </div>
                     <div className={`w-full shrink-0`}>
-                        <ul>
+                        <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(0); }}>
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>

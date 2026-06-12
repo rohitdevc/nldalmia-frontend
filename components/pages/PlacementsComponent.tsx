@@ -151,7 +151,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       {
@@ -276,7 +276,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
               </span>
             </div>
             
-            <Swiper className="w-full" slidesPerView={2} spaceBetween={50} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: {slidesPerView: 4}, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
+            <Swiper className="w-full" slidesPerView={1.5} spaceBetween={30} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{624: { slidesPerView: 2, spaceBetween: 50}, 768: { slidesPerView: 3, spaceBetween: 75 }, 1024: {slidesPerView: 4}, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 recruiters.map((recruiter, key) => recruiter.recruiter_logo && (
                   <SwiperSlide title={recruiter.recruiter_caption} key={key}>
@@ -292,7 +292,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_features_tabs && placement_features_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="batch-profile">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 sm:py-10" id="batch-profile">
           <Intro
           introTitle={features_introduction.intro_title}
           introCaption={features_introduction.intro_caption}
@@ -344,7 +344,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_reports_tabs && placement_reports_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="reports">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 sm:py-10" id="reports">
           <Intro
           introTitle={reports_introduction.intro_title}
           introCaption={reports_introduction.intro_caption}

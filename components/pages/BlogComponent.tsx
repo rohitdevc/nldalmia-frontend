@@ -78,7 +78,7 @@ export default function BlogComponent({banner, blog_category_url_slug, introduct
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       {

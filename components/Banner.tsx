@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
-import VimeoVideoPopUp, { VimeoVideoPopupHandle } from "@/components/VimeoVideo";
+import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
@@ -13,22 +13,21 @@ type BannerInterface = {
     banner_image: string;
     banner_caption?: string;
     banner_description?: string;
-    banner_vimeo_video_id?: string;
+    banner_youtube_video_id?: string;
     banner_url?: string;
     banner_button_caption?: string;
 }
 
-export default function Banner({banner_image, banner_caption, banner_description, banner_vimeo_video_id, banner_url, banner_button_caption}: BannerInterface) {
-    const basePath = process.env.NEXT_PUBLIC_PATH;
-
-    const videoPopupRef = useRef<VimeoVideoPopupHandle>(null);
-
+export default function Banner({banner_image, banner_caption, banner_description, banner_youtube_video_id, banner_url, banner_button_caption}: BannerInterface) {
     return (
-        <>
-        <div className="w-full h-screen relative text-white">
-            {banner_image && (
-            <Image src={banner_image} fill alt="NL Dalmia" className="object-cover" />
-            )}
+        <div className="w-full h-screen relative text-white overflow-hidden">
+            {
+                banner_youtube_video_id ? (
+                    <iframe className="absolute inset-0 w-full h-full pointer-events-none" src={`https://www.youtube.com/embed/${banner_youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${banner_youtube_video_id}&controls=0&showinfo=0&rel=0&modestbranding=1`} title={banner_caption} allow="autoplay"/>
+                ) : banner_image && (
+                    <Image src={banner_image} fill alt="NL Dalmia" className="object-cover w-full h-full" />
+                )
+            }
             <div className="inset-0 bg-black/30 absolute top-0 z-1"></div>
             <div className="inset-0 pt-[200px] absolute top-0 z-2 flex flex-col gap-10 justify-center items-center text-center px-5 sm:px-10 md:px-15 xl:px-30">
                 {
@@ -42,14 +41,6 @@ export default function Banner({banner_image, banner_caption, banner_description
                     )
                 }
                 {
-                    banner_vimeo_video_id && (
-                        <div className="flex items-center gap-2 px-3 py-1 bg-[#800000] cursor-pointer" onClick={() => videoPopupRef.current?.open(banner_vimeo_video_id)}>
-                            <FaPlayCircle />
-                            <span>Play Video</span>
-                        </div>
-                    )
-                }
-                {
                     banner_url && banner_button_caption && (
                         <Link href={banner_url} className="px-3 py-1 bg-[#800000] text-white">
                             <span>{banner_button_caption}</span>
@@ -58,7 +49,5 @@ export default function Banner({banner_image, banner_caption, banner_description
                 }
             </div>
         </div>
-        <VimeoVideoPopUp ref={videoPopupRef} />
-        </>
     )
 }

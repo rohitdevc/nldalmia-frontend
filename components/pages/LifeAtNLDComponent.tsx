@@ -128,7 +128,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       {
@@ -312,7 +312,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
           }
           {
             founder_quote && (
-              <div className="w-full lg:min-h-125 bg-[#800000] text-white flex flex-col gap-5 p-7">
+              <div className="w-full lg:min-h-125 bg-[#800000] text-white flex flex-col gap-5 p-5 sm:p-7">
                 {
                   founder_quote.founder_quote_title && (
                     <h2 className="font-georgia text-2xl lg:text-3xl leading-relaxed">{parser(nl2br(founder_quote.founder_quote_title))}</h2>
@@ -334,7 +334,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
         </div>
         )
       }
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10">
           <Intro
           introTitle={instagram_introduction.intro_title}
           introCaption={instagram_introduction.intro_caption}

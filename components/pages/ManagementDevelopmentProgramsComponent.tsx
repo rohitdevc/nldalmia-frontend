@@ -50,7 +50,8 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
 
   useEffect(() => {
       setHeaderProps({
-        MDPPage: programs.length ? true : false
+        MDPPage: programs.length ? true : false,
+        programsRef
       })
   }, [])
 
@@ -76,16 +77,6 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
   }, []);
 
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
-
-  const [activeTestimonial, updateActiveTestimonial] = useState(0);
-  
-  const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
-    return () => {
-      if (window.matchMedia("(hover: none)").matches) {
-        updateActiveTestimonial(testimonial_id);
-      }
-    }
-  }
 
   const faq_categories: string[] = [];
 
@@ -168,7 +159,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link}
       />

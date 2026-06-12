@@ -26,6 +26,7 @@ export const useSanitizeTable = () => {
             cleanElement(table);
 
             table.classList.add(
+                "bg-white",
                 "w-max",
                 "min-w-full",
                 "text-[#4E4E4E]",
@@ -46,7 +47,7 @@ export const useSanitizeTable = () => {
                 cleanElement(el);
 
                 if (tag === "td" || tag === "th") {
-                    el.classList.add("text-center", "py-2");
+                    el.classList.add("text-center", "py-2", "px-2");
                 }
 
                 /*

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useMediaQuery } from 'react-responsive';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
@@ -58,6 +59,9 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const { setHeaderProps } = useHeader();
+
+  const isMobile = useMediaQuery({ maxWidth: 639 });
+  const isLG = useMediaQuery({ minWidth: 1024 });
 
   useEffect(() => {
     setHeaderProps({
@@ -151,7 +155,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
@@ -162,44 +166,56 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
         />
         {
           wall_of_fame && wall_of_fame.length > 0 && (
-          <div className="w-full relative">
-            <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 left-4 wall_of_fame_slider_prev z-2">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 wall_of_fame_slider_next z-2">
-              <BsArrowRightShort size={20} />
-            </span>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}} className="text-white">
-              {
-              wall_of_fame.map((wall_of_fame_row, key) => (
-                <SwiperSlide className="!h-auto flex" key={key}>
-                  <div className="flex flex-col lg:flex-row gap-2 md:gap-5 lg:gap-15 px-15 py-5 bg-[#800000] justify-center items-center flex-1 w-full h-full">
-                    <div className="w-75 h-75">
-                      {
-                        wall_of_fame_row.wall_of_fame_thumbnail && (
-                          <Image src={wall_of_fame_row.wall_of_fame_thumbnail} width={320} height={360} alt={wall_of_fame_row.wall_of_fame_thumbnail_alt} className="object-cover w-full h-full" />
-                        )
-                      }
+          <div className="w-full relative flex flex-col gap-5">
+            <div className="flex gap-3 sm:hidden">
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer wall_of_fame_slider_prev">
+                <BsArrowLeftShort size={20} />
+              </span>
+              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer wall_of_fame_slider_next">
+                <BsArrowRightShort size={20} />
+              </span>
+            </div>
+            <div className="hidden sm:block">
+              <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 left-4 wall_of_fame_slider_prev z-2">
+                <BsArrowLeftShort size={20} />
+              </span>
+              <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 wall_of_fame_slider_next z-2">
+                <BsArrowRightShort size={20} />
+              </span>
+            </div>
+            <div className="w-full">
+              <Swiper modules={[Navigation, Autoplay]} autoHeight={isMobile} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}}>
+                {
+                wall_of_fame.map((wall_of_fame_row, key) => (
+                  <SwiperSlide className="sm:!h-auto sm:flex" key={key}>
+                    <div className="flex flex-col lg:flex-row gap-2 md:gap-5 lg:gap-15 px-5 sm:px-15 py-5 bg-[#800000] justify-center items-center sm:flex-1 w-full sm:h-full text-white">
+                      <div className="w-75 h-75">
+                        {
+                          wall_of_fame_row.wall_of_fame_thumbnail && (
+                            <Image src={wall_of_fame_row.wall_of_fame_thumbnail} width={320} height={360} alt={wall_of_fame_row.wall_of_fame_thumbnail_alt} className="object-cover w-full h-full" />
+                          )
+                        }
+                      </div>
+                      <div className="flex flex-col gap-3 lg:gap-5 py-5 w-full">
+                        <h2 className="font-georgia text-xl">{wall_of_fame_row.wall_of_fame_name}</h2>
+                        <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
+                          { wall_of_fame_row.wall_of_fame_company_name && (
+                            <li>Company – {wall_of_fame_row.wall_of_fame_company_name}</li>
+                          )}
+                          { wall_of_fame_row.wall_of_fame_designation && (
+                          <li>Designation – {wall_of_fame_row.wall_of_fame_designation}</li>
+                          )}
+                          { wall_of_fame_row.wall_of_fame_batch_year && (
+                          <li>Batch - {wall_of_fame_row.wall_of_fame_batch_year}</li>
+                          )}
+                        </ul>
+                        <p className="leading-relaxed sm:leading-loose text-sm">{parser(nl2br(wall_of_fame_row.wall_of_fame_description))}</p>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-3 lg:gap-5 py-5 w-full">
-                      <h2 className="font-georgia text-xl">{wall_of_fame_row.wall_of_fame_name}</h2>
-                      <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
-                        { wall_of_fame_row.wall_of_fame_company_name && (
-                          <li>Company – {wall_of_fame_row.wall_of_fame_company_name}</li>
-                        )}
-                        { wall_of_fame_row.wall_of_fame_designation && (
-                        <li>Designation – {wall_of_fame_row.wall_of_fame_designation}</li>
-                        )}
-                        { wall_of_fame_row.wall_of_fame_batch_year && (
-                        <li>Batch - {wall_of_fame_row.wall_of_fame_batch_year}</li>
-                        )}
-                      </ul>
-                      <p className="leading-relaxed sm:leading-loose text-sm">{parser(nl2br(wall_of_fame_row.wall_of_fame_description))}</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         )
         }
@@ -561,7 +577,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
               </span>
             </div>
             <div className="py-5">
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} initialSlide={activeConnectAlumniIndex} loop={true} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} initialSlide={activeConnectAlumniIndex} loop={true} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={!isLG} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}}>
                 {
                   alumni_connect.map((alumni_row, key) => (
                     <SwiperSlide key={key}>
@@ -576,8 +592,8 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                               </div>
                               <div className="flex-1 flex flex-col gap-5 h-90">
                                   <h2 className="font-georgia text-xl">{alumni_row.connect_name}</h2>
-                                  <h3 className="font-georgia text-xl">{alumni_row.connect_designation}</h3>
-                                  <h3 className="font-georgia text-xl">{alumni_row.connect_degree_year}</h3>
+                                  <h3 className="font-georgia text-lg">{alumni_row.connect_designation}</h3>
+                                  <h3 className="font-georgia text-lg">{alumni_row.connect_degree_year}</h3>
                                   <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                                       {
                                           alumni_row.connect_areas_of_expertise && (

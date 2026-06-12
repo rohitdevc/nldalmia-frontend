@@ -13,7 +13,7 @@ export interface Banner {
     banner_image: string;
     banner_caption: string;
     banner_description: string;
-    banner_vimeo_video_id: string;
+    banner_youtube_video_id: string;
     button_caption: string;
     button_link: string;
 }

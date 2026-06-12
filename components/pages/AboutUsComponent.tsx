@@ -105,7 +105,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15" id="who-we-are">
@@ -132,10 +132,10 @@ export default function AboutUsComponent({banner, introduction, objectives, time
         </div>
         {
           objectives && objectives.length > 0 && (
-          <div className="flex flex-col md:flex-wrap lg:flex-nowrap md:flex-row gap-10 justify-between sm:justify-center items-center w-full">
+          <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-10 justify-center lg:justify-between items-center">
             {
               objectives.map((objective, key) => (
-                <div className="flex flex-col w-sm md:w-75 lg:w-sm text-center border-[0.5px] border-[#800000]" key={key}>
+                <div className="flex flex-col w-full md:w-sm text-center border-[0.5px] border-[#800000]" key={key}>
                   <h2 className="font-georgia text-xl bg-[#FFCC33] w-full border-b-[0.5px] border-[#800000] py-2">{objective.objective_caption}</h2>
                   <p className="px-5 py-5 min-h-50 text-burgundy">{parser(nl2br(objective.objective_description))}</p>
                 </div>
@@ -147,7 +147,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       </div>
       {
         timeline && timeline.length > 0 && (
-          <div className="w-full h-screen bg-cover bg-center relative text-white flex flex-col" id="legacy" style={{backgroundImage: `url(${timeline[activeYear]?.timeline_image})`}} title={timeline[activeYear]?.timeline_image_alt}>
+          <div className="w-full h-screen bg-cover bg-no-repeat bg-center relative text-white flex flex-col" id="legacy" style={{backgroundImage: `url(${timeline[activeYear]?.timeline_image})`}} title={timeline[activeYear]?.timeline_image_alt}>
             <div className="absolute inset-0 bg-black/35"></div>
             <Swiper slidesPerView={5} centeredSlides slideToClickedSlide watchSlidesProgress initialSlide={0} modules={[Controller, Navigation]} onSwiper={setYearSwiper} className="w-full lg:w-1/2 relative z-10 timeline_pagination_slider">
               {
@@ -378,7 +378,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
           introCaption={international_universities_introduction.intro_caption}
           introDescription={international_universities_introduction.intro_description} />
           <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
-            <ul className="md:w-[30%] lg:w-[25%] flex md:flex-col gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+            <ul className="md:w-[30%] lg:w-[25%] flex flex-col sm:flex-row md:flex-col gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
               {
                 international_countries.map((country_name, key) => (
                   <li className={`group cursor-pointer transition-all duration-300 ${activeCountry === (country_name) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveCountryFunc(country_name)}>
@@ -398,7 +398,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                       international_universities_data[country_name].map((international_university, university_key) => (
                         <div className={`w-full py-5 ${international_universities_data[country_name].length !== (university_key + 1) ? 'border-b' : '' } border-[#800000] `} key={university_key}>
                           <div className="flex flex-col gap-3 lg:px-10">
-                            <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => toggleUniversityAccordian(university_key)}>
+                            <div className="flex flex-row justify-between gap-5 w-full cursor-pointer" onClick={() => { toggleUniversityAccordian(university_key); scrollWithOffset(InternationalTieUpContent);}}>
                               <div className="flex flex-col lg:flex-row gap-5 justify-center lg:items-center">
                                 {
                                   international_university.international_university_logo && (

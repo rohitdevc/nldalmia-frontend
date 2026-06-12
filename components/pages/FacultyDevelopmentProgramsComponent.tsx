@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
-import { FiPlayCircle } from "react-icons/fi";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -50,7 +49,8 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
 
   useEffect(() => {
       setHeaderProps({
-        MDPPage: programs.length ? true : false
+        MDPPage: programs.length ? true : false,
+        programsRef
       })
   }, [])
 
@@ -158,7 +158,7 @@ export default function FacultyDevelopmentProgramsComponent({ banner, introducti
       banner_image={banner.banner_image}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
-      banner_vimeo_video_id={banner.banner_vimeo_video_id}
+      banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link}
       />

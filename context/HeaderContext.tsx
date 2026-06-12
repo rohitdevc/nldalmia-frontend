@@ -16,7 +16,7 @@ type HeaderProps = {
     programEligibilityFees?: string;
     programBrochureAvailable?: boolean;
     MDPPage?: boolean;
-    MDPProgramsScrollref?: RefObject<HTMLDivElement | null>;
+    programsRef?: RefObject<HTMLDivElement | null>;
 }
 
 const HeaderContext = createContext<any>(null)

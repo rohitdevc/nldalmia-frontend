@@ -85,7 +85,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
           </div>
           <div className="flex flex-col gap-5">
               <h1 className="font-georgia text-xl">{faculty.faculty_name}</h1>
-              <h3 className="font-georgia text-xl">{parser(nl2br(faculty.faculty_designation))}</h3>
+              <h3 className="font-georgia text-lg">{parser(nl2br(faculty.faculty_designation))}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                 {
                   faculty.faculty_areas_of_expertise && (
