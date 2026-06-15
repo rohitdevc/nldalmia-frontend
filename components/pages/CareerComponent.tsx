@@ -25,6 +25,7 @@ import nl2br from "nl2br";
 import parser from 'html-react-parser';
 
 import { Banner as BannerProps, IntroProps, CareersOurValues, CareerMilestones, CareersAchievements, CareersVacancies, CareersApplication } from "@/types/api";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   banner: BannerProps,
@@ -192,14 +193,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introTitle={careers_achievements_introduction.intro_title}
           introCaption={careers_achievements_introduction.intro_caption}
           introDescription={careers_achievements_introduction.intro_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer achievement_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer achievement_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
+          <SwiperNav prev_class="achievement_slider_prev" next_class="achievement_slider_next" />
           <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
             {
               careers_achievements.map((careers_achievement, key) => (
@@ -226,14 +220,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={careers_vacancies_introduction.intro_caption}
           introDescription={careers_vacancies_introduction.intro_description}
           />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer vacancies_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer vacancies_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
+          <SwiperNav prev_class="vacancies_slider_prev" next_class="vacancies_slider_next" />
           <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.vacancies_slider_prev', nextEl: '.vacancies_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}}} >
             {
               careers_vacancies.map((careers_vacancy, key) => (

@@ -1,7 +1,6 @@
 "use server";
 
 import { apiFetch } from "./api";
-import { buildHeaders } from "./common";
 import {
     IntroProps,
     Objectives,

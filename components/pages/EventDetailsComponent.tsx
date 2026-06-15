@@ -35,6 +35,7 @@ import "swiper/css/navigation";
 import { Event } from '@/types/api';
 import EventSlide from "../EventSlide";
 import TestimonialSlider from "../TestimonialSlider";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   event: Event
@@ -300,14 +301,7 @@ export default function EventDetails({ event }: PageProps) {
             introCaption={event.event_slider_caption}
             introDescription={event.event_slider_description}
             />
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer workshop_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer workshop_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+            <SwiperNav prev_class="workshop_slider_prev" next_class="workshop_slider_next" />
             <Swiper className="w-full" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
               {
                 event.event_sliders.map((event_slider, key) => (
@@ -355,15 +349,8 @@ export default function EventDetails({ event }: PageProps) {
           introCaption={event.event_sponser_caption}
           introDescription={event.event_sponser_description}
           />
-          <div className="w-full">
-            <div className="flex gap-3 mb-5">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer sponsored_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer sponsored_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+          <div className="w-full flex flex-col gap-5">
+            <SwiperNav prev_class="sponsored_slider_prev" next_class="sponsored_slider_next" />
             <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.sponsored_slider_prev', nextEl: '.sponsored_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 30}, 768: {slidesPerView: 3, spaceBetween: 30}, 1024: {slidesPerView: 4, spaceBetween: 50}}}>
               {
                 event.event_sponsers.map((event_sponser, key) => event_sponser.event_sponser_logo && (
@@ -387,14 +374,7 @@ export default function EventDetails({ event }: PageProps) {
             introCaption={event.event_second_slider_caption}
             introDescription={event.event_second_slider_description}
             />
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer workshop_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer workshop_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+            <SwiperNav prev_class="workshop_slider_prev" next_class="workshop_slider_next" />
             <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.workshop_slider_prev', nextEl: '.workshop_slider_next'}} >
               {
                 event.event_second_sliders.map((event_slider, key) => (

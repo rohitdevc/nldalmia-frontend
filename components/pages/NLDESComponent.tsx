@@ -39,6 +39,7 @@ type PageProps = {
 };
 
 import { useHeader } from "@/context/HeaderContext";
+import SwiperNav from "../SwiperNav";
 
 export default function NLDESComponent({ banner, introduction, objectives_introduction, objectives, institutes_introduction, institutes, management_introduction, management, social_responsibility_introduction, social_responsibilities, careers_introduction, careers, footer}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -239,15 +240,8 @@ banner_image_mobile={banner.banner_image_mobile}
             <div className="w-full" ref={ManagementTeams}>
             {
                 management_categories.map((management_category, key) => (
-                <div className={`w-full ${key === activeManagementTeamTab ? 'block' : 'hidden'}`} key={key}>
-                  <div className="flex gap-3 mb-5">
-                    <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_team_${key}slider_prev`}>
-                      <BsArrowLeftShort size={20} />
-                    </span>
-                    <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_team_${key}slider_next`}>
-                      <BsArrowRightShort size={20} />
-                    </span>
-                  </div>
+                <div className={`w-full flex flex-col gap-5 ${key === activeManagementTeamTab ? 'block' : 'hidden'}`} key={key}>
+                  <SwiperNav prev_class={`management_team_${key}slider_prev`} next_class={`management_team_${key}slider_next`} />
                   <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.management_team_${key}slider_prev`, nextEl: `.management_team_${key}slider_next`}} breakpoints={{768: {slidesPerView: 2, spaceBetween: 30}, 1024: {slidesPerView: 3, spaceBetween: 30}, 1280: {slidesPerView: 4, spaceBetween: 30}}} >
                     {
                       management_data[management_category].map((management_row, sub_key) => (
@@ -289,15 +283,8 @@ banner_image_mobile={banner.banner_image_mobile}
           introTitle={social_responsibility_introduction.intro_title}
           introCaption={social_responsibility_introduction.intro_caption}
           introDescription={social_responsibility_introduction.intro_description} />
-          <div className={`w-full`}>
-            <div className="flex gap-3 mb-5">
-              <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer social_responsibility_slider_prev`}>
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer social_responsibility_slider_next`}>
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+          <div className={`w-full flex flex-col gap-5`}>
+            <SwiperNav prev_class="social_responsibility_slider_prev" next_class="social_responsibility_slider_next" />
             <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.social_responsibility_slider_prev`, nextEl: `.social_responsibility_slider_next`}} >
               {
                 social_responsibilities.map((social_responsibility, key) => (

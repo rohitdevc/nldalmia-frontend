@@ -28,6 +28,7 @@ import "swiper/css/navigation";
 import { Banner as BannerProps, IntroProps, Slider, PlacementCorporateEngagement, PlacementsTabs, PlacementRecruiters, PlacementFeatures, Testimonials, Contacts, PlacementReports } from "@/types/api";
 import nl2br from "nl2br";
 import TestimonialSlider from "../TestimonialSlider";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   banner: BannerProps
@@ -149,7 +150,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
-banner_image_mobile={banner.banner_image_mobile}
+      banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}
@@ -162,14 +163,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
           introDescription={introduction.intro_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer intro_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer intro_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
+          <SwiperNav prev_class="intro_slider_prev" next_class="intro_slider_next" />
           <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.intro_slider_prev', nextEl: '.intro_slider_next'}} >
             {
               sliders.map((slider, key) => (
@@ -227,15 +221,8 @@ banner_image_mobile={banner.banner_image_mobile}
             {
               placement_tabs.map((placement_tab, key) => (
                 placement_content_data[placement_tab] && placement_content_data[placement_tab].length > 0 && (
-                <div className={`w-full ${key === activePlacementTab ? 'block' : 'hidden'}`} key={key}>
-                  <div className="flex gap-3 mb-5">
-                    <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer placement_tab_${key}slider_prev`}>
-                      <BsArrowLeftShort size={20} />
-                    </span>
-                    <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer placement_tab_${key}slider_next`}>
-                      <BsArrowRightShort size={20} />
-                    </span>
-                  </div>
+                <div className={`w-full flex flex-col gap-5 ${key === activePlacementTab ? 'block' : 'hidden'}`} key={key}>
+                  <SwiperNav prev_class={`placement_tab_${key}slider_prev`} next_class={`placement_tab_${key}slider_next`} />
                   <Swiper className="w-full bg-[#FFCC33]" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.placement_tab_${key}slider_prev`, nextEl: `.placement_tab_${key}slider_next`}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 3}}} >
                     {
                       placement_content_data[placement_tab].map((placement_content, sub_key, arr) => (
@@ -268,15 +255,7 @@ banner_image_mobile={banner.banner_image_mobile}
             introCaption={recruiters_introduction.intro_caption}
             introDescription={recruiters_introduction.intro_description}
             />
-            <div className="flex gap-3 mb-5">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer partner_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer partner_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
-            
+            <SwiperNav prev_class="partner_slider_prev" next_class="partner_slider_next" />
             <Swiper className="w-full" slidesPerView={1.5} spaceBetween={30} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{624: { slidesPerView: 2, spaceBetween: 50}, 768: { slidesPerView: 3, spaceBetween: 75 }, 1024: {slidesPerView: 4}, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 recruiters.map((recruiter, key) => recruiter.recruiter_logo && (

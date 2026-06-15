@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import SwiperNav from "./SwiperNav";
 
 type AchievementProps = {
     achievements: LifeAtNLDAchievements[]
@@ -18,14 +19,7 @@ type AchievementProps = {
 export default function AchievementSlider({achievements} : AchievementProps){
     return (
     <div className="w-full flex flex-col gap-5">
-        <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer achievement_slider_prev">
-                <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer achievement_slider_next">
-                <BsArrowRightShort size={20} />
-            </span>
-        </div>
+        <SwiperNav prev_class="achievement_slider_prev" next_class="achievement_slider_next" />
         <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.achievement_slider_prev', nextEl: '.achievement_slider_next'}} >
             {
                 achievements.map((achievement, key) => (

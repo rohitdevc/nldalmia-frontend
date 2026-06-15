@@ -48,6 +48,7 @@ type PageProps = {
 
 import { useHeader } from "@/context/HeaderContext";
 import AchievementSlider from "../AchievementSlider";
+import SwiperNav from "../SwiperNav";
 
 export default function LifeAtNLD({ banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -140,14 +141,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={introduction.intro_caption}
           introDescription={introduction.intro_description} />
           <div className="w-full flex flex-col gap-5">
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+              <SwiperNav prev_class="event_slider_prev" next_class="event_slider_next" />
               <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 50 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }} >
                 {
                   events.map((event, key) => (
@@ -226,14 +220,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introTitle={student_club_introduction.intro_title}
           introCaption={student_club_introduction.intro_caption}
           introDescription={student_club_introduction.intro_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer student_club_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer student_club_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
+          <SwiperNav prev_class="student_club_slider_prev" next_class="student_club_slider_next" />
           <Swiper className="w-full border-[0.5px] border-[#DFC0C0]" slidesPerView={1} spaceBetween={0} modules={[Navigation]} loop={true} autoHeight={true} navigation={{prevEl: '.student_club_slider_prev', nextEl: '.student_club_slider_next'}} >
             {
               student_clubs.map((student_club, key) => (
@@ -363,15 +350,8 @@ banner_image_mobile={banner.banner_image_mobile}
           <div className="w-full" ref={HolisticLearnings}>
           {
               holistic_learnings.map((holistic_learning_tab, key) => (
-              <div className={`w-full ${holistic_learning_tab === activeHolisticLearningTab ? 'block' : 'hidden'}`} key={key}>
-                <div className="flex gap-3 mb-5">
-                  <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer holistic_learning_${key}slider_prev`}>
-                    <BsArrowLeftShort size={20} />
-                  </span>
-                  <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer holistic_learning_${key}slider_next`}>
-                    <BsArrowRightShort size={20} />
-                  </span>
-                </div>
+              <div className={`w-full flex flex-col gap-5 ${holistic_learning_tab === activeHolisticLearningTab ? 'block' : 'hidden'}`} key={key}>
+                <SwiperNav prev_class={`holistic_learning_${key}slider_prev`} next_class={`holistic_learning_${key}slider_next`} />
                 <Swiper className="w-full infra_content" slidesPerView={1} spaceBetween={0} autoHeight={true} loop={true} modules={[Navigation]} navigation={{prevEl: `.holistic_learning_${key}slider_prev`, nextEl: `.holistic_learning_${key}slider_next`}} >
                   {
                     inside_nld.map((inside_nld_row, sub_key) => inside_nld_row.inside_nld_tab_title === holistic_learning_tab && (
@@ -418,15 +398,8 @@ banner_image_mobile={banner.banner_image_mobile}
           <div className="flex justify-center items-center">
             <Link href={`${basePath}institutional-publications`} className="bg-[#800000] text-white px-2 py-2">View All Institutional Publications</Link>
           </div>
-          <div className={`w-full`}>
-            <div className="flex gap-3 mb-5">
-              <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer magazine_slider_prev`}>
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className={`w-5 h-5 border border-[#800000] flex items-center cursor-pointer magazine_slider_next`}>
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+          <div className={`w-full flex flex-col gap-5`}>
+            <SwiperNav prev_class="magazine_slider_prev" next_class="magazine_slider_next" />
             <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: `.magazine_slider_prev`, nextEl: `.magazine_slider_next`}} breakpoints={{640: {slidesPerView: 1.5, spaceBetween: 10}, 768: {slidesPerView: 2, spaceBetween: 50}, 1024: {slidesPerView: 2.5, spaceBetween: 50}, 1280: {slidesPerView: 3, spaceBetween: 20}}} >
               {
                 magazines.map((magazine, key) => magazine.institutional_publication_pdf && (

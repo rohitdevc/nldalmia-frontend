@@ -9,6 +9,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { InstagramFeed } from "@/types/api";
+import SwiperNav from "./SwiperNav";
 
 type PageProps = {
     instagram_feed: InstagramFeed[]
@@ -22,14 +23,7 @@ export default function InstagramFeedComp({instagram_feed}: PageProps) {
     return (
         instagram_feed && instagram_feed.length > 0 && (
             <div className="w-full">
-                <div className="flex gap-3 mb-5">
-                    <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer instagram_slider_prev">
-                        <BsArrowLeftShort size={20} />
-                    </span>
-                    <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer instagram_slider_next">
-                        <BsArrowRightShort size={20} />
-                    </span>
-                </div>
+                <SwiperNav prev_class="instagram_slider_prev" next_class="instagram_slider_next" />
                 <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.instagram_slider_prev', nextEl: '.instagram_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 50 }, 1280: { slidesPerView: 4, spaceBetween: 70 } }}>
                 {
                 instagram_feed.map((instagram, key) => (

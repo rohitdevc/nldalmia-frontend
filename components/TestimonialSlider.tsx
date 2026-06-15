@@ -13,6 +13,7 @@ import parser from 'html-react-parser';
 import { FiPlayCircle } from "react-icons/fi";
 
 import { YTVideoPopupHandle } from "./YouTubeVideo";
+import SwiperNav from "./SwiperNav";
 
 type Props = {
     testimonials: Testimonials[]
@@ -33,14 +34,7 @@ export default function TestimonialSlider({testimonials}: Props) {
 
     return (
         <div className="flex flex-col gap-5">
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+            <SwiperNav prev_class="testimonial_slider_prev" next_class="testimonial_slider_next" />
             <Swiper className="w-full" slidesPerView={1} loop={true} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}} breakpoints={{640: {slidesPerView: 1.5, spaceBetween: 10}, 768: { slidesPerView: 1.85, spaceBetween: 25 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: {slidesPerView: 3, spaceBetween: 20} }} >
               {
                 testimonials.map((testimonial, key) => (

@@ -26,6 +26,7 @@ type PageProps = {
 };
 
 import { useHeader } from "@/context/HeaderContext";
+import SwiperNavAbsolute from "../SwiperNavAbsolute";
 
 export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqac_poe}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -65,12 +66,7 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full px-15 xl:px-30 py-10 relative">
-        <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 left-5 xl:left-10 iqac_categories_slider_prev z-2">
-          <BsArrowLeftShort size={20} />
-        </span>
-        <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 xl:right-10 iqac_categories_slider_next z-2">
-          <BsArrowRightShort size={20} />
-        </span>
+        <SwiperNavAbsolute prev_class="iqac_categories_slider_prev" next_class="iqac_categories_slider_next" />
         <Swiper className="iqac_categories" modules={[Navigation]} slidesPerView="auto" spaceBetween={30} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}}>
           {
           iqac_categories.map((iqac_category, key) => (

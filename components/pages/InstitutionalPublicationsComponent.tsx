@@ -26,6 +26,7 @@ type PageProps = {
 };
 
 import { useHeader } from "@/context/HeaderContext";
+import SwiperNavAbsolute from "../SwiperNavAbsolute";
 
 export default function InstitutionalPublicationsComponent({ banner, institutional_publications_categories, institutional_publications}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -76,12 +77,7 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full px-10 md:px-15 xl:px-30 py-10 relative">
-        <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 left-5 lg:left-10 institutional_publications_categories_slider_prev z-2">
-          <BsArrowLeftShort size={20} />
-        </span>
-        <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer absolute top-1/2 -translate-y-1/2 right-5 lg:right-10 institutional_publications_categories_slider_next z-2">
-          <BsArrowRightShort size={20} />
-        </span>
+        <SwiperNavAbsolute prev_class="institutional_publications_categories_slider_prev" next_class="institutional_publications_categories_slider_next" />
         <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={0} navigation={{prevEl: '.institutional_publications_categories_slider_prev', nextEl: '.institutional_publications_categories_slider_next'}} freeMode={true} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 'auto', freeMode: false}}} className="lg:!justify-between lg:[&_.swiper-wrapper]:!justify-between">
           {
           institutional_publications_categories.map((institutional_publication_category, key) => (

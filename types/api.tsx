@@ -857,3 +857,57 @@ export interface InstagramFeed {
     instagram_permalink: string;
     instagram_post_type: string;
 }
+
+export interface MSRVerticals {
+    vertical_caption: string;
+    vertical_description: string;
+}
+
+export interface MSRImpact {
+    impact_count: string;
+    impact_name: string;
+}
+
+export interface MSRCaseStudies {
+    case_study_title: string;
+    case_study_preview: string;
+    case_study_youtube_id: string;
+    case_study_image: string;
+    case_study_image_alt: string;
+    case_study_pdf: string;
+}
+
+export interface MSRSDGGoals {
+    sdg_goal_title: string;
+    sdg_goal_caption: string;
+    sdg_goal_image: string;
+    sdg_goal_image_alt: string;
+    sdg_goal_pdf: string;
+}
+
+export interface MSRGallery {
+    gallery_caption: string;
+    gallery_image: string;
+    gallery_image_alt: string;
+    gallery_youtube_id: string;
+}
+
+export interface MSRReport {
+    report_title: string;
+    report_caption: string;
+    report_image: string;
+    report_image_alt: string;
+    report_pdf: string;
+}
+
+export interface MSRTestimonials {
+    testimonial_name: string;
+    testimonial_description: string;
+}
+
+export interface MSRContribution {
+    contribution_caption: string;
+    contribution_description: string;
+    contribution_image: string;
+    contribution_image_alt: string;
+}

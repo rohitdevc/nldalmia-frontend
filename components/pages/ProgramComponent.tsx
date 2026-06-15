@@ -31,6 +31,7 @@ import { Program } from "@/types/api";
 import { ProgramDownloadBrochureFormErrors, ProgramDownloadBrochure } from "@/types/forms";
 
 import { useSanitizeTable } from "@/hooks/useSanitizeTable";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   program: Program
@@ -309,14 +310,7 @@ export default function ProgramComponent({ program}: PageProps) {
         {
           program.program_sliders && program.program_sliders.length > 0 && (
             <div className="w-full">
-              <div className="flex gap-3">
-                  <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_prev">
-                    <BsArrowLeftShort size={20} />
-                  </span>
-                  <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_next">
-                    <BsArrowRightShort size={20} />
-                  </span>
-              </div>
+              <SwiperNav prev_class="program_slider_prev" next_class="program_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full sm:h-[35vh] lg:h-[65vh] xl:h-[70vh]" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}}>
                 {
                   program.program_sliders.map((slider, key) => (
@@ -380,14 +374,7 @@ export default function ProgramComponent({ program}: PageProps) {
           introCaption={program.program_international_partner_caption}
           introDescription={program.program_international_partner_description}
           />
-            <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer international_partner_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer international_partner_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-            </div>
+            <SwiperNav prev_class="international_partner_prev" next_class="international_partner_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={25} navigation={{prevEl: '.international_partner_prev', nextEl: '.international_partner_next'}} breakpoints={{640: {slidesPerView: 1.5}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3}}}>
               {
                 program.program_international_partners.map((international_partner, key) => (
@@ -421,14 +408,7 @@ export default function ProgramComponent({ program}: PageProps) {
         program.program_outcomes && program.program_outcomes.length > 0 && (
         <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5 lg:py-10">
           <CenterIntro introCaption="Program Outcomes" />
-            <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_outcome_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_outcome_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-            </div>
+            <SwiperNav prev_class="program_outcome_prev" next_class="program_outcome_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} autoHeight={false} loop={true} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
               {
                 program.program_outcomes.map((program_outcome, key) => (
@@ -532,14 +512,7 @@ export default function ProgramComponent({ program}: PageProps) {
         <Intro
         introCaption={program.program_second_slider_caption}
         introDescription={program.program_second_slider_description} />
-          <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-          </div>
+          <SwiperNav prev_class="program_slider_prev" next_class="program_slider_next" />
           <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full sm:h-[35vh] lg:h-[65vh] xl:h-[70vh]" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}}>
             {
               program.program_second_sliders.map((slider, key) => (
@@ -559,14 +532,7 @@ export default function ProgramComponent({ program}: PageProps) {
           introTitle={program.program_testimonial_title}
           introCaption={program.program_testimonial_caption}
           introDescription={program.program_testimonial_description} />
-          <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer testimonial_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-          </div>
+          <SwiperNav prev_class="testimonial_slider_prev" next_class="testimonial_slider_next" />
           <Swiper modules={[Navigation]} loop={true} autoHeight={true} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
             {
               program.program_testimonials.map((testimonial, key) => (

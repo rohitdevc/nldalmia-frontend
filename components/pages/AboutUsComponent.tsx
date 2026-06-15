@@ -34,6 +34,8 @@ import parser from 'html-react-parser';
 
 import { Banner as BannerProps, FounderQuote, GoverningCouncil, InternationalUniversities, IntroProps, ManagementQuote, ManagingCouncil, Objectives, Timeline, VideoSection } from "@/types/api";
 import { useHeader } from "@/context/HeaderContext";
+import IntroWithVideo from "../IntroWithVideo";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   banner: BannerProps
@@ -103,34 +105,18 @@ export default function AboutUsComponent({banner, introduction, objectives, time
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
-banner_image_mobile={banner.banner_image_mobile}
+      banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-15" id="who-we-are">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 sm:py-15" id="who-we-are">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         />
-        <div className="flex flex-col lg:flex-row gap-10 py-10 items-center">
-          <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer md:h-40 lg:h-100" onClick={() => videoPopupRef.current?.open(introduction.intro_video_id)}>
-          {
-            introduction.intro_image && (
-            <Image src={introduction.intro_image} width={800} height={400} alt={introduction.intro_image_alt} className="object-cover w-full h-full" />
-            )
-          }
-          {
-            introduction.intro_video_id && (
-              <FaPlayCircle size={35} className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
-            )
-          } 
-          </div>
-          <div className="w-full lg:w-[60%] flex flex-col gap-5">
-            <p className="text-[#4E4E4E] text-smse leading-loose">{parser(nl2br(introduction.intro_description))}</p>
-          </div>
-        </div>
+        <IntroWithVideo introduction={introduction} />
         {
           objectives && objectives.length > 0 && (
           <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-10 justify-center lg:justify-between items-center">
@@ -220,14 +206,7 @@ banner_image_mobile={banner.banner_image_mobile}
       {
         management_quotes && management_quotes.length > 0 && (
           <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 py-10 flex flex-col gap-5 lg:gap-10">
-            <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_quote_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer management_quote_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-            </div>
+            <SwiperNav prev_class="management_quote_slider_prev" next_class="management_quote_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.management_quote_slider_prev', nextEl: '.management_quote_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
               {
                 management_quotes.map((management_quote, key) => (
@@ -265,14 +244,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={managing_council_introduction.intro_caption}
           introDescription={managing_council_introduction.intro_description} />
           <div className="w-full flex flex-col gap-5">
-            <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer managing_council_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer managing_council_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+            <SwiperNav prev_class="managing_council_slider_prev" next_class="managing_council_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 managing_council.map((managing_council_row, key) => (
@@ -313,14 +285,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={governing_council_introduction.intro_caption}
           introDescription={governing_council_introduction.intro_description} />
           <div className="w-full flex flex-col gap-5">
-            <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer governing_council_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer governing_council_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+            <SwiperNav prev_class="governing_council_slider_prev" next_class="governing_council_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 governing_council.map((governing_council_row, key) => (

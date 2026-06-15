@@ -41,6 +41,7 @@ type PageProps = {
 
 import { useHeader } from "@/context/HeaderContext";
 import TestimonialSlider from "../TestimonialSlider";
+import SwiperNav from "../SwiperNav";
 
 export default function FacultyDevelopmentProgramsComponent({ banner, introduction, why_choose_introduction, programs_introduction, programs, testimonial_introduction, testimonials, faqs_introduction, faqs, enquiry}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -235,15 +236,7 @@ banner_image_mobile={banner.banner_image_mobile}
               <span className="w-full absolute left-0 top-8 h-[0.5px] bg-[#800000]"></span>
             </div>
           </div>
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
-          
+          <SwiperNav prev_class="program_slider_prev" next_class="program_slider_next" />
           <Swiper className="w-full" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 10 }, 1024: { slidesPerView: 3, spaceBetween: 50 } }} >
             {
               filteredPrograms.map((program, key) => (

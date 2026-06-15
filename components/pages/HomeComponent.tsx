@@ -67,6 +67,7 @@ type CareerPath = {
 import { useHeader } from "@/context/HeaderContext";
 import AchievementSlider from "../AchievementSlider";
 import TestimonialSlider from "../TestimonialSlider";
+import SwiperNav from "../SwiperNav";
 
 export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, achievements, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -374,14 +375,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               introTitle={placement_partners_introduction.intro_title}
               introCaption={placement_partners_introduction.intro_caption}
               introDescription={placement_partners_introduction.intro_description} />
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer partner_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer partner_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+              <SwiperNav prev_class="partner_slider_prev" next_class="partner_slider_next" />
               
               <Swiper className="w-full" slidesPerView={2} spaceBetween={20} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{640: {slidesPerView: 3}, 768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 }, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
                 {
@@ -431,14 +425,7 @@ export default function HomeComponent({banner, announcements, introduction, care
               {
                   event_categories && event_categories.length > 0 && event_categories.map((event_category, key) => activeEventCategory === key && chunkedEvents && chunkedEvents.length > 0 && (
                     <div className="w-full lg:w-[75%] flex flex-col gap-5" key={key} ref={eventsList}>
-                      <div className="flex gap-3">
-                        <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_prev">
-                          <BsArrowLeftShort size={20} />
-                        </span>
-                        <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer event_slider_next">
-                          <BsArrowRightShort size={20} />
-                        </span>
-                      </div>
+                      <SwiperNav prev_class="event_slider_prev" next_class="event_slider_next" />
                       <Swiper slidesPerView={1} spaceBetween={10} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.event_slider_prev', nextEl: '.event_slider_next'}} className={`max-w-full text-white transition-opacity`} key={key}>
                         {
                           chunkedEvents.map((groupEvents, slideIndex) => (
@@ -503,15 +490,7 @@ export default function HomeComponent({banner, announcements, introduction, care
             introTitle={awards_introduction.intro_title}
             introCaption={awards_introduction.intro_caption}
             introDescription={awards_introduction.intro_description} />
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer award_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer award_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
-            
+            <SwiperNav prev_class="award_slider_prev" next_class="award_slider_next" />
             <Swiper className="w-full" slidesPerView={2} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
                 awards.map((award, key) => (
@@ -538,14 +517,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           introTitle={media_introduction.intro_title}
           introCaption={media_introduction.intro_caption}
           introDescription={media_introduction.intro_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer media_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer media_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
+          <SwiperNav prev_class="media_slider_prev" next_class="media_slider_next" />
           <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
           {
             media.map((media_row, key) => (
@@ -602,14 +574,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           introTitle={blog_introduction.intro_title}
           introCaption={blog_introduction.intro_caption}
           introDescription={blog_introduction.intro_description} />
-          <div className="flex gap-3">
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer blog_slider_prev">
-              <BsArrowLeftShort size={20} />
-            </span>
-            <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer blog_slider_next">
-              <BsArrowRightShort size={20} />
-            </span>
-          </div>
+          <SwiperNav prev_class="blog_slider_prev" next_class="blog_slider_next" />
           <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 35 } }}>
           {
             blogs.map((blog, key) => (

@@ -35,6 +35,7 @@ dayjs.extend(advancedFormat);
 import nl2br from "nl2br";
 import parser from 'html-react-parser';
 import { Banner as BannerProps, IntroProps, WallOfFame, Slider, AlumniQuotes, AlumniMeet, AlumniConnect, AlumniHallOfFame, AlumniTestimonials, AlumniEvents } from "@/types/api";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   banner: BannerProps
@@ -169,12 +170,7 @@ banner_image_mobile={banner.banner_image_mobile}
           wall_of_fame && wall_of_fame.length > 0 && (
           <div className="w-full relative flex flex-col gap-5">
             <div className="flex gap-3 sm:hidden">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer wall_of_fame_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer wall_of_fame_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
+              <SwiperNav prev_class="wall_of_fame_slider_prev" next_class="wall_of_fame_slider_next" />
             </div>
             <div className="hidden sm:block">
               <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 left-4 wall_of_fame_slider_prev z-2">
@@ -340,14 +336,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={alumni_connect_introduction.intro_caption}
           introDescription={alumni_connect_introduction.intro_description} />
             <div className="w-full flex flex-col gap-5">
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+              <SwiperNav prev_class="alumni_connect_slider_prev" next_class="alumni_connect_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
                 {
                   alumni_connect.map((alumni_row, key) => (
@@ -394,14 +383,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={alumni_hall_of_fame_introduction.intro_caption}
           introDescription={alumni_hall_of_fame_introduction.intro_description} />
           <div className="w-full flex flex-col gap-5">
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_hall_of_fame_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_hall_of_fame_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+            <SwiperNav prev_class="alumni_hall_of_fame_slider_prev" next_class="alumni_hall_of_fame_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_hall_of_fame_slider_prev', nextEl: '.alumni_hall_of_fame_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
               {
                 alumni_hall_of_fame.map((alumni_row, key) => (
@@ -432,37 +414,32 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={alumni_testimonials_introduction.intro_caption}
           introDescription={alumni_testimonials_introduction.intro_description}
           />
-          <div className="w-full">
-            <div className="flex gap-3 mb-5">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_testimonial_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_testimonial_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
+          <div className="w-full flex flex-col gap-5">
+            <SwiperNav prev_class="alumni_testimonial_slider_prev" next_class="alumni_testimonial_slider_next" />
+            <div className="w-full">
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} autoHeight={false} navigation={{prevEl: '.alumni_testimonial_slider_prev', nextEl: '.alumni_testimonial_slider_next'}}>
+                {
+                alumni_testimonials.map((alumni_testimonial, key) => (
+                  <SwiperSlide className="!h-auto flex" key={key}>
+                    <div className="flex flex-col lg:flex-row gap-10 px-5 py-5 bg-white border flex-1 h-full items-center justify-center">
+                      <div className="sm:w-75 sm:h-50 md:w-60 md:h-60">
+                        {
+                          alumni_testimonial.testimonial_thumbnail && (
+                            <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_thumbnail_alt} width={400} height={400} className="object-cover w-full h-full" />
+                          )
+                        }
+                      </div>
+                      <div className="flex flex-col gap-5 w-full">
+                        <p className="text-[#4E4E4E] leading-loose">{parser(nl2br(alumni_testimonial.testimonial_bio))}</p>
+                        <h2 className="font-georgia">{alumni_testimonial.testimonial_content}</h2>
+                        <h3>- {alumni_testimonial.testimonial_name}</h3>
+                        <h4>{alumni_testimonial.testimonial_designation}</h4>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-            <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} autoHeight={false} navigation={{prevEl: '.alumni_testimonial_slider_prev', nextEl: '.alumni_testimonial_slider_next'}}>
-              {
-              alumni_testimonials.map((alumni_testimonial, key) => (
-                <SwiperSlide className="!h-auto flex" key={key}>
-                  <div className="flex flex-col lg:flex-row gap-10 px-5 py-5 bg-white border flex-1 h-full items-center justify-center">
-                    <div className="sm:w-75 sm:h-50 md:w-60 md:h-60">
-                      {
-                        alumni_testimonial.testimonial_thumbnail && (
-                          <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_thumbnail_alt} width={400} height={400} className="object-cover w-full h-full" />
-                        )
-                      }
-                    </div>
-                    <div className="flex flex-col gap-5 w-full">
-                      <p className="text-[#4E4E4E] leading-loose">{parser(nl2br(alumni_testimonial.testimonial_bio))}</p>
-                      <h2 className="font-georgia">{alumni_testimonial.testimonial_content}</h2>
-                      <h3>- {alumni_testimonial.testimonial_name}</h3>
-                      <h4>{alumni_testimonial.testimonial_designation}</h4>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
           </div>
         </div>
       )
@@ -475,15 +452,7 @@ banner_image_mobile={banner.banner_image_mobile}
           introCaption={alumni_events_introduction.intro_caption}
           introDescription={alumni_events_introduction.intro_description} />
           <div className="w-full">
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_event_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_event_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
-              
+              <SwiperNav prev_class="alumni_event_slider_prev" next_class="alumni_event_slider_next" />
               <Swiper className="w-full mt-10" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.alumni_event_slider_prev', nextEl: '.alumni_event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
                 {
                   alumni_events.map((alumni_event, key) => {
@@ -569,14 +538,7 @@ banner_image_mobile={banner.banner_image_mobile}
         <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
           <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_connect_slider_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+            <SwiperNav prev_class="alumni_connect_slider_prev" next_class="alumni_connect_slider_next" />
             <div className="py-5">
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} initialSlide={activeConnectAlumniIndex} loop={true} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={!isLG} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}}>
                 {
@@ -678,14 +640,7 @@ banner_image_mobile={banner.banner_image_mobile}
         <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
           <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
-            <div className="flex gap-3">
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_hall_of_fame_prev">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer alumni_hall_of_fame_next">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
+            <SwiperNav prev_class="alumni_hall_of_fame_prev" next_class="alumni_hall_of_fame_next" />
             <div className="py-5 lg:py-10">
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="border-[0.5px] border-[#D6ACAC]" initialSlide={activeWallOfFameIndex} onSwiper={(swiper) => (popupConnectAlumniRef.current = swiper)} slidesPerView={1} spaceBetween={0} autoHeight={false} navigation={{prevEl: '.alumni_hall_of_fame_prev', nextEl: '.alumni_hall_of_fame_next'}}>
                 {

@@ -31,6 +31,7 @@ import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
 import { AdmissionHelpOptions, AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps } from "@/types/api";
 import { AdmissionDownloadBrochureFormErrors, AdmissionDownloadBrochure } from "@/types/forms";
 import { useSanitizeTable } from "@/hooks/useSanitizeTable";
+import SwiperNav from "../SwiperNav";
 
 type PageProps = {
   banner: BannerProps
@@ -267,15 +268,7 @@ banner_image_mobile={banner.banner_image_mobile}
           {
             admission_programs && admission_programs.length > 0 && (
             <div className="w-full">
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer program_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
-              
+              <SwiperNav prev_class="program_slider_prev" next_class="program_slider_next" />
               <Swiper className="w-full mt-10" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.program_slider_prev', nextEl: '.program_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >
                 {
                   admission_programs.map((admission_program, key) => {
@@ -426,14 +419,7 @@ banner_image_mobile={banner.banner_image_mobile}
               introTitle={admissions_finance_introduction.intro_title}
               introCaption={admissions_finance_introduction.intro_caption}
               introDescription={admissions_finance_introduction.intro_description} />
-              <div className="flex gap-3">
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_assistance_partner_slider_prev">
-                  <BsArrowLeftShort size={20} />
-                </span>
-                <span className="w-5 h-5 border border-[#800000] flex items-center cursor-pointer financial_assistance_partner_slider_next">
-                  <BsArrowRightShort size={20} />
-                </span>
-              </div>
+              <SwiperNav prev_class="financial_assistance_partner_slider_prev" next_class="financial_assistance_partner_slider_next" />
               
               <Swiper className="w-full" slidesPerView={1} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.financial_assistance_partner_slider_prev', nextEl: '.financial_assistance_partner_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 20 } }} >
                 {
