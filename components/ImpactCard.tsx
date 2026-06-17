@@ -18,8 +18,8 @@ export const ImpactCard = ({ impact }: Props) => {
   const suffix = match ? match[2] : "";
 
   return (
-    <div ref={ref} className="bg-[#FFCC33] w-60 h-50 px-2 flex flex-col justify-center items-center text-center gap-5 transition-all duration-300 ease-in-out hover:-mt-5">
-      <h2 className="text-5xl">
+    <div ref={ref} className="bg-[#FFCC33] w-35 h-35 sm:w-60 sm:h-50 px-2 flex flex-col justify-center items-center text-center gap-5 transition-all duration-300 ease-in-out hover:lg:-mt-5">
+      <h2 className="text-2xl sm:text-5xl font-semibold lg:font-normal">
         {
         inView ? (
             <CountUp start={0} end={count} duration={1} separator="," />) : (0)

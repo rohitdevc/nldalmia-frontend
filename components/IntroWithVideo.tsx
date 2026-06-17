@@ -22,7 +22,7 @@ export default function IntroWithVideo({introduction}: Props) {
           <div className="w-full lg:w-[40%] overflow-hidden relative cursor-pointer md:h-40 lg:h-full" onClick={() => videoPopupRef.current?.open(introduction.intro_video_id)}>
           {
             introduction.intro_image && (
-            <Image src={introduction.intro_image} width={800} height={400} alt={introduction.intro_image_alt} className="object-cover w-full h-full" />
+            <Image src={introduction.intro_image} width={800} height={400} alt={introduction.intro_image_alt || `N. L Dalmia`} className="object-cover w-full h-full" />
             )
           }
           {

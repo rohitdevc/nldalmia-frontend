@@ -33,7 +33,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Event } from '@/types/api';
-import EventSlide from "../EventSlide";
+import FullSlide from "../FullSlide";
 import TestimonialSlider from "../TestimonialSlider";
 import SwiperNav from "../SwiperNav";
 
@@ -306,7 +306,10 @@ export default function EventDetails({ event }: PageProps) {
               {
                 event.event_sliders.map((event_slider, key) => (
                 <SwiperSlide key={key} title={event_slider.event_slider_caption}>
-                  <EventSlide event_slider={event_slider} />
+                  <FullSlide slider={{
+                    slider_image: event_slider.event_slider_image,
+                    slider_video: event_slider.event_slider_video,
+                    }} />
                 </SwiperSlide>
               ))
               }
@@ -379,7 +382,11 @@ export default function EventDetails({ event }: PageProps) {
               {
                 event.event_second_sliders.map((event_slider, key) => (
                 <SwiperSlide key={key} title={event_slider.event_slider_caption}>
-                  <EventSlide event_slider={event_slider} />
+                  <FullSlide slider={{
+                    slider_image: event_slider.event_slider_image,
+                    slider_video: event_slider.event_slider_video,
+                    }}
+                  />
                 </SwiperSlide>
               ))
               }

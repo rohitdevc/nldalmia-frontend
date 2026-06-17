@@ -179,6 +179,12 @@ type EventCompetition = {
     event_competition_image: string;
 }
 
+export interface FullSlideProps {
+    slider_caption?: string;
+    slider_image: string;
+    slider_video: string;
+}
+
 export interface EventSliders {
     event_slider_caption: string;
     event_slider_image: string;
@@ -872,14 +878,14 @@ export interface MSRCaseStudies {
     case_study_title: string;
     case_study_preview: string;
     case_study_youtube_id: string;
-    case_study_image: string;
-    case_study_image_alt: string;
+    case_study_link: string;
     case_study_pdf: string;
 }
 
 export interface MSRSDGGoals {
     sdg_goal_title: string;
     sdg_goal_caption: string;
+    sdg_goal_link: string;
     sdg_goal_image: string;
     sdg_goal_image_alt: string;
     sdg_goal_pdf: string;
@@ -894,7 +900,6 @@ export interface MSRGallery {
 
 export interface MSRReport {
     report_title: string;
-    report_caption: string;
     report_image: string;
     report_image_alt: string;
     report_pdf: string;
