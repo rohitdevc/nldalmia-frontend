@@ -64,7 +64,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                         <Link href={`${basePath}blogs`}>Blogs</Link>
                     </li>
                     <li>
-                        <Link href="">Campus Tour</Link>
+                        <Link href="https://my.matterport.com/show/?m=kXMYpQZ5zmT" target="_blank">Campus Tour</Link>
                     </li>
                 </ul>
                 <ul className="flex flex-col gap-4">
