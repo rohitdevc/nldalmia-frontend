@@ -8,6 +8,9 @@ import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/navigation";
+
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
@@ -154,8 +157,8 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
               <Swiper modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.case_studies_slider_prev', nextEl: '.case_studies_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 3.5, spaceBetween: 30}}}>
                 {
                   case_studies.map((case_study, key) => (
-                    <SwiperSlide className="group relative !h-auto" title={case_study.case_study_title} key={key} onClick={handleCaseStudyClick(key)}>
-                    <div className="w-full h-full flex flex-1 border border-[#800000] bg-[#FFCC33]">
+                    <SwiperSlide className="group" title={case_study.case_study_title} key={key} onClick={handleCaseStudyClick(key)}>
+                    <div className="w-full border border-[#800000] bg-[#FFCC33] relative">
                       <div className="flex flex-col gap-5 px-5 py-5 mt-auto">
                         <h2 className="font-georgia text-xl lg:text-2xl">{case_study.case_study_title}</h2>
                         <p className="text-sm md:text-base text-burgundy">{parser(nl2br(case_study.case_study_preview))}</p>
