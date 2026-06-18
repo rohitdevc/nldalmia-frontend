@@ -65,7 +65,7 @@ export const viewport = {
   ],
 };
 
-export const revalidate = 0;
+export const revalidate = 300;
 
 const basePath = process.env.NEXT_PUBLIC_PATH;
 
