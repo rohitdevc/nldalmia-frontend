@@ -258,7 +258,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <SwiperSlide className="!h-auto flex" key={key}>
                     <div className="border-[0.5px] border-[#800000] flex flex-col flex-1 h-full">
                       <div className="flex flex-col gap-5 items-center text-center">
-                        <div className="w-full h-75">
+                        <div className="w-full">
                           {
                             managing_council_row.managing_council_thumbnail && (
                               <Image src={managing_council_row.managing_council_thumbnail} alt={managing_council_row.managing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
@@ -299,7 +299,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                   <SwiperSlide className="!h-auto flex" key={key}>
                     <div className="border border-[#800000] flex flex-col w-full h-full">
                       <div className="flex flex-col gap-5 items-center text-center flex-1">
-                        <div className="w-full h-75 hidden">
+                        <div className="w-full hidden">
                           {
                             governing_council_row.governing_council_thumbnail && (
                               <Image src={governing_council_row.governing_council_thumbnail} alt={governing_council_row.governing_council_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
