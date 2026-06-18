@@ -24,7 +24,7 @@ export default function Banner({banner_image, banner_image_mobile, banner_captio
         <div className="w-full h-screen relative text-white overflow-hidden">
             {
                 banner_youtube_video_id ? (
-                    <iframe className="absolute inset-0 w-full h-full pointer-events-none" src={`https://www.youtube.com/embed/${banner_youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${banner_youtube_video_id}&controls=0&showinfo=0&rel=0&modestbranding=1`} title={banner_caption} allow="autoplay"/>
+                    <iframe className="absolute top-1/2 left-1/2 min-w-full min-h-full w-[177.78vh] h-[56.25vw] -translate-x-1/2 -translate-y-1/2 pointer-events-none" src={`https://www.youtube.com/embed/${banner_youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${banner_youtube_video_id}&controls=0&showinfo=0&rel=0&modestbranding=1`} title={banner_caption} allow="autoplay"/>
                 ) : banner_image && (
                     <>
                     <Image src={banner_image} fill alt="NL Dalmia" className="object-cover w-full h-full hidden md:block" />
