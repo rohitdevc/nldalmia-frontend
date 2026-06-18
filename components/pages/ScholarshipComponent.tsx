@@ -130,6 +130,7 @@ banner_image_mobile={banner.banner_image_mobile}
               </ul>
               )
             }
+            <Link href="mailto:admissions@nldalmia.edu.in&Subject=Enquiry for Scholarships" className="w-fit px-3 py-2 text-white bg-[#800000]">Know More</Link>
           </div>
         </div>
       </div>
