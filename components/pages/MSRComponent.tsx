@@ -6,10 +6,8 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination, Controller } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
+import { Navigation, Autoplay } from "swiper/modules";
 
-import { IoIosArrowDown } from "react-icons/io";
 import dayjs from 'dayjs';
 import utc from "dayjs/plugin/utc";
 import advancedFormat from 'dayjs/plugin/advancedFormat'
@@ -18,17 +16,10 @@ dayjs.extend(advancedFormat);
 
 import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
-import scrollWithOffset from "@/components/scrollWithOffset";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 import IntroWithVideo from "../IntroWithVideo";
 
 import { MdArrowOutward } from "react-icons/md";
-import { FaPlayCircle } from "react-icons/fa";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
@@ -120,7 +111,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
             <SwiperNav prev_class="vertical_slider_prev" next_class="vertical_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.vertical_slider_prev', nextEl: '.vertical_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3, spaceBetween: 30}}}>
               {
-                [...verticals, ...verticals, ...verticals, ...verticals].map((vertical, key) => (
+                verticals.map((vertical, key) => (
                   <SwiperSlide className="!h-auto flex bg-[#FFCC33]" key={key}>
                     <div className="flex-1 flex flex-col gap-4 items-center py-10 px-5 text-center h-full">
                       <h2 className="text-xl font-georgia">{vertical.vertical_caption}</h2>
@@ -142,7 +133,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
             />
             <div className="flex flex-wrap gap-5 sm:gap-10 justify-center items-center">
               {
-                [...impact, ...impact, ...impact, ...impact].map((impact_row, key) => (
+                impact.map((impact_row, key) => (
                   <ImpactCard key={key} impact={impact_row} />
                 ))
               }
@@ -162,7 +153,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
               <SwiperNav prev_class="case_studies_slider_prev" next_class="case_studies_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.case_studies_slider_prev', nextEl: '.case_studies_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 3.5, spaceBetween: 30}}}>
                 {
-                  [...case_studies, ...case_studies, ...case_studies, ...case_studies].map((case_study, key) => (
+                  case_studies.map((case_study, key) => (
                     <SwiperSlide className="group relative !h-auto" title={case_study.case_study_title} key={key} onClick={handleCaseStudyClick(key)}>
                     <div className="w-full h-full flex flex-1 border border-[#800000] bg-[#FFCC33]">
                       <div className="flex flex-col gap-5 px-5 py-5 mt-auto">
@@ -205,7 +196,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
               <SwiperNav prev_class="sdg_goals_slider_prev" next_class="sdg_goals_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.sdg_goals_slider_prev', nextEl: '.sdg_goals_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3, spaceBetween: 30}}}>
                 {
-                  [...sdg_goals, ...sdg_goals, ...sdg_goals, ...sdg_goals].map((sdg_goal, key) => (
+                  sdg_goals.map((sdg_goal, key) => (
                     <SwiperSlide className="group relative !h-auto overflow-hidden text-white" title={sdg_goal.sdg_goal_title} key={key} onClick={handleSDGGoalClick(key)}>
                     <div className="w-full h-full flex flex-1 border border-[#800000] min-h-90 bg-contain bg-center bg-no-repeat" style={{backgroundImage: `url(${sdg_goal.sdg_goal_image})`}}>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/15 to-transparent"></div>
@@ -248,7 +239,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
             <SwiperNav prev_class="gallery_slider_prev" next_class="gallery_slider_next" />
             <Swiper className="w-full" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.gallery_slider_prev', nextEl: '.gallery_slider_next'}} >
               {
-                [...gallery, ...gallery, ...gallery].map((gallery_row, key) => (
+                gallery.map((gallery_row, key) => (
                 <SwiperSlide key={key} title={gallery_row.gallery_caption}>
                   <FullSlide slider={{
                     slider_caption: gallery_row.gallery_caption,
@@ -313,7 +304,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
               <SwiperNav prev_class="testimonials_slider_prev" next_class="testimonials_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.testimonials_slider_prev', nextEl: '.testimonials_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3, spaceBetween: 30}}}>
                 {
-                  [...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, key) => (
+                  testimonials.map((testimonial, key) => (
                     <SwiperSlide className="!h-auto flex bg-white" key={key}>
                       <div className="flex-1 flex flex-col gap-4 items-center py-10 px-5 text-center h-full border border-[#800000]">
                         <p className="text-burgundy leading-loose italic">{testimonial.testimonial_description}</p>
