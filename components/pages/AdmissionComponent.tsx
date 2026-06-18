@@ -444,6 +444,9 @@ banner_image_mobile={banner.banner_image_mobile}
                   ))
                 }
               </Swiper>
+              <div className="w-full justify-center items-center text-center">
+                <Link href={`${basePath}financial-assistance`} className="w-fit px-3 py-2 text-white bg-[#800000]">View More</Link>
+              </div>
             </div>
             )
         }

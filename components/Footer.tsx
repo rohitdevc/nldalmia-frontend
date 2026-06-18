@@ -34,7 +34,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                         <Link href={`${basePath}iqac`}>NIRF</Link>
                     </li>
                     <li>
-                        <Link href="">Accreditations & Rankings</Link>
+                        <Link href={`${basePath}iqac`}>Accreditations & Rankings</Link>
                     </li>
                     <li>
                         <Link href="https://www.nldalmia.in/assets/pdfs/nl-dalmia-statutory-committee-2025-26.pdf" target="_blank">Statutory Committees</Link>
@@ -69,9 +69,6 @@ export default function Footer({program_categories, common_programs}: PageProps)
                 </ul>
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Institutional Information</li>
-                    <li>
-                        <Link href={`${basePath}financial-assistance`}>Financial Assistance  </Link>
-                    </li>
                     <li>
                         <Link href={`${basePath}careers`}>Careers@NLDIMSR  </Link>
                     </li>
