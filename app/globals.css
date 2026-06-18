@@ -61,7 +61,7 @@ body {
 }
 
 .infra_content > ul, .university_description > ul {
-  @apply list-disc list-inside flex flex-col gap-3
+  @apply list-disc list-outside pl-5 flex flex-col gap-3
 }
 
 .infra_content ul ul, .university_description ul ul {
