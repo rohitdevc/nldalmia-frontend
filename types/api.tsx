@@ -213,6 +213,7 @@ type EventFAQs = {
 
 export interface Event {
     event_name: string;
+    event_report: string;
     event_introduction_caption: string;
     event_introduction_description: string;
     event_introduction_video: string;

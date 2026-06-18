@@ -37,6 +37,8 @@ import FullSlide from "../FullSlide";
 import TestimonialSlider from "../TestimonialSlider";
 import SwiperNav from "../SwiperNav";
 
+import { MdArrowOutward } from "react-icons/md";
+
 type PageProps = {
   event: Event
 }
@@ -164,6 +166,11 @@ export default function EventDetails({ event }: PageProps) {
                 )
               }
             </div>
+            )
+          }
+          {
+            event.event_report && (
+              <Link href={event.event_report} target="_blank" className="text-white bg-[#800000] w-fit px-3 py-2 flex gap-3 justify-center items-center">View Event Report <MdArrowOutward size={20} /></Link>
             )
           }
       </div>

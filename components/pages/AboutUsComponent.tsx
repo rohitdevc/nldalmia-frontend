@@ -23,7 +23,6 @@ import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import { MdArrowOutward } from "react-icons/md";
 import { FaPlayCircle } from "react-icons/fa";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";
