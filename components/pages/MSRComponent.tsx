@@ -343,7 +343,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
                           </div>
                         )
                       }
-                      <div className={`flex flex-col gap-5 px-5 lg:px-10 py-10 w-full lg:w-1/2 ${(key % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
+                      <div className={`flex flex-col gap-5 px-5 lg:px-10 py-10 w-full ${contribution_row.contribution_image ? 'lg:w-1/2' : '' } ${(key % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
                         <h2 className="font-georgia text-xl">{contribution_row.contribution_caption}</h2>
                         <p className="text-base leading-loose">{parser(nl2br(contribution_row.contribution_description))}</p>
                         <Link className="mt-auto bg-[#FFCC33] text-burgundy text-base w-fit px-3 py-2" href="mailto:sparssh@nldalmia.in&subject=I Would Like to Be a Part of the Mission">Contribute</Link>

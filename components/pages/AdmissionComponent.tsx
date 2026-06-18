@@ -296,14 +296,14 @@ banner_image_mobile={banner.banner_image_mobile}
                     <div className="flex flex-col gap-10 lg:w-1/2">
                       {
                         admission_help_options.map((admission_help_option, key) => (
-                        <div className="flex flex-col gap-5" key={key}>
+                        <div className="flex flex-col gap-5 w-fit" key={key}>
                           <h2 className="font-georgia text-xl lg:text-2xl">{admission_help_option.help_option_caption}</h2>
                           {
                             admission_help_option.help_option_description && (
                             <p className="leading-snug text-sm md:text-lg">{parser(nl2br(admission_help_option.help_option_description))}</p>
                             )
                           }
-                          <ul className="flex gap-5">
+                          <ul className="flex justify-center gap-5">
                             {
                               admission_help_option.help_option_button_one_url && admission_help_option.help_option_button_one_caption && (
                               <li>
