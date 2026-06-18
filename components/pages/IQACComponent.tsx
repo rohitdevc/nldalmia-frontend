@@ -11,8 +11,6 @@ import { Navigation } from "swiper/modules";
 
 import Banner from "@/components/Banner";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -59,7 +57,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
-banner_image_mobile={banner.banner_image_mobile}
+      banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}

@@ -284,11 +284,6 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
-				source: '/industrial-visit',
-				destination: '/life-at-nld',
-				permanent: true
-			},
-			{
 				source: '/resources',
 				destination: '/life-at-nld',
 				permanent: true

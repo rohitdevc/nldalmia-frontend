@@ -917,3 +917,9 @@ export interface MSRContribution {
     contribution_image: string;
     contribution_image_alt: string;
 }
+
+export interface IndustrialVisits {
+    industrial_visit_title: string;
+    industrial_visit_date: Date;
+    industrial_visit_report_pdf: string;
+}
