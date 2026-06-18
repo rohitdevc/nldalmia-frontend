@@ -364,7 +364,7 @@ banner_image_mobile={banner.banner_image_mobile}
                             </div>
                           )
                         }
-                        <div className={`flex flex-col gap-5 px-5 py-10 w-full lg:w-1/2 ${(sub_key % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
+                        <div className={`flex flex-col gap-5 px-5 py-10 w-full ${inside_nld_row.inside_nld_image ? 'lg:w-1/2' : '' } ${(sub_key % 2) ? 'bg-[#FFCC33]': 'bg-[#800000] text-white'}`}>
                           <h2 className="font-georgia text-lg">{inside_nld_row.inside_nld_caption}</h2>
                           {
                             inside_nld_row.inside_nld_description && (
