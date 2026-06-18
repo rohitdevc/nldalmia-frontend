@@ -1,18 +1,18 @@
+import { getTicker, getCommonPrograms } from "@/lib/common";
 import { HeaderProvider } from "@/context/HeaderContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const program_categories = ["Programs", "Executive Education"];
 
-export default function MainLayoutContent({
-  children,
-  ticker,
-  commonPrograms,
-}: {
-  children: React.ReactNode;
-  ticker: any;
-  commonPrograms: any;
-}) {
+export default async function renderMainLayout(
+  children: React.ReactNode
+) {
+  const [ticker, commonPrograms] = await Promise.all([
+    getTicker(),
+    getCommonPrograms(),
+  ]);
+
   return (
     <>
       <HeaderProvider>
