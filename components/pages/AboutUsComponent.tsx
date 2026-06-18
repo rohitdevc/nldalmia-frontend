@@ -150,7 +150,14 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                 timeline.map((timeline_row, key) => (
                   <SwiperSlide className="px-2 py-2 md:px-10 md:py-10 lg:px-50 lg:py-20 text-center" key={key}>
                     <div className="flex flex-col gap-10">
-                      <h2 className="font-georgia text-2xl md:text-3xl lg:text-4xl">{timeline_row.timeline_year} - {timeline_row.timeline_caption}</h2>
+                      <h2 className="font-georgia text-2xl md:text-3xl lg:text-4xl">{timeline_row.timeline_year} - {timeline_row.timeline_caption.includes("N. L. Dalmia Educational Society") ? timeline_row.timeline_caption.split("N. L. Dalmia Educational Society").map((part, index, arr) => (
+                          <React.Fragment key={index}>
+                            {part}
+                            {index < arr.length - 1 && (
+                              <a href="https://nldalmia.edu.in/" target="_blank" rel="noopener noreferrer" className="underline">N. L. Dalmia Educational Society</a>)}
+                          </React.Fragment>
+                          )) : timeline_row.timeline_caption
+                        }</h2>
                       <p className="lg:text-lg leading-normal md:leading-loose">
                         {timeline_row.timeline_description.includes("N. L. Dalmia Educational Society") ? timeline_row.timeline_description.split("N. L. Dalmia Educational Society").map((part, index, arr) => (
                           <React.Fragment key={index}>
