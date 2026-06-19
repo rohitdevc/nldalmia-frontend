@@ -216,7 +216,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-15">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15">
         {
           announcements && announcements.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
@@ -267,7 +267,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       </div>
       <div className={`w-full lg:h-100 relative bg-cover bg-center bg-no-repeat text-white`} style={{backgroundImage: `url(${career_finder.career_finder_image})`}} title={career_finder.career_finder_image_alt}>
         <div className="absolute top-0 inset-0 bg-black/30 z-0"></div>
-        <form className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10 relative" onSubmit={handleCareerPathFormSubmit}>
+        <form className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10 relative" onSubmit={handleCareerPathFormSubmit}>
           <h2 className="text-xl md:text-2xl">{career_finder.career_finder_title}</h2>
           <div className="flex flex-col md:flex-row gap-3">
             <h3 className="text-2xl md:text-3xl font-georgia">{career_finder.career_finder_caption}</h3>
@@ -285,7 +285,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       </div>
       {
         programs && programs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
             <Intro
             introTitle={program_introduction.intro_title}
             introCaption={program_introduction.intro_caption}
@@ -369,7 +369,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       </div>
       {
           placement_partners && placement_partners.length > 0 && (
-            <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-10 lg:py-20 flex flex-col gap-5">
+            <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10 lg:py-20 flex flex-col gap-5">
               <CenterIntro
               introTitle={placement_partners_introduction.intro_title}
               introCaption={placement_partners_introduction.intro_caption}
@@ -392,7 +392,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       }
       {
         testimonials && testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={testimonials_introduction.intro_title}
           introCaption={testimonials_introduction.intro_caption}
@@ -403,7 +403,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       )}
       {
         event_categories && event_categories.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={events_introduction.intro_title}
           introCaption={events_introduction.intro_caption}
@@ -479,12 +479,12 @@ export default function HomeComponent({banner, announcements, introduction, care
         </div>
       )
       }
-      <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5">
+      <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5">
         <AchievementSlider achievements={achievements} />
       </div>
       {
         awards && awards.length > 0 && (
-          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-20 flex flex-col gap-5">
+          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-20 flex flex-col gap-5">
             <CenterIntro
             introTitle={awards_introduction.intro_title}
             introCaption={awards_introduction.intro_caption}
@@ -511,7 +511,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       )}
       {
         media && media.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={media_introduction.intro_title}
           introCaption={media_introduction.intro_caption}
@@ -568,7 +568,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       }
       {
         blogs && blogs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={blog_introduction.intro_title}
           introCaption={blog_introduction.intro_caption}
@@ -626,7 +626,7 @@ export default function HomeComponent({banner, announcements, introduction, care
         </div>
       )
       }
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
         <Intro
         introTitle={instagram_introduction.intro_title}
         introCaption={instagram_introduction.intro_caption}

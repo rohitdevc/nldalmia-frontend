@@ -74,7 +74,7 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full px-10 md:px-15 xl:px-30 py-10 relative">
+      <div className="w-full px-10 md:px-15 xl:px-20 2xl:px-30 py-10 relative">
         <SwiperNavAbsolute prev_class="institutional_publications_categories_slider_prev" next_class="institutional_publications_categories_slider_next" />
         <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={0} navigation={{prevEl: '.institutional_publications_categories_slider_prev', nextEl: '.institutional_publications_categories_slider_next'}} freeMode={true} breakpoints={{640: {slidesPerView: 4}, 768: {slidesPerView: 5}, 1024: {slidesPerView: 'auto', freeMode: false}}} className="lg:!justify-between lg:[&_.swiper-wrapper]:!justify-between">
           {
@@ -88,7 +88,7 @@ banner_image_mobile={banner.banner_image_mobile}
           ))}
         </Swiper>
       </div>
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 pb-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 pb-10">
         <p className="text-[#4E4E4E] leading-loose text-sm text-center">{institutional_publications_categories[activeInstitutionalPublicationCategoryKey]?.institutional_publication_description}</p>
         {
           institutional_publications && institutional_publications.length > 0 && (

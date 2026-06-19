@@ -27,7 +27,7 @@ export default function ResearchPublicationTabs({page_name}: ResearchPublication
     ]
 
     return (
-        <ul className="flex flex-wrap gap-5 lg:gap-10 justify-center items-center text-center px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <ul className="flex flex-wrap gap-5 lg:gap-10 justify-center items-center text-center px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
             {
                 tabs.map((tab, key) => (
                     <li key={key}>

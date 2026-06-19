@@ -63,7 +63,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full px-15 xl:px-30 py-10 relative">
+      <div className="w-full px-15 xl:px-20 2xl:px-30 py-10 relative">
         <SwiperNavAbsolute prev_class="iqac_categories_slider_prev" next_class="iqac_categories_slider_next" />
         <Swiper className="iqac_categories" modules={[Navigation]} slidesPerView="auto" spaceBetween={30} navigation={{prevEl: '.iqac_categories_slider_prev', nextEl: '.iqac_categories_slider_next'}}>
           {
@@ -85,7 +85,7 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
       </div>
       {
         iqac_pdfs && iqac_pdfs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 pb-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 pb-10">
           {
             iqac_pdfs.filter(iqac_pdf =>
               iqac_pdf.iqac_category_title === activeIQACCategoryName

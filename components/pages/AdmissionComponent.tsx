@@ -259,7 +259,7 @@ banner_image_mobile={banner.banner_image_mobile}
         banner_youtube_video_id={banner.banner_youtube_video_id}
         banner_button_caption={banner.button_caption}
         banner_url={banner.button_link} />
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -331,7 +331,7 @@ banner_image_mobile={banner.banner_image_mobile}
         }
         {
           admission_categories && admission_categories.length > 0 && (
-          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 md:py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 md:py-10">
             <Intro
             introTitle={admissions_process_introduction.intro_title}
             introCaption={admissions_process_introduction.intro_caption}
@@ -382,7 +382,7 @@ banner_image_mobile={banner.banner_image_mobile}
         }
         {
           admissions_scholarship_table && (
-          <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5 md:py-10">
+          <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 md:py-10">
               <Intro
               introTitle={admissions_scholarship_introduction.intro_title}
               introCaption={admissions_scholarship_introduction.intro_caption}
@@ -399,7 +399,7 @@ banner_image_mobile={banner.banner_image_mobile}
         }
         {
           admissions_tuition_table && (
-          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
               <Intro
               introTitle={admissions_tuition_introduction.intro_title}
               introCaption={admissions_tuition_introduction.intro_caption}
@@ -413,7 +413,7 @@ banner_image_mobile={banner.banner_image_mobile}
         }
         {
           financial_assistance_partners && financial_assistance_partners.length > 0 && (
-            <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
+            <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 flex flex-col gap-5">
               <CenterIntro
               introTitle={admissions_finance_introduction.intro_title}
               introCaption={admissions_finance_introduction.intro_caption}
@@ -451,7 +451,7 @@ banner_image_mobile={banner.banner_image_mobile}
         }
         {
           faq_categories && faq_categories.length > 0 && (
-          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 sm:py-10">
+          <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 sm:py-10">
             <Intro
             introTitle={admissions_faqs_introduction.intro_title}
             introCaption={admissions_faqs_introduction.intro_caption}

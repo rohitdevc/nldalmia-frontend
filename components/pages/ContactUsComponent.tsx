@@ -231,13 +231,13 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         introDescription={introduction.intro_description} />
       </div>
-      <div className="w-full flex flex-col lg:flex-row gap-10 lg:justify-between px-5 sm:px-10 md:px-15 xl:px-30 pb-10 text-burgundy">
+      <div className="w-full flex flex-col lg:flex-row gap-10 lg:justify-between px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 pb-10 text-burgundy">
         {/*
         <div className="npf_wgts w-full lg:w-[48%]" data-height="100%" data-w="fadeebfca2b2228b1b843986d291aa08"></div>
         

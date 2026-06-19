@@ -76,7 +76,7 @@ export default function InstitutionalPublicationsComponent({ banner, industrial_
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full px-15 xl:px-30 py-10 relative">
+      <div className="w-full px-15 xl:px-20 2xl:px-30 py-10 relative">
         <SwiperNavAbsolute prev_class="industrial_visit_years_slider_prev" next_class="industrial_visit_years_slider_next" />
         <Swiper className="w-full" modules={[Navigation]}  navigation={{prevEl: '.industrial_visit_years_slider_prev', nextEl: '.industrial_visit_years_slider_next'}} breakpoints={{0: {slidesPerView: 3}, 768: {slidesPerView: industrial_visit_years.length}}}>
           {
@@ -92,7 +92,7 @@ export default function InstitutionalPublicationsComponent({ banner, industrial_
       </div>
       {
         industrial_visits && industrial_visits.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 pb-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 pb-10">
           {
             industrial_visits.filter(industrial_visit =>
               industrial_visit.industrial_visit_date && new Date(industrial_visit.industrial_visit_date).getFullYear() === activeIndustrialVisitYearName

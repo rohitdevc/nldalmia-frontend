@@ -133,7 +133,7 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_url={banner.button_link} />
       {
         events && events.length > 0 && (
-        <div className="w-full px-5 lg:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="events">
+        <div className="w-full px-5 lg:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="events">
           <CenterIntro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -201,7 +201,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         achievements && achievements.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5">
           <CenterIntro
           introTitle={achievements_introduction.intro_title}
           introCaption={achievements_introduction.intro_caption}
@@ -213,7 +213,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         student_clubs && student_clubs.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="student-clubs">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="student-clubs">
           <CenterIntro
           introTitle={student_club_introduction.intro_title}
           introCaption={student_club_introduction.intro_caption}
@@ -260,7 +260,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         gallery && gallery.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col lg:flex-row gap-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col lg:flex-row gap-5">
           <div className="flex flex-col gap-5 lg:w-1/2">
           {
             gallery[0].gallery_image && (
@@ -320,7 +320,7 @@ banner_image_mobile={banner.banner_image_mobile}
         </div>
         )
       }
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10">
           <Intro
           introTitle={instagram_introduction.intro_title}
           introCaption={instagram_introduction.intro_caption}
@@ -330,7 +330,7 @@ banner_image_mobile={banner.banner_image_mobile}
       </div>
       {
         inside_nld && inside_nld.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="infrastructure">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="infrastructure">
           <CenterIntro
           introTitle={inside_nld_introduction.intro_title}
           introCaption={inside_nld_introduction.intro_caption}
@@ -388,7 +388,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         magazines && magazines.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="institutional-publications">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="institutional-publications">
           <CenterIntro
           introTitle={magazines_introduction.intro_title}
           introCaption={magazines_introduction.intro_caption}

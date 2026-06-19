@@ -143,7 +143,7 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_url={banner.button_link} />
       {
         introduction && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <div className="flex flex-col lg:flex-row gap-5 w-full lg:items-center justify-between">
             <div className="lg:w-1/2 flex flex-col gap-5">
               <h2 className="font-georgia text-xl lg:text-3xl">{introduction.intro_title}</h2>
@@ -164,7 +164,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         objectives && objectives.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <CenterIntro
           introTitle={objectives_introduction.intro_title}
           introCaption={objectives_introduction.intro_caption}
@@ -221,7 +221,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         management_categories && management_categories.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <CenterIntro
           introTitle={management_introduction.intro_title}
           introCaption={management_introduction.intro_caption}

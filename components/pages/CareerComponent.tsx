@@ -121,7 +121,7 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -160,8 +160,8 @@ banner_image_mobile={banner.banner_image_mobile}
       </div>
       {
         careers_milestones && careers_milestones.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-10">
-          <div className="flex flex-col lg:flex-row gap-5 justify-between items-center bg-[#FFCC33] px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
+          <div className="flex flex-col lg:flex-row gap-5 justify-between items-center bg-[#FFCC33] px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
             {
               careers_milestones.map((milestone, key) => (
                 <div className="flex items-center w-full" key={key}>
@@ -186,7 +186,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         careers_achievements && careers_achievements.length > 0 && (
-        <div className="w-full flex flex-col gap-5 md:gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
+        <div className="w-full flex flex-col gap-5 md:gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
           <Intro
           introTitle={careers_achievements_introduction.intro_title}
           introCaption={careers_achievements_introduction.intro_caption}
@@ -212,7 +212,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         careers_vacancies && careers_vacancies.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
           <Intro
           introTitle={careers_vacancies_introduction.intro_title}
           introCaption={careers_vacancies_introduction.intro_caption}
@@ -251,7 +251,7 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         applications && applications.length > 0 && (
-        <div className="w-full flex flex-col gap-5 md:gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
+        <div className="w-full flex flex-col gap-5 md:gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
           <Intro
           introTitle={careers_application_introduction.intro_title}
           introCaption={careers_application_introduction.intro_caption}

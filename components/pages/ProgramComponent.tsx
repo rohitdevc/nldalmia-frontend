@@ -353,7 +353,7 @@ export default function ProgramComponent({ program}: PageProps) {
       </div>
       {
         program.program_credit_content && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 flex flex-col gap-5 py-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 flex flex-col gap-5 py-5">
           <CenterIntro
           introTitle={program.program_credit_title}
           introCaption={program.program_credit_caption}
@@ -368,7 +368,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_international_partners && program.program_international_partners.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 flex flex-col gap-5">
           <CenterIntro
           introCaption={program.program_international_partner_caption}
           introDescription={program.program_international_partner_description}
@@ -405,7 +405,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
         program.program_outcomes && program.program_outcomes.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col gap-5 lg:py-10">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 flex flex-col gap-5 lg:py-10">
           <CenterIntro introCaption="Program Outcomes" />
             <SwiperNav prev_class="program_outcome_prev" next_class="program_outcome_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={20} autoHeight={false} loop={true} navigation={{prevEl: '.program_outcome_prev', nextEl: '.program_outcome_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}}}>
@@ -455,7 +455,7 @@ export default function ProgramComponent({ program}: PageProps) {
       }
       {
           program.program_admissions && program.program_admissions.length > 0 && (
-          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-15 flex flex-col gap-5">
+          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15 flex flex-col gap-5">
             <CenterIntro
             introTitle={program.program_application_title}
             introCaption={program.program_application_caption}

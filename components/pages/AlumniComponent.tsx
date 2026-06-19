@@ -160,7 +160,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+      <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
         <Intro
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
@@ -322,7 +322,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       </div>
       {
         alumni_connect && alumni_connect.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={alumni_connect_introduction.intro_title}
           introCaption={alumni_connect_introduction.intro_caption}
@@ -369,7 +369,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={alumni_hall_of_fame_introduction.intro_title}
           introCaption={alumni_hall_of_fame_introduction.intro_caption}
@@ -400,7 +400,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_testimonials && alumni_testimonials.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-5">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
           <Intro
           introTitle={alumni_testimonials_introduction.intro_title}
           introCaption={alumni_testimonials_introduction.intro_caption}
@@ -438,7 +438,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_events && alumni_events.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={alumni_events_introduction.intro_title}
           introCaption={alumni_events_introduction.intro_caption}
@@ -528,7 +528,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_connect && alumni_connect.length > 0 && (
         <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
-          <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-30">
+          <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <SwiperNav prev_class="alumni_connect_slider_prev" next_class="alumni_connect_slider_next" />
             <div className="py-5">
@@ -630,7 +630,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
         <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
-          <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-30">
+          <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <SwiperNav prev_class="alumni_hall_of_fame_prev" next_class="alumni_hall_of_fame_next" />
             <div className="py-5 lg:py-10">

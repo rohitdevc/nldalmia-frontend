@@ -154,7 +154,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       banner_url={banner.button_link} />
       {
         sliders && sliders.length > 0 && (
-        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <Intro
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
@@ -174,7 +174,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         corporate_engagements && corporate_engagements.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="corporate-engagement">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10" id="corporate-engagement">
           <CenterIntro introCaption="Corporate Engagement"></CenterIntro>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-10 mx-auto">
             {
@@ -202,7 +202,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_tabs && placement_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="highlights">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10" id="highlights">
           <ul className="flex flex-col sm:flex-row gap-7 py-5 text-burgundy justify-center items-center">
             {
               placement_tabs.map((placement_tab, key) => (
@@ -245,7 +245,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       )}
       {
         recruiters && recruiters.length > 0 && (
-          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
+          <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5" id="recruiters">
             <Intro
             introTitle={recruiters_introduction.intro_title}
             introCaption={recruiters_introduction.intro_caption}
@@ -268,7 +268,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_features_tabs && placement_features_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 sm:py-10" id="batch-profile">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 sm:py-10" id="batch-profile">
           <Intro
           introTitle={features_introduction.intro_title}
           introCaption={features_introduction.intro_caption}
@@ -320,7 +320,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         placement_reports_tabs && placement_reports_tabs.length > 0 && (
-        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-30 py-5 sm:py-10" id="reports">
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 sm:py-10" id="reports">
           <Intro
           introTitle={reports_introduction.intro_title}
           introCaption={reports_introduction.intro_caption}
@@ -359,13 +359,13 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       }
       {
         testimonials && testimonials.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-10">
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
           <TestimonialSlider testimonials={testimonials} />
         </div>
       )}
       {
         contacts && contacts.length > 0 && (
-        <div className="w-full bg-[#FFCC33] flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-30 py-10" id="connect">
+        <div className="w-full bg-[#FFCC33] flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10" id="connect">
           <div className="flex flex-col gap-5">
             <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{contacts_introduction.intro_caption}</p>
             <p className="leading-loose">{contacts_introduction.intro_description}</p>
