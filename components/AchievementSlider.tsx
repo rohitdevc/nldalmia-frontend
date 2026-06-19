@@ -9,7 +9,6 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import SwiperNav from "./SwiperNav";
 
 type AchievementProps = {
