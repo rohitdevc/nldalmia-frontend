@@ -303,6 +303,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <li>
                                     <Link href={`${basePath}life-at-nld#institutional-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Institutional Publications</Link>
                                 </li>
+                                <li>
+                                    <Link href={`${basePath}industrial-visit`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white">Industrial Visit</Link>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -514,6 +517,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                             </li>
                             <li>
                                 <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#institutional-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Institutional Publications</Link>
+                            </li>
+                            <li>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}industrial-visit`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Industrial Visit</Link>
                             </li>
                         </ul>
                     </div>
