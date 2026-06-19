@@ -22,7 +22,7 @@ export default function InstagramFeedComp({instagram_feed}: PageProps) {
         instagram_feed && instagram_feed.length > 0 && (
             <div className="w-full flex flex-col gap-5">
                 <SwiperNav prev_class="instagram_slider_prev" next_class="instagram_slider_next" />
-                <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.instagram_slider_prev', nextEl: '.instagram_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 50 }, 1280: { slidesPerView: 3.5, spaceBetween: 50 } }}>
+                <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} loop={true} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.instagram_slider_prev', nextEl: '.instagram_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 50 }, 1280: { slidesPerView: 3.5, spaceBetween: 50 }, 1536: { slidesPerView: 4, spaceBetween: 50 } }}>
                 {
                 instagram_feed.map((instagram, key) => (
                     <SwiperSlide key={key}>

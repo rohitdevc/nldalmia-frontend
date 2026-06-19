@@ -306,10 +306,10 @@ export default function HomeComponent({banner, announcements, introduction, care
               </ul>
               {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => activeProgramCategory === key && (
-                  <div className={`w-full grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 text-white transition-opacity`} key={key} ref={programsList}>
+                  <div className={`w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 lg:gap-10 2xl:gap-5 text-white transition-opacity`} key={key} ref={programsList}>
                     {
                       programs.map((program, key) => program.program_type === program_category && (
-                      <div className="group w-full h-75 sm:h-90 md:h-80 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
+                      <div className="group w-full h-75 sm:h-90 md:h-80 xl:h-100 2xl:h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
                         <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                         
                         <div className="relative h-full w-full flex flex-col">
@@ -574,12 +574,12 @@ export default function HomeComponent({banner, announcements, introduction, care
           introCaption={blog_introduction.intro_caption}
           introDescription={blog_introduction.intro_description} />
           <SwiperNav prev_class="blog_slider_prev" next_class="blog_slider_next" />
-          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 2.5, spaceBetween: 20 } }}>
+          <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 2.5, spaceBetween: 20 }, 1536: { slidesPerView: 3, spaceBetween: 20 } }}>
           {
             blogs.map((blog, key) => (
               <SwiperSlide key={key}>
                   <div className="group w-full h-75 lg:h-85 xl:!h-100 bg-cover bg-left bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${blog.blog_thumbnail})`}} onClick={handleBlogClick(key)} key={key} title={blog.blog_thumbnail_alt}>
-                    <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/15 to-transparent"></div>
                     
                     <div className="relative h-full w-full flex flex-col">
                       <div className="flex justify-end mt-4 mr-4">
