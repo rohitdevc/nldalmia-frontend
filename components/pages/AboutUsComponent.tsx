@@ -255,7 +255,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
               {
                 managing_council.map((managing_council_row, key) => (
                   <SwiperSlide className="!h-auto flex" key={key}>
-                    <div className="border-[0.5px] border-[#800000] flex flex-col flex-1 h-full">
+                    <div className="border-[0.5px] border-[#800000] flex flex-col flex-1 h-full bg-white">
                       <div className="flex flex-col gap-5 items-center text-center">
                         <div className="w-full">
                           {

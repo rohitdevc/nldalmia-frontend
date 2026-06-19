@@ -544,7 +544,7 @@ export default function ProgramComponent({ program}: PageProps) {
                         )
                       }
                     </div>
-                    <div className="w-full lg:w-[75%] flex-1 flex flex-col gap-5 mt-auto">
+                    <div className="w-full lg:w-[75%] flex-1 flex flex-col gap-5">
                       {
                         testimonial.program_testimonial_about && (
                           <p className="text-[#4E4E4E] leading-loose text-sm lg:text-base xl:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
