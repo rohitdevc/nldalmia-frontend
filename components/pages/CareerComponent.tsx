@@ -14,8 +14,6 @@ import Banner from "@/components/Banner";
 import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-
 import "swiper/css";
 import "swiper/css/navigation";
 

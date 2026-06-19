@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 

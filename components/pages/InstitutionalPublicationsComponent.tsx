@@ -10,8 +10,6 @@ import { Navigation } from "swiper/modules";
 
 import Banner from "@/components/Banner";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-
 import "swiper/css";
 import "swiper/css/navigation";
 

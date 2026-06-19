@@ -9,7 +9,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
 import { MdArrowOutward } from "react-icons/md";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";

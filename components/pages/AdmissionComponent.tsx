@@ -26,7 +26,6 @@ import "swiper/css/pagination";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { AdmissionProgramSlider } from "../AdmissionProgramSlider";
 import { AdmissionHelpOptions, AdmissionProcessInformation, AdmissionPrograms, Banner as BannerProps, FAQs, FinancialPartner, IntroProps } from "@/types/api";
 import { AdmissionDownloadBrochureFormErrors, AdmissionDownloadBrochure } from "@/types/forms";

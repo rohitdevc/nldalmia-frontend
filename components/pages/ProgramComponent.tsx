@@ -24,7 +24,6 @@ import scrollWithOffset from "../scrollWithOffset";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { FaPlayCircle, FaCheck } from "react-icons/fa";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { Program } from "@/types/api";

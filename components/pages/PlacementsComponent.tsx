@@ -6,8 +6,6 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import parser from 'html-react-parser';
 
-import { FiPlayCircle } from "react-icons/fi";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { IoIosArrowDown, IoMdMail } from "react-icons/io";
@@ -20,8 +18,6 @@ import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 import scrollWithOffset from "@/components/scrollWithOffset";
-
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/navigation";

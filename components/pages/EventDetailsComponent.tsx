@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import { useState, useEffect, useRef } from "react";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPlayCircle } from "react-icons/fa";
 

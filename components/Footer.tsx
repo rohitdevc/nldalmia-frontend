@@ -1,4 +1,3 @@
-import React from "react";
 import { ProgramsProps } from "@/types/api";
 import Image from "next/image";
 import Link from "next/link";

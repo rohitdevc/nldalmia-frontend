@@ -1,5 +1,4 @@
 import { Testimonials } from "@/types/api";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";

@@ -154,7 +154,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
-banner_image_mobile={banner.banner_image_mobile}
+      banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}
@@ -169,23 +169,15 @@ banner_image_mobile={banner.banner_image_mobile}
         {
           wall_of_fame && wall_of_fame.length > 0 && (
           <div className="w-full relative flex flex-col gap-5">
-            <div className="flex gap-3 sm:hidden">
+            <div className="flex gap-3">
               <SwiperNav prev_class="wall_of_fame_slider_prev" next_class="wall_of_fame_slider_next" />
             </div>
-            <div className="hidden sm:block">
-              <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 left-4 wall_of_fame_slider_prev z-2">
-                <BsArrowLeftShort size={20} />
-              </span>
-              <span className="w-5 h-5 border border-white text-white flex items-center cursor-pointer absolute top-1/2 right-4 wall_of_fame_slider_next z-2">
-                <BsArrowRightShort size={20} />
-              </span>
-            </div>
             <div className="w-full">
-              <Swiper modules={[Navigation, Autoplay]} autoHeight={isMobile} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoHeight={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.wall_of_fame_slider_prev', nextEl: '.wall_of_fame_slider_next'}}>
                 {
                 wall_of_fame.map((wall_of_fame_row, key) => (
-                  <SwiperSlide className="sm:!h-auto sm:flex" key={key}>
-                    <div className="flex flex-col lg:flex-row gap-2 md:gap-5 lg:gap-15 px-5 sm:px-15 py-5 bg-[#800000] justify-center items-center sm:flex-1 w-full sm:h-full text-white">
+                  <SwiperSlide key={key}>
+                    <div className="flex flex-col lg:flex-row gap-2 md:gap-5 lg:gap-15 px-5 sm:px-15 py-5 bg-[#800000] justify-center items-center w-full text-white">
                       <div className="w-75 h-75">
                         {
                           wall_of_fame_row.wall_of_fame_thumbnail && (
@@ -285,13 +277,13 @@ banner_image_mobile={banner.banner_image_mobile}
             {
               alumni_quotes && alumni_quotes.length > 0 && (
               <div className="w-full lg:w-[48%] relative">
-                <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 left-4 testimonial_slider_prev z-2">
+                <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 left-4 quote_slider_prev z-2">
                   <BsArrowLeftShort size={20} />
                 </span>
-                <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 right-4 testimonial_slider_next z-2">
+                <span className="w-5 h-5 border border-[#800000] text-burgundy flex items-center cursor-pointer absolute top-1/2 right-4 quote_slider_next z-2">
                   <BsArrowRightShort size={20} />
                 </span>
-                <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
+                <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.quote_slider_prev', nextEl: '.quote_slider_next'}}>
                   {
                   alumni_quotes.map((alumni_quote, key) => (
                     <SwiperSlide key={key}>
@@ -417,11 +409,11 @@ banner_image_mobile={banner.banner_image_mobile}
           <div className="w-full flex flex-col gap-5">
             <SwiperNav prev_class="alumni_testimonial_slider_prev" next_class="alumni_testimonial_slider_next" />
             <div className="w-full">
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} autoHeight={false} navigation={{prevEl: '.alumni_testimonial_slider_prev', nextEl: '.alumni_testimonial_slider_next'}}>
+              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} slidesPerView={1} spaceBetween={0} loop={true} autoHeight={true} navigation={{prevEl: '.alumni_testimonial_slider_prev', nextEl: '.alumni_testimonial_slider_next'}}>
                 {
                 alumni_testimonials.map((alumni_testimonial, key) => (
-                  <SwiperSlide className="!h-auto flex" key={key}>
-                    <div className="flex flex-col lg:flex-row gap-10 px-5 py-5 bg-white border flex-1 h-full items-center justify-center">
+                  <SwiperSlide key={key}>
+                    <div className="flex flex-col lg:flex-row gap-10 px-5 py-5 bg-white border items-center justify-center">
                       <div className="sm:w-75 sm:h-50 md:w-60 md:h-60">
                         {
                           alumni_testimonial.testimonial_thumbnail && (
