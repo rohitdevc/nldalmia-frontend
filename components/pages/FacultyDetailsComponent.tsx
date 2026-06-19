@@ -62,7 +62,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
         lists.forEach((ul) => {
           ul.classList.add(
             "list-disc",
-            "list-inside"
+            "list-outside"
           );
         });
       })

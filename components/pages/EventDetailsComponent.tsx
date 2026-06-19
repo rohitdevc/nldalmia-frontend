@@ -241,7 +241,7 @@ export default function EventDetails({ event }: PageProps) {
                                   schedule_itinerary_timeline_row.schedule_itinerary && schedule_itinerary_timeline_row.schedule_itinerary.length > 0 && schedule_itinerary_timeline_row.schedule_itinerary.map((schedule_itinerary_row, schedule_itinerary_row_key) => (
                                     <div className="flex flex-col gap-3" key={schedule_itinerary_row_key}>
                                       <span className="font-georgia text-xl">{parser(nl2br(schedule_itinerary_row.schedule_itinerary_caption))}</span>
-                                      <ul className="list-disc list-inside text-sm">
+                                      <ul className="list-disc list-outside text-sm">
                                         {schedule_itinerary_row.schedule_itinerary_description?.split('\n').filter(line => line.trim() !== '').map((line, index) => (
                                           <li key={index}>{line}</li>
                                         )

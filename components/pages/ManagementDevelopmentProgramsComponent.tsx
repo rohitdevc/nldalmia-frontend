@@ -69,7 +69,7 @@ export default function ManagementDevelopmentProgramsComponent({ banner, introdu
             "text-sm",
             "list-disc",
             "text-[#4E4E4E]",
-            "list-inside"
+            "list-outside"
           );
         });
       })

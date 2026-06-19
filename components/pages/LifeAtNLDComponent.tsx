@@ -89,7 +89,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
             "lg:flex-row",
             "gap-5",
             "list-disc",
-            "list-inside"
+            "list-outside"
           );
         });
       })
