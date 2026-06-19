@@ -430,7 +430,7 @@ export default function ProgramComponent({ program}: PageProps) {
       {
         program.program_advantages && program.program_advantages.length > 0 && (
         <div className="w-full relative bg-cover bg-center bg-no-repeat text-white px-5 sm:px-10 md:px-15 lg:px-30" style={{backgroundImage: `url(${program.program_advantage_image})`}}>
-          <div className="absolute inset-0 top-0 left-0 bg-black/50"></div>
+          <div className="absolute inset-0 top-0 left-0 bg-gradient-to-t from-black/100 via-black/50 to-transparent"></div>
           <div className="flex flex-col gap-15 lg:gap-25 py-20 relative w-full h-full">
             <h3 className="text-2xl lg:text-4xl font-georgia">Program Advantages & Benefits</h3>
             <div className="flex flex-col gap-5 mt-auto lg:items-end">
@@ -487,7 +487,7 @@ export default function ProgramComponent({ program}: PageProps) {
                                 </div>
                                 <IoIosArrowDown size={20} className={`transition-all duration-300 ${openAdmissionProcess === sub_key ? "rotate-180" : ''}`} />
                               </div>
-                              <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === sub_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                              <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === sub_key ? "max-h-[fit-content] scale-y-100" : "max-h-0 scale-y-0"}`}>
                                 <div className="text-[#4E4E4E] university_description">
                                   {parser(nl2br(program_admission_tab.program_admission_tab_content_description))}
                                 </div>
@@ -675,7 +675,7 @@ export default function ProgramComponent({ program}: PageProps) {
               <p>I agree to receive information by signing up on N. L. Dalmia Institute of Management Studies and Research *</p>
             </label>
             <div className="text-red h-2 -mt-4 mb-2">
-              <span className={`text-xs transition-all duration-200 ${errors.downloader_terms_agree ? "opacity-100" : "opacity-0"}`}>{errors.downloader_terms_agree}</span>
+              <span className={`text-xs transition-opacity duration-200 ${errors.downloader_terms_agree ? "opacity-100" : "opacity-0"}`}>{errors.downloader_terms_agree}</span>
             </div>
             
             <button type="submit" className="cursor-pointer text-white bg-[#800000] w-fit px-5 py-1">Submit</button>

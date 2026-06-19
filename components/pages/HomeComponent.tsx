@@ -241,7 +241,7 @@ export default function HomeComponent({banner, announcements, introduction, care
         introTitle={introduction.intro_title}
         introCaption={introduction.intro_caption}
         />
-        <div className="flex flex-col lg:flex-row gap-10 md:mt-10 lg:mt-20">
+        <div className="flex flex-col lg:flex-row gap-10 md:mt-10">
           <div className="w-full lg:w-[40%] overflow-hidden">
             {
               introduction.intro_image &&  (
@@ -321,7 +321,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                           </div>
                         </div>
 
-                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeProgram === key ? "scale-y-100" : "scale-y-0"}`}>
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeProgram === key ? "opacity-100" : "opacity-0"}`}>
                           <div className="flex justify-end mt-2 mr-2">
                             <span className="bg-white text-burgundy text-xs px-3 py-2">{program.program_type}</span>
                           </div>
@@ -444,7 +444,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                                         </div>
                                       </div>
 
-                                      <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === event_key ? "scale-y-100" : "scale-y-0"}`}>
+                                      <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeEvent === event_key ? "opacity-100" : "opacity-0"}`}>
                                         <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
                                           <span className="bg-white text-burgundy text-[10px] lg:text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(event.event_start_date)).format('MMMM YYYY')}</span>
                                         </div>
@@ -533,7 +533,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                       </div>
                     </div>
 
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeMedia === key ? "scale-y-100" : "scale-y-0"}`}>
+                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeMedia === key ? "opacity-100" : "opacity-0"}`}>
                       <div className="flex justify-end mt-4 mr-4">
                         <span className="bg-white text-burgundy text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(media_row.media_published_date)).format('Do MMM, YYYY')}</span>
                       </div>
@@ -590,7 +590,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                       </div>
                     </div>
 
-                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeBlog === key ? "scale-y-100" : "scale-y-0"}`}>
+                    <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeBlog === key ? "opacity-100" : "opacity-0"}`}>
                       <div className="flex justify-end mt-4 mr-4">
                         <span className="bg-white text-burgundy text-xs px-1 py-1 lg:px-3 lg:py-2">{dayjs.utc(new Date(blog.blog_published_date)).format('Do MMM, YYYY')}</span>
                       </div>

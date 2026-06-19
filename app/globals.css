@@ -160,3 +160,7 @@ form .error span {
 .swiper-button-disabled {
   @apply !opacity-30
 }
+
+select {
+  @apply px-1
+}

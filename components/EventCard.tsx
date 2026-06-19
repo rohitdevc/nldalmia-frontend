@@ -42,7 +42,7 @@ export default function EventCard({event, activeEvent, keyIndex, handleEventClic
             </div>
         </div>
 
-        <div className={`absolute top-0 left-0 inset-0 flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === keyIndex ? "scale-y-100" : "scale-y-0"}`}>
+        <div className={`absolute top-0 left-0 inset-0 flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeEvent === keyIndex ? "opacity-100" : "opacity-0"}`}>
             <h2 className="text-xl">{event.event_name}</h2>
             {
             event.event_start_date && (

@@ -76,20 +76,6 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
 
   const PlacementTabs = useRef<HTMLDivElement>(null);
 
-  const updateActivePlacementTabFunc = (placement_tab_id: number): void => {
-    updateActivePlacementTab(placement_tab_id);
-
-    if(PlacementTabs.current) {
-      const offset = 200;
-      const elementTop = PlacementTabs.current.getBoundingClientRect().top + window.pageYOffset;
-
-      window.scrollTo({
-        top: elementTop - offset,
-        behavior: 'smooth'
-      })
-    }
-  }
-
   const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
   const placement_features_tabs: string[] = [];
@@ -206,7 +192,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           <ul className="flex flex-col sm:flex-row gap-7 py-5 text-burgundy justify-center items-center">
             {
               placement_tabs.map((placement_tab, key) => (
-                <li className={`group relative cursor-pointer transition-all duration-300 ${key === activePlacementTab ? 'text-burgundy text-2xl font-normal': 'text-[#4E4E4E] text-lg'}`} key={key} onClick={() => updateActivePlacementTabFunc(key)}>
+                <li className={`group relative cursor-pointer transition-all duration-300 ${key === activePlacementTab ? 'text-burgundy text-2xl font-semibold': 'text-[#4E4E4E] text-lg'}`} key={key} onClick={() => updateActivePlacementTab(key)}>
                   <span>{placement_tab}</span>
                   <span className={`absolute left-0 -bottom-1 bg-[#800000] h-[0.5px] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center ${key === activePlacementTab ? 'scale-x-100': ''} `}></span>
                 </li>

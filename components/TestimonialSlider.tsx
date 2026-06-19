@@ -60,7 +60,7 @@ export default function TestimonialSlider({testimonials}: Props) {
                             }
                         </span>
                       </div>
-                      <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeTestimonial === key ? "scale-y-100" : "scale-y-0"}`}>
+                      <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeTestimonial === key ? "opacity-100" : "opacity-0"}`}>
                         {
                           testimonial.testimonial_youtube_id ? (
                             <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_id)}>

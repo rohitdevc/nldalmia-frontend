@@ -199,7 +199,7 @@ banner_image_mobile={banner.banner_image_mobile}
                 <div className="bg-no-repeat bg-cover bg-center flex justify-center px-5 pb-5 h-100 lg:h-80 relative group text-white" style={{backgroundImage: `url(${institute.institute_thumbnail})`}} title={institute.institute_thumbnail_alt} onClick={handleBlockClick(key)} key={key}>
                   <div className="absolute inset-0 bg-black/30 left-0 top-0 z-0"></div>
                   <h2 className="mt-auto font-georgia text-2xl relative">{institute.institute_caption}</h2>
-                  <div className={`absolute inset-0 top-0 left-0 flex flex-col gap-5 bg-[#800000] transition-all duration-300 scale-y-0 group-hover:scale-y-100 px-5 py-5 ${activeBlock === key ? 'scale-y-100': ''}`}>
+                  <div className={`absolute inset-0 top-0 left-0 flex flex-col gap-5 bg-[#800000] transition-all duration-300 opacity-0 group-hover:opacity-100 px-5 py-5 ${activeBlock === key ? 'opacity-100': ''}`}>
                     <h2 className="font-georgia text-2xl">{institute.institute_caption}</h2>
                     {
                       institute.institute_description && (
@@ -326,7 +326,7 @@ banner_image_mobile={banner.banner_image_mobile}
                 <div className="bg-no-repeat bg-cover bg-center flex justify-center px-5 pb-5 h-100 lg:h-80 relative group text-white" style={{backgroundImage: `url(${career.career_thumbnail})`}} title={career.career_thumbnail_alt} onClick={handleBlockClick(key)} key={key}>
                   <div className="absolute inset-0 bg-black/30 left-0 top-0 z-0"></div>
                   <h2 className="mt-auto font-georgia text-2xl relative">{career.career_caption}</h2>
-                  <div className={`absolute inset-0 top-0 left-0 flex flex-col gap-5 bg-[#800000] transition-all duration-300 scale-y-0 group-hover:scale-y-100 px-5 py-5 ${activeBlock === key ? 'scale-y-100': ''}`}>
+                  <div className={`absolute inset-0 top-0 left-0 flex flex-col gap-5 bg-[#800000] transition-all duration-300 opacity-0 group-hover:opacity-100 px-5 py-5 ${activeBlock === key ? 'opacity-100': ''}`}>
                     <h2 className="font-georgia text-2xl">{career.career_caption}</h2>
                     {
                       career.career_description && (

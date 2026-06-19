@@ -105,7 +105,7 @@ banner_image_mobile={banner.banner_image_mobile}
                     )
                   }
                   </div>
-                  <div className={`absolute inset-0 bg-[#800000] left-0 top-0 transition-all duration-300 scale-y-0 group-hover:scale-y-100 ${key === activeMagazine ? 'scale-y-100': ''} flex flex-col gap-3 justify-center items-center text-center`}>
+                  <div className={`absolute inset-0 bg-[#800000] left-0 top-0 transition-all duration-300 opacity-0 group-hover:opacity-100 ${key === activeMagazine ? 'opacity-100': ''} flex flex-col gap-3 justify-center items-center text-center`}>
                       <h2 className="font-georgia text-lg lg:text-xl">{institutional_publication.institutional_publication_title}</h2>
                       
                     {

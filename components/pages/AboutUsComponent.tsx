@@ -296,7 +296,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
               {
                 governing_council.map((governing_council_row, key) => (
                   <SwiperSlide className="!h-auto flex" key={key}>
-                    <div className="border border-[#800000] flex flex-col w-full h-full">
+                    <div className="border border-[#800000] flex flex-col w-full h-full bg-white">
                       <div className="flex flex-col gap-5 items-center text-center flex-1">
                         <div className="w-full hidden">
                           {
@@ -381,7 +381,7 @@ export default function AboutUsComponent({banner, introduction, objectives, time
                               </div>
                               <IoIosArrowDown size={20} className={`transition-all duration-300 ${openUniversity === university_key ? "rotate-180" : ''}`} />
                             </div>
-                            <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openUniversity === university_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                            <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openUniversity === university_key ? "max-h-[fit-content] scale-y-100" : "max-h-0 scale-y-0"}`}>
                               <p className="leading-loose">{parser(nl2br(international_university.international_university_caption))}</p>
                               <div className="text-[#4E4E4E] university_description">
                                 {parser(international_university.international_university_description)}

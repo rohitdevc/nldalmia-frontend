@@ -160,7 +160,7 @@ banner_image_mobile={banner.banner_image_mobile}
                           </div>
                         </div>
 
-                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeEvent === key ? "scale-y-100" : "scale-y-0"}`}>
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeEvent === key ? "opacity-100" : "opacity-0"}`}>
                           <div className="flex justify-end mt-2 mr-2 lg:mt-4 lg:mr-4">
                             {
                               event.event_start_date && (

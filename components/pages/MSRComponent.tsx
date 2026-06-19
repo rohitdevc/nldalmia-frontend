@@ -170,7 +170,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
                       </div>
                       {
                         case_study.case_study_youtube_id && (
-                          <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeCaseStudy === key ? "scale-y-100" : "scale-y-0"}`}>
+                          <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeCaseStudy === key ? "opacity-100" : "opacity-0"}`}>
                             <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(case_study.case_study_youtube_id)}>
                               <FiPlayCircle size={20} />
                               <span className="text-sm">Play Video</span>
@@ -209,7 +209,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
                           </div>
                         </div>
 
-                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeSDGGoal === key ? "scale-y-100" : "scale-y-0"}`}>
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeSDGGoal === key ? "opacity-100" : "opacity-0"}`}>
                           <div className="px-5 lg:px-10 py-5 lg:py-10 flex flex-col gap-2 h-full">
                             <h2 className="text-sm lg:text-2xl font-georgia">{sdg_goal.sdg_goal_title}</h2>
                             <div className="text-base mt-auto flex flex-col gap-3">

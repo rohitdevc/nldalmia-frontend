@@ -135,7 +135,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
                     </div>
                     <IoIosArrowDown size={20} className={`transition-all duration-300 ${openAccordian === key ? "rotate-180" : ''}`} />
                   </div>
-                  <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAccordian === key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                  <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAccordian === key ? "max-h-[fit-content] scale-y-100" : "max-h-0 scale-y-0"}`}>
                     <div className="text-[#4E4E4E] faculty_description">
                       {
                         faculty_accordian.faculty_accordian_description && (

@@ -363,7 +363,7 @@ banner_image_mobile={banner.banner_image_mobile}
                                   </div>
                                   <IoIosArrowDown size={20} className={`transition-all duration-300 ${openAdmissionProcess === admission_process_key ? "rotate-180" : ''}`} />
                                 </div>
-                                <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === admission_process_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                                <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openAdmissionProcess === admission_process_key ? "max-h-[fit-content] scale-y-100" : "max-h-0 scale-y-0"}`}>
                                   <div className="text-[#4E4E4E] university_description">
                                     {parser(admission_process.information_description)}
                                   </div>
@@ -483,7 +483,7 @@ banner_image_mobile={banner.banner_image_mobile}
                                   </div>
                                   <IoIosArrowDown size={20} className={`transition-all duration-300 ${openFAQ === faq_key ? "rotate-180" : ''}`} />
                                 </div>
-                                <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFAQ === faq_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
+                                <div className={`overflow-hidden transition-all duration-300 flex flex-col gap-5 ${openFAQ === faq_key ? "max-h-[fit-content] scale-y-100" : "max-h-0 scale-y-0"}`}>
                                   <div className="text-[#4E4E4E] university_description">
                                     <p className="text-sm">{faqs.faq_answer}</p>
                                   </div>

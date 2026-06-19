@@ -462,7 +462,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                           <h2 className="font-georgia text-lg mt-auto relative">{alumni_event.event_title}</h2>
                         </div>
 
-                        <div className={`absolute top-0 left-0 inset-0 flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-[#800000] transform origin-center transition-transform duration-300 scale-y-0 group-hover:scale-y-100 ${activeAlumniEvent === key ? "scale-y-100" : "scale-y-0"}`}>
+                        <div className={`absolute top-0 left-0 inset-0 flex flex-col gap-5 py-10 px-5 justify-center items-center text-center transition-all duration-300 bg-[#800000] transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeAlumniEvent === key ? "opacity-100" : "opacity-0"}`}>
                           <h2 className="text-xl">{alumni_event.event_title}</h2>
                           {
                             alumni_event.event_start_date && (
@@ -527,7 +527,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_connect && alumni_connect.length > 0 && (
-        <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
+        <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showConnectAlumniPopUp ? 'translate-y-0 scale-y-100': 'translate-y-full scale-y-0'}`}>
           <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <SwiperNav prev_class="alumni_connect_slider_prev" next_class="alumni_connect_slider_next" />
@@ -629,7 +629,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       }
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
-        <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 opacity-100': 'translate-y-full opacity-0'}`}>
+        <div className={`fixed top-0 w-full h-screen bg-white z-10 overflow-scroll transform transition-all duration-300 ease-in-out ${showWallOfFamePopUp ? 'translate-y-0 scale-y-100': 'translate-y-full scale-y-0'}`}>
           <div className="relative py-15 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30">
             <IoMdClose size={40} className="absolute top-0 right-0 lg:top-5 lg:right-5 cursor-pointer" onClick={() => updateConnectAlumniPopUp(false)}/>
             <SwiperNav prev_class="alumni_hall_of_fame_prev" next_class="alumni_hall_of_fame_next" />
