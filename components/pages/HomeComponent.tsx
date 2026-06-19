@@ -307,10 +307,10 @@ export default function HomeComponent({banner, announcements, introduction, care
               </ul>
               {
                   program_categories && program_categories.length > 0 && program_categories.map((program_category, key) => activeProgramCategory === key && (
-                  <div className={`w-full grid grid-cols-1 sm:grid-cols-2 gap-5 text-white transition-opacity`} key={key} ref={programsList}>
+                  <div className={`w-full grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 text-white transition-opacity`} key={key} ref={programsList}>
                     {
                       programs.map((program, key) => program.program_type === program_category && (
-                      <div className="group w-full h-75 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
+                      <div className="group w-full h-75 sm:h-90 md:h-80 xl:h-100 bg-cover bg-center bg-no-repeat relative overflow-hidden" style={{backgroundImage: `url(${program.program_thumbnail})`}} title={program.program_thumbnail_alt} onClick={handleProgramClick(key)} key={key}>
                         <div className="absolute top-0 left-0 inset-0 bg-black/30"></div>
                         
                         <div className="relative h-full w-full flex flex-col">
