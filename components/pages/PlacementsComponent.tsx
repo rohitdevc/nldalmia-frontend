@@ -211,7 +211,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
                       <SwiperSlide key={sub_key}>
                         <div className="flex gap-5 justify-center items-center py-7 px-5 relative">
                           <div className="flex flex-col gap-5 items-center text-center">
-                            <h2 className="text-3xl">{placement_content.tab_content_caption}</h2>
+                            <h2 className="text-3xl font-semibold">{placement_content.tab_content_caption}</h2>
                             <p className="text-[#4E4E4E] text-sm min-h-10">{placement_content.tab_content_description}</p>
                           </div>
                           {sub_key !== arr.length - 1 && (

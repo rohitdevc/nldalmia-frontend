@@ -124,7 +124,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
       </div>
       {
         faculty.faculty_accordians && faculty.faculty_accordians.length > 0 && (
-          <div className="flex flex-col gap-4 px-5 sm:px-10 lg:px-20 py-5 lg:py-15 z-1">
+          <div className="flex flex-col gap-4 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 2 py-5 lg:py-15 z-1">
             {
               faculty.faculty_accordians.map((faculty_accordian, key) => (
               <div className={`w-full py-5 ${(key + 1 != faculty.faculty_accordians.length) ? 'border-b' : '' } border-[#800000]`} key={key}>
