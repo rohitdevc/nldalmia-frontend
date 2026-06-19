@@ -34,7 +34,7 @@ export default function CaseStudiesComponent({ banner, case_studies}: PageProps)
   const case_study_years: number[] = [];
 
   case_studies.forEach((case_study) => {
-    if(!case_study_years.includes(new Date(case_study.case_study_date).getFullYear())) {
+    if(case_study.case_study_date && !case_study_years.includes(new Date(case_study.case_study_date).getFullYear())) {
       case_study_years.push(new Date(case_study.case_study_date).getFullYear());
     }
   })

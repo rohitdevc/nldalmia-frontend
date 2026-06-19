@@ -34,7 +34,7 @@ export default function JournalPublicationsComponent({ banner, journal_publicati
   const journal_published_years: number[] = [];
 
   journal_publications.forEach((journal_publication) => {
-    if(!journal_published_years.includes(new Date(journal_publication.journal_publication_date).getFullYear())) {
+    if(journal_publication.journal_publication_date && !journal_published_years.includes(new Date(journal_publication.journal_publication_date).getFullYear())) {
       journal_published_years.push(new Date(journal_publication.journal_publication_date).getFullYear());
     }
   })

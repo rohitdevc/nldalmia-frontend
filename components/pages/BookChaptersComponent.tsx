@@ -31,7 +31,7 @@ export default function BookChaptersComponent({ banner, book_publications}: Page
   const book_published_years: number[] = [];
 
   book_publications.forEach((book_publication) => {
-    if(!book_published_years.includes(new Date(book_publication.book_chapter_date).getFullYear())) {
+    if(book_publication.book_chapter_date && !book_published_years.includes(new Date(book_publication.book_chapter_date).getFullYear())) {
       book_published_years.push(new Date(book_publication.book_chapter_date).getFullYear());
     }
   })
