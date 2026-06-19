@@ -21,7 +21,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                 </div>
                 <Image src={`${basePath}white-logo.svg`} alt="NL Dalmia Logo" width={200} height={60} className="w-70 md:w-100 md:h-20" />
             </div>
-            <div className="w-full bg-[#FFCC33] text-sm grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 bg-[#FFCC33] px-5 md:px-20 py-5 md:py-20">
+            <div className="w-full bg-[#FFCC33] text-sm grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 bg-[#FFCC33] px-5 sm:px-10 md:px-15 xl:px-30 py-5 md:py-20">
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Accreditation & Compliance </li>
                     <li>
@@ -83,7 +83,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                     </li>
                 </ul>
             </div>
-            <div className="w-full px-5 md:px-20 py-5 flex flex-col justify-center md:justify-start md:flex-row gap-5 md:gap-20 items-center">
+            <div className="w-full px-5 sm:px-10 md:px-15 xl:px-30 py-5 flex flex-col justify-center md:justify-start md:flex-row gap-5 md:gap-20 items-center">
                 <div className="flex flex-col justify-center md:justify-start gap-5 w-full md:w-[70%]">
                     <p className="text-xs flex gap-1 items-center"><FaRegCopyright /> N. L. Dalmia. Institute of Management Studies and Reseach All Rights Reserved</p>
                     <p className="text-[0.60rem]">Disclaimer: The information in this website is intended for informational and educational purposes only, to provide readers with better understanding. All designated trademarks and brands are the property of their respective owners.</p>

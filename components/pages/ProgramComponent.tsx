@@ -328,7 +328,7 @@ export default function ProgramComponent({ program}: PageProps) {
           <div className="flex flex-col lg:flex-row gap-10 md:mt-10 lg:items-center">
             <div className="w-full lg:w-[60%] flex flex-col gap-5 sm:order-1 lg:order-2">
               <h2 className="font-georgia text-2xl lg:text-4xl">Program Highlights</h2>
-              <ul className="flex flex-col gap-5 text-[#4E4E4E] list-disc list-inside">
+              <ul className="flex flex-col gap-5 text-[#4E4E4E] list-disc list-outside">
                 {
                   program.program_highlights.map((program_highlight, key) => (
                   <li key={key}>{program_highlight}</li>
