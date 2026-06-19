@@ -535,7 +535,7 @@ export default function ProgramComponent({ program}: PageProps) {
           <Swiper modules={[Navigation]} loop={true} autoHeight={true} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
             {
               program.program_testimonials.map((testimonial, key) => (
-                <SwiperSlide key={key} className="w-full bg-[#FFCC33] py-5 lg:py-10 px-5 lg:px-10">
+                <SwiperSlide key={key} className="w-full bg-[#FFCC33] p-5">
                   <div className="flex flex-col lg:flex-row gap-5 lg:gap-10">
                     <div className="w-full lg:w-[25%] h-75 flex justify-center">
                       {
@@ -544,13 +544,13 @@ export default function ProgramComponent({ program}: PageProps) {
                         )
                       }
                     </div>
-                    <div className="w-full lg:w-[75%] flex-1 flex flex-col gap-5 lg:gap-10">
+                    <div className="w-full lg:w-[75%] flex-1 flex flex-col gap-5 mt-auto">
                       {
                         testimonial.program_testimonial_about && (
                           <p className="text-[#4E4E4E] leading-loose text-sm lg:text-base xl:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
                         )
                       }
-                      <div className="flex flex-col gap-2 font-normal text-center md:text-left mt-auto">
+                      <div className="flex flex-col gap-2 font-normal text-center md:text-left">
                         {
                           testimonial.program_testimonial_content && (
                             <h3 className="text-lg lg:text-2xl">{parser(nl2br(testimonial.program_testimonial_content))}</h3>
