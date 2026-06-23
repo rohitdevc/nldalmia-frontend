@@ -221,7 +221,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           announcements && announcements.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
             <span className="px-5 py-2 bg-[#800000] text-white font-georgia w-42">Announcements</span>
-            <div className="group bg-[#FFCC33] text-burgundy w-full overflow-hidden">
+            <div className="group bg-white border text-burgundy w-full overflow-hidden">
               <div className="flex w-max animate-[ticker_30s_linear_infinite] group-hover:[animation-play-state:paused]">
                 {
                   [...announcements, ...announcements].map((announcement, key) => (

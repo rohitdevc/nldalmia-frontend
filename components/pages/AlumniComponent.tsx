@@ -187,9 +187,9 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                       </div>
                       <div className="flex flex-col gap-3 lg:gap-5 py-5 w-full">
                         <h2 className="font-georgia text-xl">{wall_of_fame_row.wall_of_fame_name}</h2>
-                        <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5 lg:gap-7 xl:gap-20">
+                        <ul className="flex flex-col lg:flex-row lg:flex-wrap gap-5">
                           { wall_of_fame_row.wall_of_fame_company_name && (
-                            <li>Company – {wall_of_fame_row.wall_of_fame_company_name}</li>
+                            <li>Organization – {wall_of_fame_row.wall_of_fame_company_name}</li>
                           )}
                           { wall_of_fame_row.wall_of_fame_designation && (
                           <li>Designation – {wall_of_fame_row.wall_of_fame_designation}</li>
