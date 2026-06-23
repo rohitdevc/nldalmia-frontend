@@ -1,13 +1,9 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-
-import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
 import parser from 'html-react-parser';
 import nl2br from "nl2br";
-import { FaPlayCircle } from "react-icons/fa";
 
 type BannerInterface = {
     banner_image: string;
@@ -21,7 +17,7 @@ type BannerInterface = {
 
 export default function Banner({banner_image, banner_image_mobile, banner_caption, banner_description, banner_youtube_video_id, banner_url, banner_button_caption}: BannerInterface) {
     return (
-        <div className="w-full h-screen relative text-white overflow-hidden">
+        <div className="w-full h-[85vh] relative text-white overflow-hidden">
             {
                 banner_youtube_video_id ? (
                     <iframe className="absolute top-1/2 left-1/2 min-w-full min-h-full w-[177.78vh] h-[56.25vw] -translate-x-1/2 -translate-y-1/2 pointer-events-none" src={`https://www.youtube.com/embed/${banner_youtube_video_id}?autoplay=1&mute=1&loop=1&playlist=${banner_youtube_video_id}&controls=0&showinfo=0&rel=0&modestbranding=1`} title={banner_caption} allow="autoplay"/>

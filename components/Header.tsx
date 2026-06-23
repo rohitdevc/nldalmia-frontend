@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { fuse } from '@/lib/fuse'
 
@@ -102,227 +102,227 @@ export default function Header({ program_categories, common_programs, ticker_api
     return (
         <>
         <div className={`h-full w-full fixed top-0 left-0 z-15 cursor-wait bg-center bg-no-repeat bg-white opacity-50 ${showLoader === false ? 'hidden': ''}`} style={{backgroundImage: `url(${basePath}images/img_loader.gif)`}}></div>
-        <header className="w-full fixed z-10">
-            <div className="bg-white">
-                {
-                    ticker_api && ticker_api.ticker_caption && (
-                        <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
-                            <li className="text-sm">{ticker_api.ticker_caption} </li>
-                            {
-                                ticker_end_date && nowValid && countdown && (
-                                    <li>
-                                        <ul className="flex gap-5 md:gap-10">
-                                            <li className="text-lg font-semibold">
-                                                {(countdown.days) ? `${countdown.days}d ` : ''}
-                                                {(countdown.hours) ? `${countdown.hours}h ` : ''}
-                                                {(countdown.minutes) ? `${countdown.minutes}m ` : ''}
-                                                {countdown.seconds}s
-                                            </li>
-                                            {
-                                                ticker_api.ticker_link && (
-                                                    <li>
-                                                        <Link href={ticker_api.ticker_link} target="_blank" className="text-sm underline">{ticker_api.ticker_link_caption}</Link>
-                                                    </li>
-                                                )
-                                            }
-                                        </ul>
-                                    </li>
-                                )
-                            }
-                        </ul>
-                    )
-                }
-                <ul className="w-full flex gap-4 md:gap-10 py-3 md:pr-5 text-sm justify-center lg:justify-end items-center border-b border-[#70707054] bg-white">
-                    <li>
-                        <Link href={`${basePath}events`}>Events</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}my-social-responsibility`}>MSR</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}iqac`}>IQAC</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}alumni`}>Alumni</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}media`}>Media</Link>
-                    </li>
-                    <li>
-                        <Link href={`${basePath}scholarships`}>Scholarships</Link>
-                    </li>
-                    <li className="hidden lg:block xl:hidden">
-                        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} updateMobileMenu={updateMobileMenu} />
-                    </li>
-                    <li className="hidden lg:block xl:hidden">
-                        <Link href={`${basePath}contact-us`} className="flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
-                            <IoMdMail size={20} />
-                            <span>Contact Us</span>
-                        </Link>
-                    </li>
-                </ul>
-                <div className="w-full flex gap-2 justify-between items-center px-5 text-sm bg-white relative h-16 z-1">
-                    <Link href={`${basePath}`}>
-                        <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
-                    </Link>
-                    <ul className="gap-5 lg:gap-4 xl:gap-2 items-center hidden lg:flex h-full text-[13.5px] xl:text-sm">
-                        <li className="group relative">
-                            <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
-                            <ul className="bg-white box-shadow absolute mt-5 left-1/2 -translate-x-1/2 text-[#4E4E4E] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2 w-50">
+        <div className="w-full">
+            {
+                ticker_api && ticker_api.ticker_caption && (
+                    <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
+                        <li className="text-sm">{ticker_api.ticker_caption} </li>
+                        {
+                            ticker_end_date && nowValid && countdown && (
                                 <li>
-                                    <Link href={`${basePath}about-us#who-we-are`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Who we are</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}about-us#legacy`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Legacy</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}about-us#managing-council`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Managing Council</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}about-us#international-tie-ups`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">International Tie-ups</Link>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="group/item relative h-full justify-center flex">
-                            <Link href={`${basePath}programs`} className="flex gap-1 items-center" onMouseOut={() => updateActiveProgramCategory('')}>Programs <MdKeyboardArrowDown size={25} /></Link>
-                            <div className="absolute top-full -left-10 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible flex">
-                                <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2">
-                                {
-                                    program_categories.map((program_category, key) => (
-                                        <li key={key} className="cursor-pointer relative w-50 group/submenu hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)} onMouseEnter={() => updateActiveProgramCategory(program_category)}>
-                                            <span className="block px-4 py-2">{program_category}</span> <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" />
+                                    <ul className="flex gap-5 md:gap-10">
+                                        <li className="text-lg font-semibold">
+                                            {(countdown.days) ? `${countdown.days}d ` : ''}
+                                            {(countdown.hours) ? `${countdown.hours}h ` : ''}
+                                            {(countdown.minutes) ? `${countdown.minutes}m ` : ''}
+                                            {countdown.seconds}s
                                         </li>
-                                    ))
-                                }
-                                </ul>
-                                {
-                                    activeProgramCategory && (
-                                    <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2 min-w-[250px]">
                                         {
-                                            activeProgramCategory === "Programs" && (
-                                                <>
-                                                <li className="cursor-pointer hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(true)}>
-                                                    <span className="block px-4 py-2 relative">PGDM <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" /></span>
+                                            ticker_api.ticker_link && (
+                                                <li>
+                                                    <Link href={ticker_api.ticker_link} target="_blank" className="text-sm underline">{ticker_api.ticker_link_caption}</Link>
                                                 </li>
-                                                <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
-                                                    <Link href={`${basePath}programs/global-mba-program-university-of-wisconsin-parkside`} className="block px-4 py-2">Global MBA</Link>
-                                                </li>
-                                                <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
-                                                    <Link href={`${basePath}programs/doctoral-programs`} className="block px-4 py-2">Ph.D</Link>
-                                                </li>
-                                                </>
                                             )
                                         }
-                                        {
-                                            common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && (program.program_link || program.program_application_link)).map((program, sub_key) => (
-                                                <li key={sub_key} className="hover:bg-[#800000] hover:text-white">
-                                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2">{program.program_name}</Link>
-                                                </li>
-                                            ))
-                                        }
                                     </ul>
-                                )}
-                                {
-                                    hoverPGDM && (
-                                    <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
-                                        <li className="hover:bg-[#800000] hover:text-white">
-                                            <Link href={`${basePath}programs/pgdm`} className="block px-4 py-2">PGDM</Link>
-                                        </li>
-                                        <li className="hover:bg-[#800000] hover:text-white">
-                                            <Link href={`${basePath}programs/finance`} className="block px-4 py-2">PGDM Finance</Link>
-                                        </li>
-                                        <li className="hover:bg-[#800000] hover:text-white">
-                                            <Link href={`${basePath}programs/pgdm-in-business-analytics`} className="block px-4 py-2">PGDM in Business Analytics</Link>
-                                        </li>
-                                    </ul>
-                                    )
-                                }
-                            </div>
-                        </li>
-                        <li className="group relative">
-                            <span className="flex gap-1 items-center cursor-pointer">Executive Education <MdKeyboardArrowDown size={25} /></span>
-                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
+                                </li>
+                            )
+                        }
+                    </ul>
+                )
+            }
+            <ul className="w-full flex gap-4 md:gap-10 py-3 md:pr-5 text-sm justify-center lg:justify-end items-center border-b border-[#70707054] bg-white">
+                <li>
+                    <Link href={`${basePath}events`}>Events</Link>
+                </li>
+                <li>
+                    <Link href={`${basePath}my-social-responsibility`}>MSR</Link>
+                </li>
+                <li>
+                    <Link href={`${basePath}iqac`}>IQAC</Link>
+                </li>
+                <li>
+                    <Link href={`${basePath}alumni`}>Alumni</Link>
+                </li>
+                <li>
+                    <Link href={`${basePath}media`}>Media</Link>
+                </li>
+                <li>
+                    <Link href={`${basePath}scholarships`}>Scholarships</Link>
+                </li>
+                <li className="hidden lg:block xl:hidden">
+                    <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} updateMobileMenu={updateMobileMenu} />
+                </li>
+                <li className="hidden lg:block xl:hidden">
+                    <Link href={`${basePath}contact-us`} className="flex items-center justify-center gap-2 py-2 px-3 bg-[#800000] text-white">
+                        <IoMdMail size={20} />
+                        <span>Contact Us</span>
+                    </Link>
+                </li>
+            </ul>
+        </div>
+        <header className={`w-full z-10 bg-white sticky top-0`}>
+            <div className="w-full flex gap-2 justify-between items-center px-5 text-sm bg-white relative h-16 z-1">
+                <Link href={`${basePath}`}>
+                    <Image src={`${basePath}logo.svg`} width={200} height={60} alt="NL Dalmia Logo" className="w-30 md:w-50" />
+                </Link>
+                <ul className="gap-5 lg:gap-4 xl:gap-2 items-center hidden lg:flex h-full text-[13.5px] xl:text-sm">
+                    <li className="group relative">
+                        <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
+                        <ul className="bg-white box-shadow absolute mt-5 left-1/2 -translate-x-1/2 text-[#4E4E4E] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2 w-50">
+                            <li>
+                                <Link href={`${basePath}about-us#who-we-are`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Who we are</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}about-us#legacy`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Legacy</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}about-us#managing-council`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Managing Council</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}about-us#international-tie-ups`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">International Tie-ups</Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className="group/item relative h-full justify-center flex">
+                        <Link href={`${basePath}programs`} className="flex gap-1 items-center" onMouseOut={() => updateActiveProgramCategory('')}>Programs <MdKeyboardArrowDown size={25} /></Link>
+                        <div className="absolute top-full -left-10 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible flex">
+                            <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2">
                             {
-                                common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, sub_key) => (
-                                    <li key={sub_key}>
-                                        <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">{program.program_name}</Link>
+                                program_categories.map((program_category, key) => (
+                                    <li key={key} className="cursor-pointer relative w-50 group/submenu hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)} onMouseEnter={() => updateActiveProgramCategory(program_category)}>
+                                        <span className="block px-4 py-2">{program_category}</span> <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" />
                                     </li>
                                 ))
                             }
                             </ul>
-                        </li>
-                        <li className="group relative">
-                            <span className="flex gap-1 items-center cursor-pointer">Faculty <MdKeyboardArrowDown size={25} /></span>
-                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
-                                <li>
-                                    <Link href={`${basePath}faculty`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Faculty</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Research</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}faculty/faculty-development-programs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Faculty Development Programs</Link>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="group relative">
-                            <Link href={`${basePath}placements`} className="flex gap-1 items-center">Placements <MdKeyboardArrowDown size={25} /></Link>
-                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
-                                <li>
-                                    <Link href={`${basePath}placements#corporate-engagement`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Corporate Engagement</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}placements#highlights`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Placement Highlights</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}placements#recruiters`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Recruiters</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}placements#batch-profile`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Batch Profile</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}placements#reports`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Placement Reports</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}placements#connect`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Connect With Our Team</Link>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="group relative">
-                            <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdKeyboardArrowDown size={25} /></Link>
-                            <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
-                                <li>
-                                    <Link href={`${basePath}life-at-nld#events`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Events</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}life-at-nld#student-clubs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Student Clubs</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}life-at-nld#infrastructure`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Infrastructure</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}life-at-nld#institutional-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Institutional Publications</Link>
-                                </li>
-                                <li>
-                                    <Link href={`${basePath}industrial-visit`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Industrial Visit</Link>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <Link href={`${basePath}admissions`}>Admissions</Link>
-                        </li>
-                    </ul>
-                    <div className="flex items-center gap-1 relative">
-                        <div className="mx-5 flex lg:mx-0 lg:hidden xl:flex w-full xl:w-[50%]">
-                            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} updateMobileMenu={updateMobileMenu} />
+                            {
+                                activeProgramCategory && (
+                                <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2 min-w-[250px]">
+                                    {
+                                        activeProgramCategory === "Programs" && (
+                                            <>
+                                            <li className="cursor-pointer hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(true)}>
+                                                <span className="block px-4 py-2 relative">PGDM <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" /></span>
+                                            </li>
+                                            <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                                <Link href={`${basePath}programs/global-mba-program-university-of-wisconsin-parkside`} className="block px-4 py-2">Global MBA</Link>
+                                            </li>
+                                            <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                                <Link href={`${basePath}programs/doctoral-programs`} className="block px-4 py-2">Ph.D</Link>
+                                            </li>
+                                            </>
+                                        )
+                                    }
+                                    {
+                                        common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && (program.program_link || program.program_application_link)).map((program, sub_key) => (
+                                            <li key={sub_key} className="hover:bg-[#800000] hover:text-white">
+                                                <Link href={program.program_link || program.program_application_link} className="block px-4 py-2">{program.program_name}</Link>
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                            )}
+                            {
+                                hoverPGDM && (
+                                <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
+                                    <li className="hover:bg-[#800000] hover:text-white">
+                                        <Link href={`${basePath}programs/pgdm`} className="block px-4 py-2">PGDM</Link>
+                                    </li>
+                                    <li className="hover:bg-[#800000] hover:text-white">
+                                        <Link href={`${basePath}programs/finance`} className="block px-4 py-2">PGDM Finance</Link>
+                                    </li>
+                                    <li className="hover:bg-[#800000] hover:text-white">
+                                        <Link href={`${basePath}programs/pgdm-in-business-analytics`} className="block px-4 py-2">PGDM in Business Analytics</Link>
+                                    </li>
+                                </ul>
+                                )
+                            }
                         </div>
-                        <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 bg-[#800000] text-white px-3 w-[50%]">
-                            <IoMdMail size={20} />
-                            <span>Contact Us</span>
-                        </Link>
-                        <RiMenu3Fill size={25} className={`cursor-pointer absolute right-0 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0); setSearchValue('')}} />
-                        <RiCloseLargeFill size={25} className={`cursor-pointer absolute right-0 transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
+                    </li>
+                    <li className="group relative">
+                        <span className="flex gap-1 items-center cursor-pointer">Executive Education <MdKeyboardArrowDown size={25} /></span>
+                        <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
+                        {
+                            common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, sub_key) => (
+                                <li key={sub_key}>
+                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">{program.program_name}</Link>
+                                </li>
+                            ))
+                        }
+                        </ul>
+                    </li>
+                    <li className="group relative">
+                        <span className="flex gap-1 items-center cursor-pointer">Faculty <MdKeyboardArrowDown size={25} /></span>
+                        <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
+                            <li>
+                                <Link href={`${basePath}faculty`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Faculty</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Research</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}faculty/faculty-development-programs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Faculty Development Programs</Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className="group relative">
+                        <Link href={`${basePath}placements`} className="flex gap-1 items-center">Placements <MdKeyboardArrowDown size={25} /></Link>
+                        <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
+                            <li>
+                                <Link href={`${basePath}placements#corporate-engagement`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Corporate Engagement</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#highlights`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Placement Highlights</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#recruiters`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Recruiters</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#batch-profile`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Batch Profile</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#reports`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Placement Reports</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}placements#connect`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Connect With Our Team</Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li className="group relative">
+                        <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdKeyboardArrowDown size={25} /></Link>
+                        <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
+                            <li>
+                                <Link href={`${basePath}life-at-nld#events`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Events</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#student-clubs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Student Clubs</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#infrastructure`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Infrastructure</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}life-at-nld#institutional-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Institutional Publications</Link>
+                            </li>
+                            <li>
+                                <Link href={`${basePath}industrial-visit`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Industrial Visit</Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link href={`${basePath}admissions`}>Admissions</Link>
+                    </li>
+                </ul>
+                <div className="flex items-center gap-1 relative">
+                    <div className="mx-5 flex lg:mx-0 lg:hidden xl:flex w-full xl:w-[50%]">
+                        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} updateShowSearchResults={updateShowSearchResults} updateMobileMenu={updateMobileMenu} />
                     </div>
+                    <Link href={`${basePath}contact-us`} className="hidden xl:flex items-center justify-center gap-2 py-2 bg-[#800000] text-white px-3 w-[50%]">
+                        <IoMdMail size={20} />
+                        <span>Contact Us</span>
+                    </Link>
+                    <RiMenu3Fill size={25} className={`cursor-pointer absolute right-0 lg:hidden transition-all duration-300 ${!openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`} onClick={() => { updateMobileMenu(true); setStep(0); setSearchValue('')}} />
+                    <RiCloseLargeFill size={25} className={`cursor-pointer absolute right-0 transition-all duration-300 ${openMobileMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}  onClick={() => {updateMobileMenu(false); setStep(0)}} />
                 </div>
             </div>
             <div className={`relative ${showSearchResults ? 'max-h-screen' : 'max-h-0'}`}>

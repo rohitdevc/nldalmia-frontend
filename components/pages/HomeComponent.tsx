@@ -195,16 +195,6 @@ export default function HomeComponent({banner, announcements, introduction, care
     }
   }
 
-  const [activeTestimonial, updateActiveTestimonial] = useState(-1);
-
-  const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
-    return () => {
-      if (window.matchMedia("(hover: none)").matches) {
-        updateActiveTestimonial(testimonial_id);
-      }
-    }
-  }
-
   return (
     <>
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
