@@ -329,7 +329,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
           introDescription={alumni_connect_introduction.intro_description} />
             <div className="w-full flex flex-col gap-5">
               <SwiperNav prev_class="alumni_connect_slider_prev" next_class="alumni_connect_slider_next" />
-              <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
+              <Swiper modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
                 {
                   alumni_connect.map((alumni_row, key) => (
                     <SwiperSlide className="!h-auto flex" key={key}>
@@ -545,7 +545,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                                       )
                                   }
                               </div>
-                              <div className="flex-1 flex flex-col gap-5 h-90">
+                              <div className="flex-1 flex flex-col gap-5">
                                   <h2 className="font-georgia text-xl">{alumni_row.connect_name}</h2>
                                   <h3 className="font-georgia text-lg">{alumni_row.connect_designation}</h3>
                                   <h3 className="font-georgia text-lg">{alumni_row.connect_degree_year}</h3>
