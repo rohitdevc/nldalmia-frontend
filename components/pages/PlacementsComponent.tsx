@@ -162,7 +162,7 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
         corporate_engagements && corporate_engagements.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10" id="corporate-engagement">
           <CenterIntro introCaption="Corporate Engagement"></CenterIntro>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-10 mx-auto">
+          <div className="flex flex-wrap justify-center gap-5">
             {
               corporate_engagements.map((corporate_engagement, key) => (
                 <div className="flex flex-col gap-5 items-center text-center w-75 px-5" key={key}>
