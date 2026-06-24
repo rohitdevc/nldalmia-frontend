@@ -24,6 +24,8 @@ import IntroWithVideo from "../IntroWithVideo";
 
 import { MdArrowOutward } from "react-icons/md";
 
+import cliTruncate from 'cli-truncate';
+
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 
@@ -95,21 +97,29 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
-        <Intro
-        introTitle={introduction.intro_title}
-        introCaption={introduction.intro_caption}
-        />
-        <IntroWithVideo introduction={introduction} />
-      </div>
+      {
+        introduction && (
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
+          <Intro
+          introTitle={introduction.intro_title}
+          introCaption={introduction.intro_caption}
+          />
+          <IntroWithVideo introduction={introduction} />
+        </div>
+        )
+      }
       {
         verticals && verticals.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
-          <Intro
-          introTitle={verticals_intro.intro_title}
-          introCaption={verticals_intro.intro_caption}
-          introDescription={verticals_intro.intro_description}
-          />
+          {
+            verticals_intro && (
+            <Intro
+            introTitle={verticals_intro.intro_title}
+            introCaption={verticals_intro.intro_caption}
+            introDescription={verticals_intro.intro_description}
+            />
+            )
+          }
           <div className="w-full flex flex-col gap-5 lg:gap-10">
             <SwiperNav prev_class="vertical_slider_prev" next_class="vertical_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.vertical_slider_prev', nextEl: '.vertical_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3, spaceBetween: 30}}}>
@@ -147,11 +157,15 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       {
         case_studies && case_studies.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
-            <Intro
-            introTitle={case_studies_intro.intro_title}
-            introCaption={case_studies_intro.intro_caption}
-            introDescription={case_studies_intro.intro_description}
-            />
+            {
+              case_studies_intro && (
+              <Intro
+              introTitle={case_studies_intro.intro_title}
+              introCaption={case_studies_intro.intro_caption}
+              introDescription={case_studies_intro.intro_description}
+              />
+              )
+            }
             <div className="w-full flex flex-col gap-5 lg:gap-10">
               <SwiperNav prev_class="case_studies_slider_prev" next_class="case_studies_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.case_studies_slider_prev', nextEl: '.case_studies_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 3.5, spaceBetween: 30}}}>
@@ -190,11 +204,15 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       {
         sdg_goals && sdg_goals.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
+          {
+            sdg_goals_intro && (
             <Intro
             introTitle={sdg_goals_intro.intro_title}
             introCaption={sdg_goals_intro.intro_caption}
             introDescription={sdg_goals_intro.intro_description}
             />
+            )
+          }
             <div className="w-full flex flex-col gap-5 lg:gap-10">
               <SwiperNav prev_class="sdg_goals_slider_prev" next_class="sdg_goals_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.sdg_goals_slider_prev', nextEl: '.sdg_goals_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3, spaceBetween: 30}}}>
@@ -213,7 +231,11 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
                           <div className="px-5 lg:px-10 py-5 lg:py-10 flex flex-col gap-2 h-full">
                             <h2 className="text-sm lg:text-2xl font-georgia">{sdg_goal.sdg_goal_title}</h2>
                             <div className="text-base mt-auto flex flex-col gap-3">
-                              <p className="lg:leading-relaxed">{parser(nl2br(sdg_goal.sdg_goal_caption.slice(0, 300) + '...'))}</p>
+                              {
+                                sdg_goal.sdg_goal_caption && (
+                                  <p className="lg:leading-relaxed">{parser(nl2br(cliTruncate(sdg_goal.sdg_goal_caption, 300)))}</p>
+                                )
+                              }
                               {
                                 (sdg_goal.sdg_goal_link || sdg_goal.sdg_goal_pdf) && (
                                   <Link href={sdg_goal.sdg_goal_link || sdg_goal.sdg_goal_pdf} target="_blank" className="flex gap-3 items-center">View More <MdArrowOutward size={20} /></Link>
@@ -234,11 +256,15 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       {
         gallery && gallery.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
+          {
+            gallery_intro && (
             <Intro
             introTitle={gallery_intro.intro_title}
             introCaption={gallery_intro.intro_caption}
             introDescription={gallery_intro.intro_description}
             />
+            )
+          }
             <SwiperNav prev_class="gallery_slider_prev" next_class="gallery_slider_next" />
             <Swiper className="w-full" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.gallery_slider_prev', nextEl: '.gallery_slider_next'}} >
               {
@@ -259,11 +285,15 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       {
         reports && reports.length > 0 && (
           <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
-            <Intro
-            introTitle={reports_intro.intro_title}
-            introCaption={reports_intro.intro_caption}
-            introDescription={reports_intro.intro_description}
-            />
+            {
+              reports_intro && (
+              <Intro
+              introTitle={reports_intro.intro_title}
+              introCaption={reports_intro.intro_caption}
+              introDescription={reports_intro.intro_description}
+              />
+              )
+            }
             <div className="w-full flex flex-col gap-5 lg:gap-10">
               <SwiperNav prev_class="report_slider_prev" next_class="report_slider_next" />
               <Swiper modules={[Navigation]} loop={true} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.report_slider_prev', nextEl: '.report_slider_next'}} breakpoints={{640: {slidesPerView: 2, spaceBetween: 20}, 1024: {slidesPerView: 3, spaceBetween: 20}, 1280: {slidesPerView: 4, spaceBetween: 30}}}>
@@ -298,11 +328,15 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       {
         testimonials && testimonials.length > 0 && (
           <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
-            <Intro
-            introTitle={testimonials_intro.intro_title}
-            introCaption={testimonials_intro.intro_caption}
-            introDescription={testimonials_intro.intro_description}
-            />
+            {
+              testimonials_intro && (
+              <Intro
+              introTitle={testimonials_intro.intro_title}
+              introCaption={testimonials_intro.intro_caption}
+              introDescription={testimonials_intro.intro_description}
+              />
+            )
+            }
             <div className="w-full flex flex-col gap-5 lg:gap-10">
               <SwiperNav prev_class="testimonials_slider_prev" next_class="testimonials_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} navigation={{prevEl: '.testimonials_slider_prev', nextEl: '.testimonials_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 768: {slidesPerView: 2}, 1024: {slidesPerView: 2}, 1280: {slidesPerView: 3, spaceBetween: 30}}}>
@@ -324,11 +358,15 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
       {
         contribution && contribution.length > 0 && (
           <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 lg:py-10">
-            <Intro
-            introTitle={contribution_intro.intro_title}
-            introCaption={contribution_intro.intro_caption}
-            introDescription={contribution_intro.intro_description}
-            />
+            {
+              contribution_intro && (
+              <Intro
+              introTitle={contribution_intro.intro_title}
+              introCaption={contribution_intro.intro_caption}
+              introDescription={contribution_intro.intro_description}
+              />
+              )
+            }
             <div className={`w-full flex flex-col gap-5`}>
               <SwiperNav prev_class={`contribution_slider_prev`} next_class={`contribution_slider_next`} />
               <Swiper className="w-full infra_content" slidesPerView={1} spaceBetween={0} autoHeight={true} loop={true} modules={[Navigation]} navigation={{prevEl: `.contribution_slider_prev`, nextEl: `.contribution_slider_next`}} >

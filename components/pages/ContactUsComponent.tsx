@@ -310,7 +310,7 @@ banner_image_mobile={banner.banner_image_mobile}
           <button type="submit" className="cursor-pointer bg-[#800000] text-white w-25 py-1">Submit</button>
         </form>
         <div className="flex flex-col gap-10 w-full lg:w-[48%]">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11819.740141891483!2d72.86741968343927!3d19.27176639693743!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b119eba09105%3A0xf92e0d09d89208e3!2sN.%20L.%20Dalmia%20College%20of%20Arts%2C%20Commerce%20%26%20Science!5e0!3m2!1sen!2sin!4v1771137798786!5m2!1sen!2sin" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="border-0 w-full h-100"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1822.1620070438248!2d72.8700896373738!3d19.268934420769988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0593d0f0785%3A0x24b22c644716439f!2sN.%20L.%20Dalmia%20Institute%20of%20Management%20Studies%20and%20Research!5e0!3m2!1sen!2sin!4v1782277653621!5m2!1sen!2sin" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="border-0 w-full h-100"></iframe>
           <div className="flex flex-col gap-5">
             <div className="flex gap-5">
               <span className="w-15 h-15 border border-[#800000] flex justify-center items-center shrink-0">
@@ -318,7 +318,7 @@ banner_image_mobile={banner.banner_image_mobile}
               </span>
               <div className="flex flex-col gap-2">
                 <h2 className="font-georgia text-xl font-semibold">Address</h2>
-                <p>N.L.Dalmia Institute of Management Studies & Research Srishti,<br />
+                <p>N. L. Dalmia Institute of Management Studies and Research,<br />
                 Sector 1, Mira Road (East),<br />
                 Mumbai Metropolitan Region 401107,<br />
                 Maharashtra, India</p>

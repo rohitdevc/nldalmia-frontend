@@ -19,9 +19,11 @@ type EventCardProps = {
     handleEventClick: (eventIndex: number) => React.MouseEventHandler<HTMLDivElement>;
 }
 
-const basePath = process.env.NEXT_PUBLIC_PATH;
+import cliTruncate from 'cli-truncate';
 
 export default function EventCard({event, activeEvent, keyIndex, handleEventClick}: EventCardProps) {
+    const basePath = process.env.NEXT_PUBLIC_PATH;
+
     const startDate = new Date(event.event_start_date);
                                   
     const nowValid = !!startDate && new Date(startDate).getTime() > Date.now();
@@ -51,7 +53,7 @@ export default function EventCard({event, activeEvent, keyIndex, handleEventClic
             }
             {
             event.event_description && (
-                <p className="leading-loose">{parser(nl2br(event.event_description.slice(0, 250) + '...'))}</p>
+                <p className="leading-loose">{parser(nl2br(cliTruncate(event.event_description, 250)))}</p>
             )
             }
             {startDate && nowValid && countdown && (

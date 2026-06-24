@@ -17,6 +17,8 @@ type Props = {
     blog: BlogListing
 }
 
+import cliTruncate from 'cli-truncate';
+
 export default function SingleBlog({blog}: Props) {
     const basePath = process.env.NEXT_PUBLIC_PATH;
     
@@ -32,7 +34,7 @@ export default function SingleBlog({blog}: Props) {
                 <Link href={basePath + blog.blog_category_url_slug}>{blog.blog_category_name}</Link>
             </li>
             </ul>
-            <p className="text-[#4E4E4E] text-sm">{parser(nl2br(blog.blog_preview.slice(0, 200) + '...'))}</p>
+            <p className="text-[#4E4E4E] text-sm">{parser(nl2br(cliTruncate(blog.blog_preview, 200)))}</p>
             <Link href={basePath + blog.blog_url_slug} className="text-burgundy flex gap-1 items-center hover:border-b w-fit">Learn More <MdArrowOutward size={15} /></Link>
         </div>
     )

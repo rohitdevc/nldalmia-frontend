@@ -60,6 +60,10 @@ body {
   @apply text-3xl opacity-100;
 }
 
+.infra_content > ol, .university_description > ol {
+  @apply list-decimal pl-5
+}
+
 .infra_content > ul, .university_description > ul {
   @apply list-disc list-outside pl-5 flex flex-col gap-3
 }

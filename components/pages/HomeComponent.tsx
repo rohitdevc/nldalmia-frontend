@@ -68,6 +68,8 @@ import AchievementSlider from "../AchievementSlider";
 import TestimonialSlider from "../TestimonialSlider";
 import SwiperNav from "../SwiperNav";
 
+import cliTruncate from 'cli-truncate';
+
 export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, achievements, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
@@ -227,20 +229,28 @@ export default function HomeComponent({banner, announcements, introduction, care
           </div>
         )
         }
-        <Intro
-        introTitle={introduction.intro_title}
-        introCaption={introduction.intro_caption}
-        />
+        {
+          introduction && (
+          <Intro
+          introTitle={introduction.intro_title}
+          introCaption={introduction.intro_caption}
+          />
+          )
+        }
         <div className="flex flex-col lg:flex-row gap-10 md:mt-10">
           <div className="w-full lg:w-[40%] overflow-hidden">
             {
-              introduction.intro_image &&  (
+              introduction && introduction.intro_image &&  (
                 <Image src={introduction.intro_image} width={800} height={750} alt={introduction.intro_image_alt || `N L Dalmia`} className="object-cover w-full h-full" />
               )
             }
           </div>
           <div className="w-full lg:md:w-[60%] flex flex-col gap-5">
-            <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(introduction.intro_description))}</p>
+            {
+              introduction && (
+              <p className="text-[#4E4E4E] text-sm leading-loose">{parser(nl2br(introduction.intro_description))}</p>
+              )
+            }
             <ul className="flex flex-wrap md:flex-row gap-5 md:gap-10 text-sm text-burgundy mt-2">
               <li>
                 <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdArrowOutward size={15} /></Link>
@@ -276,11 +286,15 @@ export default function HomeComponent({banner, announcements, introduction, care
       {
         programs && programs.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
+          {
+            program_introduction && (
             <Intro
             introTitle={program_introduction.intro_title}
             introCaption={program_introduction.intro_caption}
             introDescription={program_introduction.intro_description}
             />
+            )
+          }
             <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
               <ul className="flex md:flex-col justify-center lg:justify-start items-center lg:items-start lg:w-xs gap-5 text-burgundy">
                 {
@@ -360,10 +374,14 @@ export default function HomeComponent({banner, announcements, introduction, care
       {
           placement_partners && placement_partners.length > 0 && (
             <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10 lg:py-20 flex flex-col gap-5">
-              <CenterIntro
-              introTitle={placement_partners_introduction.intro_title}
-              introCaption={placement_partners_introduction.intro_caption}
-              introDescription={placement_partners_introduction.intro_description} />
+              {
+                placement_partners_introduction && (
+                <CenterIntro
+                introTitle={placement_partners_introduction.intro_title}
+                introCaption={placement_partners_introduction.intro_caption}
+                introDescription={placement_partners_introduction.intro_description} />
+                )
+              }
               <SwiperNav prev_class="partner_slider_prev" next_class="partner_slider_next" />
               
               <Swiper className="w-full" slidesPerView={2} spaceBetween={20} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{640: {slidesPerView: 3}, 768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 }, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
@@ -383,21 +401,29 @@ export default function HomeComponent({banner, announcements, introduction, care
       {
         testimonials && testimonials.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={testimonials_introduction.intro_title}
-          introCaption={testimonials_introduction.intro_caption}
-          introDescription={testimonials_introduction.intro_description}
-          />
+          {
+            testimonials_introduction && (
+            <Intro
+            introTitle={testimonials_introduction.intro_title}
+            introCaption={testimonials_introduction.intro_caption}
+            introDescription={testimonials_introduction.intro_description}
+            />
+            )
+          }
           <TestimonialSlider testimonials={testimonials} />
         </div>
       )}
       {
         event_categories && event_categories.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={events_introduction.intro_title}
-          introCaption={events_introduction.intro_caption}
-          introDescription={events_introduction.intro_description} />
+          {
+            events_introduction && (
+            <Intro
+            introTitle={events_introduction.intro_title}
+            introCaption={events_introduction.intro_caption}
+            introDescription={events_introduction.intro_description} />
+            )
+          }
           <div className="flex flex-col lg:flex-row gap-5 md:justify-between">
               <ul className="flex flex-col justify-center lg:justify-start items-center lg:items-start lg:w-100 gap-5 text-burgundy">
                 {
@@ -441,7 +467,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                                         <div className="px-2 lg:px-5 pb-2 lg:pb-5 flex flex-col gap-2 h-full">
                                           <h2 className="text-sm lg:text-2xl font-georgia">{event.event_name}</h2>
                                           <div className="w-full">
-                                            <p className="lg:leading-relaxed text-sm">{parser(nl2br(event.event_description.slice(0, 300) + '...'))}</p>
+                                            <p className="lg:leading-relaxed text-sm">{parser(nl2br(cliTruncate(event.event_description, 300)))}</p>
                                           </div>
                                           <ul className="flex mt-auto text-xs lg:text-sm">
                                             {
@@ -475,10 +501,14 @@ export default function HomeComponent({banner, announcements, introduction, care
       {
         awards && awards.length > 0 && (
           <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-20 flex flex-col gap-5">
-            <CenterIntro
-            introTitle={awards_introduction.intro_title}
-            introCaption={awards_introduction.intro_caption}
-            introDescription={awards_introduction.intro_description} />
+            {
+              awards_introduction && (
+              <CenterIntro
+              introTitle={awards_introduction.intro_title}
+              introCaption={awards_introduction.intro_caption}
+              introDescription={awards_introduction.intro_description} />
+              )
+            }
             <SwiperNav prev_class="award_slider_prev" next_class="award_slider_next" />
             <Swiper className="w-full" slidesPerView={2} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.award_slider_prev', nextEl: '.award_slider_next'}} breakpoints={{768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 5, spaceBetween: 70 } }} >
               {
@@ -502,10 +532,14 @@ export default function HomeComponent({banner, announcements, introduction, care
       {
         media && media.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={media_introduction.intro_title}
-          introCaption={media_introduction.intro_caption}
-          introDescription={media_introduction.intro_description} />
+          {
+            media_introduction && (
+            <Intro
+            introTitle={media_introduction.intro_title}
+            introCaption={media_introduction.intro_caption}
+            introDescription={media_introduction.intro_description} />
+            )
+          }
           <SwiperNav prev_class="media_slider_prev" next_class="media_slider_next" />
           <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={40} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.media_slider_prev', nextEl: '.media_slider_next'}} breakpoints={{480: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 3, spaceBetween: 50 } }}>
           {
@@ -559,10 +593,14 @@ export default function HomeComponent({banner, announcements, introduction, care
       {
         blogs && blogs.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={blog_introduction.intro_title}
-          introCaption={blog_introduction.intro_caption}
-          introDescription={blog_introduction.intro_description} />
+          {
+            blog_introduction && (
+            <Intro
+            introTitle={blog_introduction.intro_title}
+            introCaption={blog_introduction.intro_caption}
+            introDescription={blog_introduction.intro_description} />
+            )
+          }
           <SwiperNav prev_class="blog_slider_prev" next_class="blog_slider_next" />
           <Swiper className="w-full text-white" slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.blog_slider_prev', nextEl: '.blog_slider_next'}} breakpoints={{1024: { slidesPerView: 2, spaceBetween: 50 }, 1280: { slidesPerView: 2.5, spaceBetween: 20 }, 1536: { slidesPerView: 3, spaceBetween: 20 } }}>
           {
@@ -597,7 +635,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                             )
                           }
                         </div>
-                        <p className="lg:leading-loose text-sm mt-auto flex">{parser(nl2br(blog.blog_preview.slice(0, 200) + '...'))}</p>
+                        <p className="lg:leading-loose text-sm mt-auto flex">{parser(nl2br(cliTruncate(blog.blog_preview, 200)))}</p>
                         <ul className="flex mt-auto text-sm">
                           {
                             blog.blog_url_slug && (
@@ -617,10 +655,14 @@ export default function HomeComponent({banner, announcements, introduction, care
       )
       }
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-        <Intro
-        introTitle={instagram_introduction.intro_title}
-        introCaption={instagram_introduction.intro_caption}
-        introDescription={instagram_introduction.intro_description} />
+        {
+          instagram_introduction && (
+          <Intro
+          introTitle={instagram_introduction.intro_title}
+          introCaption={instagram_introduction.intro_caption}
+          introDescription={instagram_introduction.intro_description} />
+          )
+        }
         <InstagramFeedComp instagram_feed={instagram_feed} />
       </div>
       <YTVideoPopUp ref={videoPopupRef} />

@@ -420,12 +420,12 @@ banner_image_mobile={banner.banner_image_mobile}
               introDescription={admissions_finance_introduction.intro_description} />
               <SwiperNav prev_class="financial_assistance_partner_slider_prev" next_class="financial_assistance_partner_slider_next" />
               
-              <Swiper className="w-full" slidesPerView={1} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.financial_assistance_partner_slider_prev', nextEl: '.financial_assistance_partner_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 20 } }} >
+              <Swiper className="w-full" slidesPerView={1} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.financial_assistance_partner_slider_prev', nextEl: '.financial_assistance_partner_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 35 } }} >
                 {
                   financial_assistance_partners.map((financial_assistance_partner, key) => (
                     <SwiperSlide title={financial_assistance_partner.partner_name} key={key}>
                       <div className="flex flex-col text-center gap-5">
-                        <div className="border-[0.5px] border-[#800000] flex justify-center items-center h-50">
+                        <div className="border-[0.5px] border-[#800000] flex justify-center items-center h-40">
                           {
                             financial_assistance_partner.partner_logo && (
                               <Image src={financial_assistance_partner.partner_logo} alt={financial_assistance_partner.partner_logo_alt} width={200} height={200} className="w-50" />
