@@ -85,10 +85,14 @@ banner_image_mobile={banner.banner_image_mobile}
       {
         blog_featured && blog_featured.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={introduction.intro_title}
-          introCaption={introduction.intro_caption}
-          introDescription={introduction.intro_description} />
+          {
+            introduction && (
+            <Intro
+            introTitle={introduction.intro_title}
+            introCaption={introduction.intro_caption}
+            introDescription={introduction.intro_description} />
+            )
+          }
           <div className="flex gap-5 flex-col lg:flex-row">
             {
               blog_featured.length > 0 && (

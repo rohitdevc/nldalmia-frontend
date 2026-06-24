@@ -275,7 +275,10 @@ banner_image_mobile={banner.banner_image_mobile}
           introTitle={testimonial_introduction.intro_title}
           introCaption={testimonial_introduction.intro_caption}
           introDescription={testimonial_introduction.intro_description} />
-          <TestimonialSlider testimonials={testimonials} />
+          <TestimonialSlider
+          testimonials={testimonials}
+          onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
+          />
         </div>
       )}
       {

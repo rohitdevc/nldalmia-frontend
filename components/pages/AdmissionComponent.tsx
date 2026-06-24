@@ -260,10 +260,14 @@ banner_image_mobile={banner.banner_image_mobile}
         banner_button_caption={banner.button_caption}
         banner_url={banner.button_link} />
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={introduction.intro_title}
-          introCaption={introduction.intro_caption}
-          introDescription={introduction.intro_description} />
+          {
+            introduction && (
+            <Intro
+            introTitle={introduction.intro_title}
+            introCaption={introduction.intro_caption}
+            introDescription={introduction.intro_description} />
+            )
+          }
           {
             admission_programs && admission_programs.length > 0 && (
             <div className="w-full">
@@ -332,10 +336,14 @@ banner_image_mobile={banner.banner_image_mobile}
         {
           admission_categories && admission_categories.length > 0 && (
           <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 md:py-10">
-            <Intro
-            introTitle={admissions_process_introduction.intro_title}
-            introCaption={admissions_process_introduction.intro_caption}
-            introDescription={admissions_process_introduction.intro_description} />
+            {
+              admissions_process_introduction && (
+              <Intro
+              introTitle={admissions_process_introduction.intro_title}
+              introCaption={admissions_process_introduction.intro_caption}
+              introDescription={admissions_process_introduction.intro_description} />
+            )
+            }
             <div className="flex flex-col md:flex-row md:gap-5 lg:gap-10">
                 <ul className="md:w-[30%] lg:w-[20%] flex md:flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
                   {
@@ -383,10 +391,14 @@ banner_image_mobile={banner.banner_image_mobile}
         {
           admissions_scholarship_table && (
           <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 md:py-10">
-              <Intro
-              introTitle={admissions_scholarship_introduction.intro_title}
-              introCaption={admissions_scholarship_introduction.intro_caption}
-              introDescription={admissions_scholarship_introduction.intro_description} />
+            {
+              admissions_scholarship_introduction && (
+                <Intro
+                introTitle={admissions_scholarship_introduction.intro_title}
+                introCaption={admissions_scholarship_introduction.intro_caption}
+                introDescription={admissions_scholarship_introduction.intro_description} />
+              )
+            }
               <h2 className="font-georgia text-3xl">{admissions_scholarship_table.intro_caption}</h2>
               <div className="responsive-table">
                 {parser(admissions_scholarship_table.intro_description)}
@@ -400,10 +412,14 @@ banner_image_mobile={banner.banner_image_mobile}
         {
           admissions_tuition_table && (
           <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-              <Intro
-              introTitle={admissions_tuition_introduction.intro_title}
-              introCaption={admissions_tuition_introduction.intro_caption}
-              introDescription={admissions_tuition_introduction.intro_description} />
+              {
+                admissions_tuition_introduction && (
+                <Intro
+                introTitle={admissions_tuition_introduction.intro_title}
+                introCaption={admissions_tuition_introduction.intro_caption}
+                introDescription={admissions_tuition_introduction.intro_description} />
+                )
+              }
               <h2 className="font-georgia text-3xl">{admissions_tuition_table.intro_caption}</h2>
               <div className="responsive-table">
                 {parser(admissions_tuition_table.intro_description)}
@@ -414,10 +430,14 @@ banner_image_mobile={banner.banner_image_mobile}
         {
           financial_assistance_partners && financial_assistance_partners.length > 0 && (
             <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 flex flex-col gap-5">
-              <CenterIntro
-              introTitle={admissions_finance_introduction.intro_title}
-              introCaption={admissions_finance_introduction.intro_caption}
-              introDescription={admissions_finance_introduction.intro_description} />
+              {
+                admissions_finance_introduction && (
+                <CenterIntro
+                introTitle={admissions_finance_introduction.intro_title}
+                introCaption={admissions_finance_introduction.intro_caption}
+                introDescription={admissions_finance_introduction.intro_description} />
+              )
+              }
               <SwiperNav prev_class="financial_assistance_partner_slider_prev" next_class="financial_assistance_partner_slider_next" />
               
               <Swiper className="w-full" slidesPerView={1} spaceBetween={5} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.financial_assistance_partner_slider_prev', nextEl: '.financial_assistance_partner_slider_next'}} breakpoints={{640: { slidesPerView: 2, spaceBetween: 20 }, 768: { slidesPerView: 3, spaceBetween: 20 }, 1080: { slidesPerView: 4, spaceBetween: 35 } }} >
@@ -452,10 +472,14 @@ banner_image_mobile={banner.banner_image_mobile}
         {
           faq_categories && faq_categories.length > 0 && (
           <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 sm:py-10">
-            <Intro
-            introTitle={admissions_faqs_introduction.intro_title}
-            introCaption={admissions_faqs_introduction.intro_caption}
-            introDescription={admissions_faqs_introduction.intro_description} />
+            {
+              admissions_faqs_introduction && (
+              <Intro
+              introTitle={admissions_faqs_introduction.intro_title}
+              introCaption={admissions_faqs_introduction.intro_caption}
+              introDescription={admissions_faqs_introduction.intro_description} />
+              )
+            }
             <div className="flex flex-col lg:flex-row md:gap-5 xl:gap-10">
                 <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center text-center sm:text-left lg:justify-start lg:items-start">
                   {

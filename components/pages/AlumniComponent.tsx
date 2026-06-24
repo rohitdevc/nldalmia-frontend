@@ -161,11 +161,15 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-        <Intro
-        introTitle={introduction.intro_title}
-        introCaption={introduction.intro_caption}
-        introDescription={introduction.intro_description}
+        {
+          introduction && (
+          <Intro
+          introTitle={introduction.intro_title}
+          introCaption={introduction.intro_caption}
+          introDescription={introduction.intro_description}
         />
+        )
+        }
         {
           wall_of_fame && wall_of_fame.length > 0 && (
           <div className="w-full relative flex flex-col gap-5">
@@ -323,10 +327,14 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_connect && alumni_connect.length > 0 && (
         <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={alumni_connect_introduction.intro_title}
-          introCaption={alumni_connect_introduction.intro_caption}
-          introDescription={alumni_connect_introduction.intro_description} />
+          {
+            alumni_connect_introduction && (
+            <Intro
+            introTitle={alumni_connect_introduction.intro_title}
+            introCaption={alumni_connect_introduction.intro_caption}
+            introDescription={alumni_connect_introduction.intro_description} />
+            )
+          }
             <div className="w-full flex flex-col gap-5">
               <SwiperNav prev_class="alumni_connect_slider_prev" next_class="alumni_connect_slider_next" />
               <Swiper modules={[Navigation, Autoplay]} loop={true} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_connect_slider_prev', nextEl: '.alumni_connect_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
@@ -370,10 +378,14 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_hall_of_fame && alumni_hall_of_fame.length > 0 && (
         <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={alumni_hall_of_fame_introduction.intro_title}
-          introCaption={alumni_hall_of_fame_introduction.intro_caption}
-          introDescription={alumni_hall_of_fame_introduction.intro_description} />
+          {
+            alumni_hall_of_fame_introduction && (
+            <Intro
+            introTitle={alumni_hall_of_fame_introduction.intro_title}
+            introCaption={alumni_hall_of_fame_introduction.intro_caption}
+            introDescription={alumni_hall_of_fame_introduction.intro_description} />
+            )
+          }
           <div className="w-full flex flex-col gap-5">
             <SwiperNav prev_class="alumni_hall_of_fame_slider_prev" next_class="alumni_hall_of_fame_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.alumni_hall_of_fame_slider_prev', nextEl: '.alumni_hall_of_fame_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
@@ -401,11 +413,15 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_testimonials && alumni_testimonials.length > 0 && (
         <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
-          <Intro
-          introTitle={alumni_testimonials_introduction.intro_title}
-          introCaption={alumni_testimonials_introduction.intro_caption}
-          introDescription={alumni_testimonials_introduction.intro_description}
-          />
+          {
+            alumni_testimonials_introduction && (
+            <Intro
+            introTitle={alumni_testimonials_introduction.intro_title}
+            introCaption={alumni_testimonials_introduction.intro_caption}
+            introDescription={alumni_testimonials_introduction.intro_description}
+            />
+            )
+          }
           <div className="w-full flex flex-col gap-5">
             <SwiperNav prev_class="alumni_testimonial_slider_prev" next_class="alumni_testimonial_slider_next" />
             <div className="w-full">
@@ -439,10 +455,14 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
       {
         alumni_events && alumni_events.length > 0 && (
         <div className="w-full flex flex-col gap-10 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <Intro
-          introTitle={alumni_events_introduction.intro_title}
-          introCaption={alumni_events_introduction.intro_caption}
-          introDescription={alumni_events_introduction.intro_description} />
+          {
+            alumni_events_introduction && (
+            <Intro
+            introTitle={alumni_events_introduction.intro_title}
+            introCaption={alumni_events_introduction.intro_caption}
+            introDescription={alumni_events_introduction.intro_description} />
+            )
+          }
           <div className="w-full">
               <SwiperNav prev_class="alumni_event_slider_prev" next_class="alumni_event_slider_next" />
               <Swiper className="w-full mt-10" loop={true} slidesPerView={1} spaceBetween={0} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.alumni_event_slider_prev', nextEl: '.alumni_event_slider_next'}} breakpoints={{768: { slidesPerView: 2, spaceBetween: 20 }, 1080: { slidesPerView: 3, spaceBetween: 20 } }} >

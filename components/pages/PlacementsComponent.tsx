@@ -346,7 +346,10 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
       {
         testimonials && testimonials.length > 0 && (
         <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-          <TestimonialSlider testimonials={testimonials} />
+          <TestimonialSlider
+          testimonials={testimonials}
+          onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
+          />
         </div>
       )}
       {

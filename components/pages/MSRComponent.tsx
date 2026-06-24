@@ -104,7 +104,10 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
           introTitle={introduction.intro_title}
           introCaption={introduction.intro_caption}
           />
-          <IntroWithVideo introduction={introduction} />
+          <IntroWithVideo
+          introduction={introduction}
+          onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
+          />
         </div>
         )
       }
@@ -275,6 +278,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
                     slider_image: gallery_row.gallery_image,
                     slider_video: gallery_row.gallery_youtube_id,
                     }}
+                    onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
                   />
                 </SwiperSlide>
               ))

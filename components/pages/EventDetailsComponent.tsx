@@ -315,7 +315,9 @@ export default function EventDetails({ event }: PageProps) {
                   <FullSlide slider={{
                     slider_image: event_slider.event_slider_image,
                     slider_video: event_slider.event_slider_video,
-                    }} />
+                    }}
+                    
+                    onPlay={(videoId) => videoPopupRef.current?.open(videoId)}/>
                 </SwiperSlide>
               ))
               }
@@ -392,6 +394,8 @@ export default function EventDetails({ event }: PageProps) {
                     slider_image: event_slider.event_slider_image,
                     slider_video: event_slider.event_slider_video,
                     }}
+
+                    onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
                   />
                 </SwiperSlide>
               ))
@@ -406,7 +410,10 @@ export default function EventDetails({ event }: PageProps) {
           introTitle={event.event_testimonial_title}
           introCaption={event.event_testimonial_caption}
           introDescription={event.event_testimonial_description} />
-          <TestimonialSlider testimonials={event.event_testimonials} />
+          <TestimonialSlider
+          testimonials={event.event_testimonials}
+          onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
+          />
         </div>
       )}
       {

@@ -11,14 +11,14 @@ import parser from 'html-react-parser';
 
 import { FiPlayCircle } from "react-icons/fi";
 
-import { YTVideoPopupHandle } from "./YouTubeVideo";
 import SwiperNav from "./SwiperNav";
 
 type Props = {
     testimonials: Testimonials[]
+    onPlay: (videoId: string) => void;
 }
 
-export default function TestimonialSlider({testimonials}: Props) {
+export default function TestimonialSlider({testimonials, onPlay}: Props) {
     const [activeTestimonial, updateActiveTestimonial] = useState(-1);
     
     const handleTestimonialClick = (testimonial_id: number): React.MouseEventHandler<HTMLDivElement> => {
@@ -28,8 +28,6 @@ export default function TestimonialSlider({testimonials}: Props) {
             }
         }
     }
-
-    const videoPopupRef = useRef<YTVideoPopupHandle>(null);
 
     return (
         <div className="flex flex-col gap-5">
@@ -63,7 +61,7 @@ export default function TestimonialSlider({testimonials}: Props) {
                       <div className={`absolute top-0 left-0 inset-0 flex flex-col justify-center px-5 py-5 bg-[#800000] text-white transform origin-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${activeTestimonial === key ? "opacity-100" : "opacity-0"}`}>
                         {
                           testimonial.testimonial_youtube_id ? (
-                            <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => videoPopupRef.current?.open(testimonial.testimonial_youtube_id)}>
+                            <div className="mx-auto flex justify-center items-center gap-2 cursor-pointer w-full h-full" onClick={() => { if (testimonial.testimonial_youtube_id) { onPlay(testimonial.testimonial_youtube_id) }}}>
                               <FiPlayCircle size={20} />
                               <span className="text-sm">Play Video</span>
                             </div>

@@ -410,7 +410,10 @@ export default function HomeComponent({banner, announcements, introduction, care
             />
             )
           }
-          <TestimonialSlider testimonials={testimonials} />
+          <TestimonialSlider
+          testimonials={testimonials}
+          onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
+          />
         </div>
       )}
       {

@@ -111,11 +111,20 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 sm:py-15" id="who-we-are">
-        <Intro
-        introTitle={introduction.intro_title}
-        introCaption={introduction.intro_caption}
-        />
-        <IntroWithVideo introduction={introduction} />
+        {
+          introduction && (
+            <>
+            <Intro
+            introTitle={introduction.intro_title}
+            introCaption={introduction.intro_caption}
+            />
+            <IntroWithVideo
+            introduction={introduction}
+            onPlay={(videoId) => videoPopupRef.current?.open(videoId)}
+            />
+          </>
+        )
+        }
         {
           objectives && objectives.length > 0 && (
           <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-10 justify-center lg:justify-between items-center">
@@ -245,10 +254,14 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       {
         managing_council && managing_council.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-5 py-10" id="managing-council">
-          <Intro
-          introTitle={managing_council_introduction.intro_title}
-          introCaption={managing_council_introduction.intro_caption}
-          introDescription={managing_council_introduction.intro_description} />
+          {
+            managing_council_introduction && (
+            <Intro
+            introTitle={managing_council_introduction.intro_title}
+            introCaption={managing_council_introduction.intro_caption}
+            introDescription={managing_council_introduction.intro_description} />
+          )
+          }
           <div className="w-full flex flex-col gap-5">
             <SwiperNav prev_class="managing_council_slider_prev" next_class="managing_council_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.managing_council_slider_prev', nextEl: '.managing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
@@ -286,10 +299,14 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       {
         governing_council && governing_council.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-10">
-          <Intro
-          introTitle={governing_council_introduction.intro_title}
-          introCaption={governing_council_introduction.intro_caption}
-          introDescription={governing_council_introduction.intro_description} />
+          {
+            governing_council_introduction && (
+            <Intro
+            introTitle={governing_council_introduction.intro_title}
+            introCaption={governing_council_introduction.intro_caption}
+            introDescription={governing_council_introduction.intro_description} />
+            )
+          }
           <div className="w-full flex flex-col gap-5">
             <SwiperNav prev_class="governing_council_slider_prev" next_class="governing_council_slider_next" />
             <Swiper modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} className="w-full" slidesPerView={1} spaceBetween={30} autoHeight={false} navigation={{prevEl: '.governing_council_slider_prev', nextEl: '.governing_council_slider_next'}} breakpoints={{640: {slidesPerView: 2}, 1024: {slidesPerView: 3}, 1280: {slidesPerView: 4}}}>
@@ -345,10 +362,14 @@ export default function AboutUsComponent({banner, introduction, objectives, time
       {
         international_countries && international_countries.length > 0 && (
         <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 py-10 lg:py-15" id="international-tie-ups">
-          <Intro
-          introTitle={international_universities_introduction.intro_title}
-          introCaption={international_universities_introduction.intro_caption}
-          introDescription={international_universities_introduction.intro_description} />
+          {
+            international_universities_introduction && (
+            <Intro
+            introTitle={international_universities_introduction.intro_title}
+            introCaption={international_universities_introduction.intro_caption}
+            introDescription={international_universities_introduction.intro_description} />
+            )
+          }
           <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
             <ul className="md:w-[30%] lg:w-[25%] flex flex-col sm:flex-row md:flex-col gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
               {
