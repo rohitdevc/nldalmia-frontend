@@ -60,15 +60,15 @@ body {
   @apply text-3xl opacity-100;
 }
 
-.infra_content > ol, .university_description > ol {
+.infra_content > ol, .university_description > ol, .faculty_description > ol {
   @apply list-decimal pl-5
 }
 
-.infra_content > ul, .university_description > ul {
+.infra_content > ul, .university_description > ul, .faculty_description > ul {
   @apply list-disc list-outside pl-5 flex flex-col gap-3
 }
 
-.infra_content ul ul, .university_description ul ul {
+.infra_content ul ul, .university_description ul ul, .faculty_description ul ul {
   list-style-type: circle;
   margin-left: 1.5rem;
   display: block;

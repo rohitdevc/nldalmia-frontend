@@ -70,7 +70,7 @@ export default function FacultyDetails({ faculty}: PageProps) {
 
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-      <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 flex flex-col gap-5 pt-40 bg-[#FFCC33] text-black">
+      <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 flex flex-col gap-5 pt-10 bg-[#FFCC33] text-black">
         <Link className="flex items-center gap-1 font-semibold" href={`${basePath}faculty`}>
           <RiArrowLeftSLine size={35} />
           <span>Back</span>
