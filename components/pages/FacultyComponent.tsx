@@ -74,13 +74,13 @@ banner_image_mobile={banner.banner_image_mobile}
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
-        <div className="relative lg:w-[45%] border-b border-[#800000] text-black">
+      <div className="w-full flex gap-5 lg:justify-between px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10">
+        <div className="relative w-1/2 border-b border-[#800000] text-black">
             <input type="search" placeholder="Search" className="peer py-2 focus:outline-none w-full placeholder-shown:pl-5 focus:pl-0 placeholder:text-black" value={search} onChange={handleSearch} />
             <CiSearch className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-500 peer-focus:hidden peer-not-placeholder-shown:hidden" size={18} />
         </div>
-        <div className="relative lg:w-[45%] border-b border-[#800000]">
-          <select className="px-2 w-full outline-none appearance-none" title="Department" value={department} onChange={handleDepartment}>
+        <div className="relative w-1/2 border-b border-[#800000] flex">
+          <select className="py-2 px-2 w-full outline-none appearance-none mt-auto" title="Department" value={department} onChange={handleDepartment}>
             <option value="">Search By Area</option>
             {
               departments && departments.length > 0 && departments.map((department, key) => (
@@ -88,8 +88,9 @@ banner_image_mobile={banner.banner_image_mobile}
               ))
             }
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
-            <IoIosArrowDown size={25} />
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
+            <IoIosArrowDown size={25} className="hidden lg:block" />
+            <IoIosArrowDown size={20} className="block lg:hidden" />
           </div>
         </div>
       </div>

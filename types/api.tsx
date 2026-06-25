@@ -459,7 +459,7 @@ export interface AlumniHallOfFame {
 
 export interface AlumniTestimonials {
     testimonial_name: string;
-    testimonial_content: string;
+    testimonial_description: string;
     testimonial_bio: string;
     testimonial_designation: string;
     testimonial_thumbnail: string;

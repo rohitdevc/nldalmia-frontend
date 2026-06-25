@@ -84,7 +84,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
             </div>
             <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 flex flex-col justify-center md:justify-start md:flex-row gap-5 md:gap-20 items-center">
                 <div className="flex flex-col justify-center md:justify-start gap-5 w-full md:w-[70%]">
-                    <p className="text-xs flex gap-1 items-center"><FaRegCopyright /> N. L. Dalmia. Institute of Management Studies and Reseach All Rights Reserved</p>
+                    <p className="text-xs flex gap-1 items-center"><FaRegCopyright /> N. L. Dalmia Institute of Management Studies and Reseach All Rights Reserved</p>
                     <p className="text-[0.60rem]">Disclaimer: The information in this website is intended for informational and educational purposes only, to provide readers with better understanding. All designated trademarks and brands are the property of their respective owners.</p>
                 </div>
                 <div className="flex flex-row md:flex-col lg:flex-row justify-center md:justify-start gap-5 items-center w-full md:w-[30%]">

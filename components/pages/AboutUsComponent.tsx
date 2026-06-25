@@ -371,10 +371,10 @@ export default function AboutUsComponent({banner, introduction, objectives, time
             )
           }
           <div className="flex flex-col md:flex-row gap-5 lg:gap-10">
-            <ul className="md:w-[30%] lg:w-[25%] flex flex-col sm:flex-row md:flex-col gap-5 text-burgundy justify-center items-center md:justify-start md:items-start">
+            <ul className="w-full overflow-hidden overflow-x-auto min-h-10 md:w-[30%] lg:w-[25%] flex flex-row md:flex-col gap-5 text-burgundy">
               {
                 international_countries.map((country_name, key) => (
-                  <li className={`group cursor-pointer transition-all duration-300 ${activeCountry === (country_name) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveCountryFunc(country_name)}>
+                  <li className={`group cursor-pointer whitespace-nowrap transition-all duration-300 ${activeCountry === (country_name) ? 'text-xl' : 'text-lg'}`} key={key} onClick={() => updateActiveCountryFunc(country_name)}>
                     <span className="relative">
                       {country_name}
                       <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeCountry === (country_name) ? 'scale-x-100' : ''}`}></span>

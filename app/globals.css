@@ -138,6 +138,10 @@ form .error span {
   background-color: white;
 }
 
+.career-paths .optionListContainer {
+  @apply !w-fit
+}
+
 .career-paths .optionContainer li {
   width: 100% !important;
 }

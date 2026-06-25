@@ -302,7 +302,7 @@ banner_image_mobile={banner.banner_image_mobile}
               <input type="checkbox" id="enquiry_terms" className="peer sr-only" checked={checked} onChange={(e) => handleCheckbox(e)} />
               <FaCheck className="hidden peer-checked:block h-4 w-4 text-[#800000]" />
             </div>
-            <span>I authorise N.L.Dalmia Institute of Management Studies and Research and its representatives to contact me with updates and notifications via email, SMS, WhatsApp and call. This will override the registry on DND/NDNC.</span>
+            <span>I authorise N.L. Dalmia Institute of Management Studies and Research and its representatives to contact me with updates and notifications via email, SMS, WhatsApp and call. This will override the registry on DND/NDNC.</span>
           </label>
           <div className="text-red h-1 pt-1 -mt-4 mb-2">
             <span className={`text-xs transition-all duration-200 ${errors.enquiry_terms ? "opacity-100" : "opacity-0"}`}>{errors.enquiry_terms}</span>

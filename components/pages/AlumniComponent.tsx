@@ -438,8 +438,12 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                         }
                       </div>
                       <div className="flex flex-col gap-5 w-full">
-                        <p className="text-[#4E4E4E] leading-loose">{parser(nl2br(alumni_testimonial.testimonial_bio))}</p>
-                        <h2 className="font-georgia">{alumni_testimonial.testimonial_content}</h2>
+                        {
+                          alumni_testimonial.testimonial_bio && (
+                            <p className="text-[#4E4E4E] leading-loose">{parser(nl2br(alumni_testimonial.testimonial_bio))}</p>
+                          )
+                        }
+                        <h2 className="font-georgia">{alumni_testimonial.testimonial_description}</h2>
                         <h3>- {alumni_testimonial.testimonial_name}</h3>
                         <h4>{alumni_testimonial.testimonial_designation}</h4>
                       </div>

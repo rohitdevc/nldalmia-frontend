@@ -147,7 +147,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
             <CenterIntro
             introCaption="Impact Dashboard"
             />
-            <div className="flex flex-wrap gap-5 sm:gap-10 justify-center items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-10 justify-center items-center">
               {
                 impact.map((impact_row, key) => (
                   <ImpactCard key={key} impact={impact_row} />

@@ -47,6 +47,7 @@ type PageProps = {
 import { useHeader } from "@/context/HeaderContext";
 import AchievementSlider from "../AchievementSlider";
 import SwiperNav from "../SwiperNav";
+import LifeATNLDQuote from "../LifeATNLDQuote";
 
 export default function LifeAtNLD({ banner, introduction, events, achievements_introduction, achievements, student_club_introduction, student_clubs, gallery, founder_quote, instagram_introduction, inside_nld_introduction, inside_nld, magazines_introduction, magazines, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -125,7 +126,7 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
-banner_image_mobile={banner.banner_image_mobile}
+      banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}
@@ -260,64 +261,60 @@ banner_image_mobile={banner.banner_image_mobile}
       }
       {
         gallery && gallery.length > 0 && (
-        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col lg:flex-row gap-5">
-          <div className="flex flex-col gap-5 lg:w-1/2">
+          <>
+        <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-row gap-2 lg:gap-5">
+          <div className="flex flex-col gap-5 w-1/2">
           {
             gallery[0].gallery_image && (
-            <div className="w-full h-100 lg:h-125">
-              <Image src={gallery[0].gallery_image} width={900} height={900} alt={gallery[0].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />  
+            <div className="w-full">
+              <Image src={gallery[0].gallery_image} width={900} height={900} alt={gallery[0].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-contain w-full h-full" />  
             </div>
             )}
             {
               gallery[1].gallery_image && (
-              <div className="w-full h-100">
-                <Image src={gallery[1].gallery_image} width={900} height={550} alt={gallery[1].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
+              <div className="w-full">
+                <Image src={gallery[1].gallery_image} width={900} height={550} alt={gallery[1].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-contain w-full h-full" />
               </div>
             )}
             {
               gallery[2].gallery_image && (
-              <div className="w-full h-100">
-                <Image src={gallery[2].gallery_image} width={900} height={550} alt={gallery[2].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
+              <div className="w-full">
+                <Image src={gallery[2].gallery_image} width={900} height={550} alt={gallery[2].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-contain w-full h-full" />
             </div>
             )}
           </div>
-          <div className="flex flex-col gap-5 lg:w-1/2">
+          <div className="flex flex-col gap-5 w-1/2">
           {
             gallery[3].gallery_image && (
-              <div className="w-full h-100">
-                <Image src={gallery[3].gallery_image} width={900} height={550} alt={gallery[3].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
+              <div className="w-full">
+                <Image src={gallery[3].gallery_image} width={900} height={550} alt={gallery[3].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-contain w-full h-full" />
               </div>
             )
           }
           {
             gallery[4].gallery_image && (
-            <div className="w-full h-100">
-              <Image src={gallery[4].gallery_image} width={900} height={550} alt={gallery[4].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-cover w-full h-full" />
+            <div className="w-full">
+              <Image src={gallery[4].gallery_image} width={900} height={550} alt={gallery[4].gallery_image_alt || `N. L Dalmia Institute of Management`} className="object-contain w-full h-full" />
             </div>
             )
           }
           {
             founder_quote && (
-              <div className="w-full lg:min-h-125 bg-[#800000] text-white flex flex-col gap-5 p-5 sm:p-7">
-                {
-                  founder_quote.founder_quote_title && (
-                    <h2 className="font-georgia text-2xl lg:text-3xl leading-relaxed">{parser(nl2br(founder_quote.founder_quote_title))}</h2>
-                  )
-                }
-                {
-                  founder_quote.founder_bio && (
-                    <p className="leading-relaxed lg:leading-loose text-sm">{parser(nl2br(founder_quote.founder_bio))}</p>
-                  )
-                }
-                <div className="flex flex-col gap-3 mt-auto">
-                  <h3 className="text-xl">{founder_quote.founder_quote}</h3>
-                  <p className="leading-loose text-sm">{founder_quote.founder_name}</p>
-                </div>
+              <div className="w-full lg:min-h-125 hidden lg:block">
+                <LifeATNLDQuote founder_quote={founder_quote} />
               </div>
               )
-            }
+          }
           </div>
         </div>
+        {
+          founder_quote && (
+            <div className="w-full lg:hidden">
+              <LifeATNLDQuote founder_quote={founder_quote} />
+            </div>
+            )
+        }
+          </>
         )
       }
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10">
