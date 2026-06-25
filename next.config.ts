@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/Course-Post-Graduate-Program-in-Finance',
+				destination: '/programs/finance',
+				permanent: true,
+			},
+			{
 				source: '/programs/executive-pgdm',
 				destination: '/programs/pgdm-for-working-professionals',
 				permanent: true

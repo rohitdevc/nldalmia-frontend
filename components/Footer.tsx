@@ -69,7 +69,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                 <ul className="flex flex-col gap-4">
                     <li className="font-bold underline">Institutional Information</li>
                     <li>
-                        <Link href={`${basePath}careers`}>Careers@NLDIMSR  </Link>
+                        <Link href={`${basePath}careers`}>Careers@NLDIMSR</Link>
                     </li>
                     <li>
                         <Link href={`${basePath}contact-us`}>Contact Us</Link>
@@ -94,7 +94,7 @@ export default function Footer({program_categories, common_programs}: PageProps)
                         <Link href="https://www.instagram.com/nldalmiainstitute/" target="_blank"><FaInstagram size={25} /></Link>
                         <Link href="https://www.linkedin.com/school/n-l-dalmia-institute-of-management-studies-and-research" target="_blank"><FaLinkedin size={25} /></Link>
                         <Link href="https://www.youtube.com/channel/UC0AhxJDrG7PwuEagTTqfIAw" target="_blank"><FaYoutube size={25} /></Link>
-                        <Link href="" target="_blank"><IoLogoWhatsapp size={25} /></Link>
+                        <Link href="" target="_blank" className="hidden"><IoLogoWhatsapp size={25} /></Link>
                     </ul>
                 </div>
             </div>

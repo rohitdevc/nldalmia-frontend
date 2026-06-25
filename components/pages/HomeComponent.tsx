@@ -77,6 +77,23 @@ export default function HomeComponent({banner, announcements, introduction, care
 
   useEffect(() => {
       setHeaderProps({})
+
+      const removeSchemaNav = () => {
+        document.querySelectorAll('ul[itemtype="http://www.schema.org/SiteNavigationElement"]').forEach((el) => el.remove());
+      };
+      
+      removeSchemaNav();
+      
+      const observer = new MutationObserver(() => {
+        removeSchemaNav();
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+      
+      return () => observer.disconnect();
   }, [])
 
   const router = useRouter();
