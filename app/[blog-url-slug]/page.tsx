@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const blog = await loadBlog(blog_url_slug);
 
   if (!blog) {
-    //notFound()
+    notFound()
   }
 
   const canonical_tag = basePath + blog.canonical_tag;
@@ -80,7 +80,7 @@ export default async function Page({ params }: PageProps) {
   const blog = await loadBlog(blog_url_slug);
 
   if (!blog) {
-    //notFound()
+    notFound()
   }
   const related_blog = await getBlogsRelatedByCategory(blog.blog_category_url_slug, blog_url_slug);
 
