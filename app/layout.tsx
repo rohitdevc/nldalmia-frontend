@@ -5,9 +5,55 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
+
+  const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${basePath}#website`,
+          "url": `${basePath}`,
+          "name": "N. L. Dalmia Institute of Management",
+          "description": "",
+          "publisher": {
+            "@id": `${basePath}#organization`
+          },
+          "inLanguage": "en-US"
+        }, {
+          "@type": "Organization",
+          "@id": "${basePath}#organization",
+          "name": "N. L. Dalmia Institute of Management",
+          "url": "${basePath}",
+          "logo": {
+            "@type": "ImageObject",
+            "inLanguage": "en-US",
+            "@id": `${basePath}#/schema/logo/image/`,
+            "url": `${basePath}assets/images/logo.png`,
+            "contentUrl": `${basePath}assets/images/logo.png`,
+            "width": 679,
+            "height": 177,
+            "caption": "N. L. Dalmia Institute of Management"
+          },
+          "image": {
+            "@id": `${basePath}#/schema/logo/image/`
+          },
+          "sameAs": ["https://www.facebook.com/NLDalmiaOfficial/", "https://x.com/nldalmia_inst", "https://www.instagram.com/nldalmiainstitute/", "https://www.linkedin.com/school/n-l-dalmia-institute-of-management-studies-and-research/", "https://www.youtube.com/channel/UC0AhxJDrG7PwuEagTTqfIAw"]
+        }
+      ]
+  }
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <Script
+          id="default-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
         <Script id="gtm-head" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

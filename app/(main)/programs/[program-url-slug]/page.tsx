@@ -19,7 +19,7 @@ type PageProps = {
 
 export const revalidate = 300;
 
-const basePath = process.env.DOMAIN_NAME;
+const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
 
 let programCache = new Map();
 

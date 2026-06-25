@@ -2,6 +2,7 @@ import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Script from "next/script";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
 
 export const viewport = {
@@ -20,7 +21,7 @@ type PageProps = {
 
 export const revalidate = 300;
 
-const basePath = process.env.DOMAIN_NAME;
+const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
 
 let blogCache = new Map();
 
@@ -82,12 +83,96 @@ export default async function Page({ params }: PageProps) {
   if (!blog) {
     notFound()
   }
+
+  const blogUrl = `${process.env.NEXT_PUBLIC_DOMAIN_NAME}${blog.canonical_tag}`;
+
+  const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": `${blogUrl}#article`,
+          isPartOf: {
+            "@id": blogUrl,
+          },
+          author: {
+            "@type": "Organization",
+            name: "NL Dalmia",
+          },
+          headline: blog.blog_title,
+          datePublished: blog.blog_published_date,
+          dateModified: blog.blog_updated_date,
+          mainEntityOfPage: {
+            "@id": blogUrl,
+          },
+          publisher: {
+            "@id": `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/#organization`,
+          },
+          image: {
+            "@id": `${blogUrl}#primaryimage`,
+          },
+          thumbnailUrl: blog.og_image,
+          articleSection: blog.blog_category_name,
+          description: blog.meta_description,
+          inLanguage: "en-IN",
+        },
+        {
+          "@type": "WebPage",
+          "@id": blogUrl,
+          url: blogUrl,
+          name: blog.meta_title || blog.blog_title,
+          description: blog.meta_description,
+          datePublished: blog.blog_published_date,
+          dateModified: blog.blog_updated_date,
+          primaryImageOfPage: {
+            "@id": `${blogUrl}#primaryimage`,
+          },
+          breadcrumb: {
+            "@id": `${blogUrl}#breadcrumb`,
+          },
+        },
+        {
+          "@type": "ImageObject",
+          "@id": `${blogUrl}#primaryimage`,
+          url: blog.og_image,
+          contentUrl: blog.og_image,
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `${blogUrl}#breadcrumb`,
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: blog.blog_title,
+            },
+          ],
+        },
+      ],
+  }
+
   const related_blog = await getBlogsRelatedByCategory(blog.blog_category_url_slug, blog_url_slug);
 
   return (
+    <>
+    <Script
+        id="blog-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+    />
     <BlogDetailsComponent
     blog={blog}
     related_blog={related_blog}
     />
+    </>
   )
 }

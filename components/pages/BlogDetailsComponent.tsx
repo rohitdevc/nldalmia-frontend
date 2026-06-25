@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link";
 import Image from "next/image";
 import { useHeader } from '@/context/HeaderContext'
 import { useEffect } from "react";
@@ -10,11 +9,8 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 
-import { MdArrowOutward } from "react-icons/md";
-
 import { Blog, BlogListing } from "@/types/api";
 import parser from 'html-react-parser';
-import nl2br from "nl2br";
 import DualBlog from "../DualBlog";
 import SingleBlog from "../SingleBlog";
 
@@ -26,7 +22,7 @@ type PageProps = {
 export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
-  const { setHeaderProps } = useHeader()
+  const { setHeaderProps } = useHeader();
 
   useEffect(() => {
       setHeaderProps({})
