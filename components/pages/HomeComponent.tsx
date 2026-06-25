@@ -505,6 +505,14 @@ export default function HomeComponent({banner, announcements, introduction, care
       )
       }
       <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 lg:py-10 flex flex-col gap-5">
+        {
+          events_introduction && (
+          <Intro
+          introTitle={events_introduction.intro_title}
+          introCaption={events_introduction.intro_caption}
+          introDescription={events_introduction.intro_description} />
+          )
+        }
         <AchievementSlider achievements={achievements} />
       </div>
       {
