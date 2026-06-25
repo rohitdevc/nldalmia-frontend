@@ -76,10 +76,10 @@ export default function FacultyDetails({ faculty}: PageProps) {
           <span>Back</span>
         </Link>
         <div className="flex flex-col lg:flex-row gap-10 lg:items-center bg-[#FFCC33] py-10 lg:py-0 lg:pb-5">
-          <div className="w-60 h-100 overflow-hidden rounded-full lg:-mb-15 z-5 bg-white">
+          <div className="relative w-50 h-100 flex-shrink-0 overflow-hidden rounded-full lg:-mb-15 z-5 bg-white">
             {
               faculty.faculty_thumbnail && (
-                <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt} width={300} height={300} className="w-full h-full object-cover" />
+                <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt} fill className="object-cover" />
               )
             }
           </div>
