@@ -3,8 +3,11 @@ import type { NextConfig } from "next";
 const isNetlifyDomain = process.env.URL?.includes("netlify.app");
 
 const nextConfig: NextConfig = {
+	turbopack: {
+		root: __dirname,
+	},
 	images: {
-    remotePatterns: [
+		remotePatterns: [
 			{
 				protocol: 'https',
 				hostname: 'www.nldalmia.in',
