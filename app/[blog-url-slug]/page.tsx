@@ -20,7 +20,7 @@ type PageProps = {
 
 export const revalidate = 300;
 
-const basePath = process.env.NEXT_PUBLIC_PATH;
+const basePath = process.env.DOMAIN_NAME;
 
 let blogCache = new Map();
 

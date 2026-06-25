@@ -67,9 +67,9 @@ export const viewport = {
 
 export const revalidate = 300;
 
-const basePath = process.env.NEXT_PUBLIC_PATH;
+const basePath = process.env.DOMAIN_NAME;
 
-const canonical_tag = basePath + meta.canonical_tag;
+const canonical_tag = basePath;
 
 export const metadata: Metadata = {
   title: meta.meta_title,
