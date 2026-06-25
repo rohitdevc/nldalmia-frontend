@@ -217,7 +217,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                     {
                                         common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && (program.program_link || program.program_application_link)).map((program, sub_key) => (
                                             <li key={sub_key} className="hover:bg-[#800000] hover:text-white">
-                                                <Link href={program.program_link || program.program_application_link} className="block px-4 py-2">{program.program_name}</Link>
+                                                <Link href={program.program_link || program.program_application_link} className="block px-4 py-2" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
                                             </li>
                                         ))
                                     }
@@ -246,7 +246,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         {
                             common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, sub_key) => (
                                 <li key={sub_key}>
-                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">{program.program_name}</Link>
+                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
                                 </li>
                             ))
                         }
@@ -426,7 +426,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             {
                                 common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, key) => (
                                     <li key={key} onClick={() => updateMobileMenu(false)}>
-                                        <Link href={program.program_link || program.program_application_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">{program.program_name}</Link>
+                                        <Link href={program.program_link || program.program_application_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
                                     </li>
                                 ))
                             }
