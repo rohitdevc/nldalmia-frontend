@@ -25,23 +25,47 @@ const nextConfig: NextConfig = {
 			}
 		]
 	},
+	
 	async headers() {
-	    if (!isNetlifyDomain) return [];
-	    
-	    return [
-	      {
-	        source: "/(.*)",
-	        headers: [
-	          {
-	            key: "X-Robots-Tag",
-	            value: "noindex, nofollow",
-	          },
-	        ],
-	      },
-	    ];
-	 },
+		const headers = [];
+		
+		if (isNetlifyDomain) {
+			headers.push({
+				source: "/(.*)",
+				headers: [
+					{
+						key: "X-Robots-Tag",
+						value: "noindex, nofollow"
+					},
+				],
+			});
+		}
+		
+		headers.push(
+			{
+				source: "/nldes",
+				headers: [
+					{
+						key: "X-Robots-Tag",
+						value: "noindex, nofollow",
+					},
+				],
+			},
+			{
+				source: "/faculty/research-papers-published/reports",
+				headers: [
+					{
+						key: "X-Robots-Tag",
+						value: "noindex, nofollow",
+					},
+				],
+			}
+		);
+		
+		return headers;
+	},
 
-	 async redirects()  {
+	async redirects()  {
 		return [
 			{
 				source: '/programs/executive-pgdm',
@@ -1809,7 +1833,7 @@ const nextConfig: NextConfig = {
 				permanent: true
 			}
 		]
-	 }
+	}
 };
 
 export default nextConfig;

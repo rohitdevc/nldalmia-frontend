@@ -19,10 +19,6 @@ export default function ResearchPublicationTabs({page_name}: ResearchPublication
         {
             tab_title: 'Book/Book Chapters',
             tab_url_slug: 'book-chapters'
-        },
-        {
-            tab_title: 'Reports',
-            tab_url_slug: 'reports'
         }
     ]
 
