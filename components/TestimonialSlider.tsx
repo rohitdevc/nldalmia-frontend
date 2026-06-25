@@ -29,8 +29,6 @@ export default function TestimonialSlider({testimonials, onPlay}: Props) {
         }
     }
 
-    console.log(testimonials);
-
     return (
         <div className="flex flex-col gap-5">
             <SwiperNav prev_class="testimonial_slider_prev" next_class="testimonial_slider_next" />
