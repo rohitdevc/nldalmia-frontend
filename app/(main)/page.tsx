@@ -1,10 +1,11 @@
 import { getMetaData, getBanner, getInstagramFeed, getCommonPrograms } from "@/lib/common";
-import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomePlacementPartners, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeAwardsIntroduction, getHomeAwards, getMediaIntroduction, getMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction, getAnnouncements, getHomeEvents } from "@/lib/home";
+import { getIntroduction, getHomeCareerFinder, getHomeCareerPaths, getHomeProgramsIntroduction, getHomeVideoSection, getHomePlacementPartnersIntroduction, getHomeTestimonialsIntroduction, getHomeTestimonials, getHomeEventsIntroduction, getHomeAwardsIntroduction, getHomeAwards, getMediaIntroduction, getMedia, getHomeBlogIntroduction, getHomeBlog, getHomeInstagramIntroduction, getAnnouncements, getHomeEvents } from "@/lib/home";
 
 import { getLifeAtNLDAchievements } from "@/lib/life-at-nld";
 
 import type { Metadata } from "next";
 import HomeComponent from "@/components/pages/HomeComponent";
+import { getPlacementRecruiters } from "@/lib/placements";
 
 const [
   meta,
@@ -17,7 +18,7 @@ const [
   programs,
   video,
   placement_partners_introduction,
-  placement_partners,
+  placement_recruiters,
   testimonials_introduction,
   testimonials,
   events_introduction,
@@ -42,7 +43,7 @@ const [
   getCommonPrograms(),
   getHomeVideoSection(),
   getHomePlacementPartnersIntroduction(),
-  getHomePlacementPartners(),
+  getPlacementRecruiters(),
   getHomeTestimonialsIntroduction(),
   getHomeTestimonials(),
   getHomeEventsIntroduction(),
@@ -112,7 +113,7 @@ export default async function Page() {
     programs={programs}
     video={video}
     placement_partners_introduction={placement_partners_introduction}
-    placement_partners={placement_partners}
+    placement_recruiters={placement_recruiters}
     testimonials_introduction={testimonials_introduction}
     testimonials={testimonials}
     events_introduction={events_introduction}

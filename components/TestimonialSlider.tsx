@@ -3,7 +3,7 @@ import { Testimonials } from "@/types/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 import nl2br from "nl2br";
@@ -28,6 +28,8 @@ export default function TestimonialSlider({testimonials, onPlay}: Props) {
             }
         }
     }
+
+    console.log(testimonials);
 
     return (
         <div className="flex flex-col gap-5">

@@ -31,7 +31,7 @@ import "swiper/css/navigation";
 import nl2br from 'nl2br';
 import parser from 'html-react-parser';
 import InstagramFeedComp from "@/components/InstagramFeedComp";
-import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, Media, Testimonials, IntroProps, PlacementPartners, ProgramsProps, VideoSection, InstagramFeed, Announcements, LifeAtNLDAchievements, HomeEvents } from "@/types/api";
+import { Banner as BannerProps, CareerFinderProps, CareerPathProps, HomeAwards, HomeBlog, Media, Testimonials, IntroProps,  ProgramsProps, VideoSection, InstagramFeed, Announcements, LifeAtNLDAchievements, HomeEvents, PlacementRecruiters } from "@/types/api";
 
 type PageProps = {
   banner: BannerProps;
@@ -43,7 +43,7 @@ type PageProps = {
   programs: ProgramsProps[]
   video: VideoSection,
   placement_partners_introduction: IntroProps
-  placement_partners: PlacementPartners[]
+  placement_recruiters: PlacementRecruiters[]
   testimonials_introduction: IntroProps
   testimonials: Testimonials[]
   events_introduction: IntroProps
@@ -69,8 +69,9 @@ import TestimonialSlider from "../TestimonialSlider";
 import SwiperNav from "../SwiperNav";
 
 import cliTruncate from 'cli-truncate';
+import PlacementRecruitersSlider from "../PlacementRecruitersSlider";
 
-export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_partners, testimonials_introduction, testimonials, events_introduction, events, achievements, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
+export default function HomeComponent({banner, announcements, introduction, career_finder, career_paths, program_introduction, programs, video, placement_partners_introduction, placement_recruiters, testimonials_introduction, testimonials, events_introduction, events, achievements, awards_introduction, awards, media_introduction, media, blog_introduction, blogs, instagram_introduction, instagram_feed}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const { setHeaderProps } = useHeader()
@@ -389,7 +390,7 @@ export default function HomeComponent({banner, announcements, introduction, care
           </div>
       </div>
       {
-          placement_partners && placement_partners.length > 0 && (
+          placement_recruiters && placement_recruiters.length > 0 && (
             <div className="w-full px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-10 lg:py-20 flex flex-col gap-5">
               {
                 placement_partners_introduction && (
@@ -399,19 +400,7 @@ export default function HomeComponent({banner, announcements, introduction, care
                 introDescription={placement_partners_introduction.intro_description} />
                 )
               }
-              <SwiperNav prev_class="partner_slider_prev" next_class="partner_slider_next" />
-              
-              <Swiper className="w-full" slidesPerView={2} spaceBetween={20} modules={[Navigation, Autoplay]} autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}} navigation={{prevEl: '.partner_slider_prev', nextEl: '.partner_slider_next'}} breakpoints={{640: {slidesPerView: 3}, 768: { slidesPerView: 3, spaceBetween: 75 }, 1024: { slidesPerView: 4, spaceBetween: 70 }, 1280: { slidesPerView: 5, spaceBetween: 70 } }} >
-                {
-                  placement_partners.map((placement_partner, key) => placement_partner.placement_partner_logo && (
-                    <SwiperSlide title={placement_partner.placement_partner_name} key={key}>
-                      <div className="rounded-full overflow-hidden border border-[#800000] w-40 h-40 lg:w-50 lg:h-50 flex items-center p-1">
-                        <Image src={placement_partner.placement_partner_logo} alt={placement_partner.placement_partner_logo_alt || `N L Dalmia`} width={300} height={300} className="object-cover w-full" />
-                      </div>
-                    </SwiperSlide>
-                  ))
-                }
-              </Swiper>
+              <PlacementRecruitersSlider recruiters={placement_recruiters} />
             </div>
             )
       }
