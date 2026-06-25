@@ -302,10 +302,10 @@ export default function PlacementsComponent({ banner, introduction, sliders, cor
           introCaption={reports_introduction.intro_caption}
           introDescription={reports_introduction.intro_description} />
           <div className="flex flex-col lg:flex-row gap-5 xl:gap-10">
-              <ul className="lg:w-[25%] flex flex-col gap-3 lg:gap-5 text-burgundy justify-center items-center lg:justify-start lg:items-start">
+              <ul className="lg:w-[25%] overflow-hidden overflow-x-auto min-h-10 flex lg:flex-col gap-3 lg:gap-5 text-burgundy">
                 {
                   placement_reports_tabs.map((report_category, key) => (
-                    <li className={`group cursor-pointer transition-all duration-300 ${activeReportCategory === report_category ? 'text-xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveReportCategoryFunc(report_category)}>
+                    <li className={`group cursor-pointer whitespace-nowrap transition-all duration-300 ${activeReportCategory === report_category ? 'text-xl' : 'text-lg text-[#4E4E4E]'}`} key={key} onClick={() => updateActiveReportCategoryFunc(report_category)}>
                       <span className="relative">
                         {report_category}
                         <span className={`absolute w-full h-[0.1rem] -bottom-1 left-0 bg-[#800000] transform origin-center transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${activeReportCategory === report_category ? 'scale-x-100' : ''}`}></span>
