@@ -36,8 +36,6 @@ export async function loadBlog(slug: string) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "blog-url-slug": blog_url_slug } = await params;
 
-  console.log("BLOG ROUTE:", blog_url_slug);
-
   const blog = await loadBlog(blog_url_slug);
 
   if (!blog) {
