@@ -43,6 +43,10 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
     
     const body = await res.text();
 
+    if (!body || body.trim() === "" || body.trim() === "null") {
+        return null as T;
+    }
+
     try {
         return JSON.parse(body) as T;
     } catch (err) {
