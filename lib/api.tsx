@@ -16,26 +16,44 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
     };
 
     headers["Content-Type"] = "application/json";
+
+    const url = `${baseUrl}${endpoint}`;
     
-    const res = await fetch(`${baseUrl}${endpoint}`, {
+    const res = await fetch(`${url}`, {
         ...options,
         headers,
         cache: "no-store",
     });
     
     if (!res.ok) {
-        if(res.status === 404) {
+        const body = await res.text();
+
+        console.error("=== API ERROR ===");
+        console.error("URL:", url);
+        console.error("Method:", options.method ?? "GET");
+        console.error("Status:", res.status);
+        console.error("Response:", body);
+
+        if (res.status === 404) {
             return null as T;
         }
-        
-        const message = await res.text();
-        console.error("API ERROR:", endpoint, res.status, message);
+
         return null as T;
     }
     
+    const body = await res.text();
+
     try {
-        return (await res.json()) as T;
-    } catch {
-        return null as T;
+        return JSON.parse(body) as T;
+    } catch (err) {
+        console.error("=== INVALID JSON RESPONSE ===");
+        console.error("URL:", url);
+        console.error("Method:", options.method ?? "GET");
+        console.error("Status:", res.status);
+        console.error("Content-Type:", res.headers.get("content-type"));
+        console.error("Response Body:", body);
+        console.error("Parse Error:", err);
+
+        throw err;
     }
 }
