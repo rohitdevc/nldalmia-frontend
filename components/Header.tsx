@@ -74,7 +74,7 @@ export default function Header({ program_categories, common_programs, ticker_api
     const [showSearchResults, updateShowSearchResults] = useState(false);
 
     const search_results = useMemo(() => {
-        if(!searchValue.trim()) return [];
+        if(!searchValue.trim()) updateShowSearchResults(false); return [];
 
         return fuse.search(searchValue).map(r => r.item)
     }, [searchValue])
