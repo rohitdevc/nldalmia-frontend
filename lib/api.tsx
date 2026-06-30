@@ -32,7 +32,6 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
         console.error("URL:", url);
         console.error("Method:", options.method ?? "GET");
         console.error("Status:", res.status);
-        console.error("Response:", body);
 
         if (res.status === 404) {
             return null as T;
@@ -55,7 +54,6 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
         console.error("Method:", options.method ?? "GET");
         console.error("Status:", res.status);
         console.error("Content-Type:", res.headers.get("content-type"));
-        console.error("Response Body:", body);
         console.error("Parse Error:", err);
 
         throw err;
