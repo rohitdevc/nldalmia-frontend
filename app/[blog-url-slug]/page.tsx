@@ -1,5 +1,5 @@
-import { getBlog, getBlogsRelatedByCategory } from "@/lib/blog";
-
+import { getBlogsRelatedByCategory } from "@/lib/blog";
+import { loadBlog } from "./blog-loader";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -22,17 +22,6 @@ type PageProps = {
 export const revalidate = 300;
 
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
-
-let blogCache = new Map();
-
-export async function loadBlog(slug: string) {
-  if (blogCache.has(slug)) return blogCache.get(slug);
-  
-  const blog = await getBlog(slug);
-  blogCache.set(slug, blog);
-
-  return blog;
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "blog-url-slug": blog_url_slug } = await params;
