@@ -3,6 +3,7 @@
 import { useHeader } from "@/context/HeaderContext";
 import { useEffect, useRef } from "react";
 import Script from "next/script";
+import JSXStyle from "styled-jsx/style";
 
 export default function PrivacyPolicyComponent() {
   const basePath = process.env.NEXT_PUBLIC_PATH;
@@ -21,6 +22,11 @@ export default function PrivacyPolicyComponent() {
       }
     };
 
+    const chatbot = document.querySelector('.npf_chatbots')
+    if (chatbot) {
+      chatbot.remove();
+    }
+
     window.addEventListener("message", handleMessage);
 
     return () => {
@@ -30,6 +36,7 @@ export default function PrivacyPolicyComponent() {
 
   return (
     <>
+      
       <Script src="https://cdn.jsdelivr.net/npm/iframeresizer@3.6.5/js/iframeResizer.min.js" strategy="afterInteractive"
         onLoad={() => {
           if (typeof window !== "undefined" && (window as any).iFrameResize) {
@@ -45,7 +52,7 @@ export default function PrivacyPolicyComponent() {
       />
 
       <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
-        <iframe ref={iframeRef} id="Univiser" src="https://nldalmia.univiser.io" className="w-full border-0 min-h-screen" />
+        <iframe ref={iframeRef} id="Univiser" src="https://nldalmia.univiser.io?wordpress=true" className="w-full border-0 min-h-screen" />
       </main>
     </>
   );
