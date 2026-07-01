@@ -71,6 +71,81 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/shri-shivkumar-dalmia',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/ticker',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/wp-remote-api',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/industrial-visit-2',
+				destination: '/industrial-visit',
+				permanent: true,
+			},
+			{
+				source: '/scholarships-2',
+				destination: '/scholarships',
+				permanent: true,
+			},
+			{
+				source: '/apple-touch-icon-precomposed.png',
+				destination: '/apple-touch-icon.png',
+				permanent: true,
+			},
+			{
+				source: '/apple-touch-icon-152x152-precomposed.png',
+				destination: '/apple-touch-icon.png',
+				permanent: true,
+			},
+			{
+				source: '/apple-touch-icon-152x152.png',
+				destination: '/apple-touch-icon.png',
+				permanent: true,
+			},
+			{
+				source: '/apple-touch-icon-120x120-precomposed.png',
+				destination: '/apple-touch-icon.png',
+				permanent: true,
+			},
+			{
+				source: '/apple-touch-icon-120x120.png',
+				destination: '/apple-touch-icon.png',
+				permanent: true,
+			},
+			{
+				source: '/WhatsApp_Logo.png',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/ads.txt',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/app-ads.txt',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/log.txt',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/program/programs-finance',
+				destination: '/programs/finance',
+				permanent: true,
+			},
+			{
 				source: '/Course-Post-Graduate-Program-in-Finance',
 				destination: '/programs/finance',
 				permanent: true,
@@ -106,8 +181,28 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/club-forum',
+				destination: '/life-at-nld',
+				permanent: true
+			},
+			{
+				source: '/student-achievements',
+				destination: '/life-at-nld',
+				permanent: true
+			},
+			{
 				source: '/campus/gym',
 				destination: '/life-at-nld',
+				permanent: true
+			},
+			{
+				source: '/faculty-2',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty-test',
+				destination: '/faculty',
 				permanent: true
 			},
 			{
@@ -117,12 +212,57 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/faculty/prof-seema-saini',
-				destination: '/faculty/prof-dr-seema-saini',
+				destination: '/about-us',
+				permanent: true
+			},
+			{
+				source: '/faculty/prof-tapas-mitra',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/dr-vaishali-kulkarni',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/ms-vaishali-raut',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/dr-machhindranath-koshti-2',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/dr-machhindranath-koshti',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/dr-nitin-sharma',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/faculty/prof-imran-siddiqui',
+				destination: '/faculty/mr-imran-siddiqui',
+				permanent: true
+			},
+			{
+				source: '/faculty/mr-mudit-dalmia',
+				destination: '/about-us',
+				permanent: true
+			},
+			{
+				source: '/faculty/faculty-invited-as-resource-person',
+				destination: '/faculty/research-papers-published/journal-publications',
 				permanent: true
 			},
 			{
 				source: '/faculty-members/dr-seema-saini',
-				destination: '/faculty/prof-dr-seema-saini',
+				destination: '/about-us',
 				permanent: true
 			},
 			{
@@ -236,8 +376,73 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/:path*\\.sql',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.save',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.bak',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.old',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/sitemap.rss',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/event/utkarsh-2023-2',
+				destination: '/events/utkarsh-2023-2024',
+				permanent: true,
+			},
+			{
+				source: '/event/utkarsh-2023',
+				destination: '/events/utkarsh-2023-2024',
+				permanent: true,
+			},
+			{
+				source: '/event/virtual-alumni-meet',
+				destination: '/events/virtual-alumni-meet-1',
+				permanent: true,
+			},
+			{
+				source: '/event/edition-1',
+				destination: '/events',
+				permanent: true,
+			},
+			{
+				source: '/event/edition-7',
+				destination: '/events',
+				permanent: true,
+			},
+			{
+				source: '/event/rethinking-business-strategies-to-drive-innovations-and-business-values',
+				destination: '/events/rethinking-business-strategies-to-drive-innovations-and-business-values-2022',
+				permanent: true,
+			},
+			{
+				source: '/event/rethinking-business-strategies-to-drive-innovations-and-business-values-3',
+				destination: '/events/rethinking-business-strategies-to-drive-innovations-and-business-values-2022',
+				permanent: true,
+			},
+			{
 				source: '/sitemap_index.xml',
 				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/faculty/shri-shailesh-dalmia',
+				destination: '/about-us',
 				permanent: true,
 			},
 			{
@@ -246,8 +451,58 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/index.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/atom.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/feed.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/post_tag-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/elementskit_widget-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/page-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/msr-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/alumni-spotlight-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/awards-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
 				source: '/null',
 				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-caral-dcunha',
+				destination: '/faculty',
 				permanent: true,
 			},
 			{
@@ -331,7 +586,62 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/prof-dr-m-a-khan',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-anand-dhutraj',
+				destination: '/faculty/mr-anand-dhutraj',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-mangesh-kasbekar-2',
+				destination: '/faculty/dr-mangesh-prasad-kasbekar',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-mangesh-kasbekar',
+				destination: '/faculty/dr-mangesh-prasad-kasbekar',
+				permanent: true,
+			},
+			{
+				source: '/faculty/mr-jestin-johny',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/kinjal-manani',
+				destination: '/faculty/ms-kinjal-manani',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-chitra-gounder',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-sourav-choudhury',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-rk-srivastava',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/faculty-participation',
+				destination: '/faculty/faculty-development-programs',
+				permanent: true,
+			},
+			{
 				source: '/research-papers-presented',
+				destination: '/faculty/research-papers-published/journal-publications',
+				permanent: true
+			},
+			{
+				source: '/faculty/research-papers-presented',
 				destination: '/faculty/research-papers-published/journal-publications',
 				permanent: true
 			},
@@ -1859,7 +2169,12 @@ const nextConfig: NextConfig = {
 				source: '/alumni-spotlight/ms-munmun-desai-2',
 				destination: '/alumni',
 				permanent: true
-			}
+			},
+			{
+				source: '/event/:path',
+				destination: '/events/:path',
+				permanent: true,
+			},
 		]
 	}
 };
