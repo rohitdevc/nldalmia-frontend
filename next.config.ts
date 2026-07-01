@@ -231,6 +231,26 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/:path*\\.php',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/sitemap_index.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/category-sitemap.xml',
+				destination: '/sitemap.xml',
+				permanent: true,
+			},
+			{
+				source: '/null',
+				destination: '/',
+				permanent: true,
+			},
+			{
 				source: '/2023/:month',
 				destination: '/blogs',
 				permanent: true,
