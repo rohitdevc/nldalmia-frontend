@@ -13,7 +13,7 @@ export default function PrivacyPolicyComponent() {
   }, [])
 
   return (
-    <main className="w-full pt-40" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
+    <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <div className="px-5 lg:px-15 xl:px-20 2xl:px-30 py-10 flex flex-col gap-5">
         <h1 className="text-4xl font-georgia">Privacy Policy</h1>
         <p>In the course of using this website or availing the services offered on the website vide the online application forms, communication services etc., N. L. Dalmia Institute of Management Studies and Research (“the Company” or “N. L. Dalmia Institute of Management Studies and Research”) and its Affiliates may become privy to the personal information of the users, including information that is of a confidential nature.</p>
