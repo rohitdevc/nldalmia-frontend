@@ -71,6 +71,271 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: 'program/mmm',
+				destination: 'programs',
+				permanent: true
+			},
+			{
+				source: '/%22%22',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/course',
+				destination: '/programs',
+				permanent: true,
+			},
+			{
+				source: '/guest-blogging',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/contribute',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/write-for-me',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/guest-posts',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/guest-post',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/write-for-us',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/contacts',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/kontakt',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/contacto',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/contatti',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/contact-me',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/affiliations-logo-1',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/entrance-exams-considered-for-pgdm-admissions',
+				destination: '/pgdm-admission-process-in-india-entrance-exams-cut-offs-selection-criteria',
+				permanent: true,
+			},
+			{
+				source: '/example-with-the-accordion-element',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/resource-msr-activities',
+				destination: '/my-social-responsibility',
+				permanent: true,
+			},
+			{
+				source: '/msr/:path',
+				destination: '/my-social-responsibility',
+				permanent: true,
+			},
+			{
+				source: '/Content-donation-drive-for-kerala-flood-victims-august-2018',
+				destination: '/my-social-responsibility',
+				permanent: true,
+			},
+			{
+				source: '/mastering-market-analysis-with-bloomberg-tools-2',
+				destination: '/mastering-market-analysis-with-bloomberg-tools',
+				permanent: true,
+			},
+			{
+				source: '/contact',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/contactus',
+				destination: '/contact-us',
+				permanent: true,
+			},
+			{
+				source: '/about',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-me',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us%40who-we-are',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us%40international-tie-ups',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us%40legacy',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us%40managing-council',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/shri-shailesh-dalmia',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/Committees',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/committees',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/https-www-nldalmia-in-blog-ai-machine-learning-in-business-analytics',
+				destination: '/ai-machine-learning-in-business-analytics',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-10',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-7',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/affiliations-logo-2',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/pgdm-fintech',
+				destination: '/programs/finance',
+				permanent: true,
+			},
+			{
+				source: '/home-slider',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/scholarship',
+				destination: '/scholarships',
+				permanent: true,
+			},
+			{
+				source: '/graphql',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/mandatory-disclosure',
+				destination: '/assets/pdfs/mandatory-disclosures.pdf',
+				permanent: true,
+			},
+			{
+				source: '/things-to-know-before-enrolling-for-big-data-course',
+				destination: '/big-data-course-all-you-need-to-know-before-enrolling-to-one',
+				permanent: true,
+			},
+			{
+				source: '/placement-partners-logo-image-2',
+				destination: '/placements',
+				permanent: true,
+			},
+			{
+				source: '/Pages-Faculty',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/2',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/https-www-nldalmia-in-blog-finance-insights-from-pgdm-program',
+				destination: '/programs/finance',
+				permanent: true,
+			},
+			{
+				source: '/pgdm-finance',
+				destination: '/programs/finance',
+				permanent: true,
+			},
+			{
+				source: '/Resource-MDP',
+				destination: '/management-development-programs',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-3',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/Content-international-marketing-conclave-2018-expert-insights-on-design-thinking',
+				destination: '/events/the-international-marketing-conclave-2018',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-durba-chakrabarty',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/ms-malini-jain',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/feed',
+				destination: '/',
+				permanent: true,
+			},
+			{
 				source: '/shri-shivkumar-dalmia',
 				destination: '/about-us',
 				permanent: true,
@@ -216,6 +481,11 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/faculty/prof-dr-seema-saini',
+				destination: '/about-us',
+				permanent: true
+			},
+			{
 				source: '/faculty/prof-tapas-mitra',
 				destination: '/faculty',
 				permanent: true
@@ -262,6 +532,11 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/faculty-members/dr-seema-saini',
+				destination: '/about-us',
+				permanent: true
+			},
+			{
+				source: '/dr-seema-saini',
 				destination: '/about-us',
 				permanent: true
 			},
@@ -346,6 +621,16 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/faculty/training-programs-attended-by-faculties',
+				destination: '/faculty/faculty-development-programs',
+				permanent: true
+			},
+			{
+				source: '/faculty/faculty-participation-outside-campus',
+				destination: '/faculty/faculty-development-programs',
+				permanent: true
+			},
+			{
 				source: '/blog',
 				destination: '/blogs',
 				permanent: true
@@ -406,6 +691,21 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/event/convocation-ceremony-2018',
+				destination: '/events',
+				permanent: true,
+			},
+			{
+				source: '/event/e-summit',
+				destination: '/events',
+				permanent: true,
+			},
+			{
+				source: '/event/think-tank',
+				destination: '/events',
+				permanent: true,
+			},
+			{
 				source: '/event/utkarsh-2023',
 				destination: '/events/utkarsh-2023-2024',
 				permanent: true,
@@ -436,63 +736,8 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
-				source: '/sitemap_index.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
 				source: '/faculty/shri-shailesh-dalmia',
 				destination: '/about-us',
-				permanent: true,
-			},
-			{
-				source: '/category-sitemap.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/index.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/atom.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/feed.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/post_tag-sitemap.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/elementskit_widget-sitemap.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/page-sitemap.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/msr-sitemap.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/alumni-spotlight-sitemap.xml',
-				destination: '/sitemap.xml',
-				permanent: true,
-			},
-			{
-				source: '/awards-sitemap.xml',
-				destination: '/sitemap.xml',
 				permanent: true,
 			},
 			{
