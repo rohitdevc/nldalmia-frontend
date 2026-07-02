@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/chat-with-a-student',
+				destination: '/chat-with-our-student',
+				permanent: true,
+			},
+			{
 				source: '/cgi-bin',
 				destination: '/',
 				permanent: true,

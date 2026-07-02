@@ -227,9 +227,9 @@ export default function HomeComponent({banner, announcements, introduction, care
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className={`fixed right-0 top-1/2 -translate-y-1/2 z-10 flex bg-[#800000] text-white border border-white rounded-l-full overflow-hidden items-center transition-transform duration-300 ${sideButton ? "translate-x-0" : "translate-x-[calc(100%-36px)]"}`}>
-        <button onClick={() => updateSideButton(!sideButton)} className={`flex justify-center items-center px-1 cursor-pointer outline-none ${sideButton ? "rotate-180" : ""}`}><MdKeyboardArrowLeft size={25}/></button>
-        <Link href={`${basePath}chat-with-a-student`} className={`w-fit px-2 py-3 outline-none whitespace-nowrap`}>Chat with a Student</Link>
+      <div className={`fixed right-0 top-1/2 -translate-y-1/2 z-10 flex text-white items-center transition-transform duration-300 ${sideButton ? "translate-x-0" : "translate-x-[calc(100%-36px)]"}`}>
+        <button onClick={() => updateSideButton(!sideButton)} className={`bg-[#800000] h-15 flex justify-center items-center px-1 cursor-pointer outline-none border-t border-b ${sideButton ? "rotate-180 rounded-r-full border-r" : "rounded-l-full border-l"}`}><MdKeyboardArrowLeft size={25}/></button>
+        <Link href={`${basePath}chat-with-our-student`} className={`bg-[#800000] w-fit [writing-mode:vertical-rl] px-2 py-3 outline-none`}>Chat with our Student</Link>
       </div>
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15">
         {
