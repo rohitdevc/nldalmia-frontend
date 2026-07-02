@@ -215,8 +215,6 @@ export default function HomeComponent({banner, announcements, introduction, care
     }
   }
 
-  const [sideButton, updateSideButton] = useState(true);
-
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
@@ -227,10 +225,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
-      <div className={`fixed right-0 top-1/2 -translate-y-1/2 z-10 flex text-white items-center transition-transform duration-300 ${sideButton ? "translate-x-0" : "translate-x-[calc(100%-40px)]"}`}>
-        <button onClick={() => updateSideButton(!sideButton)} className={`bg-[#800000] h-10 w-10 flex justify-center items-center cursor-pointer outline-none border-t border-b ${sideButton ? "rotate-180 rounded-r-full border-r" : "rounded-l-full border-l"}`}><MdKeyboardArrowLeft size={25}/></button>
-        <Link href={`${basePath}chat-with-our-student`} className={`bg-[#800000] w-fit [writing-mode:vertical-rl] px-2 py-3 outline-none`}>Chat with our Student</Link>
-      </div>
+      <Link href={`${basePath}chat-with-our-student`} className={`fixed right-0 top-1/2 -translate-y-1/2 z-10 text-white bg-[#800000] w-fit [writing-mode:vertical-rl] px-3 py-3 outline-none rotate-180`}>Chat with our Student</Link>
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15">
         {
           announcements && announcements.length > 0 && (
