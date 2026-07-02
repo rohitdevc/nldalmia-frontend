@@ -71,9 +71,99 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
-				source: '/program/mmm',
-				destination: 'programs',
-				permanent: true
+				source: '/cgi-bin',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/backend',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/env',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/login',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-satish-aliawadi',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/ms-sujata-dsouza',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-4',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-6',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-7',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-8',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/our-social-gallery-images-9',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/event/jugaadu',
+				destination: '/events/jugaadu-2024',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-srinivasan-r-iyengar',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/wp-json',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/faculty/chandrakant-varma',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/wp',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/wordpress',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/new',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/old',
+				destination: '/',
+				permanent: true,
 			},
 			{
 				source: '/%22%22',
@@ -222,6 +312,11 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/Committees',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/ms-sajita-pradeep',
 				destination: '/faculty',
 				permanent: true,
 			},
@@ -391,21 +486,6 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
-				source: '/ads.txt',
-				destination: '/',
-				permanent: true,
-			},
-			{
-				source: '/app-ads.txt',
-				destination: '/',
-				permanent: true,
-			},
-			{
-				source: '/log.txt',
-				destination: '/',
-				permanent: true,
-			},
-			{
 				source: '/program/programs-finance',
 				destination: '/programs/finance',
 				permanent: true,
@@ -531,6 +611,11 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/faculty/research-publications',
+				destination: '/faculty/research-papers-published/journal-publications',
+				permanent: true
+			},
+			{
 				source: '/faculty-members/dr-seema-saini',
 				destination: '/about-us',
 				permanent: true
@@ -621,6 +706,11 @@ const nextConfig: NextConfig = {
 				permanent: true
 			},
 			{
+				source: '/faculty-development-programmes',
+				destination: '/faculty/faculty-development-programs',
+				permanent: true
+			},
+			{
 				source: '/faculty/training-programs-attended-by-faculties',
 				destination: '/faculty/faculty-development-programs',
 				permanent: true
@@ -661,7 +751,112 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/:path*\\.ts',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.js',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.java',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.cfg',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.py',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.json',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.gz',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.log',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.txt',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.zip',
+				destination: '/',
+				permanent: true,
+			},
+			{
 				source: '/:path*\\.sql',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.sh',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.rust',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.ini',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.rb',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.conf',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.config',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.phtml',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.csv',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.yml',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.tmp',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path*\\.lock',
 				destination: '/',
 				permanent: true,
 			},
@@ -737,6 +932,11 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/faculty/shri-shailesh-dalmia',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/Members-of-Managing-Council',
 				destination: '/about-us',
 				permanent: true,
 			},
@@ -988,6 +1188,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/events/maadhyam-2024',
 				destination: '/events/maadhyam-2023',
+				permanent: true
+			},
+			{
+				source: '/Content-maadhayam-2018',
+				destination: '/events/maadhyam-2018-marketing-event',
 				permanent: true
 			},
 			{
@@ -2418,6 +2623,21 @@ const nextConfig: NextConfig = {
 			{
 				source: '/event/:path',
 				destination: '/events/:path',
+				permanent: true,
+			},
+			{
+				source: '/program/:path',
+				destination: 'programs',
+				permanent: true
+			},
+			{
+				source: '/:path(\\..*)/:rest*',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/:path(\\..*)',
+				destination: '/',
 				permanent: true,
 			},
 		]
