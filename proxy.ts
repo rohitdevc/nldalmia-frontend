@@ -30,6 +30,8 @@ export function proxy(request: NextRequest) {
         return NextResponse.redirect(new URL('/', request.url), 308);
     } else if (pathname.includes('azure')) {
         return NextResponse.redirect(new URL('/', request.url), 308);
+    } else if (pathname.includes('sendgrid')) {
+        return NextResponse.redirect(new URL('/', request.url), 308);
     }
     
     return NextResponse.next();
