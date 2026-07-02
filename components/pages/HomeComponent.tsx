@@ -21,7 +21,7 @@ import Intro from "@/components/Intro";
 import CenterIntro from "@/components/CenterIntro";
 import YTVideoPopUp, { YTVideoPopupHandle } from "@/components/YouTubeVideo";
 
-import { MdArrowOutward } from "react-icons/md";
+import { MdArrowOutward, MdKeyboardArrowLeft } from "react-icons/md";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -215,8 +215,9 @@ export default function HomeComponent({banner, announcements, introduction, care
     }
   }
 
+  const [sideButton, updateSideButton] = useState(true);
+
   return (
-    <>
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
@@ -226,6 +227,10 @@ export default function HomeComponent({banner, announcements, introduction, care
       banner_youtube_video_id={banner.banner_youtube_video_id}
       banner_button_caption={banner.button_caption}
       banner_url={banner.button_link} />
+      <div className={`fixed right-0 top-1/2 -translate-y-1/2 z-10 flex bg-[#800000] text-white border border-white rounded-l-full overflow-hidden items-center transition-transform duration-300 ${sideButton ? "translate-x-0" : "translate-x-[calc(100%-36px)]"}`}>
+        <button onClick={() => updateSideButton(!sideButton)} className={`flex justify-center items-center px-1 cursor-pointer outline-none ${sideButton ? "rotate-180" : ""}`}><MdKeyboardArrowLeft size={25}/></button>
+        <Link href={`${basePath}chat-with-a-student`} className={`w-fit px-2 py-3 outline-none whitespace-nowrap`}>Chat with a Student</Link>
+      </div>
       <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15">
         {
           announcements && announcements.length > 0 && (
@@ -684,6 +689,5 @@ export default function HomeComponent({banner, announcements, introduction, care
       </div>
       <YTVideoPopUp ref={videoPopupRef} />
     </main>
-    </>
   );
 }
