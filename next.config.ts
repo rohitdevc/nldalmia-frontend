@@ -96,6 +96,16 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/prof-dr-nilay-yajnik',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dhwanik-shah',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
 				source: '/faculty/dr-satish-aliawadi',
 				destination: '/faculty',
 				permanent: true,
@@ -353,6 +363,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/pgdm-fintech',
 				destination: '/programs/finance',
+				permanent: true,
+			},
+			{
+				source: '/doctoral-programs',
+				destination: '/programs/doctoral-programs',
 				permanent: true,
 			},
 			{
@@ -761,6 +776,11 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/:path*\\.jsp',
+				destination: '/',
+				permanent: true,
+			},
+			{
 				source: '/:path*\\.js',
 				destination: '/',
 				permanent: true,
@@ -1028,6 +1048,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/faculty/dr-joyeeta-chatterjee',
 				destination: '/faculty/prof-dr-joyeeta-chatterjee',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-prashant-salwan',
+				destination: '/faculty',
 				permanent: true,
 			},
 			{
