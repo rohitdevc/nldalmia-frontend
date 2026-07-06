@@ -456,6 +456,26 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/shri-shivkumar-dalmia',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/faculty/chetana-asbe',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-anil-gor',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/mr-vaibhav-kulkarni',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
 				source: '/ticker',
 				destination: '/',
 				permanent: true,
@@ -958,6 +978,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/faculty/shri-shailesh-dalmia',
 				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/faculty/mr-shailesh-kumar',
+				destination: '/faculty',
 				permanent: true,
 			},
 			{
