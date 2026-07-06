@@ -321,6 +321,26 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/about-us@who-we-are',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us@international-tie-ups',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us@legacy',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
+				source: '/about-us@managing-council',
+				destination: '/about-us',
+				permanent: true,
+			},
+			{
 				source: '/shri-shailesh-dalmia',
 				destination: '/about-us',
 				permanent: true,
