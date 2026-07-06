@@ -561,6 +561,11 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/program/school-quantitative-science',
+				destination: '/programs',
+				permanent: true,
+			},
+			{
 				source: '/Course-Post-Graduate-Program-in-Finance',
 				destination: '/programs/finance',
 				permanent: true,
