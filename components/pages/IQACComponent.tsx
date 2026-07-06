@@ -14,6 +14,9 @@ import Banner from "@/components/Banner";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import parser from 'html-react-parser'
+import nl2br from "nl2br";
+
 import { Banner as BannerProps, IQAC, IQACCategories, IQACPOE } from "@/types/api";
 
 type PageProps = {
@@ -89,15 +92,20 @@ export default function IQACsComponent({ banner, iqac_categories, iqac_pdfs, iqa
           {
             iqac_pdfs.filter(iqac_pdf =>
               iqac_pdf.iqac_category_title === activeIQACCategoryName
-            ).map((iqac_pdf, key) => iqac_pdf.iqac_pdf && (
-              <Link className="w-full flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5 sm:gap-0 py-5 border-b border-[#800000] last:border-b-0" href={iqac_pdf.iqac_pdf} target="_blank" key={key} title={iqac_pdf.iqac_title}>
-                <span className="font-georgia text-xl">{iqac_pdf.iqac_title}</span>
-                <span className="text-burgundy flex gap-2 items-center font-semibold">
-                  <span className="relative">
-                    <span>Download PDF</span>
-                    <span className="absolute inset-0 left-0 top-6 w-full h-[0.5px] bg-[#800000]"></span>
+            ).map((iqac_pdf, key) => (
+              <Link className="w-full flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5 sm:gap-0 py-5 border-b border-[#800000] last:border-b-0" href={iqac_pdf.iqac_pdf || `#`} target={iqac_pdf.iqac_pdf ? `_blank`: '_self'} key={key} title={iqac_pdf.iqac_title}>
+                <span className="font-georgia text-xl">{parser(nl2br(iqac_pdf.iqac_title))}</span>
+                {
+                  iqac_pdf.iqac_pdf && (
+                  <span className="text-burgundy flex gap-2 items-center font-semibold">
+                    <span className="relative">
+                      <span>Download PDF</span>
+                      <span className="absolute inset-0 left-0 top-6 w-full h-[0.5px] bg-[#800000]"></span>
+                    </span>
+                    <MdArrowOutward size={20} />
                   </span>
-                  <MdArrowOutward size={20} /></span>
+                )
+                }
               </Link>
             ))
           }
