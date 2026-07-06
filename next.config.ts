@@ -336,6 +336,11 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/ms-prachi-mahimkar',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
 				source: '/committees',
 				destination: '/faculty',
 				permanent: true,
@@ -462,6 +467,11 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/faculty/chetana-asbe',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-ranjan-chowdry',
 				destination: '/faculty',
 				permanent: true,
 			},
@@ -986,6 +996,31 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/dr-monica-khanna',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-pushkar-parulekar',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-kanaiyalal-s-parmar',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/ms-rachana-parikh',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-ruchika-agarwal',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
 				source: '/Members-of-Managing-Council',
 				destination: '/about-us',
 				permanent: true,
@@ -1086,6 +1121,16 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/faculty/prof-jyoti-nair',
+				destination: '/faculty/prof-dr-jyoti-nair',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-rupesh-siyodiya',
+				destination: '/faculty',
+				permanent: true,
+			},
+			{
 				source: '/faculty/prof-dr-m-a-khan',
 				destination: '/faculty',
 				permanent: true,
@@ -1098,6 +1143,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/faculty/dr-mangesh-kasbekar-2',
 				destination: '/faculty/dr-mangesh-prasad-kasbekar',
+				permanent: true,
+			},
+			{
+				source: '/faculty/prof-ekta-thakar',
+				destination: '/faculty',
 				permanent: true,
 			},
 			{
@@ -1133,6 +1183,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/faculty/faculty-participation',
 				destination: '/faculty/faculty-development-programs',
+				permanent: true,
+			},
+			{
+				source: '/faculty/dr-amit-shrivastava',
+				destination: '/faculty',
 				permanent: true,
 			},
 			{
