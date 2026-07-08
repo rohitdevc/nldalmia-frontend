@@ -71,6 +71,16 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/courses/:path',
+				destination: '/programs/:path',
+				permanent: true
+			},
+			{
+				source: '/the-bloomberg-finance-lab-launched-at-n-l-dalmia-campus-mumbai',
+				destination: '/navigating-financial-landscape-with-bloomberg-lab',
+				permanent: true
+			},
+			{
 				source: '/chat-with-a-student',
 				destination: '/chat-with-our-student',
 				permanent: true,
