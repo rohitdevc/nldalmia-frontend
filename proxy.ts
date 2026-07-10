@@ -3,6 +3,8 @@ import type { NextRequest } from 'next/server';
 
 export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
+
+    const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
     
     if (pathname.includes('.php')) {
         return NextResponse.redirect(new URL('/', request.url), 308);
@@ -31,6 +33,8 @@ export function proxy(request: NextRequest) {
     } else if (pathname.includes('azure')) {
         return NextResponse.redirect(new URL('/', request.url), 308);
     } else if (pathname.includes('sendgrid')) {
+        return NextResponse.redirect(new URL('/', request.url), 308);
+    } else if(years.includes(Number(pathname.replace('/', '')))) {
         return NextResponse.redirect(new URL('/', request.url), 308);
     }
     

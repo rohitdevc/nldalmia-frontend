@@ -71,6 +71,16 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/faculty/dr-riyaz-ahmed-qureshi%EF%BF%BC',
+				destination: '/faculty',
+				permanent: true
+			},
+			{
+				source: '/Course-Post-Graduate%20Program-in-Human-Resources',
+				destination: '/',
+				permanent: true
+			},
+			{
 				source: '/courses/:path',
 				destination: '/programs/:path',
 				permanent: true
@@ -972,6 +982,11 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/event/utkarsh-2023-2',
+				destination: '/events/utkarsh-2023-2024',
+				permanent: true,
+			},
+			{
+				source: '/event/utkarsh',
 				destination: '/events/utkarsh-2023-2024',
 				permanent: true,
 			},
