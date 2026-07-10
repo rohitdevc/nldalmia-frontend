@@ -222,7 +222,7 @@ export default function MSRComponent({banner, introduction, verticals_intro, ver
                 {
                   sdg_goals.map((sdg_goal, key) => (
                     <SwiperSlide className="group relative !h-auto overflow-hidden text-white" title={sdg_goal.sdg_goal_title} key={key} onClick={handleSDGGoalClick(key)}>
-                    <div className="w-full h-full flex flex-1 border border-[#800000] min-h-100 bg-contain bg-center bg-no-repeat" style={{backgroundImage: `url(${sdg_goal.sdg_goal_image})`}}>
+                    <div className="w-full h-full flex flex-1 border border-[#800000] min-h-100 min-w-100 bg-contain bg-center bg-no-repeat" style={{backgroundImage: `url(${sdg_goal.sdg_goal_image})`}}>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/15 to-transparent"></div>
                         <div className="relative h-full w-full flex flex-col">
                           <div className="mt-auto px-5 lg:px-10 py-5 lg:py-10">
