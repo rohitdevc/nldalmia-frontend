@@ -391,7 +391,7 @@ export default function ProgramComponent({ program}: PageProps) {
                         }
                         {
                           international_partner.program_international_partner_description && (
-                            <p className="h-40 overflow-y-auto scrollbar-thin scrollbar-thumb-white/50 hover:scrollbar-thumb-white/50">{parser(nl2br(international_partner.program_international_partner_description))}</p>
+                            <p className="h-40 overflow-y-auto scrollbar-thin scrollbar-thumb-white/60 hover:scrollbar-thumb-white/60">{parser(nl2br(international_partner.program_international_partner_description))}</p>
                           )
                         }
                       </div>
