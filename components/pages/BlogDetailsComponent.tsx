@@ -26,6 +26,12 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
 
   useEffect(() => {
       setHeaderProps({})
+
+      const links = document.querySelectorAll(".blog_content a");
+
+      links.forEach((link) => {
+        link.classList.add("text-blue-500");
+      });
   }, [])
 
   return (
@@ -51,7 +57,7 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
       </div>
       {
         blog.blog_content && (
-        <div className="px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 leading-loose">
+        <div className="px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5 leading-loose blog_content">
           {parser(blog.blog_content)}
         </div>
         )

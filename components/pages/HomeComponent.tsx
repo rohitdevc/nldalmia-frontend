@@ -249,10 +249,10 @@ export default function HomeComponent({banner, announcements, introduction, care
         }
         {
           introduction && (
-          <Intro
-          introTitle={introduction.intro_title}
-          introCaption={introduction.intro_caption}
-          />
+            <div className="w-full flex flex-col gap-5">
+              <h1 className="text-burgundy text-xl md:text-2xl">{parser(nl2br(introduction.intro_title))}</h1>
+              <p className="text-2xl md:text-4xl font-georgia w-full lg:w-4xl">{parser(nl2br(introduction.intro_caption))}</p>
+            </div>
           )
         }
         <div className="flex flex-col lg:flex-row gap-10 md:mt-10">
