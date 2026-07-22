@@ -433,7 +433,7 @@ export default function Alumni({ banner, introduction, wall_of_fame, slider, alu
                       <div className="sm:w-75 sm:h-50 md:w-60 md:h-60">
                         {
                           alumni_testimonial.testimonial_thumbnail && (
-                            <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_thumbnail_alt} width={400} height={400} className="object-cover w-full h-full" />
+                            <Image src={alumni_testimonial.testimonial_thumbnail} alt={alumni_testimonial.testimonial_thumbnail_alt || alumni_testimonial.testimonial_name} width={400} height={400} className="object-cover w-full h-full" />
                           )
                         }
                       </div>

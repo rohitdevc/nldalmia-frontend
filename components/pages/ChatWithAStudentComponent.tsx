@@ -52,6 +52,9 @@ export default function PrivacyPolicyComponent() {
       />
 
       <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
+        <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 py-5">
+          <h1 className="text-burgundy text-xl md:text-2xl">Chat with our Ambassadors</h1>
+        </div>
         <iframe ref={iframeRef} id="Univiser" src="https://nldalmia.univiser.io?wordpress=true" className="w-full border-0 min-h-screen" />
       </main>
     </>

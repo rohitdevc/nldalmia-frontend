@@ -17,9 +17,9 @@ export function FacultyCard({faculty, keyIndex}: FacultyProps) {
             <div className="flex-1 flex flex-col gap-4 xl:w-sm justify-center items-center text-center bg-white border-[0.5px] border-[#E0CDCD]" title={faculty.faculty_name} key={keyIndex}>
                 <div className="h-75">
                     {
-                    faculty.faculty_thumbnail && (
-                        <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt} width={500} height={500} className="object-contain w-full h-full" />
-                    )
+                        faculty.faculty_thumbnail && (
+                            <Image src={faculty.faculty_thumbnail} alt={faculty.faculty_thumbnail_alt || faculty.faculty_name} width={500} height={500} className="object-contain w-full h-full" />
+                        )
                     }
                 </div>
                 <h2 className="font-georgia text-xl">{faculty.faculty_name}</h2>

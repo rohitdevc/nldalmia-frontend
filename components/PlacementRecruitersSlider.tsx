@@ -23,7 +23,7 @@ export default function PlacementRecruitersSlider({recruiters}: Props) {
             recruiters.map((recruiter, key) => recruiter.recruiter_logo && (
                 <SwiperSlide title={recruiter.recruiter_caption} key={key}>
                 <div className="rounded-full overflow-hidden border border-[#800000] w-50 h-50 flex items-center p-1">
-                    <Image src={recruiter.recruiter_logo} alt={recruiter.recruiter_logo_alt} width={300} height={300} className="object-cover w-full" />
+                    <Image src={recruiter.recruiter_logo} alt={recruiter.recruiter_logo_alt || recruiter.recruiter_caption} width={300} height={300} className="object-cover w-full" />
                 </div>
                 </SwiperSlide>
             ))
