@@ -1,5 +1,3 @@
-import { useMemo, useState } from "react";
-
 import { CiSearch } from "react-icons/ci";
 
 type SearchBoxProps = {

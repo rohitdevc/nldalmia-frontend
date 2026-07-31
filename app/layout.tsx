@@ -51,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className} scroll-smooth`}>
       <head>
+        <meta name="google-site-verification" content="mbW0iHJD5Ns-Ynyfti_O3d3qoKBNbp0JRMFwOB8hvck" />
         <Script
           id="default-schema"
           type="application/ld+json"

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image";
 
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { fuse } from '@/lib/fuse'
 
@@ -90,7 +90,7 @@ export default function Header({ program_categories, common_programs, ticker_api
         }
         
         router.push(path);
-    };
+    }
 
     const handleMDPProgramsScroll = () => {
         programsRef?.current?.scrollIntoView({
