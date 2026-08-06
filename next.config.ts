@@ -1151,8 +1151,12 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/programs/global-mba-program-university-of-wisconsin-parkside',
+				destination: '/programs/global-mba'
+			},
+			{
 				source: '/Course-Global-MBA-Program-University-of-Wisconsin-Parkside',
-				destination: '/programs/global-mba-program-university-of-wisconsin-parkside',
+				destination: '/programs/global-mba',
 				permanent: true,
 			},
 			{

@@ -206,7 +206,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                                 <span className="block px-4 py-2 relative">PGDM <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" /></span>
                                             </li>
                                             <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
-                                                <Link href={`${basePath}programs/global-mba-program-university-of-wisconsin-parkside`} className="block px-4 py-2">Global MBA</Link>
+                                                <Link href={`${basePath}programs/global-mba`} className="block px-4 py-2">Global MBA</Link>
                                             </li>
                                             <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
                                                 <Link href={`${basePath}programs/doctoral-programs`} className="block px-4 py-2">Ph.D</Link>
@@ -395,7 +395,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM <MdKeyboardArrowRight size={20} /></span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/global-mba-program-university-of-wisconsin-parkside`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
+                                <Link href={`${basePath}programs/global-mba`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
                                 <Link href={`${basePath}programs/doctoral-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
