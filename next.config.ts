@@ -407,7 +407,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/pgdm-fintech',
-				destination: '/programs/finance',
+				destination: '/programs/pgdm-finance',
 				permanent: true,
 			},
 			{
@@ -428,6 +428,11 @@ const nextConfig: NextConfig = {
 			{
 				source: '/graphql',
 				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/programs/pgdm-in-business-analytics',
+				destination: '/programs/pgdm-business-analytics',
 				permanent: true,
 			},
 			{
@@ -457,12 +462,17 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/https-www-nldalmia-in-blog-finance-insights-from-pgdm-program',
-				destination: '/programs/finance',
+				destination: '/programs/pgdm-finance',
 				permanent: true,
 			},
 			{
 				source: '/pgdm-finance',
-				destination: '/programs/finance',
+				destination: '/programs/pgdm-finance',
+				permanent: true,
+			},
+			{
+				source: '/programs/finance',
+				destination: '/programs/pgdm-finance',
 				permanent: true,
 			},
 			{
@@ -577,7 +587,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/program/programs-finance',
-				destination: '/programs/finance',
+				destination: '/programs/pgdm-finance',
 				permanent: true,
 			},
 			{
@@ -587,7 +597,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/Course-Post-Graduate-Program-in-Finance',
-				destination: '/programs/finance',
+				destination: '/programs/pgdm-finance',
 				permanent: true,
 			},
 			{
@@ -1147,7 +1157,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/Course-MMS-Masters-In-Management-Studies-Finance',
-				destination: '/programs/finance',
+				destination: '/programs/pgdm-finance',
 				permanent: true,
 			},
 			{

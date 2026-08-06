@@ -230,10 +230,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                                         <Link href={`${basePath}programs/pgdm`} className="block px-4 py-2">PGDM</Link>
                                     </li>
                                     <li className="hover:bg-[#800000] hover:text-white">
-                                        <Link href={`${basePath}programs/finance`} className="block px-4 py-2">PGDM Finance</Link>
+                                        <Link href={`${basePath}programs/pgdm-finance`} className="block px-4 py-2">PGDM Finance</Link>
                                     </li>
                                     <li className="hover:bg-[#800000] hover:text-white">
-                                        <Link href={`${basePath}programs/pgdm-in-business-analytics`} className="block px-4 py-2">PGDM in Business Analytics</Link>
+                                        <Link href={`${basePath}programs/pgdm-business-analytics`} className="block px-4 py-2">PGDM Business Analytics</Link>
                                     </li>
                                 </ul>
                                 )
@@ -411,10 +411,10 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <Link href={`${basePath}programs/pgdm`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/finance`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
+                                <Link href={`${basePath}programs/pgdm-finance`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/pgdm-in-business-analytics`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM in Business Analytics</Link>
+                                <Link href={`${basePath}programs/pgdm-business-analytics`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Business Analytics</Link>
                             </li>
                         </ul>
                     </div>

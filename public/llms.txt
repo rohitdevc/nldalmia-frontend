@@ -101,8 +101,8 @@ N. L. Dalmia Institute of Management Studies and Research, also known as NLDIMSR
 - **Homepage**: https://www.nldalmia.in/
 - **About Us**: https://www.nldalmia.in/about-us/
 - **PGDM**: https://www.nldalmia.in/programs/pgdm/
-- **PGDM Finance**: https://www.nldalmia.in/programs/finance/
-- **PGDM in Business Analytics**: https://www.nldalmia.in/programs/pgdm-in-business-analytics/
+- **PGDM Finance**: https://www.nldalmia.in/programs/pgdm-finance/
+- **PGDM in Business Analytics**: https://www.nldalmia.in/programs/pgdm-business-analytics/
 - **Bloomberg Research Analyst**: https://www.nldalmia.in/programs/bloomberg-research-analyst/
 - **Ph.D. Program**: https://www.nldalmia.in/programs/ph-d-program/
 - **PGDM for Working Professional**: https://www.nldalmia.in/programs/pgdm-for-working-professional/
