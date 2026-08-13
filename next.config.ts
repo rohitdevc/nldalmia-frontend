@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/assets/pdfs/nl-dalmia-statutory-committee-2025-26.pdf',
+				destination: '/',
+				permanent: true
+			},
+			{
 				source: '/faculty/dr-riyaz-ahmed-qureshi%EF%BF%BC',
 				destination: '/faculty',
 				permanent: true
