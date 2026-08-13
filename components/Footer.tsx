@@ -35,9 +35,10 @@ export default function Footer({program_categories, common_programs}: PageProps)
                     <li>
                         <Link href={`${basePath}iqac`}>Accreditations & Rankings</Link>
                     </li>
+                    /*
                     <li>
                         <Link href="https://www.nldalmia.in/assets/pdfs/nl-dalmia-statutory-committee-2025-26.pdf" target="_blank">Statutory Committees</Link>
-                    </li>
+                    </li> */
                     <li>
                         <Link href="https://www.nldalmia.in/assets/pdfs/grievance-redressal.pdf" target="_blank">Grievance Redressal</Link>
                     </li>
