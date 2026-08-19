@@ -1327,7 +1327,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				source: '/programs/bloomberg-research-analyst',
-				destination: '/',
+				destination: '/programs/bloomberg-lab',
 				permanent: true
 			},
 			{
