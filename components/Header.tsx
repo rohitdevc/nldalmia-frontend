@@ -211,6 +211,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                                             <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
                                                 <Link href={`${basePath}programs/doctoral-programs`} className="block px-4 py-2">Ph.D</Link>
                                             </li>
+                                            <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                                <Link href={`${basePath}programs/bloomberg-lab`} className="block px-4 py-2">Bloomberg Lab</Link>
+                                            </li>
                                             </>
                                         )
                                     }
@@ -399,6 +402,9 @@ export default function Header({ program_categories, common_programs, ticker_api
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
                                 <Link href={`${basePath}programs/doctoral-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
+                            </li>
+                            <li onClick={() => updateMobileMenu(false)}>
+                                <Link href={`${basePath}programs/bloomberg-lab`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Bloomberg Lab</Link>
                             </li>
                         </ul>
                     </div>
