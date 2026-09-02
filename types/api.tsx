@@ -807,6 +807,8 @@ export interface Program {
     program_testimonial_caption: string;
     program_testimonial_description: string;
     program_testimonials: ProgramTestimonial[];
+    program_footer_section_btn_caption: string;
+    program_footer_section_btn_link: string;
     program_footer_section_image: string;
     program_footer_section_caption: string;
     program_footer_section_description: string;

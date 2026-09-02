@@ -585,9 +585,13 @@ export default function ProgramComponent({ program}: PageProps) {
                   </li>
                 )
               }
-              <li>
-                <Link href={`${basePath}contact-us`} className="bg-[#800000] px-5 py-2">Contact Us</Link>
-              </li>
+              {
+                program.program_footer_section_btn_link && program.program_footer_section_btn_caption && (
+                <li>
+                  <Link href={program.program_footer_section_btn_link} target="_blank" className="bg-[#800000] px-5 py-2">{program.program_footer_section_btn_caption}</Link>
+                </li>
+              )
+              }
             </ul>
           </div>
       </div>
