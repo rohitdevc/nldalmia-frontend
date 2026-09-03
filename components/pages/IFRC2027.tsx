@@ -395,14 +395,16 @@ export default function IFRC2027() {
                     Data-Driven Finance
                 </span>
 
-                <span className="lockup__line2">
+                <span className="lockup__line2 flex flex-col">
                     <span className="lockup__inv">
                         <Image src="/images/ifrc/2027/innovation.png" alt="Innovation" width={400} height={100} />
                     </span>
 
-                    <span className="lockup__or">
+                    <span className="lockup__or justify-center items-center">
                       <Image src="/images/ifrc/2027/or.png" alt="OR" width={47} height={56} />
                     </span>
+
+                    
 
                     <span className="lockup__ill">
                         <Image src="/images/ifrc/2027/illusion.png" alt="Illusion" width={395} height={67} />
