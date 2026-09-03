@@ -400,7 +400,9 @@ export default function IFRC2027() {
                         <Image src="/images/ifrc/2027/innovation.png" alt="Innovation" width={400} height={100} />
                     </span>
 
-                    <span className="lockup__or"></span>
+                    <span className="lockup__or">
+                      <Image src="/images/ifrc/2027/or.png" alt="OR" width={47} height={56} />
+                    </span>
 
                     <span className="lockup__ill">
                         <Image src="/images/ifrc/2027/illusion.png" alt="Illusion" width={395} height={67} />
