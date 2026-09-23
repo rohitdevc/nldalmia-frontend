@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link";
-import Script from "next/script";
 
 import { IoIosArrowDown, IoMdMail } from "react-icons/io";
 import { PiMapPinAreaFill } from "react-icons/pi";
