@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
 	async redirects()  {
 		return [
 			{
+				source: '/programs/bloomberg-lab',
+				destination: '/programs/bloomberg',
+				permanent: true
+			},
+			{
 				source: '/assets/pdfs/nl-dalmia-statutory-committee-2025-26.pdf',
 				destination: '/',
 				permanent: true
