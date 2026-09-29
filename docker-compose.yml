@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
       args:
         API_DOMAIN_NAME: ${API_DOMAIN_NAME}
+        NEXT_PUBLIC_PATH: ${NEXT_PUBLIC_PATH}
 
     container_name: nldalmia-frontend
 
