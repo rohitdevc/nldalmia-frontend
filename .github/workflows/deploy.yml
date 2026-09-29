@@ -12,9 +12,6 @@ jobs:
     steps:
       - name: Pull latest code
         run: |
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
-          cd /home/nldalvpm/nestjs/frontend
+          cd /home/nldalmia/frontend
           
           GIT_SSH_COMMAND="ssh -i ~/.ssh/readOnlyRepo -o IdentitiesOnly=yes" git pull origin main

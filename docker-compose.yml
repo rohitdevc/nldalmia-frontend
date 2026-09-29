@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        API_DOMAIN_NAME: ${API_DOMAIN_NAME}
+
+    container_name: nldalmia-frontend
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./public:/app/public
+
+    restart: unless-stopped
