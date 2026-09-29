@@ -29,7 +29,6 @@ RUN rm -rf .next
 
 RUN npm run build
 
-
 # -------------------------
 # Production
 # -------------------------
@@ -40,15 +39,12 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=8000
 
-RUN addgroup --system --gid 1000 nodejs \
-    && adduser --system --uid 1000 nextjs
-
 COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=node:node /app/.next ./.next
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
-USER nextjs
+USER node
 
 EXPOSE 8000
 
