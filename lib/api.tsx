@@ -8,7 +8,7 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
     const baseUrl = process.env.API_DOMAIN_NAME;
 
     if (!baseUrl) {
-        throw new Error("API_DOMAIN_NAME is undefined — check your .env.local");
+        throw new Error("API_DOMAIN_NAME is undefined — check your .env");
     }
 
     const headers: Record<string, string> = {

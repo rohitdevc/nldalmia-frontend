@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env" });
 
 import fs from "fs/promises";
 import path from "path";
