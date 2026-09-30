@@ -18,11 +18,13 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
     headers["Content-Type"] = "application/json";
 
     const url = `${baseUrl}${endpoint}`;
+
+    const method = options?.method?.toUpperCase() || "GET";
     
     const res = await fetch(`${url}`, {
         ...options,
         headers,
-        cache: "no-store",
+        cache: method === "GET" ? "force-cache" : "no-store",
     });
     
     if (!res.ok) {

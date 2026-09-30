@@ -3,6 +3,8 @@ import { getIntroduction, getProgramsBlocks, getProgramsScholarshipIntroduction,
 
 import type { Metadata } from "next";
 import ProgramsListingComponent from "@/components/pages/ProgramsListingComponent";
+import { Suspense } from "react";
+
 
 const [
   meta,
@@ -26,8 +28,6 @@ export const viewport = {
     { media: "(prefers-color-scheme: dark)", color: process.env.DEFAULT_THEME_COLOUR },
   ],
 };
-
-export const revalidate = 300;
 
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
 
@@ -64,12 +64,14 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <ProgramsListingComponent
-    banner={banner}
-    introduction={introduction}
-    program_blocks={program_blocks}
-    scholarship_introduction={scholarship_introduction}
-    programs={programs}
-    />
+    <Suspense fallback={<div>Loading programs...</div>}>
+      <ProgramsListingComponent
+      banner={banner}
+      introduction={introduction}
+      program_blocks={program_blocks}
+      scholarship_introduction={scholarship_introduction}
+      programs={programs}
+      />
+    </Suspense>
   )
 }

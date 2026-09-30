@@ -21,8 +21,6 @@ export const viewport = {
   ],
 };
 
-export const revalidate = 300;
-
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
 
 const canonical_tag = basePath + meta.canonical_tag;
