@@ -424,7 +424,7 @@ export default function IFRC2027() {
               </div>
               <div>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true"><path d="M4 19V5a1 1 0 0 1 1-1h13l2 2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
-                Submissions close <span className="hero__hl">30th September 2026</span>
+                Submissions close <span className="hero__hl">15th October 2026</span>
               </div>
             </div>
 
