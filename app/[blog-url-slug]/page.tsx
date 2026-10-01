@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Script from "next/script";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
+import searchIndex from "@/generated/search-index.json";
 
 export const viewport = {
   themeColor: [
@@ -23,6 +24,12 @@ const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "blog-url-slug": blog_url_slug } = await params;
+
+  const exists = searchIndex.some((item) => item.path === `/${blog_url_slug}`);
+
+  if(!exists) {
+    notFound();
+  }
 
   const blog = await loadBlog(blog_url_slug);
 
@@ -64,6 +71,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { "blog-url-slug": blog_url_slug } = await params;
+
+  const exists = searchIndex.some((item) => item.path === `/${blog_url_slug}`);
+
+  if(!exists) {
+    notFound();
+  }
   
   const blog = await loadBlog(blog_url_slug);
 
