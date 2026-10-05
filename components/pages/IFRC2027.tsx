@@ -462,7 +462,7 @@ export default function IFRC2027() {
           </div>
           <p className="count__closed hidden" id="cd-closed"></p>
 
-          <ol className="rail" id="rail"><li data-key="submission" className="now"><b>Submissions close</b>30th Sept. 2026</li><li data-key="acceptance" className=""><b>Acceptance notified</b>15th Oct 2026</li><li data-key="registration" className=""><b>Registration closes</b>30th Oct 2026</li><li data-key="colloquium" className=""><b>Doctoral Colloquium</b>27th Jan 2027</li><li data-key="conference" className=""><b>Conference</b>29th Jan 2027</li></ol>
+          <ol className="rail" id="rail"><li data-key="submission" className="now"><b>Submissions close</b>15th Oct 2026</li><li data-key="acceptance" className=""><b>Acceptance notified</b>15th Oct 2026</li><li data-key="registration" className=""><b>Registration closes</b>30th Oct 2026</li><li data-key="colloquium" className=""><b>Doctoral Colloquium</b>27th Jan 2027</li><li data-key="conference" className=""><b>Conference</b>29th Jan 2027</li></ol>
         </div>
       </section>
 
