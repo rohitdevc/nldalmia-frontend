@@ -1,8 +1,9 @@
-import { getEvent } from "@/lib/event";
+import { getEvent, getEvents } from "@/lib/event";
 
-import type { Metadata } from "next";
+import { generateMetadata as createMetadata } from '@/components/utils/generateMetadata';
 import EventDetailsComponent from "@/components/pages/EventDetailsComponent";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 export const viewport = {
   themeColor: [
@@ -15,6 +16,16 @@ type PageProps = {
   params: Promise<{
     "event-url-slug": string
   }>
+}
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const events = await getEvents();
+
+  return events.map((event) => ({
+    "event-url-slug": event.event_url_slug
+  }));
 }
 
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
@@ -41,34 +52,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const canonical_tag = basePath + event.canonical_tag;
 
-  return {
-    title: event.meta_title,
-    description: event.meta_description,
-    alternates: {
-      canonical: canonical_tag,
-    },
-    openGraph: {
-      title: event.meta_title,
-      description: event.meta_description,
-      type: "website",
-      url: canonical_tag,
-      siteName: "NL Dalmia",
-      images: [
-        {
-          url: event.og_image,
-          width: 1200,
-          height: 630,
-          alt: event.meta_title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: event.meta_title,
-      description: event.meta_description,
-      images: [event.og_image],
-    },
-  };
+  const meta = {
+    meta_title: event.meta_title,
+    meta_description: event.meta_description,
+    canonical_tag: event.canonical_tag
+  }
+
+  const banner = {
+    banner_image: event.banner_image
+  }
+
+  return createMetadata({
+    meta,
+    banner,
+    canonical_tag
+  });
 }
 
 export default async function Page({ params }: PageProps) {

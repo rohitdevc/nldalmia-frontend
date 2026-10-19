@@ -4,6 +4,7 @@ import { getMetaData, getBanner } from "@/lib/common";
 import { getIntroduction, getBlogCategories, getBlogCategoryFeatured, getBlogsByCategory } from "@/lib/blog";
 
 import type { Metadata } from "next";
+import { generateMetadata as createMetadata } from '@/components/utils/generateMetadata';
 import BlogComponent from "@/components/pages/BlogComponent";
 
 const [
@@ -31,6 +32,16 @@ type PageProps = {
   }>
 }
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const blog_categories = await getBlogCategories();
+
+  return blog_categories.map((blog_category) => ({
+    "blog-category-url-slug": blog_category.blog_category_url_slug
+  }));
+}
+
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
 
 const canonical_tag = basePath + meta.canonical_tag;
@@ -38,34 +49,11 @@ const canonical_tag = basePath + meta.canonical_tag;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { "blog-category-url-slug": blog_category_url_slug } = await params;
 
-  return {
-    title: meta.meta_title,
-    description: meta.meta_description,
-    alternates: {
-      canonical: canonical_tag + "/" + blog_category_url_slug,
-    },
-    openGraph: {
-      title: meta.meta_title,
-      description: meta.meta_description,
-      type: "website",
-      url: canonical_tag + "/" + blog_category_url_slug,
-      siteName: "NL Dalmia",
-      images: [
-        {
-          url: banner.banner_image,
-          width: 1200,
-          height: 630,
-          alt: meta.meta_title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: meta.meta_title,
-      description: meta.meta_description,
-      images: [banner.banner_image],
-    },
-  };
+  return createMetadata({
+    meta,
+    banner,
+    canonical_tag: `${canonical_tag}/${blog_category_url_slug}`
+  });
 }
 
 export default async function Blog({ params }: PageProps) {

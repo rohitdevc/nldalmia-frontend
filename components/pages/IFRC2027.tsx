@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 export default function IFRC2027() {
-  const basePath = process.env.NEXT_PUBLIC_PATH;
-
   useEffect(() => {
     "use strict";
 
@@ -57,24 +55,24 @@ export default function IFRC2027() {
         label: "Next deadline",
         what: "Paper submission closes",
         rail: "Submissions close",
-        date: "15th October 2026",
-        t: Date.UTC(2026, 10, 15, 18, 29, 59),
+        date: "30th November 2026",
+        t: new Date("2026-11-30T23:59:59.999+05:30"),
       },
       {
         key: "acceptance",
         label: "Next milestone",
         what: "Notification of acceptance",
         rail: "Acceptance notified",
-        date: "30th Oct 2026",
-        t: Date.UTC(2026, 10, 30, 18, 29, 59),
+        date: "10th Dec 2026",
+        t: new Date("2026-12-10T23:59:59.999+05:30"),
       },
       {
         key: "registration",
         label: "Next deadline",
         what: "Registration closes for presenters",
         rail: "Registration closes",
-        date: "15th Nov 2026",
-        t: Date.UTC(2026, 11, 9, 18, 29, 59),
+        date: "20th Dec 2026",
+        t: new Date("2026-12-20T23:59:59.999+05:30"),
       },
       {
         key: "colloquium",
@@ -82,7 +80,7 @@ export default function IFRC2027() {
         what: "Doctoral Colloquium begins",
         rail: "Doctoral Colloquium",
         date: "27th Jan 2027",
-        t: Date.UTC(2027, 0, 26, 18, 30, 0),
+        t: new Date("2027-01-27T23:59:59.999+05:30"),
       },
       {
         key: "conference",
@@ -90,12 +88,12 @@ export default function IFRC2027() {
         what: "Conference begins",
         rail: "Conference",
         date: "29th Jan 2027",
-        t: Date.UTC(2027, 0, 28, 18, 30, 0),
+        t: new Date("2027-01-29T23:59:59.999+05:30"),
       },
     ];
 
-    // 30 Jan 2027, 19:00 IST
-    const END = Date.UTC(2027, 0, 30, 13, 30, 0);
+    // End of 30 January 2027, IST
+    const END = new Date("2027-01-30T23:59:59.999+05:30");
 
     const el = {
       label: document.getElementById("cd-label"),
@@ -116,7 +114,7 @@ export default function IFRC2027() {
     let lastIdx = -2;
 
     function tick() {
-      const now = Date.now();
+      const now = new Date();
       let idx = -1;
 
       for (let i = 0; i < MS.length; i++) {
@@ -222,7 +220,7 @@ export default function IFRC2027() {
 
       /* ---------- countdown ---------- */
       const milestone = MS[idx];
-      const diff = milestone.t - now;
+      const diff = milestone.t.getTime() - now.getTime();
 
       if (el.label) {
         el.label.textContent = milestone.label;
@@ -413,7 +411,8 @@ export default function IFRC2027() {
 
             </h1>
 
-            <div className="hero__meta">
+            <div className="hero__meta flex flex-col !flex-nowrap !items-start">
+              <div>
               <div>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
                 27th – 30th January 2027
@@ -422,9 +421,11 @@ export default function IFRC2027() {
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2.6"></circle></svg>
                 Mira Road, <span>Mumbai</span>
               </div>
+              </div>
+              <div>- Accepting Extended Abstracts</div>
               <div>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true"><path d="M4 19V5a1 1 0 0 1 1-1h13l2 2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
-                Submissions close <span className="hero__hl">15th October 2026</span>
+                Submissions close <span className="hero__hl">30th November 2026</span>
               </div>
             </div>
 
@@ -462,7 +463,7 @@ export default function IFRC2027() {
           </div>
           <p className="count__closed hidden" id="cd-closed"></p>
 
-          <ol className="rail" id="rail"><li data-key="submission" className="now"><b>Submissions close</b>15th Oct 2026</li><li data-key="acceptance" className=""><b>Acceptance notified</b>30th Oct 2026</li><li data-key="registration" className=""><b>Registration closes</b>15th Nov 2026</li><li data-key="colloquium" className=""><b>Doctoral Colloquium</b>27th Jan 2027</li><li data-key="conference" className=""><b>Conference</b>29th Jan 2027</li></ol>
+          <ol className="rail" id="rail"><li data-key="submission" className="now"><b>Submissions close</b>30th Nov 2026</li><li data-key="acceptance" className=""><b>Acceptance notified</b>10th Dec 2026</li><li data-key="registration" className=""><b>Registration closes</b>20th Dec 2026</li><li data-key="colloquium" className=""><b>Doctoral Colloquium</b>27th Jan 2027</li><li data-key="conference" className=""><b>Conference</b>29th Jan 2027</li></ol>
         </div>
       </section>
 
@@ -855,9 +856,9 @@ export default function IFRC2027() {
               <caption className="sr">Key deadlines and conference dates</caption>
               <thead><tr><th scope="col">Milestone</th><th scope="col">Date</th><th scope="col">Status</th></tr></thead>
               <tbody>
-                <tr data-key="submission"><td>Paper submission deadline</td><td className="num">15th October 2026</td><td><span className="pill pill--live">Extended</span></td></tr>
-                <tr data-key="acceptance"><td>Notification of acceptance</td><td className="num">30th October 2026</td><td><span className="pill">Upcoming</span></td></tr>
-                <tr data-key="registration"><td>Last date of registration for paper presenters</td><td className="num">15th November 2026</td><td><span className="pill">Upcoming</span></td></tr>
+                <tr data-key="submission"><td>Paper submission deadline</td><td className="num">30th November 2026</td><td><span className="pill pill--live">Extended</span></td></tr>
+                <tr data-key="acceptance"><td>Notification of acceptance</td><td className="num">10th December 2026</td><td><span className="pill">Upcoming</span></td></tr>
+                <tr data-key="registration"><td>Last date of registration for paper presenters</td><td className="num">20th December 2026</td><td><span className="pill">Upcoming</span></td></tr>
                 <tr data-key="colloquium"><td>Doctoral Colloquium</td><td className="num">27th – 28th January 2027</td><td><span className="pill">Upcoming</span></td></tr>
                 <tr data-key="conference"><td>Conference</td><td className="num">29th – 30th January 2027</td><td><span className="pill">Upcoming</span></td></tr>
               </tbody>

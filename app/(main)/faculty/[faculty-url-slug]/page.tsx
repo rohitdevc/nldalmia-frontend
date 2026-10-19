@@ -1,6 +1,7 @@
-import { getFaculty } from "@/lib/faculty";
-
+import { getFaculties, getFaculty } from "@/lib/faculty";
 import type { Metadata } from "next";
+
+import { generateMetadata as createMetadata } from '@/components/utils/generateMetadata';
 import FacultyDetailsComponent from "@/components/pages/FacultyDetailsComponent";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 
@@ -15,6 +16,16 @@ type PageProps = {
   params: Promise<{
     "faculty-url-slug": string
   }>
+}
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const faculties = await getFaculties();
+
+  return faculties.map((faculty) => ({
+    "faculty-url-slug": faculty.faculty_url_slug
+  }));
 }
 
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
@@ -37,39 +48,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const faculty = await loadFaculty(faculty_url_slug);
 
   if(!faculty) {
-    redirect('/faculty');
+    permanentRedirect('/faculty');
   };
 
   const canonical_tag = basePath + faculty.canonical_tag;
 
-  return {
-    title: faculty.meta_title,
-    description: faculty.meta_description,
-    alternates: {
-      canonical: canonical_tag,
-    },
-    openGraph: {
-      title: faculty.meta_title,
-      description: faculty.meta_description,
-      type: "website",
-      url: canonical_tag,
-      siteName: "NL Dalmia",
-      images: [
-        {
-          url: faculty.faculty_thumbnail,
-          width: 1200,
-          height: 630,
-          alt: faculty.meta_title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: faculty.meta_title,
-      description: faculty.meta_description,
-      images: [faculty.faculty_thumbnail],
-    },
-  };
+  const meta = {
+    meta_title: faculty.meta_title,
+    meta_description: faculty.meta_description,
+    canonical_tag: faculty.canonical_tag
+  }
+
+  const banner = {
+    banner_image: faculty.banner_image
+  }
+
+  return createMetadata({
+      meta,
+      banner,
+      canonical_tag
+    });
 }
 
 export default async function Page({ params }: PageProps) {
@@ -78,7 +76,7 @@ export default async function Page({ params }: PageProps) {
   const faculty = await loadFaculty(faculty_url_slug);
 
   if(!faculty) {
-    notFound()
+    permanentRedirect('/faculty');
   };
 
   return (

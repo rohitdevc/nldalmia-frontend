@@ -1,10 +1,11 @@
-import { getBlogsRelatedByCategory } from "@/lib/blog";
+import { getBlogsRelatedByCategory, getBlogs } from "@/lib/blog";
 import { loadBlog } from "./blog-loader";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import { generateMetadata as createMetadata } from '@/components/utils/generateMetadata';
 import Script from "next/script";
 import BlogDetailsComponent from "@/components/pages/BlogDetailsComponent";
 import searchIndex from "@/generated/search-index.json";
+import type { Metadata } from "next";
 
 export const viewport = {
   themeColor: [
@@ -18,6 +19,17 @@ type PageProps = {
     "blog-category-url-slug": string,
     "blog-url-slug": string
   }>
+}
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const blogs = await getBlogs();
+
+  return blogs.map((blog) => ({
+    "blog-category-url-slug": blog.blog_category_url_slug,
+    "blog-url-slug": blog.blog_url_slug,
+  }));
 }
 
 const basePath = process.env.NEXT_PUBLIC_DOMAIN_NAME;
@@ -39,34 +51,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const canonical_tag = basePath + blog.canonical_tag;
 
-  return {
-    title: blog.meta_title,
-    description: blog.meta_description,
-    alternates: {
-      canonical: canonical_tag,
-    },
-    openGraph: {
-      title: blog.meta_title,
-      description: blog.meta_description,
-      type: "website",
-      url: canonical_tag,
-      siteName: "NL Dalmia",
-      images: [
-        {
-          url: blog.og_image,
-          width: 1200,
-          height: 630,
-          alt: blog.meta_title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: blog.meta_title,
-      description: blog.meta_description,
-      images: [blog.og_image],
-    },
-  };
+  const meta = {
+    meta_title: blog.meta_title,
+    meta_description: blog.meta_description,
+    canonical_tag: blog.canonical_tag
+  }
+
+  const banner = {
+    banner_image: blog.banner_image
+  }
+
+  return createMetadata({
+    meta,
+    banner,
+    canonical_tag
+  });
 }
 
 export default async function Page({ params }: PageProps) {
