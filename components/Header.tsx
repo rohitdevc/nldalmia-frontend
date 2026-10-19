@@ -171,16 +171,16 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}about-us`} className="flex gap-1 items-center">About Us <MdKeyboardArrowDown size={25} /></Link>
                         <ul className="bg-white box-shadow absolute mt-5 left-1/2 -translate-x-1/2 text-[#4E4E4E] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2 w-50">
                             <li>
-                                <Link href={`${basePath}about-us#who-we-are`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Who we are</Link>
+                                <Link href={`${basePath}about-us#who-we-are`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Who we are</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#legacy`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Legacy</Link>
+                                <Link href={`${basePath}about-us#legacy`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Legacy</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#managing-council`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Managing Council</Link>
+                                <Link href={`${basePath}about-us#managing-council`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Managing Council</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}about-us#international-tie-ups`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">International Tie-ups</Link>
+                                <Link href={`${basePath}about-us#international-tie-ups`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">International Tie-ups</Link>
                             </li>
                         </ul>
                     </li>
@@ -190,7 +190,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2">
                             {
                                 program_categories.map((program_category, key) => (
-                                    <li key={key} className="cursor-pointer relative w-50 group/submenu hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)} onMouseEnter={() => updateActiveProgramCategory(program_category)}>
+                                    <li key={key} className="cursor-pointer relative w-50 group/submenu hover:bg-[#800000] hover:!text-white" onMouseOver={() => updateHoverPGDM(false)} onMouseEnter={() => updateActiveProgramCategory(program_category)}>
                                         <span className="block px-4 py-2">{program_category}</span> <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" />
                                     </li>
                                 ))
@@ -202,16 +202,16 @@ export default function Header({ program_categories, common_programs, ticker_api
                                     {
                                         activeProgramCategory === "Programs" && (
                                             <>
-                                            <li className="cursor-pointer hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(true)}>
+                                            <li className="cursor-pointer hover:bg-[#800000] hover:!text-white" onMouseOver={() => updateHoverPGDM(true)}>
                                                 <span className="block px-4 py-2 relative">PGDM <MdKeyboardArrowRight size={20} className="absolute right-0 top-1/2 -translate-y-1/2" /></span>
                                             </li>
-                                            <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                            <li className="hover:bg-[#800000] hover:!text-white" onMouseOver={() => updateHoverPGDM(false)}>
                                                 <Link href={`${basePath}programs/global-mba`} className="block px-4 py-2">Global MBA</Link>
                                             </li>
-                                            <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                            <li className="hover:bg-[#800000] hover:!text-white" onMouseOver={() => updateHoverPGDM(false)}>
                                                 <Link href={`${basePath}programs/doctoral-programs`} className="block px-4 py-2">Ph.D</Link>
                                             </li>
-                                            <li className="hover:bg-[#800000] hover:text-white" onMouseOver={() => updateHoverPGDM(false)}>
+                                            <li className="hover:bg-[#800000] hover:!text-white" onMouseOver={() => updateHoverPGDM(false)}>
                                                 <Link href={`${basePath}programs/bloomberg`} className="block px-4 py-2">Bloomberg Lab</Link>
                                             </li>
                                             </>
@@ -219,7 +219,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                                     }
                                     {
                                         common_programs.filter((program) => program.program_type === "Executive Education" && program.program_type === activeProgramCategory && (program.program_link || program.program_application_link)).map((program, sub_key) => (
-                                            <li key={sub_key} className="hover:bg-[#800000] hover:text-white">
+                                            <li key={sub_key} className="hover:bg-[#800000] hover:!text-white">
                                                 <Link href={program.program_link || program.program_application_link} className="block px-4 py-2" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
                                             </li>
                                         ))
@@ -229,13 +229,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                             {
                                 hoverPGDM && (
                                 <ul className="bg-white box-shadow text-[#4E4E4E] shadow-lg whitespace-nowrap flex flex-col gap-2 min-w-[250px]" onMouseLeave={() => updateHoverPGDM(false)}>
-                                    <li className="hover:bg-[#800000] hover:text-white">
+                                    <li className="hover:bg-[#800000] hover:!text-white">
                                         <Link href={`${basePath}programs/pgdm`} className="block px-4 py-2">PGDM</Link>
                                     </li>
-                                    <li className="hover:bg-[#800000] hover:text-white">
+                                    <li className="hover:bg-[#800000] hover:!text-white">
                                         <Link href={`${basePath}programs/pgdm-finance`} className="block px-4 py-2">PGDM Finance</Link>
                                     </li>
-                                    <li className="hover:bg-[#800000] hover:text-white">
+                                    <li className="hover:bg-[#800000] hover:!text-white">
                                         <Link href={`${basePath}programs/pgdm-business-analytics`} className="block px-4 py-2">PGDM Business Analytics</Link>
                                     </li>
                                 </ul>
@@ -249,7 +249,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                         {
                             common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, sub_key) => (
                                 <li key={sub_key}>
-                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
+                                    <Link href={program.program_link || program.program_application_link} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
                                 </li>
                             ))
                         }
@@ -259,13 +259,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <span className="flex gap-1 items-center cursor-pointer">Faculty <MdKeyboardArrowDown size={25} /></span>
                         <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
                             <li>
-                                <Link href={`${basePath}faculty`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Faculty</Link>
+                                <Link href={`${basePath}faculty`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Faculty</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Research</Link>
+                                <Link href={`${basePath}faculty/research-papers-published/journal-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Research</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}faculty/faculty-development-programs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Faculty Development Programs</Link>
+                                <Link href={`${basePath}faculty/faculty-development-programs`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Faculty Development Programs</Link>
                             </li>
                         </ul>
                     </li>
@@ -273,22 +273,22 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}placements`} className="flex gap-1 items-center">Placements <MdKeyboardArrowDown size={25} /></Link>
                         <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
                             <li>
-                                <Link href={`${basePath}placements#corporate-engagement`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Corporate Engagement</Link>
+                                <Link href={`${basePath}placements#corporate-engagement`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Corporate Engagement</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#highlights`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Placement Highlights</Link>
+                                <Link href={`${basePath}placements#highlights`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Placement Highlights</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#recruiters`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Recruiters</Link>
+                                <Link href={`${basePath}placements#recruiters`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Recruiters</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#batch-profile`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Batch Profile</Link>
+                                <Link href={`${basePath}placements#batch-profile`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Batch Profile</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#reports`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Placement Reports</Link>
+                                <Link href={`${basePath}placements#reports`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Placement Reports</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}placements#connect`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Connect With Our Team</Link>
+                                <Link href={`${basePath}placements#connect`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Connect With Our Team</Link>
                             </li>
                         </ul>
                     </li>
@@ -296,19 +296,19 @@ export default function Header({ program_categories, common_programs, ticker_api
                         <Link href={`${basePath}life-at-nld`} className="flex gap-1 items-center">Life@NLD <MdKeyboardArrowDown size={25} /></Link>
                         <ul className="bg-white box-shadow text-[#4E4E4E] absolute mt-5 left-1/2 -translate-x-1/2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap flex flex-col gap-2">
                             <li>
-                                <Link href={`${basePath}life-at-nld#events`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Events</Link>
+                                <Link href={`${basePath}life-at-nld#events`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Events</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#student-clubs`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Student Clubs</Link>
+                                <Link href={`${basePath}life-at-nld#student-clubs`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Student Clubs</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#infrastructure`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Infrastructure</Link>
+                                <Link href={`${basePath}life-at-nld#infrastructure`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Infrastructure</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}life-at-nld#institutional-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Institutional Publications</Link>
+                                <Link href={`${basePath}life-at-nld#institutional-publications`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Institutional Publications</Link>
                             </li>
                             <li>
-                                <Link href={`${basePath}industrial-visit`} className="block px-4 py-2 hover:bg-[#800000] hover:text-white hover:border hover:border-white">Industrial Visit</Link>
+                                <Link href={`${basePath}industrial-visit`} className="block px-4 py-2 hover:bg-[#800000] hover:!text-white hover:border hover:border-white">Industrial Visit</Link>
                             </li>
                         </ul>
                     </li>
@@ -335,7 +335,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             <ul className="w-full max-h-screen overflow-y-auto">
                                 {
                                     search_results.map((result, key) => (
-                                        <li key={key} className="w-full block cursor-pointer py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all" onClick={() => handleSearchClick(result.path)}>{result.title}</li>
+                                        <li key={key} className="w-full block cursor-pointer py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all" onClick={() => handleSearchClick(result.path)}>{result.title}</li>
                                     ))
                                 }
                             </ul>
@@ -348,28 +348,28 @@ export default function Header({ program_categories, common_programs, ticker_api
                     <div className={`w-full shrink-0`}>
                         <ul className="bg-white border-b border-[#800000]">
                             <li onClick={() => { setStep(5);}}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">About Us <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(1); }}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(3) }}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(6);}}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Faculty <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(7);}}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Placements <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(8);}}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Life@NLD <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}admissions`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Admissions</Link>
+                                <Link href={`${basePath}admissions`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Admissions</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}contact-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Contact Us</Link>
+                                <Link href={`${basePath}contact-us`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Contact Us</Link>
                             </li>
                         </ul>
                     </div>
@@ -379,13 +379,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">All Programs </Link>
+                                <Link href={`${basePath}programs`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">All Programs </Link>
                             </li>
                             <li onClick={() => { setStep(2) }}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Programs <MdKeyboardArrowRight size={25} /></span>
                             </li>
                             <li onClick={() => { setStep(4) }}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Executive Education <MdKeyboardArrowRight size={25} /></span>
                             </li>
                         </ul>
                     </div>
@@ -395,16 +395,16 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li onClick={() => {setStep(3);}}>
-                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM <MdKeyboardArrowRight size={20} /></span>
+                                <span className="flex gap-1 items-center cursor-pointer block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">PGDM <MdKeyboardArrowRight size={20} /></span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/global-mba`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Global MBA</Link>
+                                <Link href={`${basePath}programs/global-mba`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Global MBA</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/doctoral-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Ph.D</Link>
+                                <Link href={`${basePath}programs/doctoral-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Ph.D</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/bloomberg`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Bloomberg Lab</Link>
+                                <Link href={`${basePath}programs/bloomberg`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Bloomberg Lab</Link>
                             </li>
                         </ul>
                     </div>
@@ -414,13 +414,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/pgdm`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM</Link>
+                                <Link href={`${basePath}programs/pgdm`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">PGDM</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/pgdm-finance`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Finance</Link>
+                                <Link href={`${basePath}programs/pgdm-finance`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">PGDM Finance</Link>
                             </li>
                             <li onClick={() => updateMobileMenu(false)}>
-                                <Link href={`${basePath}programs/pgdm-business-analytics`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">PGDM Business Analytics</Link>
+                                <Link href={`${basePath}programs/pgdm-business-analytics`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">PGDM Business Analytics</Link>
                             </li>
                         </ul>
                     </div>
@@ -432,7 +432,7 @@ export default function Header({ program_categories, common_programs, ticker_api
                             {
                                 common_programs.filter((program) => program.program_type === "Executive Education" && (program.program_link || program.program_application_link)).map((program, key) => (
                                     <li key={key} onClick={() => updateMobileMenu(false)}>
-                                        <Link href={program.program_link || program.program_application_link} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
+                                        <Link href={program.program_link || program.program_application_link} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all" target={!(program.program_link || program.program_application_link)?.startsWith("https://www.nldalmia.in")? "_blank": "_self"}>{program.program_name}</Link>
                                     </li>
                                 ))
                             }
@@ -444,19 +444,19 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">About Us</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">About Us</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#who-we-are`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Who we are</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#who-we-are`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Who we are</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#legacy`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Legacy</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#legacy`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Legacy</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#managing-council`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Managing Council</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#managing-council`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Managing Council</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#international-tie-ups`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">International Tie-ups</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}about-us#international-tie-ups`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">International Tie-ups</Link>
                             </li>
                         </ul>
                     </div>
@@ -466,13 +466,13 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Faculty</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty/research-papers-published/journal-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Research</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty/research-papers-published/journal-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Research</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty/faculty-development-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Faculty Development Programs</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}faculty/faculty-development-programs`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Faculty Development Programs</Link>
                             </li>
                         </ul>
                     </div>
@@ -482,25 +482,25 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placements</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Placements</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#corporate-engagement`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Corporate Engagement</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#corporate-engagement`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Corporate Engagement</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#highlights`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Highlights</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#highlights`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Placement Highlights</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#recruiters`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Recruiters</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#recruiters`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Recruiters</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#batch-profile`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Batch Profile</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#batch-profile`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Batch Profile</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#reports`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Placement Reports</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#reports`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Placement Reports</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#connect`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Connect With Our Team</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}placements#connect`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Connect With Our Team</Link>
                             </li>
                         </ul>
                     </div>
@@ -510,22 +510,22 @@ export default function Header({ program_categories, common_programs, ticker_api
                                 <span className="flex px-2 py-2 items-center cursor-pointer text-sm"><MdKeyboardArrowLeft size={20} /> Go Back</span>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Life@NLD</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Life@NLD</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#events`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Events</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#events`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Events</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#student-clubs`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Student Clubs</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#student-clubs`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Student Clubs</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#infrastructure`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Infrastructure</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#infrastructure`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Infrastructure</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#institutional-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Institutional Publications</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}life-at-nld#institutional-publications`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Institutional Publications</Link>
                             </li>
                             <li>
-                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}industrial-visit`} className="block py-3 px-5 hover:bg-[#800000] hover:text-white duration-300 transition-all">Industrial Visit</Link>
+                                <Link onClick={() => updateMobileMenu(false)} href={`${basePath}industrial-visit`} className="block py-3 px-5 hover:bg-[#800000] hover:!text-white duration-300 transition-all">Industrial Visit</Link>
                             </li>
                         </ul>
                     </div>
