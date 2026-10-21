@@ -30,7 +30,7 @@ export default function InstagramFeedComp({instagram_feed}: PageProps) {
                             <Link href={instagram.instagram_permalink} target="_blank" className="block">
                             {
                                 image_tag.includes(instagram.instagram_post_type) && (
-                                <Image src={instagram.instagram_media_url} alt={instagram.instagram_caption} width={300} height={300} className="object-cover" />
+                                <img src={instagram.instagram_media_url} alt={instagram.instagram_caption} width={300} height={300} className="object-cover" />
                                 )
                             }
                             {

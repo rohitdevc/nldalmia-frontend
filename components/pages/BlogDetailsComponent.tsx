@@ -37,7 +37,7 @@ export default function BlogDetailsComponent({blog, related_blog}: PageProps) {
   return (
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <div className="pt-50 flex flex-col gap-10 justify-center text-center px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
-        <h1 className="font-georgia text-3xl lg:text-5xl">{blog.blog_title}</h1>
+        <h1 className="font-georgia text-3xl lg:text-5xl">{blog.blog_h1}</h1>
         {
           blog.banner_image && (
           <Image src={blog.banner_image} alt={blog.blog_title} width={1920} height={900} className="w-full border border-[#800000]" />

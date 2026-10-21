@@ -146,6 +146,7 @@ export interface MediaCategory {
 
 export interface Blog {
     blog_title: string;
+    blog_h1: string;
     blog_category_name: string;
     blog_category_url_slug: string;
     blog_published_date: string;
