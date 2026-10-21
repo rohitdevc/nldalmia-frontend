@@ -7,6 +7,7 @@ services:
         API_DOMAIN_NAME: ${API_DOMAIN_NAME}
         NEXT_PUBLIC_PATH: ${NEXT_PUBLIC_PATH}
         NEXT_PUBLIC_DOMAIN_NAME: ${NEXT_PUBLIC_DOMAIN_NAME}
+        DEFAULT_THEME_COLOUR: ${DEFAULT_THEME_COLOUR}
 
     container_name: nldalmia-frontend
 
