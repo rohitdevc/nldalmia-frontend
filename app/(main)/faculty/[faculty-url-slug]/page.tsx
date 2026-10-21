@@ -7,8 +7,8 @@ import { notFound, permanentRedirect, redirect } from "next/navigation";
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: process.env.DEFAULT_THEME_COLOUR },
-    { media: "(prefers-color-scheme: dark)", color: process.env.DEFAULT_THEME_COLOUR },
+    { media: "(prefers-color-scheme: light)", color: '#800000' },
+    { media: "(prefers-color-scheme: dark)", color: '#800000' },
   ],
 };
 
