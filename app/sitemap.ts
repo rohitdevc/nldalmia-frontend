@@ -25,7 +25,7 @@ const placement_reports = await getPlacementsReports();
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticUrls: MetadataRoute.Sitemap = static_pages.map((path) => ({
-    url: `${SITE_URL}/${path.canonical_tag}`,
+    url: `${SITE_URL}/${path.canonical_tag === '/' ? '' : path.canonical_tag}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
