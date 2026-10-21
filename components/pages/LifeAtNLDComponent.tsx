@@ -227,8 +227,8 @@ export default function LifeAtNLD({ banner, introduction, events, achievements_i
                 <div className="w-full flex flex-col lg:flex-row">
                   {
                     student_club.student_club_image && (
-                      <div className="w-full lg:w-sm">
-                        <Image src={`${student_club.student_club_image}`} alt={student_club.student_club_image_alt} width={300} height={300} className="object-cover w-full h-full" />
+                      <div className="w-full lg:max-w-100">
+                        <Image src={`${student_club.student_club_image}`} alt={student_club.student_club_image_alt} width={300} height={300} className="object-contain w-full h-full" />
                       </div>
                     )
                   }

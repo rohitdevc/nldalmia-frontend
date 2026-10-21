@@ -35,7 +35,7 @@ export default function ResearchPublicationTabs({page_name}: ResearchPublication
                 ))
             }
             <li>
-                <Link href={`http://nldinnovision.com/index.php/nldimsr`} target="_blank" className="relative group">
+                <Link href={`https://www.nldinnovision.com/index.php/nldimsr`} target="_blank" className="relative group">
                     <span>Innovation Journal</span>
                     <span className={`absolute left-0 -bottom-1 origin-center transition-transform duration-300 w-full h-[0.5px] bg-[#800000] scale-x-0 group-hover:scale-x-100`}></span>
                 </Link>
