@@ -4,8 +4,6 @@ import { getIntroduction, getProgramsBlocks, getProgramsScholarshipIntroduction,
 import type { Metadata } from "next";
 import { generateMetadata as createMetadata } from '@/components/utils/generateMetadata';
 import ProgramsListingComponent from "@/components/pages/ProgramsListingComponent";
-import { Suspense } from "react";
-
 
 const [
   meta,
@@ -42,16 +40,29 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
+type PageProps = {
+  searchParams: Promise<{
+    career_path?: string | string[];
+  }>;
+};
+
+export default async function Page({ searchParams }: PageProps) {
+  const params = await searchParams;
+
+  const selectedCareerPaths = params.career_path
+      ? Array.isArray(params.career_path)
+      ? params.career_path
+      : [params.career_path]
+    : [];
+    
   return (
-    <Suspense fallback={<div>Loading programs...</div>}>
-      <ProgramsListingComponent
-      banner={banner}
-      introduction={introduction}
-      program_blocks={program_blocks}
-      scholarship_introduction={scholarship_introduction}
-      programs={programs}
-      />
-    </Suspense>
+    <ProgramsListingComponent
+    banner={banner}
+    introduction={introduction}
+    program_blocks={program_blocks}
+    scholarship_introduction={scholarship_introduction}
+    programs={programs}
+    selectedCareerPaths={selectedCareerPaths}
+    />
   )
 }

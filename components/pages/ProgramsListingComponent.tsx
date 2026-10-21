@@ -11,8 +11,6 @@ import ProgramBlock from "../ProgramBlock";
 import parser, { domToReact, HTMLReactParserOptions } from 'html-react-parser';
 import nl2br from "nl2br";
 
-import { useSearchParams } from "next/navigation";
-
 import { IoMdCheckmarkCircleOutline, IoIosArrowDown } from "react-icons/io";
 import { Banner as BannerProps, IntroProps, ProgramsBlocks, ProgramListing } from "@/types/api";
 
@@ -22,11 +20,12 @@ type PageProps = {
   program_blocks: ProgramsBlocks[]
   scholarship_introduction: IntroProps
   programs: ProgramListing[]
+  selectedCareerPaths: string[]
 };
 
 import { useHeader } from "@/context/HeaderContext";
 
-export default function ProgramsListingComponent({ banner, introduction, program_blocks, scholarship_introduction, programs}: PageProps) {
+export default function ProgramsListingComponent({ banner, introduction, program_blocks, scholarship_introduction, programs, selectedCareerPaths}: PageProps) {
   const basePath = process.env.NEXT_PUBLIC_PATH;
 
   const { setHeaderProps } = useHeader()
@@ -69,10 +68,6 @@ export default function ProgramsListingComponent({ banner, introduction, program
     duration?: string;
     program?: string;
   }
-
-  const searchParams = useSearchParams();
-
-  const selectedCareerPaths = searchParams.getAll('career_path');
 
   useEffect(() => {
     if (manualFilter) return;
@@ -156,7 +151,7 @@ export default function ProgramsListingComponent({ banner, introduction, program
     <main className="w-full" style={{backgroundImage: `url(${basePath}images/home/bg-pattern.png)`}}>
       <Banner
       banner_image={banner.banner_image}
-banner_image_mobile={banner.banner_image_mobile}
+      banner_image_mobile={banner.banner_image_mobile}
       banner_caption={banner.banner_caption}
       banner_description={banner.banner_description}
       banner_youtube_video_id={banner.banner_youtube_video_id}

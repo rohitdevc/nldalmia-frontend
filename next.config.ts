@@ -1158,6 +1158,11 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: '/nldes',
+				destination: '/',
+				permanent: true,
+			},
+			{
 				source: '/faculty_members',
 				destination: '/faculty',
 				permanent: true,
