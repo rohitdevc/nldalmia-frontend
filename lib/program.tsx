@@ -33,5 +33,6 @@ export const getPrograms = async () => apiFetch<ProgramListing[]>(`programs`, {
 export const submitProgramDownloadBrochure = async (formData: ProgramDownloadBrochure) => apiFetch<ProgramDownloadBrochure>(`program/download-brochure`, {
     method: "POST",
     headers: await buildHeaders(),
-    body: JSON.stringify(formData)
+    body: JSON.stringify(formData),
+    cache: 'no-store'
 })

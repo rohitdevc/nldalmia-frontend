@@ -8,6 +8,7 @@ export async function getAuthToken() {
         method: "GET",
         headers: {
             'x-secret-key': process.env.FRONTEND_TOKEN_KEY as string
-        }
+        },
+        cache: 'no-store'
     });
 }

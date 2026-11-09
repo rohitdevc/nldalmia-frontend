@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { submitEnquiry } from "@/lib/contact-us";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  const blocked = await checkRateLimit(req, "contact");
+
+  if (blocked) return blocked;
+  
   try {
     const body = await req.json();
 

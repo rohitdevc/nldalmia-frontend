@@ -24,7 +24,7 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
     const res = await fetch(`${url}`, {
         ...options,
         headers,
-        cache: method === "GET" ? "force-cache" : "no-store",
+        cache: method === "GET" && !options.cache ? "force-cache" : options.cache,
     });
     
     if (!res.ok) {

@@ -75,5 +75,6 @@ export const getAdmissionsBrochureIntroduction = async () => apiFetch<IntroProps
 export const submitAdmissionDownloadBrochure = async (formData: AdmissionDownloadBrochure) => apiFetch<AdmissionDownloadBrochure>(`admissions/download-brochure`, {
     method: "POST",
     headers: await buildHeaders(),
-    body: JSON.stringify(formData)
+    body: JSON.stringify(formData),
+    cache: 'no-store'
 })

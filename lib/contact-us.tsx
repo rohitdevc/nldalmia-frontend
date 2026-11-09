@@ -18,5 +18,6 @@ export const getEnquiryReasons = async () => apiFetch<string[]>(`contact-us/reas
 export const submitEnquiry = async (formData: EnquiryForm) => apiFetch<EnquiryForm>(`contact-us/enquiry`, {
     method: "POST",
     headers: await buildHeaders(),
-    body: JSON.stringify(formData)
+    body: JSON.stringify(formData),
+    cache: 'no-store'
 })
