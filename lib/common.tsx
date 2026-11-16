@@ -32,7 +32,8 @@ export const getBanner = async (page_name: string) => apiFetch<Banner>(`banner?p
 });
 
 export const getTicker = async () => apiFetch<Ticker>("ticker", {
-    method: "GET"
+    method: "GET",
+    cache: 'no-store'
 });
 
 export const getInstagramFeed = async () => apiFetch<InstagramFeed[]>("nldalmia/instagram/feed", {
