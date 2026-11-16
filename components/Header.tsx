@@ -105,13 +105,13 @@ export default function Header({ program_categories, common_programs, ticker_api
         <div className="w-full">
             {
                 ticker_api && ticker_api.ticker_caption && (
-                    <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2">
+                    <ul className="w-full bg-[#FFCC33] flex gap-2 items-center justify-center flex-col md:flex-row md:gap-10 py-2 font-semibold">
                         <li className="text-sm">{ticker_api.ticker_caption} </li>
                         {
                             ticker_end_date && nowValid && countdown && (
                                 <li>
                                     <ul className="flex gap-5 md:gap-10">
-                                        <li className="text-lg font-semibold">
+                                        <li className="text-lg">
                                             {(countdown.days) ? `${countdown.days}d ` : ''}
                                             {(countdown.hours) ? `${countdown.hours}h ` : ''}
                                             {(countdown.minutes) ? `${countdown.minutes}m ` : ''}
