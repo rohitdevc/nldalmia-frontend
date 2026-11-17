@@ -324,7 +324,7 @@ export default function ProgramComponent({ program}: PageProps) {
         }
         {
           program.program_highlights && program.program_highlights.length > 0 && (
-          <div className="flex flex-col lg:flex-row gap-10 md:mt-10 lg:items-center">
+          <div className="flex flex-col lg:flex-row gap-10 xl:gap-15 md:mt-10 lg:items-center">
             <div className="w-full lg:w-[60%] flex flex-col gap-5 sm:order-1 lg:order-2">
               <h2 className="font-georgia text-2xl lg:text-4xl">Program Highlights</h2>
               <ul className="flex flex-col gap-5 text-[#4E4E4E] list-disc list-outside">
@@ -535,7 +535,7 @@ export default function ProgramComponent({ program}: PageProps) {
           <Swiper modules={[Navigation]} loop={true} autoHeight={true} className="w-full" slidesPerView={1} spaceBetween={0} navigation={{prevEl: '.testimonial_slider_prev', nextEl: '.testimonial_slider_next'}}>
             {
               program.program_testimonials.map((testimonial, key) => (
-                <SwiperSlide key={key} className="w-full bg-[#FFCC33] p-5">
+                <SwiperSlide key={key} className="w-full bg-[#FFCC33] p-5 xl:p-10">
                   <div className="flex flex-col lg:flex-row gap-5 lg:gap-10">
                     <div className="w-full lg:w-[25%] h-75 flex justify-center">
                       {
@@ -547,7 +547,7 @@ export default function ProgramComponent({ program}: PageProps) {
                     <div className="w-full lg:w-[75%] flex-1 flex flex-col gap-5">
                       {
                         testimonial.program_testimonial_about && (
-                          <p className="text-[#4E4E4E] leading-loose text-sm lg:text-base xl:text-lg">{parser(nl2br(testimonial.program_testimonial_about))}</p>
+                          <p className="text-[#4E4E4E] leading-loose text-sm lg:text-base">{parser(nl2br(testimonial.program_testimonial_about))}</p>
                         )
                       }
                       <div className="flex flex-col gap-2 font-normal text-center md:text-left">
