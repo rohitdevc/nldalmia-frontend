@@ -227,7 +227,7 @@ export default function HomeComponent({banner, announcements, introduction, care
       banner_url={banner.button_link} />
       <Link href={`${basePath}ifrc-2027`} className={`fixed right-0 top-[30%] -translate-y-1/2 z-10 text-white bg-[#800000] w-fit [writing-mode:vertical-rl] px-3 py-3 outline-none rotate-180`}>Conference 2027</Link>
       <Link href={`${basePath}chat-with-our-student`} className={`fixed right-0 top-[55%] -translate-y-1/2 z-10 text-white bg-[#800000] w-fit [writing-mode:vertical-rl] px-3 py-3 outline-none rotate-180`}>Chat with our Student</Link>
-      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15">
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-15 sticky top-1 z-5">
         {
           announcements && announcements.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
@@ -248,6 +248,8 @@ export default function HomeComponent({banner, announcements, introduction, care
           </div>
         )
         }
+      </div>
+      <div className="w-full flex flex-col gap-5 px-5 sm:px-10 md:px-15 xl:px-20 2xl:px-30 py-5">
         {
           introduction && (
             <div className="w-full flex flex-col gap-5">
